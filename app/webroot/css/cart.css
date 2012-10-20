@@ -1,0 +1,101 @@
+.cart_wrapper {
+	height:100%;
+	overflow:hidden;
+	position:absolute;
+	top:0;
+	right:0;
+	width:240px;
+}
+.cart_wrapper:hover, .cart_wrapper.hover {
+	overflow:visible;
+	width:316px;
+}
+
+.cart_wrapper:hover #cart_recent,
+.cart_wrapper.hover #cart_recent { display: block; }
+.cart_wrapper .pad { padding:8px; }
+.cart_wrapper .pad .cart { border:#999 solid 1px; }
+
+.cart { background:#fff; }
+
+#cart_recent {
+	display: none;
+	font-size:11px;
+	overflow:auto;
+	max-height:196px;
+	padding-bottom:10px;
+	border-bottom:#666 solid 1px;
+}
+#cart_recent {  }
+#cart_recent li { padding:4px 8px; }
+#cart_recent li:hover { background:#ddd; }
+#cart_recent li a { overflow:hidden;display:block; }
+#cart_recent li .thWrap{
+	float:right;
+	width:50px;
+	height:36px;
+}
+
+#cart_recent .item_amount {}
+#cart_recent .item_qty {
+	display:-moz-inline-stack;display:inline-block;vertical-align:top;zoom:1;*display:inline;
+	float:left;
+}
+#cart_recent .item_nombre { padding:0 8px;overflow:hidden; }
+#cart_recent .item_nombre p:first-child { font-weight:bold; }
+
+.cart .cart_amount {
+	float:right;
+	font-size:14px;
+	display:-moz-inline-stack;display:inline-block;vertical-align:top;zoom:1;*display:inline;
+	line-height:30px;
+}
+.cart .totals { padding:0 8px; }
+.cart .cart_qty { font-size:11px;color:#999;line-height:30px; }
+.cart #cart_qty { color:#333; }
+.cart .view_cart {
+	display:block;
+	background:#ddd;
+	padding:4px 0;
+	text-align:center;
+}
+
+/* Checkout */
+
+.cart_list { position:relative; }
+.cart_list tr { }
+.cart_list tr.odd { background-color: #f0f0f0; }
+.cart_list td {
+	position:relative;
+	vertical-align: middle;
+	text-align: center;
+	padding:3px 5px 8px 5px;
+}
+.cart_list td.product_name { text-align:left; }
+.cart_list td.nowrap { white-space: nowrap; }
+
+.cart_list .thWrap { width:90px;height:90px; }
+.cart_list input[type=text] { width:28px; }
+.cart_list input[type=submit] {
+	width:80px;
+	height:20px;
+	margin:0;
+	padding:0;
+	font-size:10px;
+	background:transparent;
+	border:0;
+	text-decoration:underline;
+	color:#333;
+}
+.cart_list input.remove {
+	position:relative;
+	display:block;
+	height:32px;
+	background:transparent url(/img/admin/close.gif) no-repeat center center;
+	text-indent:100%;
+	white-space: nowrap;  
+	overflow: hidden;
+}
+
+form.add2cart { position:relative; }
+form.add2cart input[type=submit]{ width: 100%; }
