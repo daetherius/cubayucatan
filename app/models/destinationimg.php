@@ -8,6 +8,11 @@ class Postimg extends AppModel {
 			'counterCache' => true
 		)
 	);
+
+	function beforeValidate(){
+		$this->clean($this->data,false,array('descripcion_ita','descripcion_esp'));
+		return true;
+	}
 	
 }
 ?>

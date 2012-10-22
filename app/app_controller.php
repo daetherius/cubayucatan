@@ -29,7 +29,21 @@ class AppController extends Controller {
 		$this->set('sitename_for_layout', Configure::read('Site.name'));
 		$this->set('siteslogan_for_layout', Configure::read('Site.slogan'));
 		$this->set('sitedomain', Configure::read('Site.domain'));
+
+		//// Language
+		if(!$this->Cookie->read('lang') && !$this->Session->check('Config.language') && !isset($this->params['lang'])){ // 1st time
+			$this->Session->write('Config.language', Configure::read('Config.language'));
+			$this->Cookie->write('lang', Configure::read('Config.language'), false, '20 days');
+		} elseif($this->Cookie->read('lang') && !$this->Session->check('Config.language')){ // Cookie a Session
+			$this->Session->write('Config.language', $this->Cookie->read('lang'));
+		} elseif(isset($this->params['lang']) && ($this->params['lang'] != $this->Session->read('Config.language'))){ // Lang Switch
+			$this->Session->write('Config.language', $this->params['lang']);
+			$this->Cookie->write('lang', $this->params['lang'], false, '20 days');
+		}
 		
+		$this->set('_lang',$this->_lang = $this->Session->read('Config.language'));
+		fb($this->_lang,'LANG');
+
 		/// Store
 		if(in_array('Cart', $this->components)){
 			$this->Cookie->name = 'cart';

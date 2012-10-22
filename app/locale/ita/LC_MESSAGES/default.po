@@ -59,4 +59,4 @@ msgid "zero"
 msgstr "cero"
 
 msgid "toggle_lang"
-msgstr "Italiano"
+msgstr "Español"

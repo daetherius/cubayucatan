@@ -30,6 +30,7 @@ echo
 		$html->div(null,null,array('id'=>'nofooter')),
 			$html->div(null,null,array('id'=>'header')),
 				$html->div('clear'),
+					$html->div('language '.$_lang,$html->link(__('toggle_lang',true),array('lang'=>$_lang == 'esp' ? 'ita':'esp'))),
 					$html->tag('h1',$html->link($sitename_for_layout,'/',array('title'=>$sitename_for_layout)),array('id'=>'logo')),
 				'</div>',
 			'</div>',
