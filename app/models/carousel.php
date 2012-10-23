@@ -5,7 +5,7 @@ class Carousel extends AppModel {
 	var $actsAs = array(
 		'File'=>array(
 			'portada'=>false,
-			'fields'=>array('src'=>array('maxsize'=>307200))
+			'fields'=>array('src'=>array('maxsize'=>512000,'strict'=>'960px (Recomendado) x 312px (Recomendado)'))
 		)
 	);
 

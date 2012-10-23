@@ -33,7 +33,7 @@ class UtilHelper extends AppHelper {
 				$item = $item[$model.'portada'];
 			elseif(array_key_exists($model,$item))
 				$item = $item[$model];
-		} fb($item,'util->th $item');
+		}
 
 		if(!empty($item[$opts['field']])){
 			if(isset($opts['id'])){ $opts['atts']['id'] = $opts['id']; unset($opts['id']); }

@@ -69,14 +69,15 @@ class AppController extends Controller {
 		
 		//// CACHE
 		if(strpos($this->action,'admin_')===false){
-			/*
-			if(Cache::read(strtolower('Banner').'_recent') === false){
-				$this->loadModel('Banner');
-				Cache::write(strtolower('Banner').'_recent',$this->Banner->find_(array('contain'=>false)));
+			if(true/*Cache::read('destination_recent') === false*/){
+				$this->loadModel('Destination');
+				$destinations = array(
+					'cuba' =>	$this->Destination->find_(array('contain'=>false,'fields'=>array('slug','nombre'),'conditions'=>array('tipo'=>'cuba')),'list'),
+					'yucatan' =>$this->Destination->find_(array('contain'=>false,'fields'=>array('slug','nombre'),'conditions'=>array('tipo'=>'yucatan')),'list')
+				);
+
+				Cache::write('destination_recent',$destinations);
 			}
-			*/
-			
-			//fcache
 		}
 			
 		//// Session

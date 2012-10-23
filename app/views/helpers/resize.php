@@ -76,7 +76,7 @@ class ResizeHelper extends Helper {
 		$cachedUrl = $this->cacheDir.'/'.$dimens.'/'.$filename;
 		$omitResize = false;
 		
-		/**/
+		/*/
 		fb($originalPath,'originalPath');
 		fb($isExternal,'isExternal');
 		fb($url,'$url');

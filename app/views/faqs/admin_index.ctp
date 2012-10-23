@@ -22,8 +22,8 @@ echo
 
 			echo $html->tableCells(array(array(
 				$form->input($id,array('type'=>'checkbox','div'=>'hide','class'=>'delete')).$html->link($id,'javascript:;',array('class'=>'id','id'=>'it'.$id)),
-				$it[$_m[0]]['nombre'],
-				$util->trim($util->txt($it[$_m[0]]['descripcion']),300),
+				$it[$_m[0]]['nombre_esp'],
+				$util->trim($util->txt($it[$_m[0]]['descripcion_esp']),300),
 				$util->toggle($it[$_m[0]]['activo'],$it[$_m[0]]['id']),
 				$util->fdate('s',$it[$_m[0]]['created']),
 				array(

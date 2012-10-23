@@ -23,7 +23,7 @@ echo
 
 			echo $html->tableCells(array(array(
 				$form->input($id,array('type'=>'checkbox','div'=>'hide','class'=>'delete')).$html->link($id,'javascript:;',array('class'=>'id','id'=>'it'.$id)),
-				$it[$_m[0]]['nombre'],
+				$it[$_m[0]]['nombre_esp'],
 				$it[$_m[0]]['layout'],
 				$it[$_m[0]]['postimg_count'],
 				$util->toggle($it[$_m[0]]['activo'],$it[$_m[0]]['id']),

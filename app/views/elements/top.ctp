@@ -7,15 +7,15 @@ if(isset($header)){
 		$header = '';
 	
 	} elseif(is_string($header)) {
-		$header = $html->div('sectionHdr',$header);
+		$header = $html->div('sectionHdr title title1',$header);
 	
 	} elseif(is_array($header)) {
 		$text = $header['text'];
 		unset($header['text']);
-		$header = $html->div('sectionHdr',$html->link($text,$header));
+		$header = $html->div('sectionHdr title title1',$html->link($text,$header));
 	}
 } else {
-	$header = $html->div('sectionHdr',$_ts);
+	$header = $html->div('sectionHdr title title1',$_ts);
 }
 
 echo

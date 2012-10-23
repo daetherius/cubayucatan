@@ -46,7 +46,7 @@ if($item){
 		case 'Event':
 			$th['fecha'] = $html->para('date',$util->fdate('s',$item[$model]['fecha']));
 			
-			if($item[$model]['descripcion'])
+			if($item[$model]['descripcion_'.$_lang])
 				$th['mas'] = 'Leer más';
 		break;
 		//////////
@@ -85,7 +85,7 @@ if($item){
 				break;
 				
 				case 'desc':
-					$th[$key] = $html->div('desc tmce',''.strip_tags($util->trim($item[$model]['descripcion']),'<b><i><strong><em>'));
+					$th[$key] = $html->div('desc tmce',''.strip_tags($util->trim($item[$model]['descripcion_'.$_lang]),'<b><i><strong><em>'));
 				break;
 				
 				case 'comments':

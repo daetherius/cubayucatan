@@ -58,7 +58,6 @@ function my_url_parser($url,&$obj){
 			if(isset($carried['*']) && $carried['*']){
 				foreach($carried['*'] as $added){
 					if((!isset($url[$added])) && (isset($obj->params[$added]) || isset($obj->params['named'][$added]))){
-						fb($added,'added');
 						if(isset($obj->params[$added]))
 							$url[$added] = $obj->params[$added];
 						else

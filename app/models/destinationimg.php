@@ -1,10 +1,10 @@
 <?php
-class Postimg extends AppModel {
-	var $name = 'Postimg';
-	var $actsAs = array('File' => array('portada'=>'post_id'));
+class Destinationimg extends AppModel {
+	var $name = 'Destinationimg';
+	var $actsAs = array('File' => array('portada'=>'destination_id'));
 	var $belongsTo = array(
-		'Post' => array(
-			'className'=>'Post',
+		'Destination' => array(
+			'className'=>'Destination',
 			'counterCache' => true
 		)
 	);
