@@ -113,6 +113,10 @@ h3:first-child, h3.alpha { margin-top:0; }
 .language.ita a { background-image: url(/img/esp.gif); }
 .language.esp a { background-image: url(/img/ita.gif); }
 
+.social {
+	width: 148px;
+	background: url(/img/social.png) no-repeat top center;
+}
 #menu {
 	text-align:right;
 	margin:0;
