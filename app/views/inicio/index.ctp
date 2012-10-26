@@ -46,11 +46,11 @@ echo
 
 		'</div>';
 
-		if($posts){
+		if($posts = Cache::read('post_recent')){
 			echo $html->div('posts');
 
-				if($posts['cuba']) echo $this->element('th',array('item'=>$posts['cuba'],'model'=>'Post'));
-				if($posts['yucatan']) echo $this->element('th',array('item'=>$posts['yucatan'],'model'=>'Post'));
+				if($posts['cuba']) echo $this->element('th',array('item'=>$posts['cuba'][0],'model'=>'Post'));
+				if($posts['yucatan']) echo $this->element('th',array('item'=>$posts['yucatan'][0],'model'=>'Post'));
 
 			echo '</div>';
 

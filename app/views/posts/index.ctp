@@ -1,9 +1,12 @@
 <?php
-echo $this->element('top');
+if(!empty($this->params['named']['tipo']))
+	$tipo = ' / '.__($this->params['named']['tipo'],true);
+
+echo $this->element('top',array('header'=>$_ts.$tipo));
 	
 	if($items){
 		foreach($items as $item)
-			echo $this->element('th',array('item'=>$item,'v'=>true));
+			echo $this->element('th',array('item'=>$item));
 			
 		echo $this->element('pages');
 

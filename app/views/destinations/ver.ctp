@@ -1,13 +1,4 @@
-<?php
-$w = 320;$class = '';
-
-if(isset($item[$_m[0]]['layout']) && $item[$_m[0]]['layout']){
-	if($item[$_m[0]]['layout'] == 'Centro'){
-		$w = 640;	
-	}
-	$class.= 'pulsembox portada '.$item[$_m[0]]['layout'];
-}
-	
+<?php	
 echo
 	$this->element('top',array('header'=>'')),
 	$html->div('detail'),
@@ -20,11 +11,12 @@ echo
 				$this->element('share'),
 			'</div>',
 
-			$html->div('column gallery');
-				foreach ($item[$_m[0].'img'] as $img) {
-					echo $util->th($img,false,array('url'=>true,'w'=>144,'h'=>90,'fill'=>true));
-				}
+			$html->div('column gallery'),
+				$html->div('title title3','Fotoracconto');
 
+				foreach ($item[$_m[0].'img'] as $img) {
+					echo $util->th($img,false,array('url'=>true,'w'=>144,'h'=>90,'fill'=>true,'class'=>'pulsembox'));
+				}
 		echo
 			'</div>',
 		'</div>',

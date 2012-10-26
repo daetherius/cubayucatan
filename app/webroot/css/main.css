@@ -1,4 +1,4 @@
-body { background:#fff url(/img/bg.jpg) repeat-x top;color:#333; }
+body { background:#fff url(/img/bg.jpg) repeat-x top;color:#333;font-family:'Trebuchet MS', Helvetica, sans-serif; }
 a, a:visited { color:#0664BE;text-decoration:none;outline:0; }
 a:hover, a:focus { color:#0664BE;text-decoration:underline; }
 .mceEditor{ display:block;padding:0;background:none;	} /* Outline fix for validation errors */
@@ -142,7 +142,6 @@ h3:first-child, h3.alpha { margin-top:0; }
 	background:transparent;
 	color:#333366;
 	text-decoration:none;
-	font-family:'Trebuchet MS', Helvetica, sans-serif;
 	font-size:14px;
 	text-transform:uppercase;
 }
@@ -226,7 +225,7 @@ h3:first-child, h3.alpha { margin-top:0; }
 	.footer .lists .column li { margin:0 0 6px; }
 	.footer .lists .column:first-child { margin-left:1%; }
 
-		.footer .lists .column .title { font-family:'Trebuchet MS', Helvetica, sans-serif;font-weight:bold;text-transform:uppercase;margin:12px 0 8px; }
+		.footer .lists .column .title { font-weight:bold;text-transform:uppercase;margin:12px 0 8px; }
 		.footer .lists .column .title3 { font-size:14px; }
 		.footer .lists .column .title4 { font-size:12px; }
 
@@ -275,10 +274,23 @@ h3:first-child, h3.alpha { margin-top:0; }
 
 /******** @SIDEBAR ************************************************/
 
-.sidebar .title { color:#CC1E00; }
+.sidebar .title { color:#CC1E00;line-height:28px; }
+.c_posts .sidebar .title { font-size:22px;line-height:24px;margin-bottom:4px; }
+	.sidebar .filtro { color:#CC1E00;display:block;margin-bottom:12px; }
 
 .sidebar ul li {color:#0664BE; }
 .sidebar ul li.selected { font-weight:bold;text-decoration:underline; }
+.sidebar .convertidor {
+	background:transparent url(/img/convertidor.png) no-repeat center center;
+	display:block;
+	height:42px;
+	margin:0 auto;
+	padding:12px 58px 0 22px;
+	line-height:14px;
+	text-decoration:none;
+	font-weight:bold;
+	color:#fff;
+}
 
 .banners { padding:10px 0 2px 0; }
 .banners .banner { display:block;margin:0 auto 8px auto; }
@@ -315,19 +327,15 @@ h3:first-child, h3.alpha { margin-top:0; }
 .bulleted li a:hover { }
 .bulleted li li {  }
 
-.sectionHdr{
-	line-height:50px;
-	font-size:50px;
-}
+.sectionHdr{ font-size:50px;margin:0 0 20px; }
 
 .more { padding:0 10px 0 0;text-align:right; }
 .more a {
 	line-height:28px;
-	/*background:transparent url(/img/bullet.png) no-repeat left center;*/
-	color:#555;
+	background:#0664BE;
+	color:#fff;
 	font-weight:bold;
-	text-decoration:underline;
-	padding:3px 0 3px 10px;
+	padding:3px 8px;
 }
 
 div.submit { text-align:center; }
@@ -417,7 +425,8 @@ ul li { margin:0 0 4px; }
 
 /* Comments */
 
-#comments { padding:0 18px; }
+#comments { padding:0 0; }
+#comments > .title { font-size:24px; }
 
 #commentForm { margin:0 0 15px 0;overflow:hidden; }
 #commentForm label, #commentForm .label { font-size:11px;padding:2px 0;font-weight:bold;color:#999; }
@@ -425,9 +434,9 @@ ul li { margin:0 0 4px; }
 #commentForm .submit { text-align:right;padding:16px 0; }
 #commentForm .submit input[type=submit]{ margin:0 }
 
-.comment_textarea { float:left;width:296px; }
+.comment_textarea { float:left;width:400px; }
 .comment_textarea textarea { height:132px; }
-.comment_texts { margin-left:318px;padding-right:10px; }
+.comment_texts { margin-left:418px;padding-right:10px; }
 .comment_count {}
 
 .comment { padding:15px 10px; }
@@ -457,11 +466,34 @@ ul li { margin:0 0 4px; }
 #carousel { margin:0 auto;background:#fff url(/img/spinner.gif) no-repeat center center; }
 
 .c_inicio .column { width:48%; }
-.thumb.v {
+.c_inicio .thumb.v {
 	width:428px;
 	margin:0 10px 15px;
 	height:132px;
 	background:#ccc;
+}
+
+.c_inicio .posts {
+	border-top:#CCC solid 2px;
+	padding-top:15px;
+	margin-top:25px;
+	overflow:hidden;
+}
+.posts .thumb.post {
+	float:left;
+	width:440px;
+	padding:8px 20px 16px 20px;
+}
+.posts .thumb.post .title:first-child { font-size:24px;color:#ADC5C7;margin:0 0 8px; }
+.posts .thumb.post .title { font-size:14px; }
+.posts .thumb.post .desc { font-size:11px; }
+
+/******** @ABOUT ************************************************/
+
+.c_about .desc, .c_legal .desc { width:480px; }
+.c_about .desc.subtitulo {
+	color:#CC1E00;
+	font-size:22px;
 }
 
 
@@ -469,16 +501,27 @@ ul li { margin:0 0 4px; }
 
 .c_destinations .detail .column { width:40%; }
 .c_destinations .detail .column:first-child { width:56%; }
-.column.gallery .thWrap {
-	margin:3px;
+.column.gallery { }
+.column.gallery .title {
+	background:url(/img/ico_gallery.png) no-repeat left center;
+	padding:0 0 0 40px;
+	margin:0 0 8px;
+	color:#CC1E00;
+	font-size:22px;
 }
+.column.gallery .thWrap { margin:3px; }
 .column.gallery .thMask {
 	width:144px;
 	height:90px;
 }
 
-/******** @ABOUT ************************************************/
+/******** @POSTS ************************************************/
 
+.c_posts.a_index .post.thumb {
+	border-bottom:#CDD8D8 solid 1px;
+	margin-bottom:12px;
+	padding-bottom:16px;
+}
 .c_about .sectionHdr { /*background-image:url(/img/hdrAbout.jpg);*/ }
 
 /******** @ALBUMS ************************************************/
@@ -498,7 +541,6 @@ ul li { margin:0 0 4px; }
 /******** @POSTS ************************************************/
 
 .c_posts .sectionHdr{ /*background-image:url(/img/hdrPosts.jpg);*/ }
-
 .detail .portada {
 	overflow:hidden;
 	margin:0 20px 8px 20px;
@@ -511,6 +553,16 @@ ul li { margin:0 0 4px; }
 
 .share { padding:10px 0;overflow:hidden; }
 .share > div { display:-moz-inline-stack;display:inline-block;vertical-align:top;zoom:1;*display:inline; }
+
+/******** @TESTIMONIALS ************************************************/
+.thumb.testimonial .title {
+	font-family:'Trebuchet MS', Helvetica, sans-serif;
+	color:#212121;
+	font-weight:bold;
+	text-align:right;
+	font-size:12px;
+	margin:8px 0 0 0;
+}
 
 /******** @SERVICIOS ************************************************/
 
@@ -559,16 +611,17 @@ ul li { margin:0 0 4px; }
 
 /******** @FAQS ************************************************/
 
-.c_faqs .sectionHdr{ /*background-image:url(/img/hdrFaqs.jpg);*/ }
+.c_faqs .sectionHdr{ }
 
-div.faq { padding-bottom:15px; }
-h1.pregunta {
+div.faq { margin:10px 50px 20px 0; }
+.title.pregunta {
 	font-size:18px;
-	/*background:transparent url(/img/icoQuestion.gif) no-repeat;*/
-	line-height:24px;
+	line-height:26px;
 	padding-left:0;
+	color:#CC1E00;
+	font-family:'Trebuchet MS', Helvetica, sans-serif;
 }
-div.respuesta { padding:0; }
+.desc.respuesta { padding:0;text-align:justify; }
 
 /***** @CONTACTO *******************************************/
 

@@ -4,6 +4,16 @@ class PostsController extends ItemsController{
 	var $name = 'Posts';
 	var $pageTitle = 'Noticias';
 	var $uses = array('Post','Postimg','Comment');
+
+	function index() {
+		$conds = array();
+
+		if(!empty($this->params['named']['tipo']))
+			$conds = array('tipo'=>$this->params['named']['tipo']);
+	   
+	   $items = $this->paginate($this->uses[0],$this->m[0]->find_($conds,'paginate'));
+	   $this->set(compact('items'));
+	}
 /*
 	function admin_agregar() {
 		if(!empty($this->data)){
@@ -57,6 +67,6 @@ class PostsController extends ItemsController{
 	}
 /**/
 		
-	function admin_export(){ $this->_export(array('nombre','descripcion','comment_count')); }
+	function admin_export(){ $this->_export(array('nombre_esp','nombre_ita','descripcion_ita','descripcion_esp','subtitulo_ita','subtitulo_esp','comment_count')); }
 }
 ?>

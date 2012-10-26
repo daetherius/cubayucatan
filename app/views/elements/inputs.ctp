@@ -92,7 +92,7 @@
 			if(isset($m->_schema[$fieldName]['type']) && strpos($m->_schema[$fieldName]['type'],'enum(')!==false){
 				$keys = explode("','",substr(substr($m->_schema[$fieldName]['type'],6),0,-2));
 				$options = array_combine($keys,array_map('ucfirst',$keys));
-				$_schema[$fieldName] = array('type'=>'select','selected'=>$m->_schema[$fieldName]['default'], 'options'=> $options);
+				$_schema[$fieldName] = array('type'=>'select','options'=> $options, 'default'=> $m->_schema[$fieldName]['default']);
 			}
 			// Set
 			if(isset($m->_schema[$fieldName]['type']) && strpos($m->_schema[$fieldName]['type'],'set(')!==false){

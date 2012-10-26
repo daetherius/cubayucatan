@@ -1,6 +1,7 @@
 <?php
 class Post extends AppModel {
 	var $name = 'Post';
+	var $displayField = 'nombre_ita';
 	var $labels = array(
 		'comment_count'=>'comentarios',
 		'postimg_count'=>'Imágenes'

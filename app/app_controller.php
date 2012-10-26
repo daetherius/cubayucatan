@@ -69,17 +69,28 @@ class AppController extends Controller {
 		
 		//// CACHE
 		if(strpos($this->action,'admin_')===false){
-			if(true/*Cache::read('destination_recent') === false*/){
+			if(Cache::read('destination_recent') === false){
 				$this->loadModel('Destination');
 				$destinations = array(
-					'cuba' =>	$this->Destination->find_(array('contain'=>false,'fields'=>array('slug','nombre'),'conditions'=>array('tipo'=>'cuba')),'list'),
-					'yucatan' =>$this->Destination->find_(array('contain'=>false,'fields'=>array('slug','nombre'),'conditions'=>array('tipo'=>'yucatan')),'list')
+					'cuba' =>	$this->Destination->find_(array('contain'=>false,'fields'=>array('slug','nombre'),'conditions'=>array('tipo'=>'Cuba')),'list'),
+					'yucatan' =>$this->Destination->find_(array('contain'=>false,'fields'=>array('slug','nombre'),'conditions'=>array('tipo'=>'Yucatan')),'list')
 				);
 
 				Cache::write('destination_recent',$destinations);
 			}
+
+			if(true || Cache::read('post_recent') === false){
+				$this->loadModel('Post');
+				$posts = array(
+					'cuba' =>	$this->Post->find_(array('contain'=>array('Postportada'),'fields'=>array('slug','nombre_esp','nombre_ita','subtitulo_esp','subtitulo_ita','tipo','Postportada.src'),'conditions'=>array('tipo'=>'Cuba'),'limit'=>5)),
+					'yucatan' =>$this->Post->find_(array('contain'=>array('Postportada'),'fields'=>array('slug','nombre_esp','nombre_ita','subtitulo_esp','subtitulo_ita','tipo','Postportada.src'),'conditions'=>array('tipo'=>'Yucatan'),'limit'=>5)),
+				);
+
+				Cache::write('post_recent',$posts);
+			}			
 		}
-			
+
+
 		//// Session
 
 

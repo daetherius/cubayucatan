@@ -39,7 +39,7 @@ $modules = array(
 		'postimgs'=>array('imágenes','admin'=>false),
 		'comments'=>array('comentarios','admin'=>array('comment')),
 	
-	'faqs'=>array('faqs','menu','admin'=>array('faqs')),
+	'faqs'=>array('preguntas frecuentes','menu','admin'=>array('FAQs','faqs')),
 	'testimonials'=>array('testimonios','menu','admin'=>array('faqs')),
 	'about'=>array('nosotros','menu','admin'=>array('pages')),
 
