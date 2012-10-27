@@ -31,7 +31,7 @@ $config['Site']['og'] = array(
 */
 $modules = array(
 	'carousels'=>array('carrusel','admin'=>array('photos')),
-	//'packs'=>array('paquetes','admin'=>array('')),
+	'packs'=>array('paquetes','menu','admin'=>array('')),
 
 	'destinations'=>array('destinos','menu','admin'=>array('')),
 		'destinationimgs'=>array('imágenes','admin'=>false),

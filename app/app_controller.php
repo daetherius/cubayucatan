@@ -25,7 +25,7 @@ class AppController extends Controller {
 	function beforeFilter(){
 		$ctlr = low($this->name);
 
-		Configure::write('Config.language','esp');
+		Configure::write('Config.language','ita');
 		$this->set('sitename_for_layout', Configure::read('Site.name'));
 		$this->set('siteslogan_for_layout', Configure::read('Site.slogan'));
 		$this->set('sitedomain', Configure::read('Site.domain'));
@@ -79,7 +79,7 @@ class AppController extends Controller {
 				Cache::write('destination_recent',$destinations);
 			}
 
-			if(true || Cache::read('post_recent') === false){
+			if(Cache::read('post_recent') === false){
 				$this->loadModel('Post');
 				$posts = array(
 					'cuba' =>	$this->Post->find_(array('contain'=>array('Postportada'),'fields'=>array('slug','nombre_esp','nombre_ita','subtitulo_esp','subtitulo_ita','tipo','Postportada.src'),'conditions'=>array('tipo'=>'Cuba'),'limit'=>5)),
@@ -87,6 +87,16 @@ class AppController extends Controller {
 				);
 
 				Cache::write('post_recent',$posts);
+			}			
+
+			if(Cache::read('pack_recent') === false){
+				$this->loadModel('Pack');
+				$packs = array(
+					'cuba' =>	$this->Pack->find_(array('contain'=>false,'fields'=>array('slug','nombre_esp','nombre_ita','slug'),'conditions'=>array('id <'=>5))),
+					'yucatan' =>$this->Pack->find_(array('contain'=>false,'fields'=>array('slug','nombre_esp','nombre_ita','slug'),'conditions'=>array('id >'=>4))),
+				);
+
+				Cache::write('pack_recent',$packs);
 			}			
 		}
 

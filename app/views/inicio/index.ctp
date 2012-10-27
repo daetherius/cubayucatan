@@ -6,7 +6,7 @@ echo
 		$html->div('cuba_travel'),
 			$html->tag('h2','Cuba','title'),
 			$html->para(null,'A Cuba vi alloggiamo in case private, splendida alternativa agli Hotels, e anche meno cara'),
-			$html->div('clear'),
+			$html->div('clear desc'),
 				$html->div('column'),
 					$html->para(null,'Lavoriamo con Cuba dal 2004, e con i nostri incaricati sull´Isola  garantiamo  le vostre prenotazioni nelle Cittá e nelle date che avrete scelto.'),
 					$html->para(null,'Qui di seguito, caratteristiche delle stanze, prezzi, modalitá di prenotazione e pagamento. '),

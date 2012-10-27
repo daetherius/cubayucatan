@@ -19,13 +19,14 @@ class ItemsController extends AbcsController{
 			$this->set(compact('item'));
 			$this->set('related',$this->m[0]->find_(array('recursive'=>0,'field'=>'orden','value'=>$item[$this->uses[0]]['orden']),'neighbors'));
 			$this->pageTitle = $item[$this->uses[0]][$this->m[0]->displayField];
-			$descripcion = substr(strip_tags($item[$this->uses[0]]['descripcion']), 0, 300);
+			$descripcion = isset($item[$this->uses[0]]['descripcion_'.$this->_lang]) ? $item[$this->uses[0]]['descripcion_'.$this->_lang] : $item[$this->uses[0]]['descripcion'];
+			$descripcion = substr(strip_tags($descripcion), 0, 300);
 
 			$this->set('description_for_layout',$descripcion);
 			
 			/// og:meta
 			$og_for_layout = array(
-				'title'=>$item[$this->uses[0]]['nombre'],
+				'title'=>$item[$this->uses[0]][$this->m[0]->displayField],
 				'type'=>'article',// blog, article
 				'url'=>'http://'.Configure::read('Site.domain').$this->here,
 				'description'=>$descripcion,
@@ -33,7 +34,7 @@ class ItemsController extends AbcsController{
 				'itemtype'=>'article' //article
 			);
 
-			if($item[$this->uses[0].'portada']['src']) $og_for_layout['image'] = 'http://'.Configure::read('Site.domain').'/'.$item[$this->uses[0].'portada']['src'];
+			if(!empty($item[$this->uses[0].'portada']['src'])) $og_for_layout['image'] = 'http://'.Configure::read('Site.domain').'/'.$item[$this->uses[0].'portada']['src'];
 
 			$og_for_layout = array_merge(Configure::read('Site.og'),$og_for_layout);
 			$this->set(compact('og_for_layout'));

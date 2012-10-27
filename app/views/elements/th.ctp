@@ -38,6 +38,7 @@ if($item){
 		//////////
 		case 'Testimonial':
 			$url = false;
+			$thopts = array('w'=>210,'h'=>128,'fill'=>true);
 			$th = array(
 				'img'=>false,
 				'desc'=>$html->div('desc tmce',''.$item[$model]['descripcion_'.$_lang]),

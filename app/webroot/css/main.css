@@ -10,10 +10,12 @@ h1, h2, h3, .title {
 	line-height:130%;
 
 }
-h1, .title1 { margin:24px 0 12px 0;font-size:40px; }
-h2, .title2 { margin:20px 0 12px 0;font-size:42px; }
-h3, .title3 { margin:16px 0 12px 0;font-size:28px; }
-h4, .title4 { margin:16px 0 12px 0;font-size:20px; }
+h1.title, .title1 { margin:24px 0 12px 0;font-size:40px; }
+h2.title, .title2 { margin:20px 0 12px 0;font-size:42px; }
+h3.title, .title3 { margin:16px 0 12px 0;font-size:24px; }
+h4.title, .title4 { margin:16px 0 12px 0;font-size:20px; }
+
+.title.red { color:#CC1E00; }
 
 .title:first-child, .title.alpha,
 h1:first-child,	h1.alpha, 
@@ -129,7 +131,7 @@ h3:first-child, h3.alpha { margin-top:0; }
 #menu {
 	text-align:right;
 	margin:0 0 20px;
-	padding:0 10px;
+	padding:0;
 }
 #menu li { margin:0 0 0 0px;overflow:hidden; }
 #menu li:hover { overflow: visible; }
@@ -137,7 +139,7 @@ h3:first-child, h3.alpha { margin-top:0; }
 #menu li a {
 	height:22px;
 	line-height:22px;
-	margin:0 6px;
+	margin:0;
 	padding:0 10px;
 	background:transparent;
 	color:#333366;
@@ -274,7 +276,7 @@ h3:first-child, h3.alpha { margin-top:0; }
 
 /******** @SIDEBAR ************************************************/
 
-.sidebar .title { color:#CC1E00;line-height:28px; }
+.sidebar .title { color:#CC1E00;line-height:28px;font-size:28px; }
 .c_posts .sidebar .title { font-size:22px;line-height:24px;margin-bottom:4px; }
 	.sidebar .filtro { color:#CC1E00;display:block;margin-bottom:12px; }
 
@@ -359,7 +361,7 @@ ul li { margin:0 0 4px; }
 /*** Detail ***/
 
 .date { font-size:10px;color:#999;margin:5px 0 0 0; }
-.desc {  }
+.desc { text-align:justify; }
 .desc.subtitulo { color:#0664BE;font-family: 'Merienda One', cursive;font-size:15px; }
 .desc p { margin:0 0 10px 0;  }
 .comments {
@@ -373,9 +375,8 @@ ul li { margin:0 0 4px; }
  }
 
 .detail {}
-.detail .clear { margin-top:16px; }
+.detail .clear { margin-top:20px; }
 
-.detail .title { margin:0; }
 .detail .date { font-size:11px; }
 
 /*** @Thumb *************/
@@ -496,6 +497,89 @@ ul li { margin:0 0 4px; }
 	font-size:22px;
 }
 
+/******** @PACKS ************************************************/
+.precio {
+	font-size:26px;
+	color:#0664BE;
+	text-shadow:2px 2px 2px #ccc;
+	font-family: 'Merienda One', cursive;
+}
+.c_packs .detail > .clear > .column { width:510px;margin:0; }
+.c_packs .detail > .clear > .column:first-child { width:212px;margin:0 28px 0 0; }
+.c_packs .detail #carousel { margin:0 0 15px; }
+
+.c_packs .detail > .clear.info { margin:0; }
+.c_packs .detail > .clear.info > .column { width:212px; }
+.c_packs .detail > .clear.info > .column:first-child { width:510px; }
+
+
+.c_packs .mapa {
+	display:block;
+	background:#ddd no-repeat center center;
+	height:137px;
+	line-height:137px;
+	padding:0 18px 0 322px;
+	text-align:center;
+	margin:0 0 42px 0;
+	color: #fff;
+	font-family: 'Merienda One', cursive;
+	font-size:22px;
+	text-decoration:none;
+}
+.c_packs .det_cuba .mapa { background-image: url(/img/mapa_cuba.jpg); }
+.c_packs .det_yucatan .mapa { background-image: url(/img/mapa_yucatan.jpg);padding:0 34px 0 305px; }
+
+.pack_destinations .title {
+	font-size:18px;
+	margin:0 0 8px;
+}
+
+.pack_options { overflow:hidden; } 
+.pack_options > .column {
+	width:316px;
+	margin:0;
+	font-size:15px;
+	padding:8px 15px;
+	border:#D5DDDD solid 2px;
+	-moz-border-radius:6px;
+	-khtml-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+}
+.pack_options > .column:first-child { margin:0 50px 0 0; }
+.pack_options > .column .title { color:#CC1E00;font-size:24px;margin:0 0 10px; }
+.pack_options > .column > .clear > p {
+	width:30%;
+	float:left;
+	margin:0 0 0 5%;
+	text-align:right;
+}
+.pack_options > .column > .clear > p:first-child { width:65%;margin:0;text-align:left; }
+
+a.reservar {
+	display:block;
+	width:169px;
+	line-height:40px;
+	color:#fff;
+	padding:0 0 4px 25px;
+	background:url(/img/reservar.png) no-repeat left center;
+
+	font-family:'Trebuchet MS', Helvetica, sans-serif;
+	text-transform:uppercase;
+	text-decoration:none;
+	font-size:20px;
+	font-weight:bold;
+	text-shadow:2px 2px 2px #04488C;
+}
+
+.pack_options > .column a.reservar { margin:15px 0 0 auto; }
+.pack_options > .column .precio { font-size:34px; }
+
+.pack_options td { padding:10px 15px; }
+
+.det_yucatan a.reservar {
+	margin:0 0 12px;
+}
 
 /******** @DESTINATIONS ************************************************/
 
@@ -506,7 +590,6 @@ ul li { margin:0 0 4px; }
 	background:url(/img/ico_gallery.png) no-repeat left center;
 	padding:0 0 0 40px;
 	margin:0 0 8px;
-	color:#CC1E00;
 	font-size:22px;
 }
 .column.gallery .thWrap { margin:3px; }
@@ -555,6 +638,10 @@ ul li { margin:0 0 4px; }
 .share > div { display:-moz-inline-stack;display:inline-block;vertical-align:top;zoom:1;*display:inline; }
 
 /******** @TESTIMONIALS ************************************************/
+.thumb.testimonial {
+	padding:8px 20px 15px;
+	width:210px;
+}
 .thumb.testimonial .title {
 	font-family:'Trebuchet MS', Helvetica, sans-serif;
 	color:#212121;
