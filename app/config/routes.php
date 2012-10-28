@@ -8,8 +8,6 @@ $regex = array(
 	'id'=>'[0-9]+_[a-zA-Z0-9\-]+'
 );
 
-//route
-
 foreach(Configure::read('Modules') as $controller => $mod){
 	$alias = $mod['route'];
 	Router::connect('/'.$alias,array('controller'=>$controller,'action'=>'index','lang'=>'ita'));

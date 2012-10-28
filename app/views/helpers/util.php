@@ -89,7 +89,7 @@ class UtilHelper extends AppHelper {
 		return $th;
 	}
 
-	function ofuscar($text, $emailto = true, $atts = array()) {
+	function ofuscar($text, $mode = true, $atts = array()) {
 		if(is_array($text)){
 			list($text,$caption) = $text;
 			$ofus = $caption;
@@ -101,10 +101,17 @@ class UtilHelper extends AppHelper {
 				$ofus.= '&#'.ord(substr($text,$i,1)).';';
 		}
 		
-		if($emailto)
-			$ofus = $this->Html->link($ofus,'mailto:'.$text,$atts);
-		else
-			$ofus = $this->Html->tag('span',$ofus,$atts);
+		switch($mode){
+			case true:
+			case 'link':
+				$ofus = $this->Html->link($ofus,'mailto:'.$text,$atts);
+			break;
+			case 'span':
+				$ofus = $this->Html->tag('span',$ofus,$atts);
+			break;
+			default:
+			break;
+		}
 			
 		return $ofus;
 	}

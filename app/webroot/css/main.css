@@ -581,6 +581,28 @@ a.reservar {
 	margin:0 0 12px;
 }
 
+/**** Reservas ****/
+
+.basic_info {
+	margin:0 auto;
+	width:600px;
+	background-color: coral;
+}
+
+#reservar { font-size:15px;margin:20px 0; }
+#reservar .basic_info label, .basic_info .label {
+	float:left;
+	width:160px;
+	text-align:right;
+	margin:0 8px 0 0;
+}
+#reservar .basic_info input { width:220px; }
+#reservar span { display:-moz-inline-stack;display:inline-block;vertical-align:middle;zoom:1;*display:inline; }
+#reservar span.pad { padding:0 0 0 10px; }
+
+#reservar #ReservationHabDoble { width:30px; }
+#reservar .precio { font-size:18px; }
+
 /******** @DESTINATIONS ************************************************/
 
 .c_destinations .detail .column { width:40%; }
