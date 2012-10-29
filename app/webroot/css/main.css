@@ -11,7 +11,7 @@ h1, h2, h3, .title {
 
 }
 h1.title, .title1 { margin:24px 0 12px 0;font-size:40px; }
-h2.title, .title2 { margin:20px 0 12px 0;font-size:42px; }
+h2.title, .title2 { margin:20px 0 12px 0;font-size:32px; }
 h3.title, .title3 { margin:16px 0 12px 0;font-size:24px; }
 h4.title, .title4 { margin:16px 0 12px 0;font-size:20px; }
 
@@ -21,6 +21,35 @@ h4.title, .title4 { margin:16px 0 12px 0;font-size:20px; }
 h1:first-child,	h1.alpha, 
 h2:first-child, h2.alpha,
 h3:first-child, h3.alpha { margin-top:0; }
+
+
+.input.text input,.input.password input,.input textarea,.input select, .mceEditor {
+	border: solid 1px #B4C2C2;
+	outline: 0;
+	font-family:'Trebuchet MS', Helvetica, sans-serif;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	background: #FFF url(/img/inputBg.jpg) left top repeat-x;
+	background: -webkit-gradient(linear, left top, left 25, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));
+	background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 25px);
+	border-radius:0;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+	-khtml-border-radius:0;
+}
+
+.input.text input:hover,.input.password input:hover,.input textarea:hover,.input select:hover,
+.input.text input:focus,.input.password input:focus,.input textarea:focus,.input select:focus{ 
+	border: solid 1px #B4C2C2;
+	border-radius:0;
+	-moz-border-radius:0;
+	-webkit-border-radius:0;
+	-khtml-border-radius:0;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+}
 
 /****** @Paginator ******/
 
@@ -98,7 +127,7 @@ h3:first-child, h3.alpha { margin-top:0; }
 	left:0;
 	z-index:-1;
 }
-.headerInfo { float:right;width:250px;height:50px;margin:15px 25px 0 0;background:coral; }
+.headerInfo { float:right;width:250px;height:50px;margin:15px 25px 0 0; }
 .language {
 	float:right;
 	width:112px;
@@ -342,14 +371,19 @@ h3:first-child, h3.alpha { margin-top:0; }
 
 div.submit { text-align:center; }
 input[type=submit], .submitBtn {
-	background:#666 /*url(/img/submit.jpg) repeat-x center top*/;
-	width:112px;
-	height:36px;
-	border:0;
+	background:#0664BE;
 	color:#fff;
-	margin:20px 0 10px 0;
-	font-weight:bold;
-	
+	text-shadow:2px 2px 2px #02407B;
+	box-shadow:5px 5px 5px #ccc;
+	margin:20px auto 10px;
+	text-transform:uppercase;
+	font-weight:normal;
+	width:120px;
+	height:40px;
+	font-family:'Trebuchet MS', Helvetica, sans-serif;
+	font-size:18px;
+	border:0;
+	border-radius:8px;
 }
 div.captcha input { width:30px !important; }
 div.captcha label { padding-bottom:3px !important; }
@@ -535,6 +569,15 @@ ul li { margin:0 0 4px; }
 }
 
 .pack_options { overflow:hidden; } 
+.pack_options.unicolumn {
+	border:#D5DDDD solid 2px;
+	-moz-border-radius:6px;
+	-khtml-border-radius:6px;
+	-webkit-border-radius:6px;
+	border-radius:6px;
+	padding:6px 4px 10px;
+} 
+.pack_options.unicolumn a.reservar { margin:20px 25px 10px auto; }
 .pack_options > .column {
 	width:316px;
 	margin:0;
@@ -583,12 +626,16 @@ a.reservar {
 
 /**** Reservas ****/
 
+.block {
+	margin:20px 0 0 0;
+}
 .basic_info {
 	margin:0 auto;
 	width:600px;
-	background-color: coral;
 }
-
+.c_packs.a_reservar	h2.title {
+	font-size:22px;
+}
 #reservar { font-size:15px;margin:20px 0; }
 #reservar .basic_info label, .basic_info .label {
 	float:left;
@@ -600,8 +647,64 @@ a.reservar {
 #reservar span { display:-moz-inline-stack;display:inline-block;vertical-align:middle;zoom:1;*display:inline; }
 #reservar span.pad { padding:0 0 0 10px; }
 
-#reservar #ReservationHabDoble { width:30px; }
+#reservar .big_total.precio {
+	font-size:32px;
+	text-align:center;
+	margin:30px 0 40px;
+}
+
+.total_label {
+	color:#333;
+	font-size:20px;
+	font-weight:bold;
+	vertical-align: middle;
+}
+.underlined { border-bottom:#666 solid 1px;padding:0 0 10px;margin:0 0 15px; }
 #reservar .precio { font-size:18px; }
+.datepicker_vista .column { width:auto; }
+#reservar .suitcase { background-image: none;padding-left:18px; }
+#reservar input[type=submit] {
+	font-size:26px;
+	width:195px;
+	height:55px;
+}
+.voucher_note { font-size:16px;margin:0 50px; }
+
+.taxi_opcion > div.input.text {
+	float:left;
+	width: 30%;
+	margin:0 0 0 4%;
+}
+.taxi_opcion > div.input.text:first-child { margin:0; }
+
+.forma_pago { margin:30px auto 20px;width:280px;font-size:20px; }
+.forma_pago label { display:inline;padding:0 12px 0 0;font-weight:bold; }
+
+/* Cuba Personalizado */
+
+#reservar #ReservationHabDoble { width:30px; }
+
+.custom_dates table { width:550px;margin:10px 0 0 0;border-top:#666 solid 1px; }
+.custom_dates table td { text-align:center;padding:3px 6px;vertical-align: middle; }
+.custom_dates table tr td:first-child { width: 220px;text-align:right; }
+.custom_dates table td.days { width:40px; }
+.custom_dates table td.subtotales { text-align:left; }
+
+/* Cuba Fijo */
+
+.arrival_date { padding:0;text-align:center; }
+.arrival_date div.input { display:inline; }
+.arrival_date div.input input[type=text]{ width: 160px }
+.arrival_date div.input label {
+	display:-moz-inline-stack;display:inline-block;vertical-align:middle;zoom:1;*display:inline;
+	padding:0 15px 0;
+}
+.arrival_date div.input span { padding:0 0 0 25px; }
+#ReservationRetorno { margin:0 0 0 15px; }
+
+/* Yucatan */
+
+.title.broken { margin-top:0; }
 
 /******** @DESTINATIONS ************************************************/
 
@@ -681,42 +784,6 @@ a.reservar {
 
 #pPlayer{ margin:30px 0;padding:0 30px; }
 .vPlayer{ display:block;margin:20px auto;width:640px;height:360px; }
-
-/**** @POLLS **************/
-
-#poll_form { position:relative; }
-#poll_form .questions { overflow:hidden;padding:12px 20px;position:relative; }
-#poll_form .question.hide { display:none; }
-#poll_form .question { position: relative;margin:0 0 16px 0;padding-bottom:15px;border-bottom:#B29233 dotted 1px; }
-#poll_form .question .title { margin:0 0 10px 0;font-size:16px; }
-#poll_form .question.omega { text-align:center;line-height:16px;color:#888;border:0; }
-#poll_form .question.omega .title { margin:0;text-align:center;line-height:35px;color:#333; }
-#poll_form .question div.submit { text-align:left;padding:5px 0; }
-#poll_form .question div.submit input {
-	width:auto;
-	background:transparent url(/img/poll_answer.png) no-repeat left 8px;
-	height:28px;
-	padding:0;
-	border:0;
-	margin:0;
-	font-weight:normal;
-	text-transform:none;
-	text-align:left;
-	text-indent:16px;
-	color:inherit;
-}
-#poll_form .question div.submit input:hover { background-image: url(/img/poll_answer_selected.png); }
-
-.sidebar #poll_form { background:#d3d3d3;padding:8px; }
-.sidebar #poll_form .questions { padding:3px 0 0 0; }
-.sidebar #poll_form .question { margin:0;padding:0;border:0; }
-.sidebar #poll_form .question .title { margin:0 0 4px 0; }
-.sidebar #poll_form .question div.submit { padding:0; }
-.sidebar #poll_form .question div.submit input {
-	width:100%;
-	font-size:12px;
-	margin:0;
-}
 
 /******** @FAQS ************************************************/
 

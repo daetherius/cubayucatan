@@ -12,7 +12,7 @@ if($id != 4){
 					$html->para(null,__('precio_total_por_persona',true)),
 					$html->para('precio','€'.$precios[$id][0]),
 				'</div>',
-				$html->link(__('reservar',true),array('controller'=>'packs','action'=>'reservar',$item['Pack']['slug']),array('class'=>'reservar')),
+				$html->link(__('reservar',true),array('controller'=>'packs','action'=>'reservar',$item['Pack']['slug'],$precios[$id][0]),array('class'=>'reservar')),
 			'</div>',
 			$html->div('column'),
 				$html->div('title title3',__('segunda_opcion',true)),
@@ -21,13 +21,14 @@ if($id != 4){
 					$html->para(null,__('precio_total_por_persona',true)),
 					$html->para('precio','€'.$precios[$id][1]),
 				'</div>',
-				$html->link(__('reservar',true),array('controller'=>'packs','action'=>'reservar',$item['Pack']['slug']),array('class'=>'reservar')),
+				$html->link(__('reservar',true),array('controller'=>'packs','action'=>'reservar',$item['Pack']['slug'],$precios[$id][1]),array('class'=>'reservar')),
 			'</div>',
 		'</div>';
 
 } else {
 	echo
-		$html->tag('table',null,'pack_options'),
+		$html->div('pack_options unicolumn'),
+		$html->tag('table'),
 			$html->tableCells(array(
 				array(
 					__('precio_hab_doble_por_noche',true),
@@ -45,7 +46,9 @@ if($id != 4){
 					$html->tag('span','€9,6','precio'),
 				)
 			)),
-		'</table>';
+		'</table>',
+		$html->link('Reservar',array('controller'=>'packs','action'=>'reservar',$item[$_m[0]]['slug']),array('class'=>'reservar')),
+	'</div>';
 
 }
 

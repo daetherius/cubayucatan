@@ -4,10 +4,16 @@ class PacksController extends UnlisteditemsController{
 	var $name = 'Packs';
 	var $uses = array('Pack','Destination');
 
-	function reservar($id){
+	function reservar($id, $opcion = false){
 		$id = $this->_checkid($id,false);
 		$item = $this->Pack->find_(array($id,'contain'=>false));
 		$this->set(compact('item'));
+		$opciones = array(1=>array(620,984),2=>array(485,758),3=>array(350,522));
+
+		if(empty($opcion))
+			$opcion = $opciones[$id][0];
+		
+		$this->set(compact('opcion'));
 
 		if($id > 4){ /// Yucatan
 			$this->render('/packs/reservar_yucatan');

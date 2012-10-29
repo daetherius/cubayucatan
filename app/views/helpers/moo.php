@@ -160,6 +160,21 @@ class MooHelper extends JsHelper {
 		$this->buffer('new mooquee("'.$el.'"'.$options.');');
 	}
 
+	function datepicker($options = array()){
+		$options = array_merge(array('pickerClass'=>'datepicker_vista','lang'=>'es-ES'),$options);
+
+		$this->Html->script('datepicker/Locale.'.$options['lang'].'.DatePicker',false);
+		$this->Html->script('datepicker/Picker.js',false);
+		$this->Html->script('datepicker/Picker.Attach.js',false);
+		$this->Html->script('datepicker/Picker.Date.js',false);
+		$this->buffer('Locale.use("'.$options['lang'].'");');
+
+		$this->Html->css('/js/datepicker/'.$options['pickerClass'].'/style','stylesheet',array('inline'=>false));
+
+		$options = $this->Util->json($options,true,true,array('onSelect'));
+		$this->buffer('new Picker.Date($$(".datepicker")'.$options.');');
+	}
+
 	function scroller($el='',$options = array()){
 		$options = $this->Util->json(array_merge(array('auto'=>true),$options));
 		$this->Html->script('mooscroller',false);

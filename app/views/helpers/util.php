@@ -368,11 +368,12 @@ class UtilHelper extends AppHelper {
 		return '"'.$data.'"';
 	}
 
-	function json($opts,$wrap = true,$comma = true){
+	function json($opts,$wrap = true,$comma = true,$raw = array()){
 		if(is_array($opts) && !empty($opts)){
 			$json = array();
-			foreach($opts as $key => $val)
-				$json[]= $key.':'.($this->serializeJS($val));
+			foreach($opts as $key => $val){
+				$json[]= $key.':'.(in_array($key, $raw) ? $val : $this->serializeJS($val));
+			}
 
 			$json = implode(',',$json);
 			return ($comma ? ',':'').($wrap ? '{'.$json.'}':$json);

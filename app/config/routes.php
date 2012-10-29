@@ -16,7 +16,7 @@ foreach(Configure::read('Modules') as $controller => $mod){
 
 	Router::connect('/esp/'.$alias,array('controller'=>$controller,'action'=>'index','lang'=>'esp'));
 	Router::connect('/esp/'.$alias.'/:id',array('controller'=>$controller,'action'=>'ver','lang'=>'esp'),$regex);
-	Router::connect('/esp/'.$alias.'/:action/*',array('controller'=>$controller,'action'=>'index','lang'=>'esp'),$regex);
+	Router::connect('/esp/'.$alias.'/:action/*',array('controller'=>$controller,'action'=>':action','lang'=>'esp'),$regex);
 
 	Router::connect('/admin/'.$alias,array('controller'=>$controller,'action'=>'index','admin'=>1));
 	Router::connect('/admin/'.$alias.'/:action/*',array('controller'=>$controller,'action'=>':action','admin'=>1));

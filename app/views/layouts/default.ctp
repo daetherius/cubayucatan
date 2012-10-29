@@ -31,7 +31,7 @@ echo
 			$html->div(null,null,array('id'=>'header')),
 				$html->div('clear'),
 					$html->tag('h1',$html->link($sitename_for_layout,'/',array('title'=>$sitename_for_layout)),array('id'=>'logo')),
-					$html->div('language '.$_lang,$html->link(__('toggle_lang',true),array('lang'=>$_lang == 'esp' ? 'ita':'esp'))),
+					$html->div('language '.$_lang,$html->link(__('toggle_lang',true),array_merge(array('lang'=>$_lang == 'esp' ? 'ita':'esp'),$this->passedArgs))),
 					$this->element('social'),
 				'</div>',
 			'</div>',
@@ -42,7 +42,7 @@ echo
 
 		$this->element('footer');
 ?>
-  <script src="//ajax.googleapis.com/ajax/libs/mootools/1.3.2/mootools-yui-compressed.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/mootools/1.4.5/mootools-yui-compressed.js"></script>
   <script>window.MooTools || document.write('<script src="/js/moo13.js"><\/script>')</script>
 <?php
 	echo
