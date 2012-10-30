@@ -15,8 +15,8 @@ $h = isset($h) && $h ? $h : (strtolower($mode) == 'h' ? 21 : 65);
 $tweet_config = array(
 	'class'=>'twitter-share-button',
 	'data-count'=>$mode == 'h' ? 'horizontal':'vertical',
-	'data-via'=>'pulsem',
-	'data-related'=>'pulsem',
+	'data-via'=>'cubayucatan',
+	'data-related'=>'cubayucatan',
 	'data-lang'=>'es',
 	'data-url'=>$url
 );

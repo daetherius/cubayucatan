@@ -1,8 +1,14 @@
 <?php
+$titulo = $item[$_m[0]]['nombre_'.$_lang];
+$subtitulo = '';
+if(strpos($titulo,', ')!==false)
+	list($titulo,$subtitulo) = explode(', ',$titulo,2);
+
 echo
 	$this->element('top',array('header'=>'')),
 	$html->div('detail det_yucatan'),
-		$html->tag('h1',$item[$_m[0]]['nombre_'.$_lang],array('class'=>'title')),
+		$html->tag('h1',$titulo,array('class'=>'title')),
+		($subtitulo ? $html->div('title title2 broken',$subtitulo) : ''),
 		
 		$html->div('clear'),
 			$html->div('column'),

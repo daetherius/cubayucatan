@@ -42,7 +42,6 @@ class AppController extends Controller {
 		}
 		
 		$this->set('_lang',$this->_lang = $this->Session->read('Config.language'));
-		fb($this->_lang,'LANG');
 
 		/// Store
 		if(in_array('Cart', $this->components)){
@@ -82,8 +81,8 @@ class AppController extends Controller {
 			if(Cache::read('post_recent') === false){
 				$this->loadModel('Post');
 				$posts = array(
-					'cuba' =>	$this->Post->find_(array('contain'=>array('Postportada'),'fields'=>array('slug','nombre_esp','nombre_ita','subtitulo_esp','subtitulo_ita','tipo','Postportada.src'),'conditions'=>array('tipo'=>'Cuba'),'limit'=>5)),
-					'yucatan' =>$this->Post->find_(array('contain'=>array('Postportada'),'fields'=>array('slug','nombre_esp','nombre_ita','subtitulo_esp','subtitulo_ita','tipo','Postportada.src'),'conditions'=>array('tipo'=>'Yucatan'),'limit'=>5)),
+					'cuba' =>	$this->Post->find_(array('contain'=>array('Postportada'),'fields'=>array('Post.id','slug','nombre_esp','nombre_ita','subtitulo_esp','subtitulo_ita','tipo','Postportada.src'),'conditions'=>array('Post.tipo'=>'Cuba'),'limit'=>5)),
+					'yucatan' =>$this->Post->find_(array('contain'=>array('Postportada'),'fields'=>array('Post.id','slug','nombre_esp','nombre_ita','subtitulo_esp','subtitulo_ita','tipo','Postportada.src'),'conditions'=>array('Post.tipo'=>'Yucatan'),'limit'=>5)),
 				);
 
 				Cache::write('post_recent',$posts);
@@ -92,8 +91,8 @@ class AppController extends Controller {
 			if(Cache::read('pack_recent') === false){
 				$this->loadModel('Pack');
 				$packs = array(
-					'cuba' =>	$this->Pack->find_(array('contain'=>false,'fields'=>array('slug','nombre_esp','nombre_ita','slug'),'conditions'=>array('id <'=>5))),
-					'yucatan' =>$this->Pack->find_(array('contain'=>false,'fields'=>array('slug','nombre_esp','nombre_ita','slug'),'conditions'=>array('id >'=>4))),
+					'cuba' =>	$this->Pack->find_(array('contain'=>array('Packportada'),'fields'=>array('Pack.id','slug','nombre_esp','nombre_ita','slug','Packportada.src'),'conditions'=>array('Pack.id <'=>5))),
+					'yucatan' =>$this->Pack->find_(array('contain'=>array('Packportada'),'fields'=>array('Pack.id','slug','nombre_esp','nombre_ita','slug','Packportada.src'),'conditions'=>array('Pack.id >'=>4))),
 				);
 
 				Cache::write('pack_recent',$packs);

@@ -1,10 +1,19 @@
 <?php
-$opciones = array(
+$conceptos_html = '';
+$conceptos = array(
 	865=>array('1 '.__('bungalow_doble',true),__('vehiculo_dos_puertas',true)),
 	675=>array('1 '.__('bungalow_triple',true),__('vehiculo_cuatro_puertas',true)),
 	653=>array('2 '.__('bungalow_doble',true),__('vehiculo_cuatro_puertas',true)),
-	758=>array('1 '.__('bungalow_triple').' '.__('y',true).' 1 '.__('bungalow_doble',true),__('vehiculo_offroad',true))
+	758=>array('1 '.__('bungalow_triple',true).' '.__('y',true).' 1 '.__('bungalow_doble',true),__('vehiculo_offroad',true))
 );
+$precio_hab_opcional = 75;
+
+foreach ($conceptos as $opcion => $conc) {
+	$row = '';
+	foreach ($conc as $conc_) $row.= $html->para(null,$conc_);
+	$conceptos_html.= $html->div('hide',$row,array('id'=>'opcion_'.$opcion));
+}
+$conceptos_html = $html->div(null,$conceptos_html,array('id'=>'conceptos_opciones'));
 
 $titulo = $item[$_m[0]]['nombre_'.$_lang];
 $subtitulo = '';
@@ -34,9 +43,11 @@ echo
 						758=>'5 (€758 '.__('por_persona',true).')',
 					),
 				)),
-				$html->tag('label','').$html->div('conceptos','Conceptos'),
+				$html->div('input text',$html->tag('label',__('incluye',true)).$conceptos_html),
 			'</div>',
 			
+			$this->element('yuc_opciones'),
+
 			$html->div('big_total precio',$html->tag('span',__('total',true),'total_label').$html->tag('span',' €','pad').$html->tag('span','',array('id'=>'big_total'))),
 			
 			$html->div('arrival_date block'),
@@ -47,18 +58,51 @@ echo
 				)),
 			'</div>',
 
-			$html->para('suitcase',__('indique_si_desea_taxi',true)),
-			$this->element('taxi_opcion'),
+			$html->para('suitcase',__('indique_si_desea_taxi_cancun',true)),
+			$this->element('taxi_opcion',compact('precio_hab_opcional')),
+
+			$html->div('big_total precio',$html->tag('span',__('total',true),'total_label').$html->tag('span',' €','pad').$html->tag('span','',array('id'=>'big_total_adicional'))),
+
 			$this->element('pago_opcion'),
 	'</div>';
 
-	$updateRoomTotal = 'var inted = $("ReservationHabDoble").get("value").toInt(); if(!isNaN(inted)){ $("num_personas").set("html",inted * 2); $("total_hab").set("html",inted * $("ReservationOpcion").get("value")); $("big_total").set("html",inted * $("ReservationOpcion").get("value")); } ';
+	$updateRoomTotal = '
+		var inted = $("ReservationNumPersonas").get("value").toInt();
+		var totales = {865:1730,675:2025,653:2612,758:3790};
 
-	$moo->addEvent('ReservationHabDoble','keyup',$updateRoomTotal);
+		if(!isNaN(inted)){ $("big_total").set("html",totales[inted]);$$("#conceptos_opciones > div").addClass("hide"); $("opcion_"+inted).removeClass("hide"); }';
+
+	$moo->addEvent('ReservationNumPersonas','click',$updateRoomTotal);
 	$moo->buffer($updateRoomTotal);
 	
-	$lang = $_lang == 'ita' ? 'it-IT':'es-ES';
-	$moo->datepicker(array('lang'=>$lang,'onSelect'=>'function(date){ date.setDate(date.getDate() + 9); $("ReservationRetorno").set("value",date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()); }'));
+	if($item['Pack']['id'] > 4) {
+			$updateOptionalRooms = '
+				var hab_opcional = $("taxiHab").get("value").toInt() * '.$precio_hab_opcional.';
+
+				if(isNaN(hab_opcional))
+					hab_opcional = 0;
+				$("hab_opcional").set("html",hab_opcional);
+
+
+				var hab_opcional_adicional = $("taxiAdicionales").get("value").toInt() * '.$precio_hab_opcional.';
+
+				if(isNaN(hab_opcional_adicional))
+					hab_opcional_adicional = 0;
+				$("hab_opcional_adicional").set("html",hab_opcional_adicional);
+
+				console.log(hab_opcional + hab_opcional_adicional);
+				console.log($("big_total").get("html"));
+
+				var total_hab_opcional = (hab_opcional + hab_opcional_adicional) + $("big_total").get("html").toInt();
+				$("big_total_adicional").set("html",total_hab_opcional);
+			';
+			$moo->addEvent('taxiHab','keyup',$updateOptionalRooms);
+			$moo->addEvent('taxiAdicionales','keyup',$updateOptionalRooms);
+			$moo->buffer($updateOptionalRooms);
+
+	}
+
+	$moo->datepicker(array('lang'=>($_lang == 'ita' ? 'it-IT':'es-ES'),'onSelect'=>'function(date){ date.setDate(date.getDate() + 9); $("ReservationRetorno").set("value",date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()); }'));
 ?>
 </div>
 </div><!-- content -->

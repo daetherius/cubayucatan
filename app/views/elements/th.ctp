@@ -35,7 +35,8 @@ if($item){
 			$th['mas'] = 'Ver Fotos';
 		break;
 
-		//////////
+		///---------------
+
 		case 'Testimonial':
 			$url = false;
 			$thopts = array('w'=>210,'h'=>128,'fill'=>true);
@@ -45,9 +46,10 @@ if($item){
 				'nombre'=>$html->tag('h2','— '.$item[$model]['nombre'],'title')
 			);
 		break;
-		//////////
+
+		///---------------
+
 		case 'Post':
-			fb($url,'$url');
 			$alias = array('Cuba'=>'Cuba','Yucatan'=>'Yucatán');
 			if(is_c('inicio',$this)){
 				$th = array_merge(array($html->div('title title3','Conosci '.$alias[$item[$model]['tipo']])),$th);	

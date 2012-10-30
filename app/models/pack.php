@@ -17,6 +17,14 @@ class Pack extends AppModel {
 			'dependent'=>true
 		)
 	);
+	var $hasOne = array(
+		'Packportada'=>array(
+			'className'=>'Packimg',
+			'foreignKey'=>'pack_id',
+			'conditions'=>'Packportada.portada = 1'
+		)
+	);
+
 
 	function beforeValidate(){
 		$this->clean($this->data,false,array('descripcion_ita','descripcion_esp','descripcion2_esp','descripcion2_ita'));

@@ -1,6 +1,8 @@
 <?php
-if(!empty($item[$_m[0]]['id'])){
-	$pid = $item[$_m[0]]['id'];
+fb($item,'$item');
+$tablecells = array();
+if(!empty($item['Pack']['id'])){
+	$pid = $item['Pack']['id'];
 	if(($destinations = Cache::read('destination_p'.$pid))!== false){
 		$link_atts = array('target'=>'_blank','rel'=>'nofollow');
 
@@ -39,7 +41,7 @@ if(!empty($item[$_m[0]]['id'])){
 
 echo
 	$html->div('pack_destinations clear'),
-		$html->tag('h3',__('itinerario propuesto',true),'title'),
+		$html->tag('h3',__('itinerario_propuesto',true),'title'),
 		$html->tag('table'),
 			$html->tableCells($tablecells),
 		'</table>',
