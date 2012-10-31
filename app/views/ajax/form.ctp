@@ -1,4 +1,4 @@
-<?
+<?php
 $successmsg = isset($successmsg) && $successmsg ? $successmsg : false;
 $model = isset($model) && $model ? ucfirst($model): ucfirst($_m[0]);
 $fid = isset($fid) && $fid ? $fid: false;
@@ -38,7 +38,7 @@ $fid = isset($fid) && $fid ? $fid: false;
 				tip = tip.getParent('.checkbox');
 
 			tip.addClass('input_error');
-			tip.store('tip:text', "<?=htmlspecialchars($msgerror,ENT_QUOTES,'UTF-8')?>");
+			tip.store('tip:text', "<?=htmlspecialchars(__($msgerror,true),ENT_QUOTES,'UTF-8')?>");
 			formtips.attach(tip);
 	<? } ?>
 		if(tmp_ajaxform)

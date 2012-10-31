@@ -4,7 +4,7 @@
 if(is_c('destinations',$this) && $items = Cache::read('destination_recent')){
 	if($items['cuba']){
 		echo
-			$html->tag('h3',__('cuba',true),'title'),
+			$html->tag('h3','Cuba','title'),
 			$html->tag('ul');
 
 		foreach($items['cuba'] as $slug => $nombre){
@@ -17,7 +17,7 @@ if(is_c('destinations',$this) && $items = Cache::read('destination_recent')){
 
 	if($items['yucatan']){
 		echo
-			$html->tag('h3',__('yucatan',true),'title'),
+			$html->tag('h3','Yucatán','title'),
 			$html->tag('ul');
 
 		foreach($items['yucatan'] as $slug => $nombre){
@@ -32,8 +32,8 @@ if(is_c('destinations',$this) && $items = Cache::read('destination_recent')){
 if(is_c('posts',$this) && $items = Cache::read('post_recent')){
 	if($items['cuba']){
 		echo
-			$html->tag('h3',__('conosci',true).' '.__('cuba',true),'title'),
-			$html->link('Ver todas',array('controller'=>'posts','action'=>'index','tipo'=>'Cuba'),array('class'=>'filtro')),
+			$html->tag('h3',__('conozca',true).' '.__('cuba',true),'title'),
+			$html->link(__('ver_todas',true),array('controller'=>'posts','action'=>'index','tipo'=>'Cuba'),array('class'=>'filtro')),
 			$html->tag('ul');
 
 		foreach($items['cuba'] as $it){
@@ -48,8 +48,8 @@ if(is_c('posts',$this) && $items = Cache::read('post_recent')){
 
 	if($items['yucatan']){
 		echo
-			$html->tag('h3',__('conosci',true).' '.__('yucatan',true),'title'),
-			$html->link('Ver todas',array('controller'=>'posts','action'=>'index','tipo'=>'Yucatan'),array('class'=>'filtro')),
+			$html->tag('h3',__('conozca',true).' '.__('yucatan',true),'title'),
+			$html->link(__('ver_todas',true),array('controller'=>'posts','action'=>'index','tipo'=>'Yucatan'),array('class'=>'filtro')),
 			$html->tag('ul');
 
 		foreach($items['yucatan'] as $it){
@@ -101,7 +101,7 @@ if(is_c('products',$this) && isset($item) && $item){
 
 echo
 	$html->div('banners',$this->element('banners'),array('id'=>'banners')), $moo->showcase('banners',array('nav'=>'out')),
-	$html->link('Convertidor de Divisas','#',array('class'=>'convertidor'));
+	$html->link(__('convertidor_divisas',true),'#',array('class'=>'convertidor'));
 ?>
 </div>
 </div>

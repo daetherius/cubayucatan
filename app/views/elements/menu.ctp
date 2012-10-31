@@ -6,7 +6,7 @@ foreach(Configure::read('Modules') as $cntllr => $mod){
 		echo
 			$html->tag('li',
 				$html->link(
-					$html->tag('span',$mod['menu']),
+					$html->tag('span',__($mod['menu'],true)),
 					array('controller'=>$cntllr,'action'=>'index')
 				),
 				array('class'=>$this->params['controller'] == $cntllr ? 'mSelected' : '')

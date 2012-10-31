@@ -21,7 +21,7 @@ echo
 			'</div>',
 		'</div>',
 
-		$html->para('suitcase',__('notas_de_viaje_cuba',true)),
+		$html->para('suitcase',__($item['Pack']['id'] == 4 ? 'caracteristicas_hab_cuba_propuesto':'caracteristicas_hab_cuba',true)),
 	
 		$this->element('pack_options'),
 	'</div>';

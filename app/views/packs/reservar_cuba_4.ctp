@@ -28,7 +28,7 @@ echo
 				$html->div('title title3 red',__('arma_tu_plan',true)),
 				$html->para('',__('fechas_de_ocupacion',true)),
 				$html->tag('table'),
-					$html->tableHeaders(array('',__('fecha_arribo',true).' '.__('formato_fecha_dmy',true),__('dias_estancia',true))),
+					$html->tableHeaders(array('',__('llegada',true).' '.__('formato_fecha_dmy',true),__('dias_estancia',true))),
 					$html->tableCells(array(
 						array($html->tag('span','Havana ('.__('llegada',true).')'),	$form->input('havana.arrival',array('class'=>'datepicker')),			array($form->input('havana.days',array('maxlength'=>3,'value'=>1,'class'=>'days_input')),array('class'=>'days'))),
 						array($html->tag('span','Pinar del Río'),					$form->input('pinar_del_rio.arrival',array('class'=>'datepicker')),		array($form->input('pinar_del_rio.days',array('maxlength'=>3,'value'=>1,'class'=>'days_input')),array('class'=>'days'))),
@@ -47,7 +47,7 @@ echo
 						array($html->tag('span',__('numero_total_de_dias',true)),	array($html->tag('span','',array('class'=>'total_days')).' x €'.$precio_hab.' = '.$html->tag('span','€'.$html->tag('span','',array('id'=>'costo_total_hab')),'precio'),array('colspan'=>2,'class'=>'subtotales'))),
 						array($html->tag('span',__('desayuno',true)),				array($html->tag('span','',array('class'=>'total_days')).' x 2 x €'.$precio_desayuno.' = '.$html->tag('span','€'.$html->tag('span','',array('id'=>'costo_total_desayuno','class'=>'precio')),'precio'),array('colspan'=>2,'class'=>'subtotales'))),
 						
-						array($form->input('con_cena',array('type'=>'checkbox','div'=>array('tag'=>'span'))).$html->tag('span',__('cena',true),'pad'), array($html->tag('span','',array('class'=>'total_days')).' x 2 x €'.(number_format($precio_cena,1,',','.')).' = '.$html->tag('span','€'.$html->tag('span','',array('id'=>'costo_total_cena','class'=>'precio')),'precio'),array('colspan'=>2,'class'=>'subtotales'))),
+						array($form->input('con_cena',array('type'=>'checkbox','div'=>array('tag'=>'span'))).$html->tag('span',__('cena',true).' ('.__('opcional',true).')','pad'), array($html->tag('span','',array('class'=>'total_days')).' x 2 x €'.(number_format($precio_cena,1,',','.')).' = '.$html->tag('span','€'.$html->tag('span','',array('id'=>'costo_total_cena','class'=>'precio')),'precio'),array('colspan'=>2,'class'=>'subtotales'))),
 					)),
 				'</table>',
 				$html->div('big_total precio',$html->tag('span',__('total',true),'total_label').$html->tag('span',' €','pad').$html->tag('span','',array('id'=>'big_total'))),

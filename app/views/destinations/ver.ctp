@@ -12,7 +12,7 @@ echo
 			'</div>',
 
 			$html->div('column gallery'),
-				$html->div('title title3 red','Fotoracconto');
+				$html->div('title title3 red',__('galeria_fotos',true));
 
 				foreach ($item[$_m[0].'img'] as $img) {
 					echo $util->th($img,false,array('url'=>true,'w'=>144,'h'=>90,'fill'=>true,'class'=>'pulsembox'));

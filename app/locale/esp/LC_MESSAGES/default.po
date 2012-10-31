@@ -60,3 +60,34 @@ msgstr "cero"
 
 msgid "toggle_lang"
 msgstr "Italiano"
+
+msgid "inicio"
+msgstr "inicio"
+
+msgid "paquetes"
+msgstr "paquetes"
+
+msgid "destinos"
+msgstr "destinos"
+
+msgid "noticias"
+msgstr "noticias"
+
+msgid "preguntas frecuentes"
+msgstr "preguntas frecuentes"
+
+msgid "testimonios"
+msgstr "testimonios"
+
+msgid "nosotros"
+msgstr "nosotros"
+
+msgid "aviso legal"
+msgstr "aviso legal"
+
+msgid "alojese_casas_particulares"
+msgstr ""
+
+msgid ""
+msgstr ""
+

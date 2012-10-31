@@ -54,7 +54,6 @@ echo
 			'data'=>'this.getParent("form")',
 			'spinner'=>'this.getParent(".add2cart")'
 		)),
-		//$moo->addEvent('.add2cart','click',array('prevent'=>1,'url'=>'"+this.href+"','update'=>'"cart_recent"','css'=>1)),
 		$scripts_for_layout,
 		$moo->writeBuffer(array('onDomReady'=>false)),
 		//$this->element('gfont',array('fonts'=>array('Cantarell','Droid+Serif'))),

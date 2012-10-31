@@ -1,5 +1,4 @@
 <?php
-fb($item,'$item');
 $tablecells = array();
 if(!empty($item['Pack']['id'])){
 	$pid = $item['Pack']['id'];

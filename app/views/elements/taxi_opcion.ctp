@@ -3,11 +3,11 @@ echo $html->div('taxi_opcion clear'.($item['Pack']['id'] > 4 ? ' yucatan':''));
 
 	if($item['Pack']['id'] > 4){
 		echo
-			$html->div('title title4',__('indique_si_desea_taxi_cancun2',true)),
+			$html->div('title title4',__('indique_si_desea_hab_opcional2',true)),
 			$form->input('taxi.hab',array(
 				'label'=>__('concepto_hab_opcional',true),
 				'value'=>0,
-				'after'=>$html->tag('span','x €'.$precio_hab_opcional.' = '.$html->tag('span','€'.$html->tag('span','',array('id'=>'hab_opcional')),'precio'),'pad')
+				'after'=>$html->tag('span','x 2 x €'.$precio_hab_opcional.' = '.$html->tag('span','€'.$html->tag('span','',array('id'=>'hab_opcional')),'precio'),'pad')
 			)),
 			
 			$form->input('taxi.arribo',array('label'=>__('llegada',true).' '.__('formato_fecha_dmy',true),'class'=>'datepicker')),

@@ -18,7 +18,7 @@ if($id != 4){
 				$html->div('title title3',__('segunda_opcion',true)),
 				$html->para(null,__('pack'.$id.'_opcion2_desc',true)),
 				$html->div('clear'),
-					$html->para(null,__('precio_total_por_persona',true)),
+					$html->para(null,__('precio_total_por_persona',true).'<br/>*'.__('bebidas_no_incluidas',true)),
 					$html->para('precio','€'.$precios[$id][1]),
 				'</div>',
 				$html->link(__('reservar',true),array('controller'=>'packs','action'=>'reservar',$item['Pack']['slug'],$precios[$id][1]),array('class'=>'reservar')),
@@ -47,7 +47,7 @@ if($id != 4){
 				)
 			)),
 		'</table>',
-		$html->link('Reservar',array('controller'=>'packs','action'=>'reservar',$item[$_m[0]]['slug']),array('class'=>'reservar')),
+		$html->link(__('reservar',true),array('controller'=>'packs','action'=>'reservar',$item[$_m[0]]['slug']),array('class'=>'reservar')),
 	'</div>';
 
 }

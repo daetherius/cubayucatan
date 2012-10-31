@@ -54,11 +54,11 @@ echo
 				$form->input('arrival',array(
 					'class'=>'datepicker',
 					'label'=>__('llegada',true),
-					'after'=>$html->tag('span',__('fecha_termino',true).' '.$html->tag('strong','+9').$form->input('retorno',array('div'=>false,'disabled'=>'disabled')))
+					'after'=>$html->tag('span',__('retorno',true).' '.$html->tag('strong','+9').$form->input('retorno',array('div'=>false,'disabled'=>'disabled')))
 				)),
 			'</div>',
 
-			$html->para('suitcase',__('indique_si_desea_taxi_cancun',true)),
+			$html->para('suitcase',__('indique_si_desea_hab_opcional',true)),
 			$this->element('taxi_opcion',compact('precio_hab_opcional')),
 
 			$html->div('big_total precio',$html->tag('span',__('total',true),'total_label').$html->tag('span',' €','pad').$html->tag('span','',array('id'=>'big_total_adicional'))),
@@ -77,7 +77,7 @@ echo
 	
 	if($item['Pack']['id'] > 4) {
 			$updateOptionalRooms = '
-				var hab_opcional = $("taxiHab").get("value").toInt() * '.$precio_hab_opcional.';
+				var hab_opcional = $("taxiHab").get("value").toInt() * 2 *'.$precio_hab_opcional.';
 
 				if(isNaN(hab_opcional))
 					hab_opcional = 0;

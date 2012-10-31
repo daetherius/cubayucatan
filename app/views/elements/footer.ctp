@@ -1,11 +1,12 @@
 <?php
 $destinations = Cache::read('destination_recent');
+$packs = Cache::read('packs_recent');
 
 echo
 	$html->div('footer'),
 	$html->div('center'),
 		$html->div('contacto clear'),
-			$html->div('title title3','Contatto Diretto'),
+			$html->div('title title3',__('contacto_directo',true)),
 			$this->element('social'),
 			$html->div('column email'),
 				$html->para(null,$util->ofuscar('umberto@'.Configure::read('Site.domain'))),
@@ -18,7 +19,7 @@ echo
 		'</div>',
 		$html->div('lists'),
 			$html->div('column'),
-				$html->div('title title3','Links'),
+				$html->div('title title3',__('links',true)),
 				$html->tag('ul'),
 					$html->tag('li',$html->link('','http://',array('target'=>'_blank','rel'=>'nofollow'))),
 					$html->tag('li',$html->link('','http://',array('target'=>'_blank','rel'=>'nofollow'))),
@@ -58,7 +59,7 @@ echo
 			if(!empty($destinations['cuba'])){
 				echo
 					$html->div('column destinations'),
-						$html->div('title title3','Destinos Cuba'),
+						$html->div('title title3',__('destinos_cuba',true)),
 						$html->tag('ul');
 
 							foreach ($destinations['cuba'] as $slug => $nombre)
@@ -70,7 +71,7 @@ echo
 			if(!empty($destinations['yucatan'])){
 				echo
 					$html->div('column destinations'),
-						$html->div('title title3','Destinos Yucatán'),
+						$html->div('title title3',__('destinos_yucatan',true)),
 						$html->tag('ul');
 
 							foreach ($destinations['yucatan'] as $slug => $nombre)
@@ -85,26 +86,26 @@ echo
 
 				$html->div('title title4','Cuba'),
 				$html->tag('ul'),
-					$html->tag('li',$html->link('Ambasciata','http://',array('target'=>'_blank','rel'=>'nofollow'))),
-					$html->tag('li',$html->link('Imposta aereoportuale','http://',array('target'=>'_blank','rel'=>'nofollow'))),
-					$html->tag('li',$html->link('Moneta e cambi','http://',array('target'=>'_blank','rel'=>'nofollow'))),
+					$html->tag('li',$html->link(__('embajada',true),'http://',array('target'=>'_blank','rel'=>'nofollow'))),
+					$html->tag('li',$html->link(__('impuesto_aeropuerto',true),'http://',array('target'=>'_blank','rel'=>'nofollow'))),
+					$html->tag('li',$html->link(__('cambio_moneda',true),'http://',array('target'=>'_blank','rel'=>'nofollow'))),
 				'</ul>',
 
 				$html->div('title title4','Yucatán'),
 				$html->tag('ul'),
-					$html->tag('li',$html->link('Ambasciata','http://',array('target'=>'_blank','rel'=>'nofollow'))),
-					$html->tag('li',$html->link('Moneta e cambi','http://',array('target'=>'_blank','rel'=>'nofollow'))),
+					$html->tag('li',$html->link(__('embajada',true),'http://',array('target'=>'_blank','rel'=>'nofollow'))),
+					$html->tag('li',$html->link(__('cambio_moneda',true),'http://',array('target'=>'_blank','rel'=>'nofollow'))),
 				'</ul>',
 			'</div>',
 
 			$html->div('column'),
-				$html->div('title title3','Menú'),
+				$html->div('title title3',__('menu',true)),
 				$html->tag('ul'),
-					$html->tag('li',$html->link('Noticias',array('controller'=>'posts','action'=>'index'))),
-					$html->tag('li',$html->link('FAQs',array('controller'=>'faqs','action'=>'index'))),
-					$html->tag('li',$html->link('Testimonios',array('controller'=>'testimonials','action'=>'index'))),
-					$html->tag('li',$html->link('Nosotros',array('controller'=>'about','action'=>'index'))),
-					$html->tag('li',$html->link('Aviso legal',array('controller'=>'legal','action'=>'index'))),
+					$html->tag('li',$html->link(__('noticias',true),array('controller'=>'posts','action'=>'index'))),
+					$html->tag('li',$html->link(__('preguntas frecuentes',true),array('controller'=>'faqs','action'=>'index'))),
+					$html->tag('li',$html->link(__('testimonios',true),array('controller'=>'testimonials','action'=>'index'))),
+					$html->tag('li',$html->link(__('nosotros',true),array('controller'=>'about','action'=>'index'))),
+					$html->tag('li',$html->link(__('aviso legal',true),array('controller'=>'legal','action'=>'index'))),
 				'</ul>',
 			'</div>',
 		'</div>',

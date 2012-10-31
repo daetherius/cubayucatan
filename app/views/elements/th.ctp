@@ -32,10 +32,52 @@ if($item){
 	switch($model){
 		
 		case 'Album':
-			$th['mas'] = 'Ver Fotos';
+			$th['mas'] = __('ver fotos',true);
 		break;
 
 		///---------------
+
+		case 'Pack':
+			$packs_precios = array(1=>620,485,340,38,865,865);
+			$mode = 'h';
+			$title = _dec($item['Pack']['nombre_'.$_lang]);
+
+			if($item['Pack']['id'] == 4)
+				$num_personas = 'por_dia_por_persona_br';
+			elseif($item['Pack']['id'] < 5)
+				$num_personas = 'por_dos_personas_br';
+			else
+				$num_personas = 'por_persona_br';
+
+			echo
+				$html->div('thumb v pack'),
+					$html->tag('h2',$html->link($item['Pack']['nombre_'.$_lang],$url),'title red'),
+					$html->div('wrapper'),
+						$util->th($item,'Pack',array('w'=>196,'h'=>128,'fill'=>true,'class'=>'floated','url'=>$url)),
+						$html->div('pack_destinations  clear');
+							if($item['Pack']['id'] < 4){
+								echo $this->element('pack_destinations',compact('item'));
+							} else {
+								echo
+									$html->tag('h3',__('itinerario_propuesto',true),'title'),
+									$html->para(null,__('paquete'.$item['Pack']['id'].'_desc_corta',true));
+							}
+
+						echo
+							$html->para('ppp'),
+								$html->tag('span','€'.$packs_precios[$item['Pack']['id']].($item['Pack']['id'] == 5 ? $html->tag('span',__('plus_opciones',true)):''),'precio'.($item['Pack']['id'] == 5 ? ' extra':'')),
+								$html->tag('span',__($num_personas,true),'num_personas'),
+							'</p>',
+						'</div>',
+					'</div>',
+					$html->div('share'),
+						$this->element('facebook',compact('mode','url')),
+						$this->element('twitter',compact('mode','url','title')),
+						$this->element('gplus',compact('mode','url')),
+					'</div>',
+				'</div>';
+			return;
+		break;
 
 		case 'Testimonial':
 			$url = false;
@@ -52,11 +94,11 @@ if($item){
 		case 'Post':
 			$alias = array('Cuba'=>'Cuba','Yucatan'=>'Yucatán');
 			if(is_c('inicio',$this)){
-				$th = array_merge(array($html->div('title title3','Conosci '.$alias[$item[$model]['tipo']])),$th);	
+				$th = array_merge(array($html->div('title title3',__('conozca',true).' '.$alias[$item[$model]['tipo']])),$th);	
 			}
 
 			$th['desc'] = $html->div('desc tmce',''.strip_tags($util->trim($item[$model]['subtitulo_'.$_lang]),'<b><i><strong><em>'));
-			$th['mas'] = '+ Leer más';
+			$th['mas'] = '+ '.__('leer_mas',true);
 		default:
 		break;
 	}
@@ -98,5 +140,5 @@ if($item){
 	echo $html->div('thumb '.$class.' '.$v.' '.low($model), implode('',$th));
 
 } else
-	echo $html->para('noresults','No hay elemento para mostrar');
+	echo $html->para('noresults',__('no_elementos_para_mostrar',true));
 ?>

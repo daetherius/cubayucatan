@@ -6,5 +6,8 @@ echo
 		'div'=>'forma_pago'
 	)),
 	$form->end(__('enviar',true)),
-	$html->para('voucher_note',__('voucher_note',true));
+	$html->para('voucher_note'),
+		$html->div('title',__('voucher_note_title',true)),
+		__('voucher_note',true),
+	'</p>';
 ?>

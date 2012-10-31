@@ -15,7 +15,7 @@ h2.title, .title2 { margin:20px 0 12px 0;font-size:32px; }
 h3.title, .title3 { margin:16px 0 12px 0;font-size:24px; }
 h4.title, .title4 { margin:16px 0 12px 0;font-size:20px; }
 
-.title.red { color:#CC1E00; }
+.title.red, .title.red > a { color:#CC1E00; }
 
 .title:first-child, .title.alpha,
 h1:first-child,	h1.alpha, 
@@ -513,35 +513,48 @@ ul li { margin:0 0 4px; }
 }
 .thumb.v .wrapper .clear { font-size:12px; }
 .thumb.v.pack .thWrap {
-	width:164px;
+	width:196px;
 	height:128px;
 	float:left;
 	margin:0 20px 4px 0;
 }
 .thumb.v.pack .share { padding-left:15px; }
 .thumb.v.pack h2.title { font-size:22px;margin:0 0 8px 0; }
-.thumb.v.pack .ppp { font-family: 'Merienda One', cursive;overflow:hidden;margin:8px 0 0 0; }
+.thumb.v.pack .ppp {
+	font-family: 'Merienda One', cursive;
+	overflow:hidden;
+	margin:10px 0 0 0;
+	background-color:#EBEFEF;
+}
 .thumb.v.pack .ppp span {
-	float:left;
 	display:block;
-	width:110px;
 	line-height:38px;
 }
 .thumb.v.pack .ppp span.num_personas {
-	line-height:19px;
+	margin:0 92px 0 0;
+	line-height:14px;
 	font-size:12px;
 	color:#0658AA;
-	background-color:#EBEFEF;
-	padding:8px;
+	padding:4px 0 0 8px;
+	text-align:center;
 }
 .thumb.v.pack .ppp span.precio {
+	float:right;
+	width:92px;
 	background-color:#0658AA;
 	color:#fff;
-	width:80px;
 	text-shadow:2px 2px 2px #032E58;
 	text-align:center;
 	font-weight:normal;
 	font-size:22px;
+}
+.thumb.v.pack .ppp span.precio.extra {
+	line-height:20px;
+	padding:6px 0;
+}
+.thumb.v.pack .ppp span.precio.extra span {
+	font-size:11px;
+	line-height:14px;
 }
 
 .c_inicio .posts {
@@ -654,7 +667,7 @@ a.reservar {
 .pack_options > .column a.reservar { margin:15px 0 0 auto; }
 .pack_options > .column .precio { font-size:34px; }
 
-.pack_options td { padding:10px 15px; }
+.pack_options td { padding:10px 15px;vertical-align: middle; }
 
 .det_yucatan a.reservar {
 	margin:0 0 12px;
@@ -704,7 +717,8 @@ a.reservar {
 	width:195px;
 	height:55px;
 }
-.voucher_note { font-size:16px;margin:0 50px; }
+.voucher_note { font-size:16px;margin:0 20px; }
+.voucher_note > .title { margin:0 0 5px 0;font-weight:bold;color:#333;font-size:16px; }
 
 .taxi_opcion > div.input.text {
 	float:left;
@@ -723,7 +737,7 @@ a.reservar {
 .taxi_opcion.yucatan #taxiDireccionHotel { width:460px; }
 
 
-.forma_pago { margin:30px auto 20px;width:280px;font-size:20px; }
+.forma_pago { margin:30px auto 20px;width:480px;font-size:20px; }
 .forma_pago label { display:inline;padding:0 12px 0 0;font-weight:bold; }
 
 /* Cuba Personalizado */
