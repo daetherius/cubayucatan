@@ -59,12 +59,12 @@ if($item){
 								echo $this->element('pack_destinations',compact('item'));
 							} else {
 								echo
-									$html->tag('h3',__('itinerario_propuesto',true),'title'),
+									($item['Pack']['id'] == 5 ? $html->tag('h3',__('itinerario_propuesto',true),'title'):''),
 									$html->para(null,__('paquete'.$item['Pack']['id'].'_desc_corta',true));
 							}
 
 						echo
-							$html->para('ppp'),
+							$html->para('ppp',null),
 								$html->tag('span','€'.$packs_precios[$item['Pack']['id']].($item['Pack']['id'] == 5 ? $html->tag('span',__('plus_opciones',true)):''),'precio'.($item['Pack']['id'] == 5 ? ' extra':'')),
 								$html->tag('span',__($num_personas,true),'num_personas'),
 							'</p>',

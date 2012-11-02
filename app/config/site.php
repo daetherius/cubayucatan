@@ -9,7 +9,7 @@ $config['Site'] = array(
 	'tw'=>'http://twitter.com/cubayucatan',
 	'fb'=>'http://www.facebook.com/CubaYucatan',
 	'yt'=>'http://www.youtube.com/user/umbertofioroni',
-	'skype'=>'skype:umbertofior'
+	'sk'=>'skype:umbertofior'
 );
 
 $config['Site']['og'] = array(
@@ -34,6 +34,7 @@ $config['Site']['og'] = array(
 $modules = array(
 	'carousels'=>array('carrusel','admin'=>array('photos')),
 	'packs'=>array('paquetes','menu','admin'=>array('')),
+		'packimgs'=>array('imágenes','admin'=>false),
 	'reservations'=>array('reservaciones','admin'=>array('')),
 
 	'destinations'=>array('destinos','menu','admin'=>array('')),

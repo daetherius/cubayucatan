@@ -15,10 +15,7 @@
 	font-weight:bold;
 }
 
-.mooshowcase_nav.out {
-	position:relative;
-}
-
+.mooshowcase_nav.out { position:relative; }
 .mooshowcase_nav a{
 	display:block;
 	float:right;
@@ -56,8 +53,8 @@
 .mooshowcase_nav.out .navnp a.prev { background:url(/img/smallPrev.png) no-repeat; }
 .mooshowcase_nav.out .navnp a:hover { background-position:center bottom; }
 
-.mooshowcase_nav.in a{ float:right; }
-.mooshowcase_nav.out a{ float:left; }
+.mooshowcase_nav.in a { float:right; }
+.mooshowcase_nav.out a { float:left; }
 
 .mooshowcase_nav a:hover, .mooshowcase_nav a.selected{ background:#333;text-shadow:0 0 4px #fff; }
 

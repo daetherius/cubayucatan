@@ -28,9 +28,9 @@ echo
 				$html->div('title title3 red',__('arma_tu_plan',true)),
 				$html->para('',__('fechas_de_ocupacion',true)),
 				$html->tag('table'),
-					$html->tableHeaders(array('',__('llegada',true).' '.__('formato_fecha_dmy',true),__('dias_estancia',true))),
+					$html->tableHeaders(array('',__('inicio_ocupacion',true).' '.__('formato_fecha_dmy',true),__('dias_estancia',true))),
 					$html->tableCells(array(
-						array($html->tag('span','Havana ('.__('llegada',true).')'),	$form->input('havana.arrival',array('class'=>'datepicker')),			array($form->input('havana.days',array('maxlength'=>3,'value'=>1,'class'=>'days_input')),array('class'=>'days'))),
+						array($html->tag('span','Havana ('.__('fin_ocupacion',true).')'),	$form->input('havana.arrival',array('class'=>'datepicker')),			array($form->input('havana.days',array('maxlength'=>3,'value'=>1,'class'=>'days_input')),array('class'=>'days'))),
 						array($html->tag('span','Pinar del Río'),					$form->input('pinar_del_rio.arrival',array('class'=>'datepicker')),		array($form->input('pinar_del_rio.days',array('maxlength'=>3,'value'=>1,'class'=>'days_input')),array('class'=>'days'))),
 						array($html->tag('span','Cienfuegos'),						$form->input('cienfuegos.arrival',array('class'=>'datepicker')),		array($form->input('cienfuegos.days',array('maxlength'=>3,'value'=>1,'class'=>'days_input')),array('class'=>'days'))),
 						array($html->tag('span','Trinidad'),						$form->input('trinidad.arrival',array('class'=>'datepicker')),			array($form->input('trinidad.days',array('maxlength'=>3,'value'=>1,'class'=>'days_input')),array('class'=>'days'))),

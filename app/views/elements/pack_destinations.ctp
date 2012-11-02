@@ -2,6 +2,7 @@
 $tablecells = array();
 if(!empty($item['Pack']['id'])){
 	$pid = $item['Pack']['id'];
+	
 	if(($destinations = Cache::read('destination_p'.$pid))!== false){
 		$link_atts = array('target'=>'_blank','rel'=>'nofollow');
 

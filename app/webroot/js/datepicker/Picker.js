@@ -48,7 +48,7 @@ var Picker = new Class({
 				display: 'none',
 				opacity: 0
 			}
-		}).inject(options.inject || document.body);console.log("injected");
+		}).inject(options.inject || document.body);
 		picker.addClass('column_' + options.columns);
 
 		if (options.useFadeInOut){

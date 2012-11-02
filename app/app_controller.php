@@ -86,7 +86,7 @@ class AppController extends Controller {
 						switch($i){
 							case 1:
 								$destinations = array(
-									array('days'=>4,$this->Destination->find_(array_merge(array(3),$find_opts))), # Havana
+									array('days'=>5,$this->Destination->find_(array_merge(array(3),$find_opts))), # Havana
 									array('days'=>3,$this->Destination->find_(array_merge(array(1),$find_opts))), # Trinidad
 									array('days'=>2,$this->Destination->find_(array_merge(array(5),$find_opts))), # Camagüey
 									array('days'=>4,$this->Destination->find_(array_merge(array(17),$find_opts))), # Baracoa
@@ -104,13 +104,13 @@ class AppController extends Controller {
 								$destinations = array(
 									array('days'=>4,$this->Destination->find_(array_merge(array(3),$find_opts))), # Havana
 									array('days'=>3,$this->Destination->find_(array_merge(array(1),$find_opts))), # Trinidad
-									//array('days'=>2,$this->Destination->find_(array_merge(array(),$find_opts))), # Santa Clara
+									array('days'=>2,$this->Destination->find_(array_merge(array(19),$find_opts))), # Santa Clara
 								);
 							break;
 							case 4:
 								$destinations = array(
 									array(
-										array('Destination'=>array('nombre'=>'Pinar del río')),//$this->Destination->find_(array_merge(array(),$find_opts)), # Pinar del río
+										$this->Destination->find_(array_merge(array(18),$find_opts)), # Pinar del río
 										$this->Destination->find_(array_merge(array(5),$find_opts)) # Camagüey
 									), 
 									array(
@@ -125,7 +125,7 @@ class AppController extends Controller {
 										$this->Destination->find_(array_merge(array(4),$find_opts)), # Cien fuegos
 										$this->Destination->find_(array_merge(array(2),$find_opts)),  # Santiago
 									), 
-									array(array('Destination'=>array('nombre'=>'Santa Clara'))),//array($this->Destination->find_(array_merge(),$find_opts))), # Santa Clara
+									array($this->Destination->find_(array_merge(array(19),$find_opts))), # Santa Clara
 								);
 							break;
 						}
@@ -138,8 +138,8 @@ class AppController extends Controller {
 			if(Cache::read('post_recent') === false){
 				$this->loadModel('Post');
 				$posts = array(
-					'cuba' =>	$this->Post->find_(array('contain'=>array('Postportada'),'fields'=>array('Post.id','slug','nombre_esp','nombre_ita','subtitulo_esp','subtitulo_ita','tipo','Postportada.src'),'conditions'=>array('Post.tipo'=>'Cuba'),'limit'=>5)),
-					'yucatan' =>$this->Post->find_(array('contain'=>array('Postportada'),'fields'=>array('Post.id','slug','nombre_esp','nombre_ita','subtitulo_esp','subtitulo_ita','tipo','Postportada.src'),'conditions'=>array('Post.tipo'=>'Yucatan'),'limit'=>5)),
+					'cuba' =>	$this->Post->find_(array('contain'=>array('Postportada'),'fields'=>array('Post.id','slug','nombre_esp','nombre_ita','subtitulo_esp','subtitulo_ita','tipo','Postportada.src','created'),'conditions'=>array('Post.tipo'=>'Cuba'),'limit'=>5)),
+					'yucatan' =>$this->Post->find_(array('contain'=>array('Postportada'),'fields'=>array('Post.id','slug','nombre_esp','nombre_ita','subtitulo_esp','subtitulo_ita','tipo','Postportada.src','created'),'conditions'=>array('Post.tipo'=>'Yucatan'),'limit'=>5)),
 				);
 
 				Cache::write('post_recent',$posts);
@@ -153,7 +153,20 @@ class AppController extends Controller {
 				);
 
 				Cache::write('pack_recent',$packs);
-			}			
+			}
+
+			if(is_c('faqs',$this)){
+				$this->loadModel('Faq');
+				
+				if(Cache::read('faq_general_recent') === false)
+					Cache::write('faq_general_recent',$this->Faq->find_(array('conditions'=>array('tipo'=>'General')),'count'));
+
+				if(Cache::read('faq_cuba_recent') === false)
+					Cache::write('faq_cuba_recent',$this->Faq->find_(array('conditions'=>array('tipo'=>'Cuba')),'count'));
+
+				if(Cache::read('faq_yucatan_recent') === false)
+					Cache::write('faq_yucatan_recent',$this->Faq->find_(array('conditions'=>array('tipo'=>'Yucatan')),'count'));
+			}
 		}
 
 

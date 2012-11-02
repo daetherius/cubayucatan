@@ -24,7 +24,7 @@ echo
 				$form->input('email',array('label'=>__('email',true))),
 				$form->input('confirma_email',array('label'=>__('confirma_email',true))),
 				$form->input('hab_doble',array(
-					'label'=>__('paquete_doble',true),
+					'label'=>__('hab_doble',true),
 					'maxlength'=>3,
 					'value'=>1,
 					'after'=>$html->tag('span','x '.$html->tag('span','€'.$html->tag('span','',array('id'=>'total_hab')),'precio').$html->tag('span','('.$html->tag('span','2',array('id'=>'num_personas')).' personas)','pad'),'pad')
@@ -36,8 +36,8 @@ echo
 			$html->div('arrival_date block'),
 				$form->input('arrival',array(
 					'class'=>'datepicker',
-					'label'=>__('llegada',true),
-					'after'=>$html->tag('span',__('fecha_termino',true).' '.$html->tag('strong','+9').$form->input('retorno',array('div'=>false,'disabled'=>'disabled')))
+					'label'=>__('inicio_ocupacion',true),
+					'after'=>$html->tag('span',__('fin_ocupacion',true).' '.$html->tag('strong','+9').$form->input('retorno',array('div'=>false,'disabled'=>'disabled')))
 				)),
 			'</div>',
 

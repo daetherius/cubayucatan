@@ -36,8 +36,8 @@ echo
 			$html->div('arrival_date block'),
 				$form->input('arrival',array(
 					'class'=>'datepicker',
-					'label'=>__('llegada',true),
-					'after'=>$html->tag('span',__('fecha_termino',true).' '.$html->tag('strong','+9').$form->input('retorno',array('div'=>false,'disabled'=>'disabled')))
+					'label'=>__('inicio_ocupacion',true),
+					'after'=>$html->tag('span',__('fin_ocupacion',true).' '.$html->tag('strong','+9').$form->input('retorno',array('div'=>false,'disabled'=>'disabled')))
 				)),
 			'</div>',
 

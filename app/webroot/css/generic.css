@@ -258,6 +258,8 @@ body.tmce { background:#fff;padding:0;margin:0; }
 .tmce ul,.tmce ol,.tmce dl { margin-bottom:10px;margin-left:30px; }
 .tmce ul { list-style-type:disc; }
 .tmce ol { list-style-type:decimal; }
+.tmce td { padding:0 10px 6px 0; }
+.tmce td p { margin:0 0 3px 0; }
 
 /** Error page **/
 

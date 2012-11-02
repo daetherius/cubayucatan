@@ -11,6 +11,10 @@ class InicioController extends MyController {
 		$this->pageTitle = Configure::read('Site.slogan');
 		
 	}
+	function convertidor(){
+		$this->layout = 'empty';
+		$this->render('/elements/convertidor');
+	}
 	
 	function email(){ $this->layout = 'empty'; }
 }

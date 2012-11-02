@@ -33,7 +33,7 @@ if($id != 4){
 				array(
 					__('precio_hab_doble_por_noche',true),
 					$html->tag('span','€25','precio'),
-					array(__('cena_con_nosotros_o_donde_te_alojes',true),array('colspan'=>2,'rowspan'=>2))
+					array(__('cena_con_nosotros_o_donde_te_alojes',true),array('colspan'=>2,'rowspan'=>2,'class'=>'bottomt'))
 				),
 				array(
 					__('precio_desayuno_por_persona',true),

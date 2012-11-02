@@ -53,8 +53,8 @@ echo
 			$html->div('arrival_date block'),
 				$form->input('arrival',array(
 					'class'=>'datepicker',
-					'label'=>__('llegada',true),
-					'after'=>$html->tag('span',__('retorno',true).' '.$html->tag('strong','+9').$form->input('retorno',array('div'=>false,'disabled'=>'disabled')))
+					'label'=>__('inicio_ocupacion',true),
+					'after'=>$html->tag('span',__('fin_ocupacion',true).' '.$html->tag('strong','+9').$form->input('retorno',array('div'=>false,'disabled'=>'disabled')))
 				)),
 			'</div>',
 
@@ -83,15 +83,11 @@ echo
 					hab_opcional = 0;
 				$("hab_opcional").set("html",hab_opcional);
 
-
 				var hab_opcional_adicional = $("taxiAdicionales").get("value").toInt() * '.$precio_hab_opcional.';
 
 				if(isNaN(hab_opcional_adicional))
 					hab_opcional_adicional = 0;
 				$("hab_opcional_adicional").set("html",hab_opcional_adicional);
-
-				console.log(hab_opcional + hab_opcional_adicional);
-				console.log($("big_total").get("html"));
 
 				var total_hab_opcional = (hab_opcional + hab_opcional_adicional) + $("big_total").get("html").toInt();
 				$("big_total_adicional").set("html",total_hab_opcional);

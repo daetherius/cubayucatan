@@ -113,7 +113,7 @@ var mooShowcase = new Class({
 					}).addEvent('click',function(e){ this.reset(); this.change(idx); }.bind(this)).inject(this.navbar,this.nav=='in' ? 'top':'bottom'));
 				}
 				
-				el.set('opacity',0);
+				el.setStyle('opacity',0);
 				this.fx.push(new Fx.Tween(el,{ property:'opacity', duration:this.options.duration, transition:Fx.Transitions.Quart.easeInOut, link:'cancel'}));
 				
 				var complete = false;

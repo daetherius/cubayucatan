@@ -397,6 +397,7 @@ ul li { margin:0 0 4px; }
 .date { font-size:10px;color:#999;margin:5px 0 0 0; }
 .desc { text-align:justify; }
 .desc.subtitulo { color:#0664BE;font-family: 'Merienda One', cursive;font-size:15px; }
+.desc strong { color:#0664BE;font-weight:bold; }
 .desc p { margin:0 0 10px 0;  }
 .comments {
 	float:left;
@@ -499,6 +500,9 @@ ul li { margin:0 0 4px; }
 /******** @INICIO ************************************************/
 
 #carousel { margin:0 auto;background:#fff url(/img/spinner.gif) no-repeat center center; }
+.cuba_travel > .info .title { float:left;width:80px; }
+.cuba_travel > .info .title + p { margin:0 0 0 105px;line-height:42px;color:#4C4C79;font-family:'Trebuchet MS', Helvetica, sans-serif;font-weight:bold;font-size:15px; }
+
 
 .c_inicio .column { width:48%; }
 .c_inicio .thumb.v {
@@ -592,9 +596,8 @@ ul li { margin:0 0 4px; }
 .c_packs .detail #carousel { margin:0 0 15px; }
 
 .c_packs .detail > .clear.info { margin:0; }
-.c_packs .detail > .clear.info > .column { width:212px; }
-.c_packs .detail > .clear.info > .column:first-child { width:510px; }
-
+.c_packs .detail > .clear.info > .column { width:232px; }
+.c_packs .detail > .clear.info > .column:first-child { width:490px; }
 
 .c_packs .mapa {
 	display:block;
@@ -667,8 +670,8 @@ a.reservar {
 .pack_options > .column a.reservar { margin:15px 0 0 auto; }
 .pack_options > .column .precio { font-size:34px; }
 
-.pack_options td { padding:10px 15px;vertical-align: middle; }
-
+.pack_options td { padding:0 15px;vertical-align: middle; }
+.pack_options td.bottomt { vertical-align: bottom; }
 .det_yucatan a.reservar {
 	margin:0 0 12px;
 }
@@ -717,7 +720,7 @@ a.reservar {
 	width:195px;
 	height:55px;
 }
-.voucher_note { font-size:16px;margin:0 20px; }
+.voucher_note { font-size:14px;margin:0 20px; }
 .voucher_note > .title { margin:0 0 5px 0;font-weight:bold;color:#333;font-size:16px; }
 
 .taxi_opcion > div.input.text {
@@ -857,6 +860,18 @@ a.reservar {
 /******** @FAQS ************************************************/
 
 .c_faqs .sectionHdr{ }
+.c_faqs .selector { text-align:center;overflow:hidden;margin:0 0 20px;border-bottom:#0664BE solid 1px; }
+.c_faqs .selector a {
+	width:25%;
+	display:-moz-inline-stack;display:inline-block;vertical-align:top;zoom:1;*display:inline;
+	font-size:18px;
+	font-family: 'Merienda One', cursive;
+	padding:6px 0;
+}
+.c_faqs .selector a.selected {
+	color:#fff;
+	background-color: #0664BE;
+}
 
 div.faq { margin:10px 50px 20px 0; }
 .title.pregunta {

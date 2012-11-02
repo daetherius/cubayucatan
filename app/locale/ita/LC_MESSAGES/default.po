@@ -80,7 +80,7 @@ msgid "testimonios"
 msgstr "Opinioni"
 
 msgid "nosotros"
-msgstr "Chi siamo"
+msgstr "Chi siamonte"
 
 msgid "aviso legal"
 msgstr "Aspetti legali"
@@ -89,13 +89,13 @@ msgid "alojese_casas_particulares"
 msgstr "A Cuba vi alloggiamo in case private, splendida alternativa agli Hotels, e anche meno cara."
 
 msgid "laboramos_desde_2004"
-msgstr "Lavoriamo con Cuba dal 2004, e con i nostri incaricati sull´Isola garantiamo le vostre prenotazioni nelle Cittá e nelle date che avrete scelto."
+msgstr "<strong>Lavoriamo con Cuba dal 2004</strong>, e con i nostri incaricati sull´Isola <strong>garantiamo</strong> le vostre prenotazioni nelle Cittá e nelle date che avrete scelto."
 
 msgid "aqui_caracteristicas_hab"
 msgstr "Qui di seguito, caratteristiche delle stanze, prezzi, modalitá di prenotazione e pagamento."
 
 msgid "trato_duenios_casas_en_cuba"
-msgstr "Conosciamo bene e lavoriamo da anni con i gerenti delle nostre case e di loro garantiamo l´assoluta onestá. Rispettano scrupolosamente la privacy degli ospiti, e curano particolarmente pulizia e igiene."
+msgstr "Conosciamo bene e lavoriamo da anni con i gerenti delle nostre case e di loro garantiamo l´assoluta onestá. Rispettano scrupolosamente la <strong>privacy degli ospiti</strong>, e curano particolarmente pulizia e igiene."
 
 msgid "caracteristicas_hab_cuba"
 msgstr "Tutte le stanze del nostro programma hanno bagno privato con doccia, acqua calda e fredda, e aria condizionata."
@@ -107,7 +107,7 @@ msgid "contacto_directo"
 msgstr "Contatto Diretto"
 
 msgid "links"
-msgstr "#links"
+msgstr "links"
 
 msgid "destinos_cuba"
 msgstr "#Destinos Cuba"
@@ -152,13 +152,13 @@ msgid "itinerario_propuesto"
 msgstr "Itinerario proposto"
 
 msgid "paquete4_desc_corta"
-msgstr "#"
+msgstr "Potete personalizzare la vacanza a Cuba scegliendo le Cittá che volete visitare fra queste nove che fanno parte del nostro programma."
 
 msgid "paquete5_desc_corta"
-msgstr "#"
+msgstr "Ecoparco Acquatico Xcanché, Zona Archeologica Ek Balam, Zona Archeologica di Chichén Itzá, Cittá di Izamal, Comunitá di Solferino, Comunitá Maya di Ek Balam, Cittá  di Mérida, Antiche Cittá di Cobá e Tulum."
 
 msgid "paquete6_desc_corta"
-msgstr "#"
+msgstr "Alloggio in mezza pensione nei Bungalows del Villaggio Maya e noleggio auto."
 
 msgid "plus_opciones"
 msgstr "piú opzioni"
@@ -187,8 +187,11 @@ msgstr "Prenota"
 msgid "precio_mayakot"
 msgstr "Prezzi Mayakot"
 
+msgid "precio_mayataan"
+msgstr "Prezzi Mayataan"
+
 msgid "nota_antes_reservar"
-msgstr "Le prenotazioni si effettuano  normalmente con 30 giorni di anticipo sulla data di partenza.  Possiamo farcela anche in minor tempo, dipende dal traffico di presenze: prendete contatto con noi per informazioni."
+msgstr "Le prenotazioni si effettuano normalmente con 30 giorni di anticipo sulla data di partenza. Possiamo farcela anche in minor tempo, dipende dal traffico di presenze: prendete contatto con noi per informazioni."
 
 msgid "nombre"
 msgstr "Nome"
@@ -204,6 +207,9 @@ msgstr "Conferma Email"
 
 msgid "num_personas"
 msgstr "Numero persone"
+
+msgid "hab_doble"
+msgstr "Numero stanze"
 
 msgid "incluye"
 msgstr "#Incluye"
@@ -238,6 +244,18 @@ msgstr "Data d’ arrivo"
 msgid "retorno"
 msgstr "Data d' ritorno"
 
+msgid "inicio"
+msgstr "Data d’ inizio"
+
+msgid "fin"
+msgstr "Data d’ inizio"
+
+msgid "inicio_ocupacion"
+msgstr "Data d’ inizio occupazione stanze"
+
+msgid "fin_ocupacion"
+msgstr "Data di fine occupazione stanze"
+
 msgid "indique_si_desea_taxi"
 msgstr "Per inviare il taxi, per favore comunicateci:"
 
@@ -245,7 +263,7 @@ msgid "formato_fecha_dmy"
 msgstr "(GG/MM/AA)"
 
 msgid "indique_si_desea_hab_opcional"
-msgstr "Prenotazione Hotel per la notte del giorno d’arrivo e/o quella del ritorno, dove consegnare auto e Vouchers (alle ore 9.30) e dove  ritirare il veicolo (alle ore 19),  o per notti supplementari di soggiorno."
+msgstr "Prenotazione Hotel per la notte del giorno d’arrivo e/o quella del ritorno, dove consegnare auto e Vouchers (alle ore 9.30) e dove ritirare il veicolo (alle ore 19), o per notti supplementari di soggiorno."
 
 msgid "indique_si_desea_hab_opcional2"
 msgstr "Potete riservare con noi una stanza d’albergo a Cancún, per la notte d’arrivo e alla fine del Tour:"
@@ -272,13 +290,13 @@ msgid "deposito_bancario"
 msgstr "Bonifico Bancario"
 
 msgid "pago_online"
-msgstr "#Pago online"
+msgstr "Carta di credito"
 
 msgid "voucher_note_title"
 msgstr "Voucher"
 
 msgid "voucher_note"
-msgstr "Ricevuta la prenotazione e il pagamento, invieremo il nostro Voucher all’indirizzo mail che ci fornirete, con la lista dettagliata dei servizi acquistati e con la dicitura “Pagati tutti i servizi elencati”, che mostrerete all’incaricato che vi consegnerá auto  e Vouchers relativi a ogni servizio."
+msgstr "Ricevuta la prenotazione e il pagamento, invieremo il nostro Voucher all’indirizzo mail che ci fornirete, con la lista dettagliata dei servizi acquistati e con la dicitura “Pagati tutti i servizi elencati”, che mostrerete all’incaricato che vi consegnerá auto e Vouchers relativi a ogni servizio."
 
 msgid "enviar"
 msgstr "Invia"
@@ -338,22 +356,22 @@ msgid "dia"
 msgstr "giorno"
 
 msgid "pack1_opcion1_desc"
-msgstr "#Descripcion opción de paquete"
+msgstr "Stanza Doppia tipo Standard e prima colazione nella Casa, per 20 giorni e per due persone, e corsa del taxi dall’Aereoporto José Martí alla Cittá dell’ Havana."
 
 msgid "pack1_opcion2_desc"
-msgstr "#Descripcion opción de paquete"
+msgstr "Stanza Doppia tipo Standard, prima colazione e cena nella Casa, per 20 giorni e per due persone, e corsa del taxi dall’Aereoporto alla Cittá dell’Havana."
 
 msgid "pack2_opcion1_desc"
-msgstr "#Descripcion opción de paquete"
+msgstr "Stanza Doppia tipo Standard e prima colazione nella Casa, per 15 giorni e per due persone, e corsa del taxi dall’Aereoporto José Martí alla Cittá de La Havana."
 
 msgid "pack2_opcion2_desc"
-msgstr "#Descripcion opción de paquete"
+msgstr "Stanza Doppia tipo Standard, prima colazione e cena nella Casa, per 15 giorni e per due persone, e corsa del taxi dall’Aereoporto alla Cittá dell’Havana."
 
 msgid "pack3_opcion1_desc"
-msgstr "#Descripcion opción de paquete"
+msgstr "Stanza Doppia tipo Standard e prima colazione nella Casa, per 10 giorni e per due persone, e corsa del taxi dall’Aereoporto José Martí alla Cittá de La Havana."
 
 msgid "pack3_opcion2_desc"
-msgstr "#Descripcion opción de paquete"
+msgstr "Stanza, prima colazione e cena nella Casa per 10 giorni e per due persone, e corsa del taxi dall’Aereoporto alla Cittá dell’Havana."
 
 msgid "precio_total_por_persona"
 msgstr "Prezzo totale, per due persone"

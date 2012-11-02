@@ -22,7 +22,7 @@ var moofancyupload = new Class({
 		this.fancy($(element));
 	},
 	fancy: function(el){
-		el.set('opacity',0.005); // on ta butonshito? :3
+		el.setStyle('opacity',0.005); // on ta butonshito? :3
 		this.wrapper = new Element('div',{ 'class':'fancyupload' })
 		this.wrapper.wraps(el);
 	

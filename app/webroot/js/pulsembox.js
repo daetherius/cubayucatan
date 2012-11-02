@@ -273,12 +273,12 @@ var Pulsembox = new Class({
 			
 			var ajaxContentW = (params['width']).toInt();
 			
-			var resized = [];
 			var yplus = this.yplus = 46 + 40; // 46px (PboxHeader) + 40px (Margen)
 			var x = window.getWidth() - (20+17); // 20 margen lateral + ancho scroll lateral
 			var y = this.y = window.getHeight() - yplus;
 			
 			this.boxWidth = ajaxContentW > x ? x : ajaxContentW;
+			this.boxHeight = params['height'] || 0;
 
 			$('PboxPad').setStyle('padding',0).adopt(new Element('div#PboxAjaxContent',{ styles:{ width:this.boxWidth }}));
 
@@ -289,6 +289,12 @@ var Pulsembox = new Class({
 				$("PboxAjaxContent").set('html',$(params['inlineId']).get('html'));
 				this.resizeBox();
 				
+			} else if(url.indexOf('PboxIframe') != -1) { // iframe
+
+				if(!params['width']) this.failure('No se especificó ancho de la ventana');
+				$("PboxAjaxContent").adopt(new Element('iframe',{'src':url,'frameborder':'no','framespacing':0}));
+				this.resizeBox();
+
 			} else {
 				new Request.HTML({
 					method: 'get',
@@ -318,7 +324,7 @@ var Pulsembox = new Class({
 		$('PboxOverlay').set('background-image','none');
 		
 		/// Position
-		if($('Pulsembox').get('opacity') == 0){
+		if($('Pulsembox').getStyle('opacity') == 0){
 			$('Pulsembox').setStyles(moveTo);
 		} else {
 			if(this.boxMoveFx){ this.boxMoveFx.start(moveTo); }
@@ -334,26 +340,28 @@ var Pulsembox = new Class({
 			}
 		};
 		
-		if($('Pulsembox').get('opacity') < 1){
+		if($('Pulsembox').getStyle('opacity') < 1){
 			this.boxFx.start({'opacity':1}).chain(afterShow.bind(this));
 		} else {
 			(afterShow.bind(this))();
 		}
 	},
 	resizeBox: function(){
+		this.boxHeight = this.boxHeight.toInt();
 		/// Calcular dimensiones
-		$('PboxAjaxContent').setStyle('height','auto');
-		var measured = $('PboxAjaxContent').measure(function (){ return this.getDimensions(); }), w, h;
-		if(measured.y > this.y){
-			this.boxHeight = this.y;
-			$('PboxAjaxContent').setStyle('height',this.boxHeight);
-			this.boxWidth+=17;
-		} else {
+		if(!this.boxHeight){
+			$('PboxAjaxContent').setStyle('height','auto');
+			var measured = $('PboxAjaxContent').measure(function (){ return this.getDimensions(); }), w, h;
 			this.boxHeight = measured.y;
 		}
+
+		if(this.boxHeight > this.y){
+			this.boxHeight = this.y;
+			this.boxWidth+=17;
+		}
 		
+		$('PboxAjaxContent').setStyle('height',this.boxHeight);
 		this.boxHeight+= this.yplus - 10;
-		
 		this.showBox();
 	},
 	getParams: function(query){

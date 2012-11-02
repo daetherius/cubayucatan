@@ -2,7 +2,7 @@
 if(!empty($this->params['named']['tipo']))
 	$tipo = ' / '.__($this->params['named']['tipo'],true);
 
-echo $this->element('top',array('header'=>$_ts.$tipo));
+echo $this->element('top',array('header'=>__(strtolower($_ts),true).$tipo));
 	
 	if($items){
 		foreach($items as $item)

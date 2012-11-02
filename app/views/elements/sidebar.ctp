@@ -95,13 +95,15 @@ if((!in_array($this->params['controller'],array('destinations','posts'))) && $it
 	}
 }
 
-if(is_c('products',$this) && isset($item) && $item){
-	echo $this->element('add2cart',array('data'=>$item));
+if(is_c('packs',$this) && !empty($item)){
+	//if(in_array($item['Pack']['id'], array())){} else {}
+	echo
+		$html->link('',urla,array('class'=>''));
 }
 
 echo
 	$html->div('banners',$this->element('banners'),array('id'=>'banners')), $moo->showcase('banners',array('nav'=>'out')),
-	$html->link(__('convertidor_divisas',true),'#',array('class'=>'convertidor'));
+	$html->link(__('convertidor_divisas',true),'/inicio/convertidor#PboxIframe?width=254&height=168',array('class'=>'convertidor pulsembox'));
 ?>
 </div>
 </div>
