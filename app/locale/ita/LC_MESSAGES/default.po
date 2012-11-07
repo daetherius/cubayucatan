@@ -80,7 +80,7 @@ msgid "testimonios"
 msgstr "Opinioni"
 
 msgid "nosotros"
-msgstr "Chi siamonte"
+msgstr "Chi siamo"
 
 msgid "aviso legal"
 msgstr "Aspetti legali"
@@ -125,7 +125,7 @@ msgid "cambio_moneda"
 msgstr "Moneta e cambi"
 
 msgid "menu"
-msgstr "#Menú"
+msgstr "Menú"
 
 msgid "ver fotos"
 msgstr "#Ver fotos"
@@ -173,7 +173,7 @@ msgid "conozca"
 msgstr "Conosci"
 
 msgid "leer_mas"
-msgstr "#Leer más"
+msgstr "Leggi descrizione"
 
 msgid "mapa"
 msgstr "Mappa"
@@ -416,7 +416,7 @@ msgid "ver_todas"
 msgstr "#Ver todas"
 
 msgid "convertidor_divisas"
-msgstr "#Convertidor de divisas"
+msgstr "Convertitore di Valute"
 
 msgid "Ingrese un valor entre 1 y 255 caracteres de longitud."
 msgstr "#Ingrese un valor entre 1 y 255 caracteres de longitud."
@@ -444,4 +444,3 @@ msgstr "#reservacion_enviada_correctamente"
 
 msgid "problema_al_enviar_reservacion"
 msgstr "#problema_al_enviar_reservacion"
-
