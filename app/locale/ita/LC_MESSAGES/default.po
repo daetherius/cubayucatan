@@ -110,10 +110,10 @@ msgid "links"
 msgstr "links"
 
 msgid "destinos_cuba"
-msgstr "#Destinos Cuba"
+msgstr "Mete proposte Cuba"
 
 msgid "destinos_yucatan"
-msgstr "#Destinos Yucatán"
+msgstr "Mete proposte Yucatán"
 
 msgid "embajada"
 msgstr "Ambasciata"
@@ -129,6 +129,9 @@ msgstr "#Menú"
 
 msgid "ver fotos"
 msgstr "#Ver fotos"
+
+msgid "personas"
+msgstr "persone"
 
 msgid "por_dia_por_persona_br"
 msgstr "Per giorno<br/>per 2 persone"
@@ -184,11 +187,14 @@ msgstr "Se avete necessitá speciali, prendete contatto con noi:"
 msgid "reservar"
 msgstr "Prenota"
 
-msgid "precio_mayakot"
-msgstr "Prezzi Mayakot"
+msgid "precio"
+msgstr "Prezzi"
 
-msgid "precio_mayataan"
-msgstr "Prezzi Mayataan"
+msgid "mayakot"
+msgstr "Mayakot"
+
+msgid "mayataan"
+msgstr "Mayataan"
 
 msgid "nota_antes_reservar"
 msgstr "Le prenotazioni si effettuano normalmente con 30 giorni di anticipo sulla data di partenza. Possiamo farcela anche in minor tempo, dipende dal traffico di presenze: prendete contatto con noi per informazioni."
@@ -210,6 +216,12 @@ msgstr "Numero persone"
 
 msgid "hab_doble"
 msgstr "Numero stanze"
+
+msgid "estancia"
+msgstr "Stanze"
+
+msgid "parejas"
+msgstr "coppie"
 
 msgid "incluye"
 msgstr "#Incluye"
@@ -233,7 +245,7 @@ msgid "y"
 msgstr "e"
 
 msgid "ver_detalles"
-msgstr "#Ver detalles"
+msgstr "Leggi descrizione"
 
 msgid "total"
 msgstr "Totale"
@@ -292,7 +304,7 @@ msgstr "Bonifico Bancario"
 msgid "pago_online"
 msgstr "Carta di credito"
 
-msgid "voucher_note_title"
+msgid "voucher"
 msgstr "Voucher"
 
 msgid "voucher_note"
@@ -302,7 +314,7 @@ msgid "enviar"
 msgstr "Invia"
 
 msgid "caracteristicas_hab_cuba_propuesto"
-msgstr "PrezzoÊdella stanza Doppia, tipo Standard, con aria condizionata e bagno privato con doccia, acqua calda e fredda, della primaÊcolazione, e taxi dall’Aereoporto."
+msgstr "Prezzo della stanza Doppia, tipo Standard, con aria condizionata e bagno privato con doccia, acqua calda e fredda, della prima colazione, e taxi dall’Aereoporto."
 
 msgid "precio_hab_doble_por_noche"
 msgstr "Prezzo della stanza doppia, per notte"
@@ -426,4 +438,10 @@ msgstr "#Ingrese su nombre por favor"
 
 msgid "Ingrese su comentario"
 msgstr "#Ingrese su comentario"
+
+msgid "reservacion_enviada_correctamente"
+msgstr "#reservacion_enviada_correctamente"
+
+msgid "problema_al_enviar_reservacion"
+msgstr "#problema_al_enviar_reservacion"
 

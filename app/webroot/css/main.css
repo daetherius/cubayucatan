@@ -704,6 +704,11 @@ a.reservar {
 	text-align:center;
 	margin:30px 0 40px;
 }
+#reservar .big_total.precio.multiple {
+	font-size:15px;
+	color:#333;
+}
+#reservar .big_total .precio { font-size:32px; }
 
 .total_label {
 	color:#333;
@@ -721,7 +726,7 @@ a.reservar {
 	height:55px;
 }
 .voucher_note { font-size:14px;margin:0 20px; }
-.voucher_note > .title { margin:0 0 5px 0;font-weight:bold;color:#333;font-size:16px; }
+.voucher_note > .title { margin:0 0 8px 0;font-weight:bold;font-size:20px; }
 
 .taxi_opcion > div.input.text {
 	float:left;
@@ -733,11 +738,11 @@ a.reservar {
 .taxi_opcion.yucatan > div.input.text { float:none;width:auto;margin:0; }
 .taxi_opcion.yucatan > div.input.text label { display:-moz-inline-stack;display:inline-block;vertical-align:middle;zoom:1;*display:inline;padding:0 15px 0 0; }
 .taxi_opcion.yucatan > div.input.text input { width:30px; }
-.taxi_opcion.yucatan #taxiArribo { width:100px; }
+.taxi_opcion.yucatan #ReservationTaxiArribo { width:100px; }
 
 .taxi_opcion.yucatan .datos_hotel > div.input.text { display:-moz-inline-stack;display:inline-block;vertical-align:top;zoom:1;*display:inline;margin:0 15px 0 0; }
-.taxi_opcion.yucatan #taxiNombreHotel { width:190px; }
-.taxi_opcion.yucatan #taxiDireccionHotel { width:460px; }
+.taxi_opcion.yucatan #ReservationTaxiNombreHotel { width:190px; }
+.taxi_opcion.yucatan #ReservationTaxiDireccionHotel { width:460px; }
 
 
 .forma_pago { margin:30px auto 20px;width:480px;font-size:20px; }
@@ -745,7 +750,7 @@ a.reservar {
 
 /* Cuba Personalizado */
 
-#reservar #ReservationHabDoble { width:30px; }
+#reservar #ReservationHab { width:30px; }
 
 .custom_dates table { width:550px;margin:10px 0 0 0;border-top:#666 solid 1px; }
 .custom_dates table td { text-align:center;padding:3px 6px;vertical-align: middle; }
@@ -757,7 +762,7 @@ a.reservar {
 
 .arrival_date { padding:0;text-align:center; }
 .arrival_date div.input { display:inline; }
-.arrival_date div.input input[type=text]{ width: 160px }
+.arrival_date div.input input[type=text]{ width: 90px }
 .arrival_date div.input label {
 	display:-moz-inline-stack;display:inline-block;vertical-align:middle;zoom:1;*display:inline;
 	padding:0 15px 0;

@@ -2,10 +2,52 @@
 App::import('Controller','_base/Unlisteditems');
 class PacksController extends UnlisteditemsController{
 	var $name = 'Packs';
-	var $uses = array('Pack','Destination');
+	var $uses = array('Pack','Destination','Reservation');
+	var $components = array('Email');
 
+	function complete(){}
 	function reservar($id, $opcion = false){
 		$id = $this->_checkid($id,false);
+
+		if(!empty($this->data)){
+			$this->Reservation->set($this->data);
+			if($this->Reservation->save()){
+
+				$site = Configure::read('Site');
+				$data = $this->data['Reservation'];
+
+				$this->Reservation->clean($data,false,false);
+				$fields = array();
+
+				foreach ($this->Reservation->_schema as $field => $fdata) {
+					$fields[$field] = $fdata['label'];
+				}
+
+				$this->set(compact('data','fields'));
+				
+				$this->Email->to = $site['email'];
+				$this->Email->from = $site['name'].' <noreply@'.$site['domain'].'>';
+				$this->Email->subject = 'Reservación desde '.ucfirst($site['domain']);
+				$this->Email->delivery = 'mail';
+				$this->Email->sendAs = 'html';
+				$this->Email->template = 'reservation';
+
+				if(Configure::read('debug')===0){
+					if($this->Email->send()){
+						$msg = 'reservacion_enviada_correctamente';
+					}
+					else
+						$msg = 'problema_al_enviar_reservacion';
+				} else {
+					$this->Email->delivery = 'debug';
+					$this->Email->send();
+					$msg = 'El Formulario ha sido desactivado porque está en modo Demo.';
+				}
+				$this->_flash(__($msg,true));
+				$this->redirect(array('controller'=>'packs','action'=>'complete'));
+			}
+		}
+
 		$item = $this->Pack->find_(array($id,'contain'=>false));
 		$this->set(compact('item'));
 		$opciones = array(1=>array(620,984),2=>array(485,758),3=>array(350,522));
@@ -13,6 +55,7 @@ class PacksController extends UnlisteditemsController{
 		if(empty($opcion) && (!empty($opciones[$id]))){
 			$this->set('opcion',$opciones[$id][0]);
 		}
+
 
 		if($id > 4){ /// Yucatan
 			$this->render('/packs/reservar_yucatan');

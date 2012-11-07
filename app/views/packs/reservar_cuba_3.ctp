@@ -23,7 +23,7 @@ echo
 				$form->input('apellidos',array('label'=>__('apellidos',true))),
 				$form->input('email',array('label'=>__('email',true))),
 				$form->input('confirma_email',array('label'=>__('confirma_email',true))),
-				$form->input('hab_doble',array(
+				$form->input('hab',array(
 					'label'=>__('hab_doble',true),
 					'maxlength'=>3,
 					'value'=>1,
@@ -36,8 +36,9 @@ echo
 			$html->div('arrival_date block'),
 				$form->input('arrival',array(
 					'class'=>'datepicker',
+					'type'=>'text',
 					'label'=>__('inicio_ocupacion',true),
-					'after'=>$html->tag('span',__('fin_ocupacion',true).' '.$html->tag('strong','+9').$form->input('retorno',array('div'=>false,'disabled'=>'disabled')))
+					'after'=>$html->tag('span',__('fin_ocupacion',true).' '.$html->tag('strong','+9').$form->input('retorno',array('div'=>false,'type'=>'text','disabled'=>'disabled')))
 				)),
 			'</div>',
 
@@ -46,9 +47,9 @@ echo
 			$this->element('pago_opcion'),
 	'</div>';
 
-	$updateRoomTotal = 'var inted = $("ReservationHabDoble").get("value").toInt(); if(!isNaN(inted)){ $("num_personas").set("html",inted * 2); $("total_hab").set("html",inted * $("ReservationOpcion").get("value")); $("big_total").set("html",inted * $("ReservationOpcion").get("value")); } ';
+	$updateRoomTotal = 'var inted = $("ReservationHab").get("value").toInt(); if(!isNaN(inted)){ $("num_personas").set("html",inted * 2); $("total_hab").set("html",inted * $("ReservationOpcion").get("value")); $("big_total").set("html",inted * $("ReservationOpcion").get("value")); } ';
 
-	$moo->addEvent('ReservationHabDoble','keyup',$updateRoomTotal);
+	$moo->addEvent('ReservationHab','keyup',$updateRoomTotal);
 	$moo->buffer($updateRoomTotal);
 	
 	$lang = $_lang == 'ita' ? 'it-IT':'es-ES';

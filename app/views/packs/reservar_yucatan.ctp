@@ -25,7 +25,6 @@ echo
 	$html->div('detail det_yucatan'),
 		$html->tag('h1',$titulo,array('class'=>'title')),
 		($subtitulo ? $html->div('title title2 broken',$subtitulo) : ''),
-		$html->tag('h2','La Havana, Trinidad, Camagüey, Baracoa, Santiago, La Havana','title red'),
 		//$html->para(null,__('nota_antes_reservar',true)),
 
 		$form->create('Reservation',array('url'=>$this->here,'id'=>'reservar','inputDefaults'=>array('label'=>false))),
@@ -53,8 +52,9 @@ echo
 			$html->div('arrival_date block'),
 				$form->input('arrival',array(
 					'class'=>'datepicker',
+					'type'=>'text',
 					'label'=>__('inicio_ocupacion',true),
-					'after'=>$html->tag('span',__('fin_ocupacion',true).' '.$html->tag('strong','+9').$form->input('retorno',array('div'=>false,'disabled'=>'disabled')))
+					'after'=>$html->tag('span',__('fin_ocupacion',true).' '.$html->tag('strong','+9').$form->input('retorno',array('div'=>false,'disabled'=>'disabled','type'=>'text')))
 				)),
 			'</div>',
 
@@ -75,28 +75,25 @@ echo
 	$moo->addEvent('ReservationNumPersonas','click',$updateRoomTotal);
 	$moo->buffer($updateRoomTotal);
 	
-	if($item['Pack']['id'] > 4) {
-			$updateOptionalRooms = '
-				var hab_opcional = $("taxiHab").get("value").toInt() * 2 *'.$precio_hab_opcional.';
+	$updateOptionalRooms = '
+		var hab_opcional = $("ReservationTaxiHab").get("value").toInt() * 2 *'.$precio_hab_opcional.';
 
-				if(isNaN(hab_opcional))
-					hab_opcional = 0;
-				$("hab_opcional").set("html",hab_opcional);
+		if(isNaN(hab_opcional))
+			hab_opcional = 0;
+		$("hab_opcional").set("html",hab_opcional);
 
-				var hab_opcional_adicional = $("taxiAdicionales").get("value").toInt() * '.$precio_hab_opcional.';
+		var hab_opcional_adicional = $("ReservationTaxiAdicionales").get("value").toInt() * '.$precio_hab_opcional.';
 
-				if(isNaN(hab_opcional_adicional))
-					hab_opcional_adicional = 0;
-				$("hab_opcional_adicional").set("html",hab_opcional_adicional);
+		if(isNaN(hab_opcional_adicional))
+			hab_opcional_adicional = 0;
+		$("hab_opcional_adicional").set("html",hab_opcional_adicional);
 
-				var total_hab_opcional = (hab_opcional + hab_opcional_adicional) + $("big_total").get("html").toInt();
-				$("big_total_adicional").set("html",total_hab_opcional);
-			';
-			$moo->addEvent('taxiHab','keyup',$updateOptionalRooms);
-			$moo->addEvent('taxiAdicionales','keyup',$updateOptionalRooms);
-			$moo->buffer($updateOptionalRooms);
-
-	}
+		var total_hab_opcional = (hab_opcional + hab_opcional_adicional) + $("big_total").get("html").toInt();
+		$("big_total_adicional").set("html",total_hab_opcional);
+	';
+	$moo->addEvent('ReservationTaxiHab','keyup',$updateOptionalRooms);
+	$moo->addEvent('ReservationTaxiAdicionales','keyup',$updateOptionalRooms);
+	$moo->buffer($updateOptionalRooms);
 
 	$moo->datepicker(array('lang'=>($_lang == 'ita' ? 'it-IT':'es-ES'),'onSelect'=>'function(date){ date.setDate(date.getDate() + 9); $("ReservationRetorno").set("value",date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()); }'));
 ?>

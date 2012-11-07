@@ -19,14 +19,15 @@ echo
 		'</div>',
 		$html->div('lists'),
 			$html->div('column'),
-				$html->div('title title3',__('links',true)),
+			
+/*				$html->div('title title3',__('links',true)),
 				$html->tag('ul'),
 					$html->tag('li',$html->link('','http://',array('target'=>'_blank','rel'=>'nofollow'))),
 					$html->tag('li',$html->link('','http://',array('target'=>'_blank','rel'=>'nofollow'))),
 					$html->tag('li',$html->link('','http://',array('target'=>'_blank','rel'=>'nofollow'))),
 					$html->tag('li',$html->link('','http://',array('target'=>'_blank','rel'=>'nofollow'))),
 				'</ul>',
-			'</div>';
+*/			'</div>';
 
 			if($packs){
 				echo $html->div('column');
