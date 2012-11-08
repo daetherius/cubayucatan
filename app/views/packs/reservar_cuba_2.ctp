@@ -6,7 +6,7 @@ echo
 	$this->element('top',array('header'=>'')),
 	$html->div('detail det_cuba'),
 		$html->tag('h1',$item[$_m[0]]['nombre_'.$_lang],array('class'=>'title')),
-		$html->tag('h2','La Habana,  Trinidad,  Santa Clara, La Habana','title red'),
+		$html->tag('h2','La Habana,  Cienfuegos, Trinidad, La Habana','title red'),
 		$html->para(null,__('nota_antes_reservar',true)),
 
 		$form->create('Reservation',array('url'=>$this->here,'id'=>'reservar','inputDefaults'=>array('label'=>false))),
@@ -24,10 +24,10 @@ echo
 				$form->input('email',array('label'=>__('email',true))),
 				$form->input('confirma_email',array('label'=>__('confirma_email',true))),
 				$form->input('hab',array(
-					'label'=>__('paquete_doble',true),
+					'label'=>__('num_habitacion_doble',true),
 					'maxlength'=>3,
 					'value'=>1,
-					'after'=>$html->tag('span','x '.$html->tag('span','€'.$html->tag('span','',array('id'=>'total_hab')),'precio').$html->tag('span','('.$html->tag('span','2',array('id'=>'num_personas')).' personas)','pad'),'pad')
+					'after'=>$html->tag('span','x '.$html->tag('span','€'.$html->tag('span','',array('id'=>'total_hab')),'precio').$html->tag('span','('.$html->tag('span','2',array('id'=>'num_personas')).' '.__('personas',true).')','pad'),'pad')
 				)),
 			'</div>',
 			

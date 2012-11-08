@@ -7,7 +7,7 @@ echo
 	$this->element('top',array('header'=>'')),
 	$html->div('detail det_cuba'),
 		$html->tag('h1',$item[$_m[0]]['nombre_'.$_lang],array('class'=>'title')),
-		$html->tag('h2','Pinar del Río, La Havana, Cienfuegos, Trinidad, Santa Clara, Camaguey, Bayamo, Baracoa, Santiago','title red'),
+		$html->tag('h2','La Havana, Pinar del Río, Cienfuegos, Trinidad, Santa Clara, Camaguey, Bayamo, Baracoa, Santiago','title red'),
 		$html->para(null,__('nota_antes_reservar',true)),
 
 		$form->create('Reservation',array('url'=>$this->here,'id'=>'reservar','inputDefaults'=>array('label'=>false))),
@@ -28,9 +28,9 @@ echo
 				$html->div('title title3 red',__('arma_tu_plan',true)),
 				$html->para('',__('fechas_de_ocupacion',true)),
 				$html->tag('table'),
-					$html->tableHeaders(array('',__('inicio_ocupacion',true).' '.__('formato_fecha_dmy',true),__('dias_estancia',true))),
+					$html->tableHeaders(array('',__('llegada',true).' '.__('formato_fecha_dmy',true),__('dias_estancia',true))),
 					$html->tableCells(array(
-						array($html->tag('span','Havana ('.__('fin_ocupacion',true).')'),	$form->input('havana_arrival',array('class'=>'datepicker','type'=>'text')),			array($form->input('havana_days',array('maxlength'=>3,'value'=>1,'class'=>'days_input')),array('class'=>'days'))),
+						array($html->tag('span','Havana ('.__('inicio',true).')'),	$form->input('havana_arrival',array('class'=>'datepicker','type'=>'text')),			array($form->input('havana_days',array('maxlength'=>3,'value'=>1,'class'=>'days_input')),array('class'=>'days'))),
 						array($html->tag('span','Pinar del Río'),					$form->input('pinar_del_rio_arrival',array('class'=>'datepicker','type'=>'text')),		array($form->input('pinar_del_rio_days',array('maxlength'=>3,'value'=>1,'class'=>'days_input')),array('class'=>'days'))),
 						array($html->tag('span','Cienfuegos'),						$form->input('cienfuegos_arrival',array('class'=>'datepicker','type'=>'text')),		array($form->input('cienfuegos_days',array('maxlength'=>3,'value'=>1,'class'=>'days_input')),array('class'=>'days'))),
 						array($html->tag('span','Trinidad'),						$form->input('trinidad_arrival',array('class'=>'datepicker','type'=>'text')),			array($form->input('trinidad_days',array('maxlength'=>3,'value'=>1,'class'=>'days_input')),array('class'=>'days'))),

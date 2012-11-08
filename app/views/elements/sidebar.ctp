@@ -96,9 +96,11 @@ if((!in_array($this->params['controller'],array('destinations','posts'))) && $it
 }
 
 if(is_c('packs',$this) && !empty($item)){
+	/*
 	//if(in_array($item['Pack']['id'], array())){} else {}
 	echo
 		$html->link('',urla,array('class'=>''));
+	*/
 }
 
 echo

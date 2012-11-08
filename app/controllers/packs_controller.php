@@ -50,12 +50,7 @@ class PacksController extends UnlisteditemsController{
 
 		$item = $this->Pack->find_(array($id,'contain'=>false));
 		$this->set(compact('item'));
-		$opciones = array(1=>array(620,984),2=>array(485,758),3=>array(350,522));
-
-		if(empty($opcion) && (!empty($opciones[$id]))){
-			$this->set('opcion',$opciones[$id][0]);
-		}
-
+		$this->set(compact('opcion'));
 
 		if($id > 4){ /// Yucatan
 			$this->render('/packs/reservar_yucatan');

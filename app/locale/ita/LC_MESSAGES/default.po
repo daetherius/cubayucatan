@@ -1,17 +1,17 @@
 msgid "Captcha"
-msgstr "#Pregunta anti-spam"
+msgstr "Antispam domanda"
 
 msgid "captchaExplained"
-msgstr "<a href='http://it.wikipedia.org/wiki/Captcha' target='_blank' rel='nofollow'>#¿Qué es esto?</a>"
+msgstr "<a href='http://it.wikipedia.org/wiki/Captcha' target='_blank' rel='nofollow'>Di cosa si tratta?</a>"
 
 msgid "calcMinus"
-msgstr "menos"
+msgstr "meno"
 
 msgid "calcPlus"
-msgstr "mas"
+msgstr "più"
 
 msgid "calcTimes"
-msgstr "por"
+msgstr "per"
 
 msgid "captchaResultIncorrect"
 msgstr "El resultado es incorrecto"
@@ -29,34 +29,34 @@ msgid "one"
 msgstr "uno"
 
 msgid "two"
-msgstr "dos"
+msgstr "due"
 
 msgid "three"
-msgstr "tres"
+msgstr "tre"
 
 msgid "four"
-msgstr "cuatro"
+msgstr "quattro"
 
 msgid "five"
-msgstr "cinco"
+msgstr "cinque"
 
 msgid "six"
-msgstr "seis"
+msgstr "sei"
 
 msgid "seven"
-msgstr "siete"
+msgstr "sette"
 
 msgid "eight"
-msgstr "ocho"
+msgstr "otto"
 
 msgid "nine"
-msgstr "nueve"
+msgstr "nove"
 
 msgid "ten"
-msgstr "diez"
+msgstr "dieci"
 
 msgid "zero"
-msgstr "cero"
+msgstr "zero"
 
 msgid "toggle_lang"
 msgstr "Español"
@@ -128,7 +128,7 @@ msgid "menu"
 msgstr "Menú"
 
 msgid "ver fotos"
-msgstr "#Ver fotos"
+msgstr "Guarda le foto"
 
 msgid "personas"
 msgstr "persone"
@@ -167,10 +167,13 @@ msgid "plus_opciones"
 msgstr "piú opzioni"
 
 msgid "no_elementos_para_mostrar"
-msgstr "#No hay elementos para mostrar"
+msgstr "Non ci sono informazioni da evidenziare"
 
 msgid "conozca"
 msgstr "Conosci"
+
+msgid "opcion"
+msgstr "Opzione"
 
 msgid "leer_mas"
 msgstr "Leggi descrizione"
@@ -224,7 +227,7 @@ msgid "parejas"
 msgstr "coppie"
 
 msgid "incluye"
-msgstr "#Incluye"
+msgstr "Include"
 
 msgid "bungalow_doble"
 msgstr "Bungalow Doppio"
@@ -260,7 +263,7 @@ msgid "inicio"
 msgstr "Data d’ inizio"
 
 msgid "fin"
-msgstr "Data d’ inizio"
+msgstr "Data d’ fine"
 
 msgid "inicio_ocupacion"
 msgstr "Data d’ inizio occupazione stanze"
@@ -341,7 +344,7 @@ msgid "fechas_de_ocupacion"
 msgstr "Date d’occupazione stanze"
 
 msgid "dias_estancia"
-msgstr "#Dias de estancia"
+msgstr "Giorni di permanenza"
 
 msgid "numero_total_de_dias"
 msgstr "Numero giorni total"
@@ -410,37 +413,40 @@ msgid "comentarios"
 msgstr "commenti"
 
 msgid "no_comentarios_aun"
-msgstr "#No hay comentarios aún"
+msgstr "Non ci sono commenti"
 
 msgid "ver_todas"
-msgstr "#Ver todas"
+msgstr "Leggi tutto"
 
 msgid "convertidor_divisas"
 msgstr "Convertitore di Valute"
 
 msgid "Ingrese un valor entre 1 y 255 caracteres de longitud."
-msgstr "#Ingrese un valor entre 1 y 255 caracteres de longitud."
+msgstr "Inserisci una frase, di lunghezza da 1 a 255 caratteri."
 
 msgid "Ingrese una dirección web válida."
-msgstr "#Ingrese una dirección web válida."
+msgstr "Inserisci un indirizzo web valido."
 
 msgid "Ingrese una fecha válida."
-msgstr "#Ingrese una fecha válida."
+msgstr "Inserisci una data valida."
 
 msgid "Ingrese una dirección de correo electrónico válida."
-msgstr "#Ingrese una dirección de correo electrónico válida."
+msgstr "Inserisci un indirizzo di posta elettronica valido."
 
 msgid "Ingrese un texto."
-msgstr "#Ingrese un texto."
+msgstr "Inserisci un testo."
 
 msgid "Ingrese su nombre por favor"
-msgstr "#Ingrese su nombre por favor"
+msgstr "Metti qui per favore il tuo nome."
 
 msgid "Ingrese su comentario"
-msgstr "#Ingrese su comentario"
+msgstr "Commenta."
 
 msgid "reservacion_enviada_correctamente"
 msgstr "#reservacion_enviada_correctamente"
 
 msgid "problema_al_enviar_reservacion"
 msgstr "#problema_al_enviar_reservacion"
+
+msgid "confirmacion_email"
+msgstr "#confirmacion_email"
