@@ -9,7 +9,7 @@ echo
 		$html->tag('h2','La Havana, Trinidad, Camagüey, Baracoa, Santiago, La Havana','title red'),
 		$html->para(null,__('nota_antes_reservar',true)),
 
-		$form->create('Reservation',array('url'=>$this->here,'id'=>'reservar','inputDefaults'=>array('label'=>false))),
+		$form->create('Reservation',array('url'=>array('controller'=>'packs','action'=>'add2cart'),'id'=>'reservar','inputDefaults'=>array('label'=>false))),
 			$html->div('basic_info block'),
 				$form->input('opcion',array(
 					'label'=>__('opcion',true),

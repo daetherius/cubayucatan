@@ -5,9 +5,10 @@ class PaypalComponent extends Object {
 	var $debug = true; // Debug to Log
 	var $credentials = array(
 		'live'=>array(
-			'USER'=>'',//Username
-			'PWD'=>'',//Password
-			'SIGNATURE'=>''
+			'USER'=>'umberto_api1.cubayucatan.com',//Username
+			'PWD'=>'NSSTR5E4VQ8K9QF4',//Password
+			'SIGNATURE'=>'A--3HR.KLkVc38u9kIVBaK-oM7eKAbZ2kxbmDp-lBPqHKfJflnopX4XI'
+			//'ID?'=>'8dWq6smfnTSlU-29MDK1QV1f0CYJPsMhxkFSPf1Av-lqXHeJzu2sTySfaZC'
 		),
 		'sandbox'=>array(
 			'USER'=>'sdk-three_api1.sdk.com',//Username

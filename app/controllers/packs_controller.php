@@ -5,7 +5,18 @@ class PacksController extends UnlisteditemsController{
 	var $uses = array('Pack','Destination','Reservation');
 	var $components = array('Email');
 
-	function complete(){}
+	/** Cart functions **/
+	
+	function remove(){ $this->Cart->remove(); }
+	function add2cart(){ $this->Cart->add2cart(); }
+	function checkout(){ $this->Cart->checkout(); }
+	function finalizado(){ $this->Cart->docheckout(); }
+	function updateqty(){ $this->Cart->updateqty(); }
+	function cancelado(){ $this->render('/productos/finalizado'); }
+	function setcheckout(){ $this->Cart->setcheckout(); }
+
+	/********************/
+
 	function reservar($id, $opcion = false){
 		$id = $this->_checkid($id,false);
 
