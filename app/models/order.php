@@ -1,6 +1,6 @@
 <?php
-class Reservation extends AppModel {
-	var $name = 'Reservation';
+class Order extends AppModel {
+	var $name = 'Order';
 	var $labels = array(
 		'forma_pago'=>'Forma de pago',
 		'hab'=>'Habitaciones Dobles',

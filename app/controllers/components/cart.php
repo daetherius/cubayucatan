@@ -8,23 +8,26 @@ class CartComponent extends Object {
 	);
 	var $components = array('Cookie','Session','Paypal');
 	var $out_of_stock = array();
+	var $item_model = 'Product';
+	var $currency = 'MXN';
 
 	function initialize(&$controller) {
 		$this->controller =& $controller;
-		$this->Product = $this->controller->Product;
+		$this->item_model = $this->controller->uses[0];
+		$this->Product = $this->controller->{$this->item_model};
 		$this->Order = $this->controller->Order;
 		//fb($this->Session->read('cart'),'Session->cart');
 	}
 
 	function add2cart(){
-		$item_id = $this->controller->data['Product']['id'];
-		$type_id = $this->controller->data['Product']['type'];
+		$item_id = $this->controller->data[$this->item_model]['id'];
+		$type_id = $this->controller->data[$this->item_model]['type'];
 
 		if(!empty($item_id)){
 			$item = $this->Product->find_(array(
 				$item_id,
-				'contain'=>array('Productportada'),
-				'fields'=>array('id','nombre','slug','precio','Productportada.src')
+				'contain'=>array($this->item_model.'portada'),
+				'fields'=>array('id','nombre','slug','precio',$this->item_model.'portada.src')
 			),'first');
 			
 			if($item){
@@ -34,7 +37,7 @@ class CartComponent extends Object {
 					$item_id.= '_'.$type_id;
 					$item['Type'] = $type['Type'];
 					if(!empty($type['Type']['precio']))
-						$item['Product']['precio'] = $type['Type']['precio'];
+						$item[$this->item_model]['precio'] = $type['Type']['precio'];
 				}
 
 				if($this->Session->check('cart.items.'.$item_id)){ // +1
@@ -53,12 +56,12 @@ class CartComponent extends Object {
 	}
 
 	function updateqty($auto_response = true){
-		if(!empty($this->controller->data['Product'])){
+		if(!empty($this->controller->data[$this->item_model])){
 			$response = '';
 			$total = 0;
-			foreach($this->controller->data['Product'] as $item_key => $item){
+			foreach($this->controller->data[$this->item_model] as $item_key => $item){
 				if($this->Session->check('cart.items.'.$item_key)){
-					$item_precio = $this->Session->read('cart.items.'.$item_key.'.Product.precio');
+					$item_precio = $this->Session->read('cart.items.'.$item_key.'.'.$this->item_model.'.precio');
 					$total+= $item['qty']*$item_precio;
 					$this->Session->write('cart.items.'.$item_key.'.qty',(int)$item['qty']);
 					$response.='$("precio_'.$item_key.'").set("html","'.(number_format($item['qty']*$item_precio,2)).'");';
@@ -83,7 +86,7 @@ class CartComponent extends Object {
 
 	function checkout(){
 		if(empty($this->controller->data['checkout'])){
-			/** NO JS **/ if(!empty($this->controller->data['Product'])){ $this->remove();$this->updateqty(false); }
+			/** NO JS **/ if(!empty($this->controller->data[$this->item_model])){ $this->remove();$this->updateqty(false); }
 		} else {
 			$this->setcheckout();
 		}
@@ -107,37 +110,37 @@ class CartComponent extends Object {
 				continue;
 			}
 
-			$product = $this->Product->find_(array_merge(array($item['Product']['id']),$find_opts));
-			$product['Product']['nombre'] = ucfirst($product['Product']['nombre']); # Prettifier
+			$product = $this->Product->find_(array_merge(array($item[$this->item_model]['id']),$find_opts));
+			$product[$this->item_model]['nombre'] = ucfirst($product[$this->item_model]['nombre']); # Prettifier
 			$type = false;
 
 			if($product && (!empty($item['Type']['id']))){
 				$type = $this->Product->Type->find_(array_merge(array($item['Type']['id']),$find_opts));
-				$product['Product']['stock'] = $type['Type']['stock'];
+				$product[$this->item_model]['stock'] = $type['Type']['stock'];
 				
 				if(!empty($type['Type']['precio']))
-					$product['Product']['precio'] = $type['Type']['precio'];
+					$product[$this->item_model]['precio'] = $type['Type']['precio'];
 			}
 			
-			if($product['Product']['stock'] < $item['qty']){ // Out of Stock!
-				$this->Session->write('cart.items.'.$item_id.'.qty',$product['Product']['stock'] ? $product['Product']['stock'] : 0);
-				$this->out_of_stock[$item_id] = $product['Product']['stock'];
+			if(isset($product[$this->item_model]['stock']) && $product[$this->item_model]['stock'] < $item['qty']){ // Out of Stock!
+				$this->Session->write('cart.items.'.$item_id.'.qty',$product[$this->item_model]['stock'] ? $product[$this->item_model]['stock'] : 0);
+				$this->out_of_stock[$item_id] = $product[$this->item_model]['stock'];
 			
 			} else {
 				$this->items[$item_id] = array(
-					'name'=>$product['Product']['nombre'],
+					'name'=>$product[$this->item_model]['nombre'],
 					'desc'=>$type ? $type['Type']['nombre'] : null,
-					'amt'=>$product['Product']['precio'],
+					'amt'=>$product[$this->item_model]['precio'],
 					'qty'=>$item['qty'],
 				);
 
 				$order['Orderdetail'][] = array(
-					'product_id'=>$product['Product']['id'],
+					strtolower($this->item_model).'_id'=>$product[$this->item_model]['id'],
 					'type_id'=>$type ? $type['Type']['id'] : null,
 					'cantidad'=>$item['qty']
 				);
 
-				$order['Order']['total']+= $product['Product']['precio']*$item['qty'];
+				$order['Order']['total']+= $product[$this->item_model]['precio']*$item['qty'];
 
 				$this->Paypal->additem($item_id,$this->items[$item_id]);
 			}
@@ -152,7 +155,7 @@ class CartComponent extends Object {
 			// Save Order to Session
 			$this->Session->write('cart.current_order',$order);
 
-			$this->Paypal->setCurrencyCode('MXN');
+			$this->Paypal->setCurrencyCode($this->currency);
 			if(!$this->Paypal->setExpressCheckout()){
 				$this->cancel('failed setExpress');
 			}
@@ -175,10 +178,10 @@ class CartComponent extends Object {
 		foreach($order['Orderdetail'] as $detail){
 			if(!empty($detail['type_id'])){
 				$model = $this->Product->Type;
-				$item_id = $detail['product_id'].'_'.$detail['type_id'];
+				$item_id = $detail[strtolower($this->item_model).'_id'].'_'.$detail['type_id'];
 			} else {
 				$model = $this->Product;
-				$item_id = $detail['product_id'];
+				$item_id = $detail[strtolower($this->item_model).'_id'];
 			}
 			
 			$item = $model->find_(array_merge(array($detail[strtolower($model->alias).'_id']),$find_opts));
@@ -234,13 +237,13 @@ class CartComponent extends Object {
 				if(!empty($detail['type_id']))
 					$this->Product->Type->updateAll(array('Type.stock'=>'Type.stock-'.$detail['cantidad']),array('Type.id'=>$detail['type_id']));
 				else
-					$this->Product->updateAll(array('Product.stock'=>'Product.stock-'.$detail['cantidad']),array('Product.id'=>$detail['product_id']));
+					$this->Product->updateAll(array($this->item_model.'.stock'=>$this->item_model.'.stock-'.$detail['cantidad']),array($this->item_model.'.id'=>$detail[strtolower($this->item_model).'_id']));
 			}			
 
 			// Mark order as paid
 			$this->Order->save(array_merge($payer_data,	array('status'=>'Pagada')));
 
-			$this->controller->set('cart_flash','El proceso de compra ha finalizado satisfactoriamente');
+			$this->controller->set('cart_flash','El proceso de compra ha finalizado satisfactoriamente.');
 			$this->Session->write('cart.items',array());
 			$this->Session->delete('cart.current_order');
 		}

@@ -2,7 +2,7 @@
 App::import('Controller','_base/Unlisteditems');
 class PacksController extends UnlisteditemsController{
 	var $name = 'Packs';
-	var $uses = array('Pack','Destination','Reservation');
+	var $uses = array('Pack','Destination','Order');
 	var $components = array('Email');
 
 	/** Cart functions **/
@@ -10,7 +10,47 @@ class PacksController extends UnlisteditemsController{
 	function remove(){ $this->Cart->remove(); }
 	function add2cart(){ $this->Cart->add2cart(); }
 	function checkout(){ $this->Cart->checkout(); }
-	function finalizado(){ $this->Cart->docheckout(); }
+	function finalizado(){
+		$this->Cart->docheckout();
+
+		/*** ENVIO DE CORREO ***/
+
+			$site = Configure::read('Site');
+			$data = $this->data['Order'];
+
+			$this->Order->clean($data,false,false);
+			$fields = array();
+
+			foreach ($this->Order->_schema as $field => $fdata) {
+				$fields[$field] = $fdata['label'];
+			}
+
+			$this->set(compact('data','fields'));
+			
+			$this->Email->to = $site['email'];
+			$this->Email->from = $site['name'].' <noreply@'.$site['domain'].'>';
+			$this->Email->subject = 'Reservación desde '.ucfirst($site['domain']);
+			$this->Email->delivery = 'mail';
+			$this->Email->sendAs = 'html';
+			$this->Email->template = 'reservation';
+
+			if(Configure::read('debug')===0){
+				if($this->Email->send()){
+					$msg = 'reservacion_enviada_correctamente';
+				}
+				else
+					$msg = 'problema_al_enviar_reservacion';
+			} else {
+				$this->Email->delivery = 'debug';
+				$this->Email->send();
+				$msg = 'El Formulario ha sido desactivado porque está en modo Demo.';
+			}
+
+			/*********/
+
+			$this->_flash(__($msg,true));
+			$this->redirect(array('controller'=>'packs','action'=>'complete'));
+	}
 	function updateqty(){ $this->Cart->updateqty(); }
 	function cancelado(){ $this->render('/productos/finalizado'); }
 	function setcheckout(){ $this->Cart->setcheckout(); }
@@ -21,41 +61,14 @@ class PacksController extends UnlisteditemsController{
 		$id = $this->_checkid($id,false);
 
 		if(!empty($this->data)){
-			$this->Reservation->set($this->data);
-			if($this->Reservation->save()){
+			$this->Order->set($this->data);
+			if($this->Order->save()){
 
-				$site = Configure::read('Site');
-				$data = $this->data['Reservation'];
+				if($this->data['Order']['forma_pago'] == 'online'){
 
-				$this->Reservation->clean($data,false,false);
-				$fields = array();
-
-				foreach ($this->Reservation->_schema as $field => $fdata) {
-					$fields[$field] = $fdata['label'];
 				}
 
-				$this->set(compact('data','fields'));
 				
-				$this->Email->to = $site['email'];
-				$this->Email->from = $site['name'].' <noreply@'.$site['domain'].'>';
-				$this->Email->subject = 'Reservación desde '.ucfirst($site['domain']);
-				$this->Email->delivery = 'mail';
-				$this->Email->sendAs = 'html';
-				$this->Email->template = 'reservation';
-
-				if(Configure::read('debug')===0){
-					if($this->Email->send()){
-						$msg = 'reservacion_enviada_correctamente';
-					}
-					else
-						$msg = 'problema_al_enviar_reservacion';
-				} else {
-					$this->Email->delivery = 'debug';
-					$this->Email->send();
-					$msg = 'El Formulario ha sido desactivado porque está en modo Demo.';
-				}
-				$this->_flash(__($msg,true));
-				$this->redirect(array('controller'=>'packs','action'=>'complete'));
 			}
 		}
 
