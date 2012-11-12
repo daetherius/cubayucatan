@@ -22,7 +22,6 @@ h1:first-child,	h1.alpha,
 h2:first-child, h2.alpha,
 h3:first-child, h3.alpha { margin-top:0; }
 
-
 .input.text input,.input.password input,.input textarea,.input select, .mceEditor {
 	border: solid 1px #B4C2C2;
 	outline: 0;
@@ -745,7 +744,7 @@ a.reservar {
 .taxi_opcion.yucatan #OrderTaxiDireccionHotel { width:460px; }
 
 
-.forma_pago { margin:30px auto 20px;width:480px;font-size:20px; }
+.forma_pago { margin:30px auto 50px;width:480px;font-size:20px; }
 .forma_pago label { display:inline;padding:0 12px 0 0;font-weight:bold; }
 
 /* Cuba Personalizado */
