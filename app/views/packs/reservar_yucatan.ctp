@@ -27,8 +27,9 @@ echo
 		($subtitulo ? $html->div('title title2 broken',$subtitulo) : ''),
 		//$html->para(null,__('nota_antes_reservar',true)),
 
-		$form->create('Reservation',array('url'=>$this->here,'id'=>'reservar','inputDefaults'=>array('label'=>false))),
+		$form->create('Order',array('url'=>$this->here,'id'=>'reservar','inputDefaults'=>array('label'=>false))),
 			$html->div('basic_info block'),
+				$form->input('id',array('value'=>$item['Pack']['id'])),
 				$form->input('nombre',array('label'=>__('nombre',true))),
 				$form->input('apellidos',array('label'=>__('apellidos',true))),
 				$form->input('email',array('label'=>__('email',true))),
@@ -67,22 +68,22 @@ echo
 	'</div>';
 
 	$updateRoomTotal = '
-		var inted = $("ReservationNumPersonas").get("value").toInt();
+		var inted = $("OrderNumPersonas").get("value").toInt();
 		var totales = {865:1730,675:2025,653:2612,758:3790};
 
 		if(!isNaN(inted)){ $("big_total").set("html",totales[inted]);$$("#conceptos_opciones > div").addClass("hide"); $("opcion_"+inted).removeClass("hide"); }';
 
-	$moo->addEvent('ReservationNumPersonas','click',$updateRoomTotal);
+	$moo->addEvent('OrderNumPersonas','click',$updateRoomTotal);
 	$moo->buffer($updateRoomTotal);
 	
 	$updateOptionalRooms = '
-		var hab_opcional = $("ReservationTaxiHab").get("value").toInt() * 2 *'.$precio_hab_opcional.';
+		var hab_opcional = $("OrderTaxiHab").get("value").toInt() * 2 *'.$precio_hab_opcional.';
 
 		if(isNaN(hab_opcional))
 			hab_opcional = 0;
 		$("hab_opcional").set("html",hab_opcional);
 
-		var hab_opcional_adicional = $("ReservationTaxiAdicionales").get("value").toInt() * '.$precio_hab_opcional.';
+		var hab_opcional_adicional = $("OrderTaxiAdicionales").get("value").toInt() * '.$precio_hab_opcional.';
 
 		if(isNaN(hab_opcional_adicional))
 			hab_opcional_adicional = 0;
@@ -91,11 +92,11 @@ echo
 		var total_hab_opcional = (hab_opcional + hab_opcional_adicional) + $("big_total").get("html").toInt();
 		$("big_total_adicional").set("html",total_hab_opcional);
 	';
-	$moo->addEvent('ReservationTaxiHab','keyup',$updateOptionalRooms);
-	$moo->addEvent('ReservationTaxiAdicionales','keyup',$updateOptionalRooms);
+	$moo->addEvent('OrderTaxiHab','keyup',$updateOptionalRooms);
+	$moo->addEvent('OrderTaxiAdicionales','keyup',$updateOptionalRooms);
 	$moo->buffer($updateOptionalRooms);
 
-	$moo->datepicker(array('lang'=>($_lang == 'ita' ? 'it-IT':'es-ES'),'onSelect'=>'function(date){ date.setDate(date.getDate() + 9); $("ReservationRetorno").set("value",date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()); }'));
+	$moo->datepicker(array('lang'=>($_lang == 'ita' ? 'it-IT':'es-ES'),'onSelect'=>'function(date){ date.setDate(date.getDate() + 9); $("OrderRetorno").set("value",date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()); }'));
 ?>
 </div>
 </div><!-- content -->

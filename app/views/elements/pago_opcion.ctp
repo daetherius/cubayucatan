@@ -3,7 +3,7 @@ echo
 	$form->input('forma_pago',array(
 		'options'=>array(
 			'deposito'=>__('deposito_bancario',true),
-			// 'online'=>__('pago_online',true).' / Pay pal'
+			'online'=>__('pago_online',true).' / Paypal'
 		),
 		'label'=>__('forma_pago',true),
 		'div'=>'forma_pago'

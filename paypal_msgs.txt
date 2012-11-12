@@ -1,0 +1,19 @@
+pago_exitoso
+pago_registrado_pendiente
+pago_interrumpido
+pago_fallido
+pago_no_iniciado
+pago_no_guardado
+pago_interrumpido
+
+item_agregacion_adicional
+item_agregacion_exitosa
+item_agregacion_fallida
+item_eliminado
+item_vendido_durante_compra
+
+
+'El proceso de compra ha finalizado satisfactoriamente.'
+'El proceso de compra se ha interrumpido.'
+'Algunos elementos han sido vendidos durante el proceso de compra.'
+'Ha ocurrido un error al registrar el pago.'

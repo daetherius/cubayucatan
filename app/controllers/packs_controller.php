@@ -10,50 +10,16 @@ class PacksController extends UnlisteditemsController{
 	function remove(){ $this->Cart->remove(); }
 	function add2cart(){ $this->Cart->add2cart(); }
 	function checkout(){ $this->Cart->checkout(); }
-	function finalizado(){
-		$this->Cart->docheckout();
-
-		/*** ENVIO DE CORREO ***/
-
-			$site = Configure::read('Site');
-			$data = $this->data['Order'];
-
-			$this->Order->clean($data,false,false);
-			$fields = array();
-
-			foreach ($this->Order->_schema as $field => $fdata) {
-				$fields[$field] = $fdata['label'];
-			}
-
-			$this->set(compact('data','fields'));
-			
-			$this->Email->to = $site['email'];
-			$this->Email->from = $site['name'].' <noreply@'.$site['domain'].'>';
-			$this->Email->subject = 'Reservación desde '.ucfirst($site['domain']);
-			$this->Email->delivery = 'mail';
-			$this->Email->sendAs = 'html';
-			$this->Email->template = 'reservation';
-
-			if(Configure::read('debug')===0){
-				if($this->Email->send()){
-					$msg = 'reservacion_enviada_correctamente';
-				}
-				else
-					$msg = 'problema_al_enviar_reservacion';
-			} else {
-				$this->Email->delivery = 'debug';
-				$this->Email->send();
-				$msg = 'El Formulario ha sido desactivado porque está en modo Demo.';
-			}
-
-			/*********/
-
-			$this->_flash(__($msg,true));
-			$this->redirect(array('controller'=>'packs','action'=>'complete'));
-	}
 	function updateqty(){ $this->Cart->updateqty(); }
-	function cancelado(){ $this->render('/productos/finalizado'); }
-	function setcheckout(){ $this->Cart->setcheckout(); }
+	function setcheckout(){
+		if(!empty($this->data['Order'])){
+			fb($this->data['Order'],'$this->data[Order]');exit;
+		}
+
+		$this->Cart->setcheckout();
+	}
+	function finalizado(){ $this->Cart->docheckout();$this->Cart->reset(); }
+	function cancelado(){ $this->Cart->reset();$this->render('/productos/finalizado'); }
 
 	/********************/
 
@@ -62,13 +28,32 @@ class PacksController extends UnlisteditemsController{
 
 		if(!empty($this->data)){
 			$this->Order->set($this->data);
-			if($this->Order->save()){
+			if($this->Order->validates()){
 
 				if($this->data['Order']['forma_pago'] == 'online'){
+					$amt = 0;
+					switch ($this->data['Order']['id']) {
+						case 1:
+						case 2:
+						case 3:
+							$opciones = array(1=>array(620,984),	array(485,758),array(350,522));
+							/// Alguien quiere pasarse de listo
+							if(!in_array((int)$this->data['Order']['opcion'],$opciones[$this->data['Order']['id']])){
+								$this->redirect(array('action'=>'reservar'),true);
+							} else {
+								$opcion = $this->data['Order']['opcion'];
+							}
 
+							$amt = $this->data['Order']['hab'] + $opcion;
+						break;
+					}
+
+				} else {
+					if($this->Order->save($this->data)){
+						$this->Session->write('cart.flash',__('pago_registrado_pendiente',true));
+						$this->redirect(array('action'=>'cancelado'));
+					}
 				}
-
-				
 			}
 		}
 

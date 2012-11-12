@@ -9,8 +9,9 @@ echo
 		$html->tag('h2','La Habana,  Trinidad,  Santa Clara, La Habana','title red'),
 		$html->para(null,__('nota_antes_reservar',true)),
 
-		$form->create('Reservation',array('url'=>$this->here,'id'=>'reservar','inputDefaults'=>array('label'=>false))),
+		$form->create('Order',array('url'=>$this->here,'id'=>'reservar','inputDefaults'=>array('label'=>false))),
 			$html->div('basic_info block'),
+				$form->input('id',array('value'=>3)),
 				$form->input('opcion',array(
 					'label'=>__('opcion',true),
 					'selected'=>$opcion,
@@ -47,13 +48,13 @@ echo
 			$this->element('pago_opcion'),
 	'</div>';
 
-	$updateRoomTotal = 'var inted = $("ReservationHab").get("value").toInt(); if(!isNaN(inted)){ $("num_personas").set("html",inted * 2); $("total_hab").set("html",inted * $("ReservationOpcion").get("value")); $("big_total").set("html",inted * $("ReservationOpcion").get("value")); } ';
+	$updateRoomTotal = 'var inted = $("OrderHab").get("value").toInt(); if(!isNaN(inted)){ $("num_personas").set("html",inted * 2); $("total_hab").set("html",inted * $("OrderOpcion").get("value")); $("big_total").set("html",inted * $("OrderOpcion").get("value")); } ';
 
-	$moo->addEvent('ReservationHab','keyup',$updateRoomTotal);
+	$moo->addEvent('OrderHab','keyup',$updateRoomTotal);
 	$moo->buffer($updateRoomTotal);
 	
 	$lang = $_lang == 'ita' ? 'it-IT':'es-ES';
-	$moo->datepicker(array('lang'=>$lang,'onSelect'=>'function(date){ date.setDate(date.getDate() + 9); $("ReservationRetorno").set("value",date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()); }'));
+	$moo->datepicker(array('lang'=>$lang,'onSelect'=>'function(date){ date.setDate(date.getDate() + 9); $("OrderRetorno").set("value",date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()); }'));
 ?>
 </div>
 </div><!-- content -->

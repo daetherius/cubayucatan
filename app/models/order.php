@@ -46,8 +46,12 @@ class Order extends AppModel {
 	);
 	var $skipValidation = array();
 	var $validate = array(
+		//'arrival'=>arrival || *_arrival
+		//'hab'=>hab || num_personas
+		//'total_num_days'=>
 		'email'=>array('rule'=>'email', 'allowEmpty'=>false, 'message'=>'Ingrese una dirección de correo electrónico válida.'),
-		'apellidos'=>array('rule'=>array('between', 1,255), 'allowEmpty'=>false, 'message'=>'Ingrese un valor entre 1 y 255 caracteres de longitud.'),
+		'nombre'=>array('rule'=>array('between', 1,255), 'allowEmpty'=>false, 'message'=>'Ingrese un texto entre 1 y 255 caracteres de longitud.'),
+		'apellidos'=>array('rule'=>array('between', 1,255), 'allowEmpty'=>false, 'message'=>'Ingrese un texto entre 1 y 255 caracteres de longitud.'),
 	);
 }
 ?>

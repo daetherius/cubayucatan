@@ -1,15 +1,10 @@
 <?php
 class CartComponent extends Object {
-	var $msg = array(
-		'add_one'=>'+1',
-		'add_win'=>'Agregado al carrito.',
-		'add_fail'=>'No se pudo agregar al carrito.',
-		'remove'=>'Elemento eliminado.',
-	);
-	var $components = array('Cookie','Session','Paypal');
+	var $components = array('Cookie','Session','Paypal','Email');
 	var $out_of_stock = array();
 	var $item_model = 'Product';
 	var $currency = 'MXN';
+	var $success = null;
 
 	function initialize(&$controller) {
 		$this->controller =& $controller;
@@ -42,17 +37,17 @@ class CartComponent extends Object {
 
 				if($this->Session->check('cart.items.'.$item_id)){ // +1
 					$this->Session->write('cart.items.'.$item_id.'.qty',$this->Session->read('cart.items.'.$item_id.'.qty')+1);
-					$this->response($this->msg['add_one']); return;
-
+					$this->response(__('item_agregacion_adicional',true));
 				} else { // New item
 					$item['qty'] = 1;
 					$this->Session->write('cart.items.'.$item_id,$item);
-					$this->response($this->msg['add_win']); return;
+					$this->response(__('item_agregacion_exitosa',true));
 				}
+				return;
 			}
 		}
 
-		$this->response($this->msg['add_fail']);
+		$this->response(__('item_agregacion_fallida',true));
 	}
 
 	function updateqty($auto_response = true){
@@ -76,8 +71,6 @@ class CartComponent extends Object {
 
 	function remove(){
 		if(!empty($this->controller->data['remove'])){
-			$response = '';
-
 			foreach ($this->controller->data['remove'] as $item_id => $value) {
 				$this->Session->delete('cart.items.'.$item_id);
 			}
@@ -97,7 +90,6 @@ class CartComponent extends Object {
 	function setcheckout(){
 		$this->items = array();
 		$items = $this->Session->read('cart.items');
-		$this->Session->delete('cart.current_order');
 		$find_opts = array('contain'=>false,'fields'=>array('id','nombre','precio','stock'));
 		$order = array('Order'=>array('status'=>'Pendiente','total'=>0,'buyer_id'=>null));
 
@@ -147,7 +139,7 @@ class CartComponent extends Object {
 		}
 
 		if($this->out_of_stock){ // Stock problems
-			$this->flash('Algunos elementos han sido vendidos durante el proceso de compra.');
+			$this->flash(__('item_vendido_durante_compra',true));
 			$this->Session->write('cart.out_of_stock',$this->out_of_stock);
 			return false;
 
@@ -157,18 +149,18 @@ class CartComponent extends Object {
 
 			$this->Paypal->setCurrencyCode($this->currency);
 			if(!$this->Paypal->setExpressCheckout()){
-				$this->cancel('failed setExpress');
+				$this->cancel(__('pago_no_iniciado',true));
 			}
 		}
 
 		$this->controller->set(compact('items'));
-	}	
+	}
 
-	function docheckout(){
+	function docheckout($notify = true){
 		if($this->Session->check('cart.current_order')){
 			$order = $this->Session->read('cart.current_order');
 		} else {
-			$this->cancel('El proceso de compra se ha interrumpido.');
+			$this->cancel(__('pago_interrumpido',true));
 		}
 
 		// Recheck for Stock
@@ -192,17 +184,17 @@ class CartComponent extends Object {
 		}
 		
 		if(!empty($this->out_of_stock)){
-			$this->flash('El proceso ha sido cancelado porque algunos elementos han sido vendidos durante el proceso de compra.');
+			$this->flash(__('item_vendido_durante_compra',true));
 			$this->Session->write('cart.out_of_stock',$this->out_of_stock);
 			$this->controller->redirect(array('action'=>'checkout'),true);
 		}
 
 		// Save order prospect
 		if(!$this->Order->saveAll($order,array('validate'=>true))){
-			$this->cancel('Ha ocurrido un error al registrar el pago.');
+			$this->cancel(__('pago_no_guardado',true));
 		}
 
-		$pay_details = $this->Paypal->doExpressCheckoutPayment();
+		$this->pay_details = $pay_details = $this->Paypal->doExpressCheckoutPayment();
 		$request = $this->Paypal->processOutput($this->Paypal->request);
 		$response = $this->Paypal->response;
 		$payer_data = array(
@@ -215,8 +207,17 @@ class CartComponent extends Object {
 			'payer_firstname'=>$request['FIRSTNAME'],
 			'payer_lastname'=>$request['LASTNAME']
 		);
+		
+		$notify_ = array();
+		if(!empty($notify)){
+			$notify_ = array($request['EMAIL']);
+			
+			if(is_array($notify))
+				$notify_ = array_merge($notify_,$notify);
+		}
 
 		if($pay_details === false){
+			$this->success = false;
 			$i = 0;
 			$errors = array();
 			do {
@@ -229,9 +230,11 @@ class CartComponent extends Object {
 				'errors'=>implode("\n",$errors)
 			)));
 
+			$this->notify($notify_);
 			$this->cancel($errors);
 
 		} else {
+			$this->success = true;
 			// Stock decrease
 			foreach($order['Orderdetail'] as $detail){
 				if(!empty($detail['type_id']))
@@ -243,9 +246,11 @@ class CartComponent extends Object {
 			// Mark order as paid
 			$this->Order->save(array_merge($payer_data,	array('status'=>'Pagada')));
 
-			$this->controller->set('cart_flash','El proceso de compra ha finalizado satisfactoriamente.');
+			$this->controller->set('cart_flash',__('pago_exitoso',true));
 			$this->Session->write('cart.items',array());
 			$this->Session->delete('cart.current_order');
+
+			$this->notify($notify_);
 		}
 	}
 
@@ -265,6 +270,42 @@ class CartComponent extends Object {
 		$this->flash($error);
 		$this->controller->redirect($cancel_url,true);
 	}
+	function reset(){ $this->success = null;$this->pay_details = null;$this->Session->delete('cart.current_order'); }
+	function notify($emails, $msg = null){
+		if(is_null($msg)) $msg = $this->success;
+
+		if($msg === true){
+				$msg = array(
+					__('payment_success_1',true),
+					__('payment_success_2',true)
+				);
+		} elseif($msg === false){
+				$msg = array(
+					__('payment_failure_1',true),
+					__('payment_failure_2',true)
+				);
+		} elseif(!is_array($msg)){
+			$msg = (array)$msg;
+		}
+
+		$site_domain = Configure::read('Site.domain');
+		$site_name = Configure::read('Site.name');
+		$payer_email = array_shift($emails);
+		$pay_details = $this->pay_details;
+
+		$this->controller->set(compact('site_domain','site_name','msg','pay_details'));
+
+		$this->Email->to = $payer_email;
+		$this->Email->cc = $emails;
+		$this->Email->from = $site_name.' <noreply@'.$site_domain.'>';
+		$this->Email->subject = '';
+		$this->Email->sendAs = 'html';
+		$this->Email->template = 'payment';
+		
+		$this->Email->delivery = Configure::read('debug') ? 'debug':'mail';
+		$this->Email->send();
+	}
+
 	function beforeRender(&$controller){
 		if($this->Session->check('cart.flash')){
 			$controller->set('cart_flash',$this->Session->read('cart.flash'));
