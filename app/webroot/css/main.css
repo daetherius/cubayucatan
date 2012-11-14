@@ -684,9 +684,9 @@ a.reservar {
 	margin:0 auto;
 	width:600px;
 }
-.c_packs.a_reservar	h2.title {
-	font-size:22px;
-}
+#reservar .error-message { font-size:11px; }
+.basic_info .error-message { text-indent: 154px; }
+.c_packs.a_reservar	h2.title { font-size:22px; }
 #reservar { font-size:15px;margin:20px 0; }
 #reservar .basic_info label, .basic_info .label {
 	float:left;
@@ -751,11 +751,11 @@ a.reservar {
 
 #reservar #OrderHab { width:30px; }
 
-.custom_dates table { width:550px;margin:10px 0 0 0;border-top:#666 solid 1px; }
+.custom_dates table { width:620px;margin:10px 0 0 0;border-top:#666 solid 1px; }
 .custom_dates table td { text-align:center;padding:3px 6px;vertical-align: middle; }
 .custom_dates table tr td:first-child { width: 220px;text-align:right; }
 .custom_dates table td.days { width:40px; }
-.custom_dates table td.subtotales { text-align:left; }
+.custom_dates table td.subtotales { text-align:left;text-transform:lowercase; }
 
 /* Cuba Fijo */
 
@@ -767,6 +767,7 @@ a.reservar {
 	padding:0 15px 0;
 }
 .arrival_date div.input span { padding:0 0 0 25px; }
+.arrival_date .error-message { text-indent:245px;text-align:left;  }
 #OrderRetorno { margin:0 0 0 15px; }
 
 /* Yucatan */

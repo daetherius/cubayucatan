@@ -167,19 +167,21 @@ class CartComponent extends Object {
 		$this->out_of_stock = array();
 		$find_opts = array('contain'=>false,'fields'=>array('id','stock'));
 
-		foreach($order['Orderdetail'] as $detail){
-			if(!empty($detail['type_id'])){
-				$model = $this->Product->Type;
-				$item_id = $detail[strtolower($this->item_model).'_id'].'_'.$detail['type_id'];
-			} else {
-				$model = $this->Product;
-				$item_id = $detail[strtolower($this->item_model).'_id'];
-			}
-			
-			$item = $model->find_(array_merge(array($detail[strtolower($model->alias).'_id']),$find_opts));
-			if((!empty($item)) && $item[$model->alias]['stock'] < $detail['cantidad']){ // Out of stock!
-				$this->out_of_stock[$item_id] = $item[$model->alias]['stock'];
-				$this->Session->write('cart.items.'.$item_id.'.qty',$item[$model->alias]['stock']);
+		if(!empty($order['Orderdetail'])){
+			foreach($order['Orderdetail'] as $detail){
+				if(!empty($detail['type_id'])){
+					$model = $this->Product->Type;
+					$item_id = $detail[strtolower($this->item_model).'_id'].'_'.$detail['type_id'];
+				} else {
+					$model = $this->Product;
+					$item_id = $detail[strtolower($this->item_model).'_id'];
+				}
+				
+				$item = $model->find_(array_merge(array($detail[strtolower($model->alias).'_id']),$find_opts));
+				if((!empty($item)) && $item[$model->alias]['stock'] < $detail['cantidad']){ // Out of stock!
+					$this->out_of_stock[$item_id] = $item[$model->alias]['stock'];
+					$this->Session->write('cart.items.'.$item_id.'.qty',$item[$model->alias]['stock']);
+				}
 			}
 		}
 		
@@ -235,12 +237,14 @@ class CartComponent extends Object {
 
 		} else {
 			$this->success = true;
-			// Stock decrease
-			foreach($order['Orderdetail'] as $detail){
-				if(!empty($detail['type_id']))
-					$this->Product->Type->updateAll(array('Type.stock'=>'Type.stock-'.$detail['cantidad']),array('Type.id'=>$detail['type_id']));
-				else
-					$this->Product->updateAll(array($this->item_model.'.stock'=>$this->item_model.'.stock-'.$detail['cantidad']),array($this->item_model.'.id'=>$detail[strtolower($this->item_model).'_id']));
+			if(!empty($order['Orderdetail'])){
+				// Stock decrease
+				foreach($order['Orderdetail'] as $detail){
+					if(!empty($detail['type_id']))
+						$this->Product->Type->updateAll(array('Type.stock'=>'Type.stock-'.$detail['cantidad']),array('Type.id'=>$detail['type_id']));
+					else
+						$this->Product->updateAll(array($this->item_model.'.stock'=>$this->item_model.'.stock-'.$detail['cantidad']),array($this->item_model.'.id'=>$detail[strtolower($this->item_model).'_id']));
+				}
 			}			
 
 			// Mark order as paid

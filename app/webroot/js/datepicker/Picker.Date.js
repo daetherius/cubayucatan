@@ -24,6 +24,7 @@ this.DatePicker = Picker.Date = new Class({
 		invertAvailable: false,
 
 		format: null,*/
+		format:'%d-%m-%Y',
 
 		timePicker: false,
 		timePickerOnly: false, // deprecated, use onlyView = 'time'

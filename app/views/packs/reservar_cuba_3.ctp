@@ -11,7 +11,6 @@ echo
 
 		$form->create('Order',array('url'=>$this->here,'id'=>'reservar','inputDefaults'=>array('label'=>false))),
 			$html->div('basic_info block'),
-				$form->input('id',array('value'=>3)),
 				$form->input('opcion',array(
 					'label'=>__('opcion',true),
 					'selected'=>$opcion,
@@ -51,10 +50,11 @@ echo
 	$updateRoomTotal = 'var inted = $("OrderHab").get("value").toInt(); if(!isNaN(inted)){ $("num_personas").set("html",inted * 2); $("total_hab").set("html",inted * $("OrderOpcion").get("value")); $("big_total").set("html",inted * $("OrderOpcion").get("value")); } ';
 
 	$moo->addEvent('OrderHab','keyup',$updateRoomTotal);
+	$moo->addEvent('OrderOpcion','click',$updateRoomTotal);
 	$moo->buffer($updateRoomTotal);
 	
 	$lang = $_lang == 'ita' ? 'it-IT':'es-ES';
-	$moo->datepicker(array('lang'=>$lang,'onSelect'=>'function(date){ date.setDate(date.getDate() + 9); $("OrderRetorno").set("value",date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()); }'));
+	$moo->datepicker(array('lang'=>$lang,'onSelect'=>'function(date){ date.setDate(date.getDate() + 9); $("OrderRetorno").set("value",date.getDate()+"-"+(date.getMonth()+1)+"-"+date.getFullYear()); }'));
 ?>
 </div>
 </div><!-- content -->

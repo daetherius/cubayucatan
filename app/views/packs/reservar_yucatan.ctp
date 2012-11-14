@@ -29,7 +29,6 @@ echo
 
 		$form->create('Order',array('url'=>$this->here,'id'=>'reservar','inputDefaults'=>array('label'=>false))),
 			$html->div('basic_info block'),
-				$form->input('id',array('value'=>$item['Pack']['id'])),
 				$form->input('nombre',array('label'=>__('nombre',true))),
 				$form->input('apellidos',array('label'=>__('apellidos',true))),
 				$form->input('email',array('label'=>__('email',true))),
@@ -48,7 +47,7 @@ echo
 			
 			$this->element('yuc_opciones'),
 
-			$html->div('big_total precio',$html->tag('span',__('total',true),'total_label').$html->tag('span',' €','pad').$html->tag('span','',array('id'=>'big_total'))),
+			//$html->div('big_total precio',$html->tag('span',__('total',true),'total_label').$html->tag('span',' €','pad').$html->tag('span','',array('id'=>'big_total'))),
 			
 			$html->div('arrival_date block'),
 				$form->input('arrival',array(
@@ -59,8 +58,8 @@ echo
 				)),
 			'</div>',
 
-			$html->para('suitcase',__('indique_si_desea_hab_opcional',true)),
-			$this->element('taxi_opcion',compact('precio_hab_opcional')),
+			//$html->para('suitcase',__('indique_si_desea_hab_opcional',true)),
+			//$this->element('taxi_opcion',compact('precio_hab_opcional')),
 
 			$html->div('big_total precio',$html->tag('span',__('total',true),'total_label').$html->tag('span',' €','pad').$html->tag('span','',array('id'=>'big_total_adicional'))),
 
@@ -71,11 +70,12 @@ echo
 		var inted = $("OrderNumPersonas").get("value").toInt();
 		var totales = {865:1730,675:2025,653:2612,758:3790};
 
-		if(!isNaN(inted)){ $("big_total").set("html",totales[inted]);$$("#conceptos_opciones > div").addClass("hide"); $("opcion_"+inted).removeClass("hide"); }';
+		if(!isNaN(inted)){ $("big_total_adicional").set("html",totales[inted]);$$("#conceptos_opciones > div").addClass("hide"); $("opcion_"+inted).removeClass("hide"); }';
 
 	$moo->addEvent('OrderNumPersonas','click',$updateRoomTotal);
 	$moo->buffer($updateRoomTotal);
 	
+/*
 	$updateOptionalRooms = '
 		var hab_opcional = $("OrderTaxiHab").get("value").toInt() * 2 *'.$precio_hab_opcional.';
 
@@ -95,6 +95,7 @@ echo
 	$moo->addEvent('OrderTaxiHab','keyup',$updateOptionalRooms);
 	$moo->addEvent('OrderTaxiAdicionales','keyup',$updateOptionalRooms);
 	$moo->buffer($updateOptionalRooms);
+*/
 
 	$moo->datepicker(array('lang'=>($_lang == 'ita' ? 'it-IT':'es-ES'),'onSelect'=>'function(date){ date.setDate(date.getDate() + 9); $("OrderRetorno").set("value",date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()); }'));
 ?>

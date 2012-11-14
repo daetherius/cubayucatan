@@ -46,12 +46,82 @@ class Order extends AppModel {
 	);
 	var $skipValidation = array();
 	var $validate = array(
-		//'arrival'=>arrival || *_arrival
-		//'hab'=>hab || num_personas
-		//'total_num_days'=>
+		'arrival'=>array('rule'=>'check_arrival','message'=>'Indique su fecha de llegada (dd/mm/aa)'),
+		'hab'=>array('rule'=>'notEmpty','allowEmpty'=>false,'message'=>'Indique el número de habitaciones'),
+		'num_personas'=>array('rule'=>'notEmpty','allowEmpty'=>false,'message'=>'Indique el número de personas'),
+		'havana_days'=>array('rule'=>'total_days','allowEmpty'=>false,'message'=>'Indique el número de días DEFAULT'),
+		'havana_days2'=>array('rule'=>array('comparison','>',0),'allowEmpty'=>false,'message'=>'Indique el número de días'),
 		'email'=>array('rule'=>'email', 'allowEmpty'=>false, 'message'=>'Ingrese una dirección de correo electrónico válida.'),
+		'confirma_email'=>array(
+			'indentical'=>array('rule'=>'confirma_email','message'=>'Escriba de nuevo su correo electrónico'),
+			'notEmpty'=>array('rule'=>'notEmpty', 'allowEmpty'=>false, 'message'=>'Ingrese un valor entre 1 y 255 caracteres de longitud.')
+		),
 		'nombre'=>array('rule'=>array('between', 1,255), 'allowEmpty'=>false, 'message'=>'Ingrese un texto entre 1 y 255 caracteres de longitud.'),
 		'apellidos'=>array('rule'=>array('between', 1,255), 'allowEmpty'=>false, 'message'=>'Ingrese un texto entre 1 y 255 caracteres de longitud.'),
 	);
+
+	function confirma_email(){ return (!empty($this->data['Order']['confirma_email'])) && $this->data['Order']['confirma_email'] == $this->data['Order']['email']; }
+	function check_arrival(){
+		if($this->data['Order']['pack_id'] == 4){
+			unset($this->data['Order']['arrival']);
+
+			$arrival = strtotime($this->data['Order']['havana_arrival']);
+			$leaving = strtotime($this->data['Order']['havana_arrival2']);
+
+			if(!$arrival){
+				$this->invalidate('havana_arrival','Indique una fecha de llegada');
+			}
+
+			if(!$leaving){
+				$this->invalidate('havana_arrival2','Indique una fecha de partida');
+			}
+
+			if($arrival >= $leaving){
+				$msg = 'La fecha de llegada y de partida no son válidas';
+				$this->invalidate('havana_arrival',$msg);
+				$this->invalidate('havana_arrival2',$msg);
+			}
+
+			foreach ($this->data['Order'] as $key => $value) {
+				if((!empty($value)) && strpos($key, '_arrival') !== false){ //Fecha especificada
+					$date2time = strtotime($value);
+					if($date2time !== false){
+
+						if($date2time < $arrival)
+							$this->invalidate($key,'La fecha no puede ser anterior a la fecha de llegada');
+
+						if($date2time > $leaving)
+							$this->invalidate($key,'La fecha no puede ser posterior a la fecha de partida');
+					}
+				}
+			}
+			return true;
+
+		} else {
+			return (!empty($this->data['Order']['arrival'])) && strtotime($this->data['Order']['arrival']);
+		}
+	}
+
+	function total_days(){
+		$total_days = 0;
+		$days_fields = array();
+		if($this->data['Order']['havana_days'] < 1) return false;
+
+		foreach ($this->data['Order'] as $key => $value) {
+			if(strpos($key, '_days') !== false){
+				$days_fields[] = $key;
+				if($value !== '')
+					$total_days+= (int)$value;
+			}
+		}
+
+		if($total_days < 3){
+			foreach ($days_fields as $day_f) {
+				if($day_f != 'havana_days')
+					$this->invalidate($day_f,"\t");
+			}
+		}
+		return true;
+	}
 }
 ?>

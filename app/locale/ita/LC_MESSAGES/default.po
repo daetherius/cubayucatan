@@ -275,7 +275,7 @@ msgid "indique_si_desea_taxi"
 msgstr "Per inviare il taxi, per favore comunicateci:"
 
 msgid "formato_fecha_dmy"
-msgstr "(GG/MM/AA)"
+msgstr "(GG-MM-AA)"
 
 msgid "indique_si_desea_hab_opcional"
 msgstr "Prenotazione Hotel per la notte del giorno d’arrivo e/o quella del ritorno, dove consegnare auto e Vouchers (alle ore 9.30) e dove ritirare il veicolo (alle ore 19), o per notti supplementari di soggiorno."
