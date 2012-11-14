@@ -269,19 +269,25 @@ msgid "llegada"
 msgstr "Data d’ arrivo"
 
 msgid "retorno"
-msgstr "Data d' ritorno"
+msgstr "Data di ritorno"
 
 msgid "inicio"
-msgstr "Data d’ inizio"
+msgstr "Data d' inizio"
 
 msgid "fin"
-msgstr "Data d’ fine"
+msgstr "Data di fine"
 
 msgid "inicio_ocupacion"
 msgstr "Data d’ inizio occupazione stanze"
 
 msgid "fin_ocupacion"
 msgstr "Data di fine occupazione stanze"
+
+msgid "inicio_ocupacion_bungalow"
+msgstr "Data d’ inizio occupazione bungalow"
+
+msgid "fin_ocupacion_bungalow"
+msgstr "Data di fine occupazione bungalow"
 
 msgid "indique_si_desea_taxi"
 msgstr "Per inviare il taxi, per favore comunicateci:"
@@ -320,7 +326,7 @@ msgid "pago_online"
 msgstr "Carta di credito"
 
 msgid "voucher"
-msgstr "Voucher"
+msgstr "Invio del Voucher"
 
 msgid "voucher_note"
 msgstr "Ricevuta la prenotazione e il pagamento, invieremo il nostro Voucher all’indirizzo mail che ci fornirete, con la lista dettagliata dei servizi acquistati e con la dicitura “Pagati tutti i servizi elencati”, che mostrerete all’incaricato che vi consegnerá auto e Vouchers relativi a ogni servizio."
@@ -434,7 +440,13 @@ msgid "convertidor_divisas"
 msgstr "Convertitore di Valute"
 
 msgid "Ingrese un valor entre 1 y 255 caracteres de longitud."
-msgstr "Inserisci una frase, di lunghezza da 1 a 255 caratteri."
+msgstr "Riempi questo spazio."
+
+msgid "todos_obligatorios"
+msgstr "Riempi tutti gli spazi."
+
+msgid "primera_noche_necesaria"
+msgstr "Prima notte necessaria"
 
 msgid "Ingrese una dirección web válida."
 msgstr "Inserisci un indirizzo web valido."

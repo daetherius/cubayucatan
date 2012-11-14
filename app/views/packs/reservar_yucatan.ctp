@@ -53,8 +53,8 @@ echo
 				$form->input('arrival',array(
 					'class'=>'datepicker',
 					'type'=>'text',
-					'label'=>__('inicio_ocupacion',true),
-					'after'=>$html->tag('span',__('fin_ocupacion',true).' '.$html->tag('strong','+9').$form->input('retorno',array('div'=>false,'disabled'=>'disabled','type'=>'text')))
+					'label'=>__('inicio_ocupacion_bungalow',true),
+					'after'=>$html->tag('span',__('fin_ocupacion_bungalow',true).' '.$html->tag('strong','+9').$form->input('retorno',array('div'=>false,'disabled'=>'disabled','type'=>'text')))
 				)),
 			'</div>',
 

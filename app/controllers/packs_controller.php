@@ -147,6 +147,6 @@ class PacksController extends UnlisteditemsController{
 	function alloggio(){}
 	function colazione_cena(){}
 	function moneta(){}
-	function alloggio(){}
+	function servizi(){}
 }
 ?>
