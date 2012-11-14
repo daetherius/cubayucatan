@@ -1,10 +1,10 @@
 <?php
 $conceptos_html = '';
 $conceptos = array(
-	865=>array('1 '.__('bungalow_doble',true),__('vehiculo_dos_puertas',true)),
-	675=>array('1 '.__('bungalow_triple',true),__('vehiculo_cuatro_puertas',true)),
-	653=>array('2 '.__('bungalow_doble',true),__('vehiculo_cuatro_puertas',true)),
-	758=>array('1 '.__('bungalow_triple',true).' '.__('y',true).' 1 '.__('bungalow_doble',true),__('vehiculo_offroad',true))
+	865=>array('1 '.__('bungalow_doble',true),__('vehiculo_dos_puertas',true),__('media_pension',true)),
+	675=>array('1 '.__('bungalow_triple',true),__('vehiculo_cuatro_puertas',true),__('media_pension',true)),
+	653=>array('2 '.__('bungalow_doble',true),__('vehiculo_cuatro_puertas',true),__('media_pension',true)),
+	758=>array('1 '.__('bungalow_triple',true).' '.__('y',true).' 1 '.__('bungalow_doble',true),__('vehiculo_offroad',true),__('media_pension',true))
 );
 $precio_hab_opcional = 75;
 
@@ -47,7 +47,7 @@ echo
 			
 			$this->element('yuc_opciones'),
 
-			//$html->div('big_total precio',$html->tag('span',__('total',true),'total_label').$html->tag('span',' €','pad').$html->tag('span','',array('id'=>'big_total'))),
+			$html->div('big_total precio',$html->tag('span',__('total',true),'total_label').$html->tag('span',' €','pad').$html->tag('span','',array('id'=>'big_total'))),
 			
 			$html->div('arrival_date block'),
 				$form->input('arrival',array(
@@ -59,45 +59,42 @@ echo
 			'</div>',
 
 			//$html->para('suitcase',__('indique_si_desea_hab_opcional',true)),
-			//$this->element('taxi_opcion',compact('precio_hab_opcional')),
+			$this->element('taxi_opcion',compact('precio_hab_opcional')),
 
 			$html->div('big_total precio',$html->tag('span',__('total',true),'total_label').$html->tag('span',' €','pad').$html->tag('span','',array('id'=>'big_total_adicional'))),
 
 			$this->element('pago_opcion'),
 	'</div>';
 
-	$updateRoomTotal = '
+	$updateOptionalRooms = '
 		var inted = $("OrderNumPersonas").get("value").toInt();
 		var totales = {865:1730,675:2025,653:2612,758:3790};
 
-		if(!isNaN(inted)){ $("big_total_adicional").set("html",totales[inted]);$$("#conceptos_opciones > div").addClass("hide"); $("opcion_"+inted).removeClass("hide"); }';
-
-	$moo->addEvent('OrderNumPersonas','click',$updateRoomTotal);
-	$moo->buffer($updateRoomTotal);
-	
-/*
-	$updateOptionalRooms = '
+		if(!isNaN(inted)){ $("big_total").set("html",totales[inted]);$$("#conceptos_opciones > div").addClass("hide"); $("opcion_"+inted).removeClass("hide"); }
 		var hab_opcional = $("OrderTaxiHab").get("value").toInt() * 2 *'.$precio_hab_opcional.';
 
 		if(isNaN(hab_opcional))
 			hab_opcional = 0;
 		$("hab_opcional").set("html",hab_opcional);
 
+		/*
 		var hab_opcional_adicional = $("OrderTaxiAdicionales").get("value").toInt() * '.$precio_hab_opcional.';
-
 		if(isNaN(hab_opcional_adicional))
 			hab_opcional_adicional = 0;
 		$("hab_opcional_adicional").set("html",hab_opcional_adicional);
+		*/
 
-		var total_hab_opcional = (hab_opcional + hab_opcional_adicional) + $("big_total").get("html").toInt();
+		var total_hab_opcional = (hab_opcional) + $("big_total").get("html").toInt();
 		$("big_total_adicional").set("html",total_hab_opcional);
 	';
+	$moo->addEvent('OrderNumPersonas','click',$updateOptionalRooms);
 	$moo->addEvent('OrderTaxiHab','keyup',$updateOptionalRooms);
-	$moo->addEvent('OrderTaxiAdicionales','keyup',$updateOptionalRooms);
+	//$moo->addEvent('OrderTaxiAdicionales','keyup',$updateOptionalRooms);
 	$moo->buffer($updateOptionalRooms);
+/*
 */
 
-	$moo->datepicker(array('lang'=>($_lang == 'ita' ? 'it-IT':'es-ES'),'onSelect'=>'function(date){ date.setDate(date.getDate() + 9); $("OrderRetorno").set("value",date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()); }'));
+	$moo->datepicker(array('lang'=>($_lang == 'ita' ? 'it-IT':'es-ES'),'onSelect'=>'function(date){ date.setDate(date.getDate() + 9); $("OrderRetorno").set("value",date.getDate()+"-"+(date.getMonth()+1)+"-"+date.getFullYear()); }'));
 ?>
 </div>
 </div><!-- content -->

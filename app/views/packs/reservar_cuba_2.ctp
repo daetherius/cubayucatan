@@ -54,7 +54,7 @@ echo
 	$moo->buffer($updateRoomTotal);
 	
 	$lang = $_lang == 'ita' ? 'it-IT':'es-ES';
-	$moo->datepicker(array('lang'=>$lang,'onSelect'=>'function(date){ date.setDate(date.getDate() + 9); $("OrderRetorno").set("value",date.getDate()+"/"+(date.getMonth()+1)+"/"+date.getFullYear()); }'));
+	$moo->datepicker(array('lang'=>$lang,'onSelect'=>'function(date){ date.setDate(date.getDate() + 9); $("OrderRetorno").set("value",date.getDate()+"-"+(date.getMonth()+1)+"-"+date.getFullYear()); }'));
 ?>
 </div>
 </div><!-- content -->

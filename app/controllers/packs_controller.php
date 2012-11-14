@@ -127,10 +127,26 @@ class PacksController extends UnlisteditemsController{
 
 	function ver($id = false){
 		$id = $this->_checkid($id,false);
-		parent::ver($id);
-		$template = $id < 5 ? 'cuba' : 'yucatan';
 
+		if($id !== false && $item = $this->m[0]->read(null,$id)){
+			parent::ver($id);
+			
+		} elseif($item = $this->m[0]->find_(array(3))){
+			$this->redirect(array('id'=>$item[$this->uses[0]]['slug']));
+			exit;
+
+		} else {
+			$this->set('items',false);
+			$this->detour('_base','index');
+		}
+
+		$template = $id < 5 ? 'cuba' : 'yucatan';
 		$this->render('/packs/'.$template);
 	}
+
+	function alloggio(){}
+	function colazione_cena(){}
+	function moneta(){}
+	function alloggio(){}
 }
 ?>

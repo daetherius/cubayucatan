@@ -723,6 +723,7 @@ a.reservar {
 	font-size:26px;
 	width:195px;
 	height:55px;
+	margin:50px auto 20px;
 }
 .voucher_note { font-size:14px;margin:0 20px; }
 .voucher_note > .title { margin:0 0 8px 0;font-weight:bold;font-size:20px; }

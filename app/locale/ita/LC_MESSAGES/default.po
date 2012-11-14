@@ -140,7 +140,7 @@ msgid "por_dos_personas_br"
 msgstr "Per due<br/>persone"
 
 msgid "por_persona_br"
-msgstr "Per<br/>persone"
+msgstr "Per<br/>persona"
 
 msgid "por_dia_por_persona"
 msgstr "Per giorno per 2 persone"
@@ -149,7 +149,7 @@ msgid "por_dos_personas"
 msgstr "Per due persone"
 
 msgid "por_persona"
-msgstr "Per persone"
+msgstr "Per persona"
 
 msgid "itinerario_propuesto"
 msgstr "Itinerario proposto"
@@ -186,6 +186,15 @@ msgstr "Alloggio in mezza pensione nei Bungalows del Villaggio Maya e noleggio a
 
 msgid "requerimientos_especiales"
 msgstr "Se avete necessitá speciali, prendete contatto con noi:"
+
+msgid "alojamiento_casas_particulares"
+msgstr "Alloggio in case private"
+
+msgid "desayuno_cena"
+msgstr "Colazione e cena"
+
+msgid "servicios"
+msgstr "Servizi inclusi e non"
 
 msgid "reservar"
 msgstr "Prenota"
@@ -234,6 +243,9 @@ msgstr "Bungalow Doppio"
 
 msgid "bungalow_triple"
 msgstr "Bungalow Triplo"
+
+msgid "media_pension"
+msgstr "Mezza pensione"
 
 msgid "vehiculo_dos_puertas"
 msgstr "Veicolo a due porte con assicurazione"

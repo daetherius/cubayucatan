@@ -95,12 +95,16 @@ if((!in_array($this->params['controller'],array('destinations','posts'))) && $it
 	}
 }
 
-if(is_c('packs',$this) && !empty($item)){
-	/*
-	//if(in_array($item['Pack']['id'], array())){} else {}
-	echo
-		$html->link('',urla,array('class'=>''));
-	*/
+if(is_c('packs',$this)){
+	if($item['Pack']['id'] < 5){
+		echo
+			$html->tag('ul'),
+				$html->tag('li',$html->link(__('alojamiento_casas_particulares',true),array('controller'=>'packs','action'=>'alloggio'))),
+				$html->tag('li',$html->link(__('desayuno_cena',true),array('controller'=>'packs','action'=>'colazione_cena'))),
+				$html->tag('li',$html->link(__('servicios',true),array('controller'=>'packs','action'=>'servizi'))),
+				$html->tag('li',$html->link(__('moneda_cambio',true),array('controller'=>'packs','action'=>'moneta'))),
+			'</ul>';
+	}
 }
 
 echo

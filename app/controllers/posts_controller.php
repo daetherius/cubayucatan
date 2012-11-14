@@ -8,7 +8,9 @@ class PostsController extends ItemsController{
 	function index() {
 		$conds = array();
 
-		if(!empty($this->params['named']['tipo']))
+		if(empty($this->params['named']['tipo']))
+			$this->redirect(array('tipo'=>'Cuba'));
+		else
 			$conds = array('tipo'=>$this->params['named']['tipo']);
 	   
 	   $items = $this->paginate($this->uses[0],$this->m[0]->find_($conds,'paginate'));

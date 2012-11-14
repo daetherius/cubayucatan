@@ -87,14 +87,14 @@ echo
 
 				$html->div('title title4','Cuba'),
 				$html->tag('ul'),
-					$html->tag('li',$html->link(__('embajada',true),'http://',array('target'=>'_blank','rel'=>'nofollow'))),
+					$html->tag('li',$html->link(__('embajada',true),'http://www.amblavana.esteri.it',array('target'=>'_blank','rel'=>'nofollow'))),
 					$html->tag('li',$html->link(__('impuesto_aeropuerto',true),'http://',array('target'=>'_blank','rel'=>'nofollow'))),
 					$html->tag('li',$html->link(__('cambio_moneda',true),'http://',array('target'=>'_blank','rel'=>'nofollow'))),
 				'</ul>',
 
 				$html->div('title title4','Yucatán'),
 				$html->tag('ul'),
-					$html->tag('li',$html->link(__('embajada',true),'http://',array('target'=>'_blank','rel'=>'nofollow'))),
+					$html->tag('li',$html->link(__('embajada',true),'http://www.ambcittadelmessico.esteri.it',array('target'=>'_blank','rel'=>'nofollow'))),
 					$html->tag('li',$html->link(__('cambio_moneda',true),'http://',array('target'=>'_blank','rel'=>'nofollow'))),
 				'</ul>',
 			'</div>',
