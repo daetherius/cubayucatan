@@ -46,18 +46,22 @@ class Order extends AppModel {
 	);
 	var $skipValidation = array();
 	var $validate = array(
-		'arrival'=>array('rule'=>'check_arrival','message'=>'Indique su fecha de llegada (dd/mm/aa)'),
-		'hab'=>array('rule'=>'notEmpty','allowEmpty'=>false,'message'=>'Indique el número de habitaciones'),
-		'num_personas'=>array('rule'=>'notEmpty','allowEmpty'=>false,'message'=>'Indique el número de personas'),
-		'havana_days'=>array('rule'=>'total_days','allowEmpty'=>false,'message'=>'Indique el número de días DEFAULT'),
-		'havana_days2'=>array('rule'=>array('comparison','>',0),'allowEmpty'=>false,'message'=>'Indique el número de días'),
+		'nombre'=>array('rule'=>array('between', 1,255), 'allowEmpty'=>false, 'message'=>'Ingrese un texto entre 1 y 255 caracteres de longitud.'),
+		'apellidos'=>array('rule'=>array('between', 1,255), 'allowEmpty'=>false, 'message'=>'Ingrese un texto entre 1 y 255 caracteres de longitud.'),
 		'email'=>array('rule'=>'email', 'allowEmpty'=>false, 'message'=>'Ingrese una dirección de correo electrónico válida.'),
 		'confirma_email'=>array(
 			'indentical'=>array('rule'=>'confirma_email','message'=>'Escriba de nuevo su correo electrónico'),
 			'notEmpty'=>array('rule'=>'notEmpty', 'allowEmpty'=>false, 'message'=>'Ingrese un valor entre 1 y 255 caracteres de longitud.')
 		),
-		'nombre'=>array('rule'=>array('between', 1,255), 'allowEmpty'=>false, 'message'=>'Ingrese un texto entre 1 y 255 caracteres de longitud.'),
-		'apellidos'=>array('rule'=>array('between', 1,255), 'allowEmpty'=>false, 'message'=>'Ingrese un texto entre 1 y 255 caracteres de longitud.'),
+
+		'hab'=>array('rule'=>'notEmpty','allowEmpty'=>false,'message'=>'Indique el número de habitaciones'),
+		'num_personas'=>array('rule'=>'notEmpty','allowEmpty'=>false,'message'=>'Indique el número de personas'),
+		'arrival'=>array('rule'=>'check_arrival','message'=>'Indique su fecha de llegada (dd/mm/aa)'),
+		'havana_days'=>array('rule'=>'total_days','allowEmpty'=>false,'message'=>'Indique el número de días'),
+
+		'taxi_arribo'=>array('rule'=>array('date','dmy'),'allowEmpty'=>false,'message'=>'Ingrese una fecha con el formato DD-MM-AA'),
+		'taxi_num_vuelo'=>array('rule'=>'notEmpty', 'allowEmpty'=>false, 'message'=>'Ingrese un valor entre 1 y 255 caracteres de longitud.'),
+		'taxi_linea_aerea'=>array('rule'=>'notEmpty', 'allowEmpty'=>false, 'message'=>'Ingrese un valor entre 1 y 255 caracteres de longitud.'),
 	);
 
 	function confirma_email(){ return (!empty($this->data['Order']['confirma_email'])) && $this->data['Order']['confirma_email'] == $this->data['Order']['email']; }
@@ -115,12 +119,6 @@ class Order extends AppModel {
 			}
 		}
 
-		if($total_days < 3){
-			foreach ($days_fields as $day_f) {
-				if($day_f != 'havana_days')
-					$this->invalidate($day_f,"\t");
-			}
-		}
 		return true;
 	}
 }

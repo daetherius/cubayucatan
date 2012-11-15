@@ -212,16 +212,15 @@ h3:first-child, h3.alpha { margin-top:0; }
 	z-index:0;/*IE7*/
 }
 
-#cleaner { clear:both;width:100%;height:80px; } 
+#cleaner { clear:both;width:100%;height:322px; } 
 .footer {
 	position:relative;
 	clear:both;
-	height:80px;
-	margin:-80px auto 0 auto;
+	margin:-322px auto 0 auto;
 	color:#333;
 	text-align:left;
 }
-	.footer .center { position:relative;margin:0 auto;width:960px;height:80px; }
+	.footer .center { position:relative;margin:0 auto;width:960px;height:322px; }
 	.footer .contacto {
 		background:#EBEFEF;
 		-moz-border-radius:12px;
@@ -250,7 +249,7 @@ h3:first-child, h3.alpha { margin-top:0; }
 
 .footer .contacto .column.phone { background-image: url(/img/ico_phone.png);font-size:15px; }
 
-.footer .lists {}
+.footer .lists { overflow:hidden; }
 	.footer .lists .column { width:14%;font-size:11px;margin-left:3%; }
 	.footer .lists .column li { margin:0 0 6px; }
 	.footer .lists .column:first-child { margin-left:1%; }
@@ -697,6 +696,7 @@ a.reservar {
 }
 #reservar .error-message { font-size:11px; }
 .basic_info .error-message { text-indent: 154px; }
+.basic_info .todos_obligatorios { text-indent: 170px;padding-bottom:10px; }
 .c_packs.a_reservar	h2.title { font-size:22px; }
 #reservar { font-size:15px;margin:20px 0; }
 #reservar .basic_info label, .basic_info .label {

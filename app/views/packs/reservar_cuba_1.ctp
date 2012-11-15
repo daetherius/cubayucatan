@@ -11,6 +11,7 @@ echo
 
 		$form->create('Order',array('url'=>$this->here,'id'=>'reservar','inputDefaults'=>array('label'=>false))),
 			$html->div('basic_info block'),
+				$html->para('error todos_obligatorios',__('todos_obligatorios',true)),
 				$form->input('opcion',array(
 					'label'=>__('opcion',true),
 					'selected'=>$opcion,
@@ -19,12 +20,12 @@ echo
 						$precio_opcion2 => __('segunda_opcion',true).' €'.$precio_opcion2
 					)
 				)),
-				$form->input('nombre',array('label'=>__('nombre',true))),
-				$form->input('apellidos',array('label'=>__('apellidos',true))),
-				$form->input('email',array('label'=>__('email',true))),
-				$form->input('confirma_email',array('label'=>__('confirma_email',true))),
+				$form->input('nombre',array('label'=>__('nombre',true)/*.$html->tag('span','*')*/)),
+				$form->input('apellidos',array('label'=>__('apellidos',true)/*.$html->tag('span','*')*/)),
+				$form->input('email',array('label'=>__('email',true)/*.$html->tag('span','*')*/)),
+				$form->input('confirma_email',array('label'=>__('confirma_email',true)/*.$html->tag('span','*')*/)),
 				$form->input('hab',array(
-					'label'=>__('num_habitacion_doble',true),
+					'label'=>__('num_habitacion_doble',true)/*.$html->tag('span','*')*/,
 					'maxlength'=>3,
 					'value'=>1,
 					'after'=>$html->tag('span','x '.$html->tag('span','€'.$html->tag('span','',array('id'=>'total_hab')),'precio').$html->tag('span','('.$html->tag('span','2',array('id'=>'num_personas')).' '.__('personas',true).')','pad'),'pad')

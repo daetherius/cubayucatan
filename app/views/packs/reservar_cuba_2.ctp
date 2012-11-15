@@ -11,6 +11,7 @@ echo
 
 		$form->create('Order',array('url'=>$this->here,'id'=>'reservar','inputDefaults'=>array('label'=>false))),
 			$html->div('basic_info block'),
+				$html->para('error todos_obligatorios',__('todos_obligatorios',true)),
 				$form->input('opcion',array(
 					'label'=>__('opcion',true),
 					'selected'=>$opcion,

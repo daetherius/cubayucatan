@@ -12,6 +12,7 @@ echo
 
 		$form->create('Order',array('url'=>$this->here,'id'=>'reservar','inputDefaults'=>array('label'=>false))),
 			$html->div('basic_info block'),
+				$html->para('error todos_obligatorios',__('todos_obligatorios',true)),
 				$form->input('nombre',array('label'=>__('nombre',true))),
 				$form->input('apellidos',array('label'=>__('apellidos',true))),
 				$form->input('email',array('label'=>__('email',true))),
