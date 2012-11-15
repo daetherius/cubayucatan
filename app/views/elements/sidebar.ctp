@@ -98,12 +98,15 @@ if((!in_array($this->params['controller'],array('destinations','posts'))) && $it
 if(is_c('packs',$this)){
 	if($item['Pack']['id'] < 5){
 		echo
-			$html->tag('ul'),
-				$html->tag('li',$html->link(__('alojamiento_casas_particulares',true),array('controller'=>'packs','action'=>'alloggio'))),
-				$html->tag('li',$html->link(__('desayuno_cena',true),array('controller'=>'packs','action'=>'colazione_cena'))),
-				$html->tag('li',$html->link(__('servicios',true),array('controller'=>'packs','action'=>'servizi'))),
-				$html->tag('li',$html->link(__('moneda_cambio',true),array('controller'=>'packs','action'=>'moneta'))),
-			'</ul>';
+			$html->div('about_pack'),
+				$html->div('title title3',__('acerca_este_paquete',true)),
+				$html->tag('ul'),
+					$html->tag('li',$html->link(__('alojamiento_casas_particulares',true),array('controller'=>'packs','action'=>'info','#alloggio'))),
+					$html->tag('li',$html->link(__('desayuno_cena',true),array('controller'=>'packs','action'=>'info','#colazione_cena'))),
+					$html->tag('li',$html->link(__('servicios',true),array('controller'=>'packs','action'=>'info','#servizi'))),
+					$html->tag('li',$html->link(__('moneda_cambio',true),array('controller'=>'packs','action'=>'info','#moneta'))),
+				'</ul>',
+			'</div>';
 	}
 }
 

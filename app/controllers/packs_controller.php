@@ -144,9 +144,8 @@ class PacksController extends UnlisteditemsController{
 		$this->render('/packs/'.$template);
 	}
 
-	function alloggio(){}
-	function colazione_cena(){}
-	function moneta(){}
-	function alloggio(){}
+	function info(){
+		$this->render('/packs/info_'.$this->_lang);
+	}
 }
 ?>

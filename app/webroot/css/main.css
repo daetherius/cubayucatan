@@ -321,6 +321,17 @@ h3:first-child, h3.alpha { margin-top:0; }
 	font-weight:bold;
 	color:#fff;
 }
+.about_pack { margin:25px 0 0 0; }
+.about_pack .title {
+	font-size:14px;
+	color:#333;
+	padding:8px 0 8px 38px;
+	background:url(/img/about_icon.png) no-repeat left center;
+	margin:0 0 10px;
+	font-family:'Trebuchet MS', Helvetica, sans-serif;
+	line-height:15px;
+	font-weight:bold;
+}
 
 .banners { padding:10px 0 2px 0; }
 .banners .banner { display:block;margin:0 auto 8px auto; }
@@ -723,10 +734,10 @@ a.reservar {
 	font-size:26px;
 	width:195px;
 	height:55px;
-	margin:50px auto 20px;
+	margin:45px auto 20px;
 }
-.voucher_note { font-size:14px;margin:0 20px; }
-.voucher_note > .title { margin:0 0 8px 0;font-weight:bold;font-size:20px; }
+.voucher_note { font-size:14px;margin:0 20px;text-align: justify; }
+.voucher_note > .title { margin:0 0 12px 0;font-weight:bold;font-size:20px;text-align:center; }
 
 .taxi_opcion > div.input.text {
 	float:left;
@@ -763,6 +774,7 @@ a.reservar {
 .arrival_date { padding:0;text-align:center; }
 .arrival_date div.input { display:inline; }
 .arrival_date div.input input[type=text]{ width: 90px }
+.det_yucatan .arrival_date div.input input[type=text]{ width:60px }
 .arrival_date div.input label {
 	display:-moz-inline-stack;display:inline-block;vertical-align:middle;zoom:1;*display:inline;
 	padding:0 15px 0;
