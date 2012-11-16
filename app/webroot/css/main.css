@@ -150,7 +150,7 @@ h3:first-child, h3.alpha { margin-top:0; }
 	display:block;
 	width:44px;
 	line-height:36px;
-	text-indent:100%;
+	text-indent:-9999px;
 	white-space: nowrap;  
 	overflow: hidden;
 }
@@ -795,6 +795,10 @@ a.reservar {
 .yuc_opciones label a { padding-left:15px;font-size:12px; }
 .yuc_opciones input[type=checkbox] { vertical-align: middle; }
 
+/* Extra Info */
+.a_info .desc .title {
+	font-size:28px;
+}
 
 /******** @DESTINATIONS ************************************************/
 
