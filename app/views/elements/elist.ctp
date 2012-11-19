@@ -23,6 +23,10 @@ $options = array_merge(array(
 
 if(!isset($options['offset'])) $options['offset'] = 0; // Prevenir contra variables no seteadas
 
+fb($this->data[$model],'$this->data[$model]');
+$this->data[$model] = array_merge($this->data[$model],array());
+fb($this->data[$model],'$this->data[$model]');
+
 if(isset($this->data[$model])){ // $this->data tiene mayor precedencia que options[data]
 	$data = array();
 	foreach($this->data[$model] as $idx => $xdata){ // Formateo data
@@ -35,6 +39,7 @@ if((!$data) && isset($options['data']) && $options['data']) { // No hay $this->d
 	$data = $options['data'];
 	unset($options['data']);
 }
+fb($data,'$data');
 
 $listSize = $data ? sizeof($data) : 1;
 $id = $atts['id'] = isset($atts['id']) && $atts['id'] ? $atts['id'] : $model.'_elist';
@@ -116,6 +121,7 @@ for($i=0;$i<$listSize;$i++){
 				$f_atts['type'] = 'hidden';
 		}
 		
+		$ordercheck[] = $this->Form->input(implode('.',array($def_model,$i,$field)), $f_atts);
 		$list_item.= $this->Form->input(implode('.',array($def_model,$i,$field)), $f_atts);
 
 		// Si el campo se debe mostrar como etiqueta o es tipo archivo, y no es vacío
@@ -170,7 +176,7 @@ for($i=0;$i<$listSize;$i++){
 	$listHTML_atts = array();
 	if(isset($data[$i][$model]['id']) && $data[$i][$model]['id'])
 		$listHTML_atts['id'] = 'elistitem_'.$data[$i][$model]['id'];
-
+	
 	$listHTML.= $this->Html->div('elist_item',$list_item,$listHTML_atts); #!?
 	//$listHTML.= $this->Html->div('elist_item',$list_item,array('id'=>'elistitem_'.($i+$options['offset'])));
 }
@@ -252,6 +258,6 @@ if($options['adder']){
 
 	$this->Moo->addEvent($options['adder'],'click',$add_script);
 }
-
+fb($ordercheck,'$ordercheck');
 echo $this->Html->div('elist',$listHTML,$atts);
 ?>

@@ -69,25 +69,54 @@ echo
 
 	$updateOptionalRooms = '
 		var inted = $("OrderNumPersonas").get("value").toInt();
+		var numper2precio = $H({2:865,3:675,4:653,5:758});
 		var totales = {865:1730,675:2025,653:2612,758:3790};
+		var precios_opciones = {
+			opc_16:{2:193,3:134,4:104,5:87},
+			opc_15:{2:71,3:65,4:54,5:48},
+			opc_13:{2:75,3:56,4:75,5:56},
+			opc_12:{2:75,3:56,4:48,5:42},
+			opc_11:{2:95,3:95,4:95,5:95},
+			opc_10:{2:111,3:84,4:70,5:86},
+			opc_9:{2:121,3:94,4:80,5:72}
+		};
 
-		if(!isNaN(inted)){ $("big_total").set("html",totales[inted]);$$("#conceptos_opciones > div").addClass("hide"); $("opcion_"+inted).removeClass("hide"); }
+		if(!isNaN(inted)){
+			var total_hab = totales[inted];
+			$$("#conceptos_opciones > div").addClass("hide");
+			$("opcion_"+inted).removeClass("hide");
+			$$(".precio_opcion").each(function(el){ el.set("html",precios_opciones[el.get("rel")][numper2precio.keyOf(inted)]); });
+		}
+
 		var hab_opcional = $("OrderTaxiHab").get("value").toInt() * 2 *'.$precio_hab_opcional.';
+		if(isNaN(hab_opcional)) hab_opcional = 0;
 
-		if(isNaN(hab_opcional))
-			hab_opcional = 0;
-		$("hab_opcional").set("html",hab_opcional);
-
-		/*
+		/*****
+		
 		var hab_opcional_adicional = $("OrderTaxiAdicionales").get("value").toInt() * '.$precio_hab_opcional.';
 		if(isNaN(hab_opcional_adicional))
 			hab_opcional_adicional = 0;
 		$("hab_opcional_adicional").set("html",hab_opcional_adicional);
-		*/
+		
+		*****/
 
-		var total_hab_opcional = (hab_opcional) + $("big_total").get("html").toInt();
-		$("big_total_adicional").set("html",total_hab_opcional);
+		var total_opciones = 0;
+		$$(".yuc_opcion").each(function(el){
+			console.log(el.get("checked"));
+			console.log(el.checked);
+			if(el.get("checked")){
+				console.log((precios_opciones[el.get("rel")][numper2precio.keyOf(inted)]).toInt());
+				total_opciones+= ((precios_opciones[el.get("rel")][numper2precio.keyOf(inted)]).toInt() * numper2precio.keyOf(inted).toInt());
+			}
+		});
+
+
+		$("big_total").set("html",totales[inted]+total_opciones);
+		$("hab_opcional").set("html",hab_opcional);
+		$("big_total_adicional").set("html",total_hab + hab_opcional + total_opciones);
 	';
+	
+	$moo->addEvent('.yuc_opcion','click',$updateOptionalRooms,array('css'=>1));
 	$moo->addEvent('OrderNumPersonas','click',$updateOptionalRooms);
 	$moo->addEvent('OrderTaxiHab','keyup',$updateOptionalRooms);
 	//$moo->addEvent('OrderTaxiAdicionales','keyup',$updateOptionalRooms);

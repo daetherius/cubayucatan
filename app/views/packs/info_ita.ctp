@@ -1,6 +1,6 @@
 <?php
 echo
-	$this->element('top',array('header'=>'Información sobre el Paquete')),
+	$this->element('top',array('header'=>'')),
 	$html->div('tmce desc'),
 		$html->link('','',array('name'=>'alloggio','id'=>'alloggio')),
 		$html->tag('h2',__('alojamiento_casas_particulares',true),'title'),

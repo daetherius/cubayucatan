@@ -127,6 +127,9 @@ msgstr "Moneta e cambi"
 msgid "info_extra"
 msgstr "#Información sobre los paquetes"
 
+msgid "info_de_su_pago"
+msgstr "Informazioni sul pagamento"
+
 msgid "menu"
 msgstr "Menú"
 
@@ -176,7 +179,7 @@ msgid "conozca"
 msgstr "Conosci"
 
 msgid "acerca_este_paquete"
-msgstr "#Sobre este paquete"
+msgstr "Informazioni Generali"
 
 msgid "opcion"
 msgstr "Opzione"
@@ -199,6 +202,9 @@ msgstr "Alloggio in case private"
 msgid "desayuno_cena"
 msgstr "Colazione e cena"
 
+msgid "las_9_ciudades"
+msgstr "Le 9 cittá"
+
 msgid "servicios"
 msgstr "Servizi inclusi e non"
 
@@ -207,6 +213,9 @@ msgstr "Prenota"
 
 msgid "precio"
 msgstr "Prezzi"
+
+msgid "jaguar_negro"
+msgstr "Giaguaro Nero"
 
 msgid "mayakot"
 msgstr "Mayakot"
@@ -274,6 +283,9 @@ msgstr "Totale"
 msgid "llegada"
 msgstr "Data d’ arrivo"
 
+msgid "hora_llegada"
+msgstr "Ora d’ arrivo"
+
 msgid "retorno"
 msgstr "Data di ritorno"
 
@@ -304,6 +316,18 @@ msgstr "(GG-MM-AA)"
 msgid "indique_si_desea_hab_opcional"
 msgstr "Prenotazione Hotel per la notte del giorno d’arrivo e/o quella del ritorno, dove consegnare auto e Vouchers (alle ore 9.30) e dove ritirare il veicolo (alle ore 19), o per notti supplementari di soggiorno."
 
+msgid "seleccione_estancia_opcional_al_arribo"
+msgstr "Per la consegna di auto e vouchers"
+
+msgid "opcion_llegada_no"
+msgstr "Dall' aereoporto andrete direttamente a Ek Balam"
+
+msgid "opcion_llegada_si"
+msgstr "Potete riservare con noi una stanza d’albergo a Cancún, per la notte d’arrivo e alla fine del Tour"
+
+msgid "opcion_llegada_si_independiente"
+msgstr "Se prenoterete voi stessi, indicateci per favore nome e indirizzo dell’Hotel scelto"
+
 msgid "indique_si_desea_hab_opcional2"
 msgstr "Potete riservare con noi una stanza d’albergo a Cancún, per la notte d’arrivo e alla fine del Tour:"
 
@@ -315,6 +339,9 @@ msgstr "Notti supplementari di soggiorno"
 
 msgid "proporcione_datos_hotel"
 msgstr "Se prenoterete voi stessi, indicateci per favore nome e indirizzo dell’Hotel scelto."
+
+msgid "hora_entrega_carro"
+msgstr "Ora di consegna in albergo di auto e voucher: 9.30"
 
 msgid "nombre_hotel"
 msgstr "Hotel"
@@ -335,7 +362,10 @@ msgid "voucher"
 msgstr "Invio del Voucher"
 
 msgid "voucher_note"
-msgstr "Ricevuta la prenotazione e il pagamento, invieremo il nostro Voucher all’indirizzo mail che ci fornirete, con la lista dettagliata dei servizi acquistati e con la dicitura “Pagati tutti i servizi elencati”, che mostrerete all’incaricato che vi consegnerá auto e Vouchers relativi a ogni servizio."
+msgstr "Ricevuta la prenotazione e il pagamento, invieremo il nostro Voucher all’indirizzo mail che ci fornirete, con la lista dettagliata dei servizi acquistati e con la dicitura “Pagati tutti i servizi elencati”"
+
+msgid "entrega_voucher_carro"
+msgstr "che mostrerete all’incaricato che vi consegnerá auto e Vouchers relativi a ogni servizio"
 
 msgid "enviar"
 msgstr "Invia"
@@ -343,8 +373,8 @@ msgstr "Invia"
 msgid "caracteristicas_hab_cuba_propuesto"
 msgstr "Prezzo della stanza Doppia, tipo Standard, con aria condizionata e bagno privato con doccia, acqua calda e fredda, della prima colazione, e taxi dall’Aereoporto."
 
-msgid "precio_hab_doble_por_noche"
-msgstr "Prezzo della stanza doppia, per notte"
+msgid "precio_hab_doble_por_noche_con_desayuno"
+msgstr "Prezzo della stanza doppia, per notte e della prima colazione, per persona"
 
 msgid "precio_desayuno_por_persona"
 msgstr "Prezzo della prima colazione, per persona"
@@ -356,7 +386,7 @@ msgid "cena_con_nosotros_o_donde_te_alojes"
 msgstr "Nelle Case dove siete alloggiati si puó anche cenare, bene e a basso prezzo e se preferite, potete prenotare con noi"
 
 msgid "precio_cena_por_persona_sin_bebidas"
-msgstr "Prezzo della cena, per una persona: (bevande alcooliche escluse)"
+msgstr "Prezzo della cena, per una persona, bevande alcooliche escluse."
 
 msgid "num_habitacion_doble"
 msgstr "Numero stanze doppie"
@@ -381,6 +411,9 @@ msgstr "Cene"
 
 msgid "opcional"
 msgstr "opzionali"
+
+msgid "opcional2"
+msgstr "Opzionale"
 
 msgid "num_vuelo"
 msgstr "Numero volo"
@@ -471,6 +504,9 @@ msgstr "Riempi tutti gli spazi."
 
 msgid "primera_noche_necesaria"
 msgstr "Prima notte necessaria"
+
+msgid "primera_noche_arrivo_necesaria"
+msgstr "All’arrivo, é necessario passare la notte all’Havana."
 
 msgid "reservacion_enviada_correctamente"
 msgstr "#reservacion_enviada_correctamente"

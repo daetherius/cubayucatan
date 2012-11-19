@@ -1,5 +1,5 @@
 <?php
-$precio_opcion1 = 350;
+$precio_opcion1 = 340;
 $precio_opcion2 = 522;
 
 echo

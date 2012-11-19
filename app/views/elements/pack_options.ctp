@@ -1,6 +1,6 @@
 <?php
 $id = $item['Pack']['id'];
-$precios = array(1=>array(620,984),2=>array(485,758),3=>array(350,522));
+$precios = array(1=>array(620,984),2=>array(485,758),3=>array(340,522));
 
 if($id != 4){
 	echo
@@ -31,13 +31,9 @@ if($id != 4){
 		$html->tag('table'),
 			$html->tableCells(array(
 				array(
-					__('precio_hab_doble_por_noche',true),
-					$html->tag('span','€25','precio'),
-					array(__('cena_con_nosotros_o_donde_te_alojes',true),array('colspan'=>2,'rowspan'=>2,'class'=>'bottomt'))
-				),
-				array(
-					__('precio_desayuno_por_persona',true),
-					$html->tag('span','€4','precio'),
+					__('precio_hab_doble_por_noche_con_desayuno',true),
+					$html->tag('span','€38','precio'),
+					array($html->tag('span',__('opcional2',true),'title'),array('colspan'=>2,'class'=>'bottomt'))
 				),
 				array(
 					__('precio_taxi_aeropuerto_a_havana',true),

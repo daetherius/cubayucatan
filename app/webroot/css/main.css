@@ -340,6 +340,8 @@ h3:first-child, h3.alpha { margin-top:0; }
 #support iframe { display:block;margin:0 auto 10px auto;border:0;width:180px;height:60px; }
 
 /******** @GENERAL ************************************************/
+
+.lower { text-transform:lowercase;font-size:12px; }
 .noresults { font-size:13px;font-style:italic;padding:12px 0;color:#666; }
 .showcase { overflow:hidden; }
 .imagefoot { background:#e9e9e9;margin:0;padding:3px 6px;font-size:10px;color:#555;line-height:15px; }
@@ -510,9 +512,9 @@ ul li { margin:0 0 4px; }
 
 #carousel { margin:0 auto;background:#fff url(/img/spinner.gif) no-repeat center center; }
 .cuba_travel > .info .title { float:left;width:80px; }
-.cuba_travel > .info .title + p { margin:0 0 0 105px;line-height:42px;color:#4C4C79;font-family:'Trebuchet MS', Helvetica, sans-serif;font-weight:bold;font-size:15px; }
+.inline_sub { margin:0 0 0 105px;line-height:42px;color:#4C4C79;font-family:'Trebuchet MS', Helvetica, sans-serif;font-weight:bold;font-size:15px; }
 
-
+.yucatan_travel .jaguar_negro {  }
 .c_inicio .column { width:48%; }
 .c_inicio .thumb.v {
 	width:428px;
@@ -628,8 +630,9 @@ ul li { margin:0 0 4px; }
 	font-size:18px;
 	margin:0 0 8px;
 }
+.pack_destinations table { margin:0 0 10px; }
 
-.pack_options { overflow:hidden; } 
+.pack_options { overflow:hidden;text-align: justify; } 
 .pack_options.unicolumn {
 	border:#D5DDDD solid 2px;
 	-moz-border-radius:6px;
@@ -659,6 +662,7 @@ ul li { margin:0 0 4px; }
 	text-align:right;
 }
 .pack_options > .column > .clear > p:first-child { width:65%;margin:0;text-align:left; }
+.pack_options .precio { margin:0 0 0 -12px; }
 
 a.reservar {
 	display:block;
@@ -679,8 +683,9 @@ a.reservar {
 .pack_options > .column a.reservar { margin:15px 0 0 auto; }
 .pack_options > .column .precio { font-size:34px; }
 
-.pack_options td { padding:0 15px;vertical-align: middle; }
-.pack_options td.bottomt { vertical-align: bottom; }
+.pack_options td { padding:5px 15px;vertical-align: middle; }
+.pack_options td.bottomt { vertical-align: top; }
+.pack_options td.bottomt .title { font-size:16px;margin:8px 0 6px 0; }
 .det_yucatan a.reservar {
 	margin:0 0 12px;
 }

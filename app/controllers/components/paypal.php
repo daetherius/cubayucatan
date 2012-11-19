@@ -21,8 +21,8 @@ class PaypalComponent extends Object {
 	var $endpoints   = array('live' => 'https://api-3t.paypal.com/nvp',	'sandbox' => 'https://api-3t.sandbox.paypal.com/nvp');
 	var $paypalURLs  = array('live' => 'https://www.paypal.com/', 		'sandbox' => 'https://www.sandbox.paypal.com/');
 
-	var $return_url	 = '/productos/finalizado';
-	var $cancel_url	 = '/productos/cancelado';
+	var $return_url	 = '/paquetes/finalizado';
+	var $cancel_url	 = '/paquetes/cancelado';
 	var $response	 = null;
 	var $items	 	 = array();
 	var $payer		 = null;

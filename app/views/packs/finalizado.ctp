@@ -4,7 +4,7 @@ $cart_flash = (array)$cart_flash;
 $isError = empty($isError) ? false : $isError;
 
 echo
-	$this->element('top',array('header'=>'Información de su Pago'));
+	$this->element('top',array('header'=>__('info_de_su_pago',true)));
 
 	if($isError)
 		echo $html->para('cancelled_msg','El proceso de pago no ha podido completarse debido a los siguientes problemas:');

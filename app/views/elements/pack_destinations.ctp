@@ -41,7 +41,7 @@ if(!empty($item['Pack']['id'])){
 
 echo
 	$html->div('pack_destinations clear'),
-		$html->tag('h3',__('itinerario_propuesto',true),'title'),
+		$html->tag('h3',__($pid != 4 ? 'itinerario_propuesto':'las_9_ciudades',true),'title'),
 		$html->tag('table'),
 			$html->tableCells($tablecells),
 		'</table>',

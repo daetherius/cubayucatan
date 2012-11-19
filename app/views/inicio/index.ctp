@@ -7,7 +7,7 @@ echo
 		$html->div('cuba_travel'),
 			$html->div('clear info'),
 				$html->tag('h2','Cuba','title'),
-				$html->para(null,__('alojese_casas_particulares',true)),
+				$html->para('inline_sub',__('alojese_casas_particulares',true)),
 			'</div>',
 			$html->div('clear desc'),
 				$html->div('column'),
@@ -27,7 +27,7 @@ echo
 		'</div>',
 
 		$html->div('yucatan_travel'),
-			$html->tag('h2','Yucatán','title'),
+			$html->tag('h2','Yucatán '/*.$html->tag('span',': Tour '.__('jaguar_negro',true),'jaguar_negro')*/,'title'),
 			$html->para('suitcase',__('villa_maya_y_coches',true));
 
 			foreach($packs['yucatan'] as $pack)

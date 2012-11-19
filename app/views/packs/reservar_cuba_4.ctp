@@ -28,7 +28,7 @@ echo
 			$html->div('custom_dates block'),
 				$form->input('arrival',array('div'=>'hide')),
 				$html->div('title title3 red',__('arma_tu_plan',true)),
-				$html->para('',__('fechas_de_ocupacion',true)),
+				$html->para('',__('fechas_de_ocupacion',true).'. '.__('primera_noche_arrivo_necesaria',true)),
 				$html->tag('table'),
 					$html->tableHeaders(array('',__('llegada',true).' '.__('formato_fecha_dmy',true),__('dias_estancia',true))),
 					$html->tableCells(array(

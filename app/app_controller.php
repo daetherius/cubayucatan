@@ -1,7 +1,7 @@
 <?php
 uses('L10n');
 class AppController extends Controller {
-	var $components = array('Cookie','RequestHandler','Simplepie','Session');
+	var $components = array('Cookie','RequestHandler','Simplepie','Session','Paypal');
 	var $helpers = array('Html', 'Form', 'Session','Js','Moo','Util','Text','Resize');
 	var $detour = false;
 	var $detourFrom = false;

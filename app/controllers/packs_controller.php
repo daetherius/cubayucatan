@@ -3,7 +3,7 @@ App::import('Controller','_base/Unlisteditems');
 class PacksController extends UnlisteditemsController{
 	var $name = 'Packs';
 	var $uses = array('Pack','Destination','Order');
-	var $components = array('Email');
+	var $components = array('Email','Cart');
 
 	/** Cart functions **/
 	
@@ -13,7 +13,7 @@ class PacksController extends UnlisteditemsController{
 	function updateqty(){ $this->Cart->updateqty(); }
 	function setcheckout(){	$this->Cart->setcheckout();	}
 	function finalizado(){ $this->Cart->docheckout();$this->Cart->reset(); }
-	function cancelado(){ $this->set('isError',true);$this->Cart->reset();$this->render('/productos/finalizado'); }
+	function cancelado(){ $this->set('isError',true);$this->Cart->reset();$this->render('/packs/finalizado'); }
 
 	/********************/
 

@@ -59,7 +59,7 @@ class Order extends AppModel {
 		'arrival'=>array('rule'=>'check_arrival','message'=>'Indique su fecha de llegada (dd/mm/aa)'),
 		'havana_days'=>array('rule'=>'total_days','allowEmpty'=>false,'message'=>'Indique el número de días'),
 
-		'taxi_arribo'=>array('rule'=>array('date','dmy'),'allowEmpty'=>false,'message'=>'Ingrese una fecha con el formato DD-MM-AA'),
+		'taxi_arribo'=>array('rule'=>'taxi_arribo','message'=>'Ingrese una fecha con el formato DD-MM-AA'),
 		'taxi_num_vuelo'=>array('rule'=>'notEmpty', 'allowEmpty'=>false, 'message'=>'Ingrese un valor entre 1 y 255 caracteres de longitud.'),
 		'taxi_linea_aerea'=>array('rule'=>'notEmpty', 'allowEmpty'=>false, 'message'=>'Ingrese un valor entre 1 y 255 caracteres de longitud.'),
 	);
@@ -118,6 +118,13 @@ class Order extends AppModel {
 					$total_days+= (int)$value;
 			}
 		}
+
+		return true;
+	}
+	
+	function taxi_arribo(){
+		if($this->data['Order']['pack_id'] < 5 && empty($this->data['Order']['taxi_arribo']))
+			return false;
 
 		return true;
 	}

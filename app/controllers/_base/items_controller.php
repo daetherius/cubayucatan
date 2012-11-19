@@ -80,7 +80,7 @@ class ItemsController extends AbcsController{
 	}
 	
 	function admin_orden($limit = 30){
-		if(!empty($this->data)){
+		if(!empty($this->data[$this->uses[0]])){
 			if(isset($this->data['limit_change']) && $this->data['limit_change']){
 				$this->redirect(array($this->data['limit']));
 			}
@@ -89,6 +89,10 @@ class ItemsController extends AbcsController{
 			foreach($this->data[$this->uses[0]] as $it){
 				$this->m[0]->create(false);
 				$success = $success && $this->m[0]->save($it);
+				fb('=================');
+				fb($it,'to Save');
+				fb($success ? 'success':'failed');
+				fb($this->m[0]->invalidFields(),'invalidFields');
 			}
 			
 			$this->_flash('save_'.($success ? 'ok':'some'));
@@ -100,12 +104,13 @@ class ItemsController extends AbcsController{
 		$this->paginate[$this->uses[0]]['contain'] = false;
 		$this->paginate[$this->uses[0]]['limit'] = $limit;
 
-		$this->set('orderdata',$this->paginate($this->uses[0],$this->m[0]->find_(null,'paginate')));
+		$orderdata = $this->paginate($this->uses[0],$this->m[0]->find_(null,'paginate'));
+		fb($orderdata,'$orderdata');
+		$this->set(compact('orderdata'));
 
-		if(isset($this->params['named']['page']) && $this->params['named']['page'])
+		$page = 1;
+		if(!empty($this->params['named']['page']))
 			$page = $this->params['named']['page'];
-		else
-			$page = 1;
 
 		$offset = $total - ($limit*$page);
 		$offset = $offset < 0 ? 0 : $offset;
