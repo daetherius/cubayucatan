@@ -16,7 +16,7 @@ echo
 				$this->element('pack_destinations',compact('item')),
 			'</div>',
 			$html->div('column'),
-				$html->link(__('mapa',true),'/'.$item[$_m[0]]['src'],array('class'=>'pulsembox mapa')),
+				$html->link(__('clic_agrandar',true),'/'.$item[$_m[0]]['src'],array('class'=>'pulsembox mapa')),
 				$html->div('desc tmce',$item[$_m[0]]['descripcion_'.$_lang].''),
 			'</div>',
 		'</div>',

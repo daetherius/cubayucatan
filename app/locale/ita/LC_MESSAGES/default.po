@@ -14,16 +14,16 @@ msgid "calcTimes"
 msgstr "per"
 
 msgid "captchaResultIncorrect"
-msgstr "El resultado es incorrecto"
+msgstr "Il risultato non é corretto"
 
 msgid "captchaResultTooFast"
-msgstr "El formulario ha sido llenado demasiado rápido"
+msgstr "Il formulario é stato riempito troppo rapidamente"
 
 msgid "captchaResultTooLate"
-msgstr "El tiempo permitido para llenar el formulario ha expirado"
+msgstr "Il tempo permesso per riempire il formulario é scaduto"
 
 msgid "captchaIllegalContent"
-msgstr "Contenido ilegal en el formulario"
+msgstr "Contenuto nel formulario non valido"
 
 msgid "one"
 msgstr "uno"
@@ -189,6 +189,9 @@ msgstr "Leggi descrizione"
 
 msgid "mapa"
 msgstr "Mappa"
+
+msgid "clic_agrandar"
+msgstr "Clicca per allargare"
 
 msgid "alojamiento_y_transporte_maya"
 msgstr "Alloggio in mezza pensione nei Bungalows del Villaggio Maya e noleggio auto."
@@ -374,13 +377,13 @@ msgid "caracteristicas_hab_cuba_propuesto"
 msgstr "Prezzo della stanza Doppia, tipo Standard, con aria condizionata e bagno privato con doccia, acqua calda e fredda, della prima colazione, e taxi dall’Aereoporto."
 
 msgid "precio_hab_doble_por_noche_con_desayuno"
-msgstr "Prezzo della stanza doppia, per notte e della prima colazione, per persona"
+msgstr "Prezzo della stanza doppia, per notte e della prima colazione, per due persone."
 
 msgid "precio_desayuno_por_persona"
-msgstr "Prezzo della prima colazione, per persona"
+msgstr "Prezzo della prima colazione, per persona."
 
 msgid "precio_taxi_aeropuerto_a_havana"
-msgstr "Prezzo della corsa in taxi, dall’Aereoporto alla Cittá dell’Havana (corsa di 40 minuti circa, massimo 4 persone piú bagagli)"
+msgstr "Prezzo della corsa in taxi, dall’Aereoporto alla Cittá dell’Havana (corsa di 40 minuti circa, massimo 4 persone piú bagagli)."
 
 msgid "cena_con_nosotros_o_donde_te_alojes"
 msgstr "Nelle Case dove siete alloggiati si puó anche cenare, bene e a basso prezzo e se preferite, potete prenotare con noi"
@@ -428,22 +431,22 @@ msgid "dia"
 msgstr "giorno"
 
 msgid "pack1_opcion1_desc"
-msgstr "Stanza Doppia tipo Standard e prima colazione nella Casa, per 20 giorni e per due persone, e corsa del taxi dall’Aereoporto José Martí alla Cittá dell’ Havana."
+msgstr "Stanza Doppia tipo Standard, prima colazione nella Casa, per due persone, e corsa del taxi dall’Aereoporto alla Cittá dell’ Havana."
 
 msgid "pack1_opcion2_desc"
-msgstr "Stanza Doppia tipo Standard, prima colazione e cena nella Casa, per 20 giorni e per due persone, e corsa del taxi dall’Aereoporto alla Cittá dell’Havana."
+msgstr "Stanza Doppia tipo Standard, prima colazione e cena nella Casa, per due persone, e corsa del taxi dall’Aereoporto alla Cittá dell’Havana."
 
 msgid "pack2_opcion1_desc"
-msgstr "Stanza Doppia tipo Standard e prima colazione nella Casa, per 15 giorni e per due persone, e corsa del taxi dall’Aereoporto José Martí alla Cittá de La Havana."
+msgstr "Stanza Doppia tipo Standard, prima colazione nella Casa, per due persone, e corsa del taxi dall’Aereoporto alla Cittá dell' Havana."
 
 msgid "pack2_opcion2_desc"
-msgstr "Stanza Doppia tipo Standard, prima colazione e cena nella Casa, per 15 giorni e per due persone, e corsa del taxi dall’Aereoporto alla Cittá dell’Havana."
+msgstr "Stanza Doppia tipo Standard, prima colazione e cena nella Casa, per due persone, e corsa del taxi dall’Aereoporto alla Cittá dell’Havana."
 
 msgid "pack3_opcion1_desc"
-msgstr "Stanza Doppia tipo Standard e prima colazione nella Casa, per 10 giorni e per due persone, e corsa del taxi dall’Aereoporto José Martí alla Cittá de La Havana."
+msgstr "Stanza Doppia tipo Standard, prima colazione nella Casa, per due persone, e corsa del taxi dall’Aereoporto alla Cittá dell' Havana."
 
 msgid "pack3_opcion2_desc"
-msgstr "Stanza, prima colazione e cena nella Casa per 10 giorni e per due persone, e corsa del taxi dall’Aereoporto alla Cittá dell’Havana."
+msgstr "Stanza, prima colazione e cena nella Casa, per due persone, e corsa del taxi dall’Aereoporto alla Cittá dell’Havana."
 
 msgid "precio_total_por_persona"
 msgstr "Prezzo totale, per due persone"
@@ -478,7 +481,7 @@ msgstr "Leggi tutto"
 msgid "convertidor_divisas"
 msgstr "Convertitore di Valute"
 
-msgid "Ingrese un valor entre 1 y 255 caracteres de longitud."
+msgid "Este campo no puede quedar vacío."
 msgstr "Riempi questo spazio."
 
 msgid "Ingrese una dirección web válida."
@@ -490,14 +493,59 @@ msgstr "Inserisci una data valida."
 msgid "Ingrese una dirección de correo electrónico válida."
 msgstr "Inserisci un indirizzo di posta elettronica valido."
 
+msgid "Escriba de nuevo su correo electrónico."
+msgstr "Scrivi di nuovo l’indirizzo."
+
 msgid "Ingrese un texto."
 msgstr "Inserisci un testo."
 
-msgid "Ingrese su nombre por favor"
+msgid "Ingrese su nombre por favor."
 msgstr "Metti qui per favore il tuo nome."
 
-msgid "Ingrese su comentario"
+msgid "Ingrese su comentario."
 msgstr "Commenta."
+
+msgid "Indique el número de habitaciones."
+msgstr "Specifica il numero di stanze che desideri."
+
+msgid "Indique el número de personas."
+msgstr "Specifica il numero di persone."
+
+msgid "Indique su fecha de llegada (dd-mm-aa)."
+msgstr "Specifica la data d’arrivo (gg-mm-aa)."
+
+msgid "Indique el número de días."
+msgstr "Specifica il numero di giorni."
+
+msgid "Ingrese una fecha con el formato (dd-mm-aa)."
+msgstr "Inserisci una data completa (gg-mm-aa)."
+
+msgid "La fecha de llegada y de partida no son válidas."
+msgstr "La data d'arrivo e di ritorno non sono valide."
+
+msgid "La fecha no puede ser anterior a la fecha de llegada."
+msgstr "La data non puó essere anteriore alla data d'arrivo."
+
+msgid "La fecha no puede ser posterior a la fecha de partida."
+msgstr "La data non puó essere posteriore alla data di ritorno."
+
+msgid "pago_exitoso"
+msgstr "Grazie, abbiamo ricevuto il vostro pagamento. Invieremo immediatamente il Voucher all’indirizzo di posta elettronica che ci avete fornito."
+
+msgid "pago_registrado_pendiente"
+msgstr "La vostra prenotazione é stata registrata, ci porremo in contatto con voi dopo aver verificato il pagamento."
+
+msgid "pago_fallido"
+msgstr "L'effettuazione del pagamento si é interrotta imprevedibilmente. Per favore, tentate di nuovo."
+
+msgid "pago_interrumpido"
+msgstr "L'effettuazione del pagamento si é interrotta imprevedibilmente. Per favore, tentate di nuovo."
+
+msgid "pago_no_iniciado"
+msgstr "Il procedimento di pagamento non si é potuto inizire, a causa di problemi con PayPal. Selezionate per favore un'altra opzione."
+
+msgid "pago_no_guardado"
+msgstr "Il vostro pagamento é stato registrato in PayPal, peró non é stato possibile registrarlo con noi. Per favore, mettetevi in contatto con noi per la verifica."
 
 msgid "todos_obligatorios"
 msgstr "Riempi tutti gli spazi."

@@ -57,7 +57,7 @@ class AppModel extends Model {
 		}
 
 		/// Auto Validation
-		$notEmpty = array('rule'=>array('between', 1,255), 'allowEmpty'=>false, 'message'=>'Ingrese un valor entre 1 y 255 caracteres de longitud.');
+		$notEmpty = array('rule'=>array('between', 1,255), 'allowEmpty'=>false, 'message'=>'Este campo no puede quedar vacío.');
 		$url = array('rule'=>'url', 'allowEmpty'=>true, 'message'=>'Ingrese una dirección web válida.');
 		$date = array('rule'=>'date', 'allowEmpty'=>true, 'message'=>'Ingrese una fecha válida.');
 		$email = array('rule'=>'email', 'allowEmpty'=>false, 'message'=>'Ingrese una dirección de correo electrónico válida.');
@@ -501,5 +501,11 @@ class AppModel extends Model {
 			}
 		}
 	}
+
+	function invalidate($field, $value = true) {
+		fb('INVALIDATE '.$field.' '.$value);
+		return parent::invalidate($field, __($value, true));
+	}
+	
 }
 ?>

@@ -15,7 +15,7 @@ echo
 				$this->element('showcase',array('data'=>$item['Packimg'],'model'=>'Packimg','size'=>'x137','url'=>true)),
 			'</div>',
 			$html->div('column'),
-				$html->link(__('mapa',true),'/'.$item[$_m[0]]['src'],array('class'=>'pulsembox mapa')),
+				$html->link(__('clic_agrandar',true),'/'.$item[$_m[0]]['src'],array('class'=>'pulsembox mapa')),
 			'</div>',
 		'</div>',
 

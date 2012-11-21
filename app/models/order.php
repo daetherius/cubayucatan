@@ -46,22 +46,22 @@ class Order extends AppModel {
 	);
 	var $skipValidation = array();
 	var $validate = array(
-		'nombre'=>array('rule'=>array('between', 1,255), 'allowEmpty'=>false, 'message'=>'Ingrese un texto entre 1 y 255 caracteres de longitud.'),
-		'apellidos'=>array('rule'=>array('between', 1,255), 'allowEmpty'=>false, 'message'=>'Ingrese un texto entre 1 y 255 caracteres de longitud.'),
+		'nombre'=>array('rule'=>array('between', 1,255), 'allowEmpty'=>false, 'message'=>'Este campo no puede quedar vacío.'),
+		'apellidos'=>array('rule'=>array('between', 1,255), 'allowEmpty'=>false, 'message'=>'Este campo no puede quedar vacío.'),
 		'email'=>array('rule'=>'email', 'allowEmpty'=>false, 'message'=>'Ingrese una dirección de correo electrónico válida.'),
 		'confirma_email'=>array(
-			'indentical'=>array('rule'=>'confirma_email','message'=>'Escriba de nuevo su correo electrónico'),
-			'notEmpty'=>array('rule'=>'notEmpty', 'allowEmpty'=>false, 'message'=>'Ingrese un valor entre 1 y 255 caracteres de longitud.')
+			'indentical'=>array('rule'=>'confirma_email','message'=>'Escriba de nuevo su correo electrónico.'),
+			'notEmpty'=>array('rule'=>'notEmpty', 'allowEmpty'=>false, 'message'=>'Este campo no puede quedar vacío.')
 		),
 
-		'hab'=>array('rule'=>'notEmpty','allowEmpty'=>false,'message'=>'Indique el número de habitaciones'),
-		'num_personas'=>array('rule'=>'notEmpty','allowEmpty'=>false,'message'=>'Indique el número de personas'),
-		'arrival'=>array('rule'=>'check_arrival','message'=>'Indique su fecha de llegada (dd/mm/aa)'),
-		'havana_days'=>array('rule'=>'total_days','allowEmpty'=>false,'message'=>'Indique el número de días'),
+		'hab'=>array('rule'=>'notEmpty','allowEmpty'=>false,'message'=>'Indique el número de habitaciones.'),
+		'num_personas'=>array('rule'=>'notEmpty','allowEmpty'=>false,'message'=>'Indique el número de personas.'),
+		'arrival'=>array('rule'=>'check_arrival','message'=>'Indique su fecha de llegada (dd-mm-aa).'),
+		'havana_days'=>array('rule'=>'total_days','allowEmpty'=>false,'message'=>'Indique el número de días.'),
 
-		'taxi_arribo'=>array('rule'=>'taxi_arribo','message'=>'Ingrese una fecha con el formato DD-MM-AA'),
-		'taxi_num_vuelo'=>array('rule'=>'notEmpty', 'allowEmpty'=>false, 'message'=>'Ingrese un valor entre 1 y 255 caracteres de longitud.'),
-		'taxi_linea_aerea'=>array('rule'=>'notEmpty', 'allowEmpty'=>false, 'message'=>'Ingrese un valor entre 1 y 255 caracteres de longitud.'),
+		'taxi_arribo'=>array('rule'=>'taxi_arribo','message'=>'Ingrese una fecha con el formato (dd-mm-aa).'),
+		'taxi_num_vuelo'=>array('rule'=>'notEmpty', 'allowEmpty'=>false, 'message'=>'Este campo no puede quedar vacío.'),
+		'taxi_linea_aerea'=>array('rule'=>'notEmpty', 'allowEmpty'=>false, 'message'=>'Este campo no puede quedar vacío.'),
 	);
 
 	function confirma_email(){ return (!empty($this->data['Order']['confirma_email'])) && $this->data['Order']['confirma_email'] == $this->data['Order']['email']; }
@@ -73,15 +73,15 @@ class Order extends AppModel {
 			$leaving = strtotime($this->data['Order']['havana_arrival2']);
 
 			if(!$arrival){
-				$this->invalidate('havana_arrival','Indique una fecha de llegada');
+				$this->invalidate('havana_arrival','Indique una fecha de llegada.');
 			}
 
 			if(!$leaving){
-				$this->invalidate('havana_arrival2','Indique una fecha de partida');
+				$this->invalidate('havana_arrival2','Indique una fecha de partida.');
 			}
 
 			if($arrival >= $leaving){
-				$msg = 'La fecha de llegada y de partida no son válidas';
+				$msg = 'La fecha de llegada y de partida no son válidas.';
 				$this->invalidate('havana_arrival',$msg);
 				$this->invalidate('havana_arrival2',$msg);
 			}
@@ -92,10 +92,10 @@ class Order extends AppModel {
 					if($date2time !== false){
 
 						if($date2time < $arrival)
-							$this->invalidate($key,'La fecha no puede ser anterior a la fecha de llegada');
+							$this->invalidate($key,'La fecha no puede ser anterior a la fecha de llegada.');
 
 						if($date2time > $leaving)
-							$this->invalidate($key,'La fecha no puede ser posterior a la fecha de partida');
+							$this->invalidate($key,'La fecha no puede ser posterior a la fecha de partida.');
 					}
 				}
 			}

@@ -40,10 +40,8 @@ echo $html->div('taxi_opcion clear'.($item['Pack']['id'] > 4 ? ' yucatan':''));
 			)),*/
 			//$html->para('suitcase',__('proporcione_datos_hotel',true)),
 			$html->div('opcion_al_llegar_block',null,array('id'=>'opcion_llegada_si_independiente')),
-				$html->div('datos_hotel'),
-					$form->input('taxi_nombre_hotel',array('label'=>__('nombre_hotel',true))),
-					$form->input('taxi_direccion_hotel',array('label'=>__('direccion_hotel',true))),
-				'</div>',
+				$form->input('taxi_nombre_hotel',array('label'=>__('nombre_hotel',true))),
+				$form->input('taxi_direccion_hotel',array('label'=>__('direccion_hotel',true))),
 				$html->para('suitcase',__('hora_entrega_carro',true)),
 			'</div>';
 

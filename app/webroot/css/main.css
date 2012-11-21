@@ -620,7 +620,7 @@ ul li { margin:0 0 4px; }
 	margin:0 0 42px 0;
 	color: #fff;
 	font-family: 'Merienda One', cursive;
-	font-size:22px;
+	font-size:16px;
 	text-decoration:none;
 }
 .c_packs .det_cuba .mapa { background-image: url(/img/mapa_cuba.jpg); }
@@ -744,22 +744,24 @@ a.reservar {
 .voucher_note { font-size:14px;margin:0 20px;text-align: justify; }
 .voucher_note > .title { margin:0 0 12px 0;font-weight:bold;font-size:20px;text-align:center; }
 
-.taxi_opcion > div.input.text {
-	float:left;
-	width: 30%;
-	margin:0 0 0 4%;
-}
-.taxi_opcion > div.input.text:first-child { margin:0; }
+.taxi_opcion div.input {  }
+.taxi_opcion div.input input { margin:0 0 0 10px; }
+.taxi_opcion div.input label { display:-moz-inline-stack;display:inline-block;vertical-align:top;zoom:1;*display:inline; }
 
-.taxi_opcion.yucatan > div.input.text { float:none;width:auto;margin:0; }
-.taxi_opcion.yucatan > div.input.text label { display:-moz-inline-stack;display:inline-block;vertical-align:middle;zoom:1;*display:inline;padding:0 15px 0 0; }
-.taxi_opcion.yucatan > div.input.text input { width:30px; }
-.taxi_opcion.yucatan #OrderTaxiArribo { width:100px; }
+#opcion_llegada_no label { font-size:13px; }
+#opcion_llegada_no div.input { width:168px;margin:0 0 0 16px;display:-moz-inline-stack;display:inline-block;vertical-align:top;zoom:1;*display:inline; }
+#opcion_llegada_no div.input:first-child { margin:0; }
+#opcion_llegada_no div.input input { margin:0; }
 
-.taxi_opcion.yucatan .datos_hotel > div.input.text { display:-moz-inline-stack;display:inline-block;vertical-align:top;zoom:1;*display:inline;margin:0 15px 0 0; }
-.taxi_opcion.yucatan #OrderTaxiNombreHotel { width:190px; }
-.taxi_opcion.yucatan #OrderTaxiDireccionHotel { width:460px; }
+#OrderTaxiHab { width:30px; }
+#OrderTaxiArribo { width:120px; }
 
+#opcion_llegada_si_independiente div.input:first-child { margin:0 10px 0 0; }
+#opcion_llegada_si_independiente div.input input { width:420px; }
+#opcion_llegada_si_independiente label { width:85px;text-align:right;font-size:13px; }
+
+.opcion_al_llegar_block { margin:10px 0 0 0;padding:8px 15px 15px 15px;background:#EBEFEF; }
+.opcion_al_llegar_block .suitcase { background:#DFE6E6;margin-bottom:0; }
 
 .forma_pago { margin:30px auto 50px;width:480px;font-size:20px; }
 .forma_pago label { display:inline;padding:0 12px 0 0;font-weight:bold; }
