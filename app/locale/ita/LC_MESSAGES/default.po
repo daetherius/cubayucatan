@@ -301,6 +301,12 @@ msgstr "Data di fine"
 msgid "inicio_ocupacion"
 msgstr "Data d’ inizio occupazione stanze"
 
+msgid "inicio_ocupacion_opcional"
+msgstr "Data occupazione stanze all'arrivo"
+
+msgid "fin_ocupacion_opcional"
+msgstr "Data occupazione stanze al ritorno"
+
 msgid "fin_ocupacion"
 msgstr "Data di fine occupazione stanze"
 
@@ -344,7 +350,7 @@ msgid "proporcione_datos_hotel"
 msgstr "Se prenoterete voi stessi, indicateci per favore nome e indirizzo dell’Hotel scelto."
 
 msgid "hora_entrega_carro"
-msgstr "Ora di consegna in albergo di auto e voucher: 9.30"
+msgstr "Ora di consegna in albergo di auto e vouchers: 9.30 del mattino"
 
 msgid "nombre_hotel"
 msgstr "Hotel"
@@ -399,6 +405,12 @@ msgstr "Scegliete il vostro programma di viaggio"
 
 msgid "fechas_de_ocupacion"
 msgstr "Date d’occupazione stanze"
+
+msgid "considere_tiempos"
+msgstr "Per favore, prendete in conto i tempi di percorrenza fra una Cittá e l'altra. In caso di dubbio, consultateci."
+
+msgid "ultimo_dia"
+msgstr "Ultimo giorno"
 
 msgid "dias_estancia"
 msgstr "Giorni di permanenza"
@@ -564,3 +576,7 @@ msgstr "#problema_al_enviar_reservacion"
 
 msgid "confirmacion_email"
 msgstr "#confirmacion_email"
+
+msgid "generales"
+msgstr "Generali"
+

@@ -21,7 +21,7 @@
 
 ini_set('default_charset', 'UTF-8');
 date_default_timezone_set('America/Mexico_City');
-setlocale(LC_ALL,DIRECTORY_SEPARATOR=='/'?array('es_MX.utf8'):array('esm.utf8'));
+//setlocale(LC_ALL, array('es_ES.utf-8','es_ES.utf8','es_ES','esm.utf-8','esm.utf8','esm'));
 App::import('Vendor', 'FirePHPDebugger', array('file' => 'FirePHP' . DS . 'FirePHP.debugger.php'));
 
 function b64($string, $decode = false){ return $decode ? base64_decode(strtr($string,'-_,','+/=')) : strtr(base64_encode($string), '+/=', '-_,'); }

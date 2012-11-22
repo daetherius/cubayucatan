@@ -43,6 +43,11 @@ class AppController extends Controller {
 		
 		$this->set('_lang',$this->_lang = $this->Session->read('Config.language'));
 
+		$locale = array('es_MX.utf-8','es_MX.utf8','es_MX','esm.utf-8','esm.utf8','esm');
+		//if($this->_lang == 'ita') $locale = array('it_IT.utf-8','it_IT.utf8','it_IT','ita.utf-8','ita.utf8','ita');
+		
+		setlocale(LC_ALL, $locale);
+
 		/// Store
 		if(in_array('Cart', $this->components)){
 			$this->Cookie->name = 'cart';

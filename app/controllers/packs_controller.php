@@ -5,7 +5,7 @@ class PacksController extends UnlisteditemsController{
 	var $uses = array('Pack','Destination','Order');
 	var $components = array('Email','Cart');
 
-	/** Cart functions **/
+	/* * * Cart functions * * * * */
 	
 	function remove(){ $this->Cart->remove(); }
 	function add2cart(){ $this->Cart->add2cart(); }
@@ -15,7 +15,7 @@ class PacksController extends UnlisteditemsController{
 	function finalizado(){ $this->Cart->docheckout();$this->Cart->reset(); }
 	function cancelado(){ $this->set('isError',true);$this->Cart->reset();$this->render('/packs/finalizado'); }
 
-	/********************/
+	/* * * * * * * * * * * * * * * */
 
 	function reservar($id, $opcion = false){
 		$id = $this->_checkid($id,false);
@@ -23,7 +23,7 @@ class PacksController extends UnlisteditemsController{
 		$this->set(compact('item'));
 		$this->set(compact('opcion'));
 
-		if(!empty($this->data)){
+		if(!empty($this->data)){ //fb($this->data,'$this->data');exit;
 			$this->data['Order']['pack_id'] = $id;
 			$this->Order->set($this->data);
 			if($this->Order->validates()){

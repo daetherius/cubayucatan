@@ -2,7 +2,7 @@
 echo
 	$this->element('top'),
 	$html->div('selector'),
-		(Cache::read('faq_general_recent') ? $html->link('Generales',array('controller'=>'faqs','action'=>'index','General'),array('class'=>$tipo == 'General' ? 'selected':'')):''),
+		(Cache::read('faq_general_recent') ? $html->link(__('generales',true),array('controller'=>'faqs','action'=>'index','General'),array('class'=>$tipo == 'General' ? 'selected':'')):''),
 		(Cache::read('faq_cuba_recent') ? $html->link('Cuba',array('controller'=>'faqs','action'=>'index','Cuba'),array('class'=>$tipo == 'Cuba' ? 'selected':'')):''),
 		(Cache::read('faq_yucatan_recent') ? $html->link('Yucatán',array('controller'=>'faqs','action'=>'index','Yucatan'),array('class'=>$tipo == 'Yucatan' ? 'selected':'')):''),
 	'</div>';

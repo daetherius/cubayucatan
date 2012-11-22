@@ -13,32 +13,27 @@ echo $html->div('taxi_opcion clear'.($item['Pack']['id'] > 4 ? ' yucatan':''));
 				)
 			)),
 
+			/// Ida directa a Ek Balam
 			$html->div('opcion_al_llegar_block',null,array('id'=>'opcion_llegada_no')),
 				$form->input('taxi_arribo',array('label'=>__('llegada',true).' '.__('formato_fecha_dmy',true),'class'=>'datepicker','type'=>'text')),
-				$form->input('taxi_hora',array('label'=>__('hora_llegada',true),'type'=>'text')),
+				$form->input('taxi_hora',array('label'=>__('hora_llegada',true),'type'=>'time','timeFormat'=>24)),
 				$form->input('taxi_num_vuelo',array('label'=>__('num_vuelo',true))),
 				$form->input('taxi_linea_aerea',array('label'=>__('linea_aerea',true))),
 			'</div>',
 
-			//$html->para('title',__('indique_si_desea_hab_opcional2',true)),
+			/// Estancia la noche de llegada
 			$html->div('opcion_al_llegar_block',null,array('id'=>'opcion_llegada_si')),
 				$form->input('taxi_hab',array(
 					'label'=>__('concepto_hab_opcional',true),
 					'value'=>0,
-					'after'=>$html->tag('span','x 2 x €'.$precio_hab_opcional.' = '.$html->tag('span','€'.$html->tag('span','',array('id'=>'hab_opcional')),'precio'),'pad')
+					'after'=>$html->tag('span','x €'.$precio_hab_opcional.' = '.$html->tag('span','€'.$html->tag('span','',array('id'=>'hab_opcional')),'precio'),'pad')
 				)),
-				
-				$form->input('taxi_arribo',array('label'=>__('llegada',true).' '.__('formato_fecha_dmy',true),'class'=>'datepicker','type'=>'text')),
+				$form->input('taxi_hab_arribo_inicio',array('disabled'=>'disabled','label'=>__('inicio_ocupacion_opcional',true).' '.__('formato_fecha_dmy',true),'type'=>'text')),
+				$form->input('taxi_hab_arribo_fin',array('disabled'=>'disabled','label'=>__('fin_ocupacion_opcional',true).' '.__('formato_fecha_dmy',true),'type'=>'text')),
 				$html->para('suitcase',__('hora_entrega_carro',true)),
 			'</div>',
-			//$form->input('taxi_retorno',array('label'=>__('retorno',true).' '.__('formato_fecha_dmy',true),'class'=>'datepicker')),
-			
-			/*$form->input('taxi_adicionales',array(
-				'label'=>__('hab_opcional_adicionales',true),
-				'value'=>0,
-				'after'=>$html->tag('span','x €'.$precio_hab_opcional.' = '.$html->tag('span','€'.$html->tag('span','',array('id'=>'hab_opcional_adicional')),'precio'),'pad')
-			)),*/
-			//$html->para('suitcase',__('proporcione_datos_hotel',true)),
+
+			/// Estancia la noche de llegada por su cuenta
 			$html->div('opcion_al_llegar_block',null,array('id'=>'opcion_llegada_si_independiente')),
 				$form->input('taxi_nombre_hotel',array('label'=>__('nombre_hotel',true))),
 				$form->input('taxi_direccion_hotel',array('label'=>__('direccion_hotel',true))),
@@ -46,12 +41,14 @@ echo $html->div('taxi_opcion clear'.($item['Pack']['id'] > 4 ? ' yucatan':''));
 			'</div>';
 
 			$opcion_al_llegar_check = '$$(".opcion_al_llegar_block").setStyle("display","none"); $("opcion_llegada_"+$("OrderOpcionAlLlegar").get("value")).setStyle("display","block");';
-			$moo->addEvent('OrderOpcionAlLlegar','click',$opcion_al_llegar_check);
+			$disableOpcionesLlegar = '$$(".opcion_al_llegar_block input,.opcion_al_llegar_block select").each(function(el){ el.set("disabled","disabled"); }); $("opcion_llegada_"+$("OrderOpcionAlLlegar").get("value")).getElements("input,select").each(function(el){ el.set("disabled",""); });';
+			$moo->addEvent('OrderOpcionAlLlegar','click',$opcion_al_llegar_check.$disableOpcionesLlegar);
 			$moo->buffer($opcion_al_llegar_check);
 	
 	} else {
 		echo
 			$form->input('taxi_arribo',array('label'=>__('llegada',true).' '.__('formato_fecha_dmy',true),'class'=>'datepicker','type'=>'text')),
+			$form->input('taxi_hora',array('label'=>__('hora_llegada',true),'type'=>'time','timeFormat'=>24)),
 			$form->input('taxi_num_vuelo',array('label'=>__('num_vuelo',true))),
 			$form->input('taxi_linea_aerea',array('label'=>__('linea_aerea',true)));
 	}

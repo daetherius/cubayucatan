@@ -746,21 +746,24 @@ a.reservar {
 .voucher_note > .title { margin:0 0 12px 0;font-weight:bold;font-size:20px;text-align:center; }
 
 .taxi_opcion div.input { width:168px;margin:0 0 0 16px;display:-moz-inline-stack;display:inline-block;vertical-align:top;zoom:1;*display:inline; }
+.taxi_opcion div.input.select { width:auto;margin:0;display:block; }
 .taxi_opcion div.input:first-child { margin:0; }
 .taxi_opcion div.input input { margin:0; }
 
-.taxi_opcion.yucatan div.input { width: auto;display:block;margin:0; }
-.taxi_opcion.yucatan div.input input { margin:0 0 0 10px; }
-.taxi_opcion.yucatan div.input label { display:-moz-inline-stack;display:inline-block;vertical-align:top;zoom:1;*display:inline; }
+#opcion_llegada_si div.input, #opcion_llegada_si_independiente div.input { width:auto;display:block;margin:0; }
+#opcion_llegada_si div.input input, #opcion_llegada_si_independiente div.input input { margin:0 0 0 10px; }
+#opcion_llegada_si div.input label, #opcion_llegada_si_independiente div.input label { display:-moz-inline-stack;display:inline-block;vertical-align:top;zoom:1;*display:inline; }
 
-#opcion_llegada_no label { font-size:13px; }
+.taxi_opcion label, #opcion_llegada_no label { font-size:13px; }
 
 #OrderTaxiHab { width:30px; }
-#OrderTaxiArribo { width:120px; }
+.taxi_opcion div.input input[type=text].datepicker { width:120px; }
+#OrderTaxiArribo { width:95%; }
 
 #opcion_llegada_si_independiente div.input:first-child { margin:0 10px 0 0; }
 #opcion_llegada_si_independiente div.input input { width:420px; }
 #opcion_llegada_si_independiente label { width:85px;text-align:right;font-size:13px; }
+#opcion_llegada_si_independiente .suitcase:first-child { margin:0 0 15px 0; }
 
 .opcion_al_llegar_block { margin:10px 0 0 0;padding:8px 15px 15px 15px;background:#EBEFEF; }
 .opcion_al_llegar_block .suitcase { background:#DFE6E6;margin-bottom:0; }
