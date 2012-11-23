@@ -296,7 +296,7 @@ class AppModel extends Model {
 		return $results;
 	}
 	
-	function beforeValidate(){ $this->clean($this->data); return true; }
+	function beforeValidate(){ $this->clean($this->data); return parent::beforeValidate(); }
 	function afterSave($created){
 		$data['slug'] = '';
 		# Es sluggeable y tiene el campo "Display" (posible actualización del campo)

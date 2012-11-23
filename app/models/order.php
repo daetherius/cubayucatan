@@ -59,9 +59,13 @@ class Order extends AppModel {
 		'arrival'=>array('rule'=>'check_arrival','message'=>'Indique su fecha de llegada (dd-mm-aa).'),
 		'havana_days'=>array('rule'=>'total_days','allowEmpty'=>false,'message'=>'Indique el número de días.'),
 
-		'taxi_arribo'=>array('rule'=>'taxi_arribo','message'=>'Ingrese una fecha con el formato (dd-mm-aa).'),
+		'taxi_arribo'=>array('rule'=>'notEmpty','allowEmpty'=>false,'message'=>'Ingrese una fecha con el formato (dd-mm-aa).'),
+		'taxi_hab'=>array('rule'=>array('comparison','>',0),'allowEmpty'=>false,'message'=>'Indique el número de habitaciones.'),
+		'taxi_hab_arribo'=>array('rule'=>'notEmpty','message'=>'Ingrese una fecha con el formato (dd-mm-aa).'),
 		'taxi_num_vuelo'=>array('rule'=>'notEmpty', 'allowEmpty'=>false, 'message'=>'Este campo no puede quedar vacío.'),
 		'taxi_linea_aerea'=>array('rule'=>'notEmpty', 'allowEmpty'=>false, 'message'=>'Este campo no puede quedar vacío.'),
+		'taxi_nombre_hotel'=>array('rule'=>'notEmpty', 'allowEmpty'=>false, 'message'=>'Este campo no puede quedar vacío.'),
+		'taxi_direccion_hotel'=>array('rule'=>'notEmpty', 'allowEmpty'=>false, 'message'=>'Este campo no puede quedar vacío.'),
 	);
 
 	function confirma_email(){ return (!empty($this->data['Order']['confirma_email'])) && $this->data['Order']['confirma_email'] == $this->data['Order']['email']; }
@@ -122,11 +126,16 @@ class Order extends AppModel {
 		return true;
 	}
 	
-	function taxi_arribo(){
-		if($this->data['Order']['pack_id'] < 5 && empty($this->data['Order']['taxi_arribo']))
-			return false;
-
-		return true;
+	function beforeValidate(){
+		$dateFields = array();
+		foreach ($this->_schema as $fieldName => $fieldData) {
+			if((!empty($fieldData['type'])) && $fieldData['type'] == 'date'){
+				if(!empty($this->data['Order'][$fieldName])){
+					$this->data['Order'][$fieldName] = implode('-',array_reverse(explode('-',$this->data['Order'][$fieldName])));
+				}
+			}
+		}
+		return parent::beforeValidate();
 	}
 }
 ?>

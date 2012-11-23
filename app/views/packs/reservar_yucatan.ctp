@@ -90,18 +90,9 @@ echo
 
 		var hab_opcional = 0;
 		if($("OrderOpcionAlLlegar").get("value") == "si")
-			hab_opcional = $("OrderTaxiHab").get("value").toInt() * 2 *'.$precio_hab_opcional.';
+			hab_opcional = $("OrderTaxiHab").get("value").toInt() *'.$precio_hab_opcional.';
 
 		if(isNaN(hab_opcional)) hab_opcional = 0;
-
-		/*****
-		
-		var hab_opcional_adicional = $("OrderTaxiAdicionales").get("value").toInt() * '.$precio_hab_opcional.';
-		if(isNaN(hab_opcional_adicional))
-			hab_opcional_adicional = 0;
-		$("hab_opcional_adicional").set("html",hab_opcional_adicional);
-		
-		*****/
 
 		var total_opciones = 0;
 		$$(".yuc_opcion").each(function(el){
@@ -128,7 +119,7 @@ echo
 /*
 */
 
-	$moo->datepicker(array('lang'=>($_lang == 'ita' ? 'it-IT':'es-ES'),'onSelect'=>'function(date){ date.setDate(date.getDate() + 9); $("OrderRetorno").set("value",date.getDate()+"-"+(date.getMonth()+1)+"-"+date.getFullYear()); }'));
+	$moo->datepicker(array('lang'=>($_lang == 'ita' ? 'it-IT':'es-ES'),'onSelect'=>'function(date){ date.setDate(date.getDate() - 1); var fecha_llegada = date.getDate()+"-"+(date.getMonth()+1)+"-"+date.getFullYear(); date.setDate(date.getDate() + 10); var fecha_regreso = date.getDate()+"-"+(date.getMonth()+1)+"-"+date.getFullYear(); $("OrderRetorno").set("value",fecha_regreso);$("OrderTaxiHabArriboFin").set("value",fecha_regreso); $("OrderTaxiHabArriboInicio").set("value",fecha_llegada);  }'));
 ?>
 </div>
 </div><!-- content -->
