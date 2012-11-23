@@ -8,6 +8,16 @@ echo
 		'label'=>__('forma_pago',true),
 		'div'=>'forma_pago'
 	)),
+	$html->div('datos_bancarios'),
+		$html->tag('table'),
+		$html->tableCells(array(
+			array(array('Dati Bancari',array('colspan'=>2))),
+			array(__('titular',true).':','Umberto Fioroni'),
+			array(__('banco',true).':','Scotiabank'),
+			array(__('cuenta',true).':','17001027751'),
+		)),
+		'</table>',
+	'</div>',
 	$html->div('voucher_note'),
 		$html->div('title title4',__('voucher',true)),
 		$html->para(null,__('voucher_note',true).($item['Pack']['id'] > 4  ? ', '.__('entrega_voucher_carro',true):'').'.'),

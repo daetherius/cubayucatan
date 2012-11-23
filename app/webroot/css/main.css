@@ -768,8 +768,16 @@ a.reservar {
 .opcion_al_llegar_block { margin:10px 0 0 0;padding:8px 15px 15px 15px;background:#EBEFEF; }
 .opcion_al_llegar_block .suitcase { background:#DFE6E6;margin-bottom:0; }
 
-.forma_pago { margin:30px auto 50px;width:480px;font-size:20px; }
+.forma_pago { margin:30px auto 20px;width:480px;font-size:20px; }
 .forma_pago label { display:inline;padding:0 12px 0 0;font-weight:bold; }
+
+.datos_bancarios {
+	width:250px;
+	margin:20px auto 50px;
+}
+.datos_bancarios table td { border:#ccc solid 1px;padding:8px; }
+.datos_bancarios table td:first-child { text-align:right;font-weight:bold; }
+.datos_bancarios table tr:first-child td:first-child { text-align:left; }
 
 /* Cuba Personalizado */
 

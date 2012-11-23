@@ -56,3 +56,6 @@ Thumbs.db
 
 /app/webroot/upload/*
 !/app/webroot/upload/
+
+/upload/*
+/upload/*

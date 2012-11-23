@@ -367,6 +367,15 @@ msgstr "Bonifico Bancario"
 msgid "pago_online"
 msgstr "Carta di credito"
 
+msgid "titular"
+msgstr "Titolare"
+
+msgid "banco"
+msgstr "Banca"
+
+msgid "cuenta"
+msgstr "Conto"
+
 msgid "voucher"
 msgstr "Invio del Voucher"
 
