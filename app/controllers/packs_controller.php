@@ -23,73 +23,75 @@ class PacksController extends UnlisteditemsController{
 		$this->set(compact('item'));
 		$this->set(compact('opcion'));
 
-		if(!empty($this->data)){ //fb($this->data,'$this->data');exit;
+		if(!empty($this->data)){
 			$this->data['Order']['pack_id'] = $id;
 			$this->Order->set($this->data);
 			if($this->Order->validates()){
+				$amt = 0;
+				$cuantas = 2; //minimo 2 personas
+
+				switch ($id) {
+					case 1:
+					case 2:
+					case 3:
+						$opciones = array(1=>array(620,984),array(485,758),array(350,522));
+						/// Alguien quiere pasarse de listo
+						if(!in_array((int)$this->data['Order']['opcion'],$opciones[$id])){
+							$this->redirect(array('action'=>'reservar'),true);
+						} else {
+							$opcion = $this->data['Order']['opcion'];
+						}
+
+						$amt = $this->data['Order']['hab'] * $opcion;
+						$cuantas = $this->data['Order']['hab'] * 2;
+					break;
+					case 4:
+						$total_days = 0;
+						foreach ($this->data['Order'] as $field => $value) {
+							if(strpos($field, '_days') !== false){
+								$total_days+= (int)$value;
+							}
+						}
+
+						$servicios = 25 + 8; // Precio base de la habitacion + Desayuno
+						if($this->data['Order']['con_cena'])
+							$servicios+= 9.6;
+
+						$amt = $this->data['Order']['hab'] * $total_days * $servicios;
+						$cuantas = $this->data['Order']['hab'] * 2;
+					break;
+					case 5:
+					case 6:
+						$opciones = array(865,675,653,758);
+						$extras = array(
+							'opc_16'=>array(2=>193,134,104,87),
+							'opc_15'=>array(2=>71,65,54,48),
+							'opc_13'=>array(2=>75,56,75,56),
+							'opc_12'=>array(2=>75,56,48,42),
+							'opc_11'=>array(2=>95,95,95,95),
+							'opc_10'=>array(2=>111,84,70,86),
+							'opc_9'=>array(2=>121,94,80,72)
+						);
+						$por_persona = (int)$this->data['Order']['num_personas'];
+						if(!in_array($por_persona, $opciones)) {
+							$this->redirect(array('action'=>'reservar'),true);
+						} else {
+							$num_personas = array_search($por_persona, $opciones) + 1;
+						}
+
+						$total_extras = 0;
+						foreach($extras as $extra_id => $precios){
+							if(!empty($this->data['Order'][$extra_id])){
+								$total_extras+= $precios[$num_personas];
+							}
+						}
+
+						$amt = ($por_persona + $total_extras) * $num_personas;
+						$cuantas = $num_personas;
+					break;		
+				}
+
 				if($this->data['Order']['forma_pago'] == 'online'){
-					$amt = 0;
-					$cuantas = 2; //minimo 2 personas
-					switch ($id) {
-						case 1:
-						case 2:
-						case 3:
-							$opciones = array(1=>array(620,984),array(485,758),array(350,522));
-							/// Alguien quiere pasarse de listo
-							if(!in_array((int)$this->data['Order']['opcion'],$opciones[$id])){
-								$this->redirect(array('action'=>'reservar'),true);
-							} else {
-								$opcion = $this->data['Order']['opcion'];
-							}
-
-							$amt = $this->data['Order']['hab'] * $opcion;
-							$cuantas = $this->data['Order']['hab'] * 2;
-						break;
-						case 4:
-							$total_days = 0;
-							foreach ($this->data['Order'] as $field => $value) {
-								if(strpos($field, '_days') !== false){
-									$total_days+= (int)$value;
-								}
-							}
-
-							$servicios = 25 + 8; // Precio base de la habitacion + Desayuno
-							if($this->data['Order']['con_cena'])
-								$servicios+= 9.6;
-
-							$amt = $this->data['Order']['hab'] * $total_days * $servicios;
-							$cuantas = $this->data['Order']['hab'] * 2;
-						break;
-						case 5:
-						case 6:
-							$opciones = array(865,675,653,758);
-							$extras = array(
-								'opc_16'=>array(2=>193,134,104,87),
-								'opc_15'=>array(2=>71,65,54,48),
-								'opc_13'=>array(2=>75,56,75,56),
-								'opc_12'=>array(2=>75,56,48,42),
-								'opc_11'=>array(2=>95,95,95,95),
-								'opc_10'=>array(2=>111,84,70,86),
-								'opc_9'=>array(2=>121,94,80,72)
-							);
-							$por_persona = (int)$this->data['Order']['num_personas'];
-							if(!in_array($por_persona, $opciones)) {
-								$this->redirect(array('action'=>'reservar'),true);
-							} else {
-								$num_personas = array_search($por_persona, $opciones) + 1;
-							}
-
-							$total_extras = 0;
-							foreach($extras as $extra_id => $precios){
-								if(!empty($this->data['Order'][$extra_id])){
-									$total_extras+= $precios[$num_personas];
-								}
-							}
-
-							$amt = ($por_persona + $total_extras) * $num_personas;
-							$cuantas = $num_personas;
-						break;		
-					}
 
 					$item = array(
 						'name'=>$item['Pack']['nombre_'.$this->_lang],

@@ -373,6 +373,9 @@ msgstr "Titolare"
 msgid "banco"
 msgstr "Banca"
 
+msgid "sucursal"
+msgstr "Sucursal"
+
 msgid "cuenta"
 msgstr "Conto"
 
@@ -467,7 +470,7 @@ msgid "pack3_opcion1_desc"
 msgstr "Stanza Doppia tipo Standard, prima colazione nella Casa, per due persone, e corsa del taxi dall’Aereoporto alla Cittá dell' Havana."
 
 msgid "pack3_opcion2_desc"
-msgstr "Stanza, prima colazione e cena nella Casa, per due persone, e corsa del taxi dall’Aereoporto alla Cittá dell’Havana."
+msgstr "Stanza Doppia tipo Standard, prima colazione e cena nella Casa, per due persone, e corsa del taxi dall’Aereoporto alla Cittá dell’Havana."
 
 msgid "precio_total_por_persona"
 msgstr "Prezzo totale, per due persone"
@@ -588,4 +591,3 @@ msgstr "#confirmacion_email"
 
 msgid "generales"
 msgstr "Generali"
-
