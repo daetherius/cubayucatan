@@ -4,7 +4,6 @@ class CartComponent extends Object {
 	var $out_of_stock = array();
 	var $item_model = 'Product';
 	var $currency = 'MXN';
-	var $success = null;
 
 	function initialize(&$controller) {
 		$this->controller =& $controller;
@@ -149,7 +148,7 @@ class CartComponent extends Object {
 
 			$this->Paypal->setCurrencyCode($this->currency);
 			if(!$this->Paypal->setExpressCheckout()){
-				$this->cancel(__('pago_no_iniciado',true));
+				$this->cancel(__('payment_not_initiated',true));
 			}
 		}
 
@@ -160,7 +159,7 @@ class CartComponent extends Object {
 		if($this->Session->check('cart.current_order')){
 			$order = $this->Session->read('cart.current_order');
 		} else {
-			$this->cancel(__('pago_interrumpido',true));
+			$this->cancel(__('payment_interrupted',true));
 		}
 
 		// Recheck for Stock
@@ -193,7 +192,7 @@ class CartComponent extends Object {
 
 		// Save order prospect
 		if(!$this->Order->saveAll($order,array('validate'=>true))){
-			$this->cancel(__('pago_no_guardado',true));
+			$this->cancel(__('payment_not_saved',true));
 		}
 
 		$this->pay_details = $pay_details = $this->Paypal->doExpressCheckoutPayment();
@@ -218,6 +217,7 @@ class CartComponent extends Object {
 				$notify_ = array_merge($notify_,$notify);
 		}
 
+		$this->success = true;
 		if($pay_details === false){
 			$this->success = false;
 			$i = 0;
@@ -232,11 +232,12 @@ class CartComponent extends Object {
 				'errors'=>implode("\n",$errors)
 			)));
 
-			$this->notify($notify_);
+			if(!$this->notify($notify_))
+				$errors[] = __('problema_notificacion',true);
+
 			$this->cancel($errors);
 
 		} else {
-			$this->success = true;
 			if(!empty($order['Orderdetail'])){
 				// Stock decrease
 				foreach($order['Orderdetail'] as $detail){
@@ -250,11 +251,12 @@ class CartComponent extends Object {
 			// Mark order as paid
 			$this->Order->save(array_merge($payer_data,	array('status'=>'Pagada')));
 
-			$this->controller->set('cart_flash',__('pago_exitoso',true));
+			$this->controller->set('cart_flash',__('payment_success',true));
 			$this->Session->write('cart.items',array());
 			$this->Session->delete('cart.current_order');
 
-			$this->notify($notify_);
+			if(!$this->notify($notify_))
+				$this->cancel(__('problema_notificacion',true));
 		}
 	}
 
@@ -274,19 +276,25 @@ class CartComponent extends Object {
 		$this->flash($error);
 		$this->controller->redirect($cancel_url,true);
 	}
-	function reset(){ $this->success = null;$this->pay_details = null;$this->Session->delete('cart.current_order'); }
+	function reset(){
+		$this->pay_details = null;
+		$this->failures = array();
+		$this->Session->delete('cart.current_order');
+	}
 	function notify($emails, $msg = null){
+		$emails = (array)$emails;
 		if(is_null($msg)) $msg = $this->success;
+		$failure = !$this->success;
 
 		if($msg === true){
 				$msg = array(
-					__('payment_success_1',true),
-					__('payment_success_2',true)
+					__('payment_success_title',true),
+					__('payment_success_body',true)
 				);
 		} elseif($msg === false){
 				$msg = array(
-					__('payment_failure_1',true),
-					__('payment_failure_2',true)
+					__('payment_failed_title',true),
+					__('payment_failed_body',true)
 				);
 		} elseif(!is_array($msg)){
 			$msg = (array)$msg;
@@ -297,17 +305,18 @@ class CartComponent extends Object {
 		$payer_email = array_shift($emails);
 		$pay_details = $this->pay_details;
 
-		$this->controller->set(compact('site_domain','site_name','msg','pay_details'));
-
+		$this->controller->set(compact('site_domain','site_name','msg','failure','pay_details'));
 		$this->Email->to = $payer_email;
 		$this->Email->cc = $emails;
 		$this->Email->from = $site_name.' <noreply@'.$site_domain.'>';
-		$this->Email->subject = '';
+		$this->Email->subject = 'LOL';
 		$this->Email->sendAs = 'html';
 		$this->Email->template = 'payment';
 		
 		$this->Email->delivery = Configure::read('debug') ? 'debug':'mail';
-		$this->Email->send();
+		fb($this->Email,'$this->Email');
+		$result = $this->Email->send(); fb($result ? 'win':'false');
+		return $result;
 	}
 
 	function beforeRender(&$controller){

@@ -13,7 +13,7 @@ echo
 		echo $html->para($isError ? 'warning':'win',$fl);
 	}
 	
-	echo $html->para(null,'Haga '.$html->link('click aquí',array('controller'=>'packs','action'=>'index')).' para regresar a la página de Inicio.');
+	echo $html->para('buy_exit','Haga '.$html->link('click aquí',array('controller'=>'packs','action'=>'index')).' para regresar a la página de Inicio.');
 ?>
 </div>
 </div><!-- .content -->

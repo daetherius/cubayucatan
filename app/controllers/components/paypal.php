@@ -28,6 +28,7 @@ class PaypalComponent extends Object {
 	var $payer		 = null;
 	var $recipients  = null;
 	var $currency	 = null;
+	var $failures	 = array();
 	var $currencies = array('AUD','BRL','CAD','CZK','DKK','EUR','HKD','HUF','ILS','JPY','MYR','MXN','NOK','NZD','PHP','PLN','GBP','SGD','SEK','CHF','TWD','THB','USD');
 
 	function initialize(&$controller) {
@@ -225,7 +226,10 @@ class PaypalComponent extends Object {
 		$errors['INVALID_CARD_CVV2']		 = 'Credit card CVV2 must be an integer';
 		$errors['INVALID_EXPIRY_DATE']		 = 'Credit card expiry must be an integer in date format MMYYYY';
 		$errors['CARD_VALIDATION_FAILED']	 = 'Credit card number validation failed';
+
+		//$this->failures[] = $errors[$code].' in '.$trace[0]['file'].' on line '.$trace[0]['line'];
 		echo 'PayPal API Error: '.$errors[$code].' in '.$trace[0]['file'].' on line '.$trace[0]['line'];
+		exit;
 	}
 	
 	/**

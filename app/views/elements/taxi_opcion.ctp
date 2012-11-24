@@ -40,9 +40,8 @@ echo $html->div('taxi_opcion clear'.($item['Pack']['id'] > 4 ? ' yucatan':''));
 				$html->para('suitcase',__('hora_entrega_carro',true)),
 			'</div>';
 
-			$opcion_al_llegar_check = '$$(".opcion_al_llegar_block").setStyle("display","none"); $("opcion_llegada_"+$("OrderOpcionAlLlegar").get("value")).setStyle("display","block");';
-			$disableOpcionesLlegar = '$$(".opcion_al_llegar_block input,.opcion_al_llegar_block select").each(function(el){ el.set("disabled","disabled"); }); $("opcion_llegada_"+$("OrderOpcionAlLlegar").get("value")).getElements("input,select").each(function(el){ el.set("disabled",""); });';
-			$moo->addEvent('OrderOpcionAlLlegar','click',$opcion_al_llegar_check.$disableOpcionesLlegar);
+			$opcion_al_llegar_check = '$$(".opcion_al_llegar_block").setStyle("display","none"); $("opcion_llegada_"+$("OrderOpcionAlLlegar").get("value")).setStyle("display","block"); $$(".opcion_al_llegar_block input,.opcion_al_llegar_block select").each(function(el){ el.set("disabled","disabled"); }); $("opcion_llegada_"+$("OrderOpcionAlLlegar").get("value")).getElements("input,select").each(function(el){ el.set("disabled",""); });';
+			$moo->addEvent('OrderOpcionAlLlegar','click',$opcion_al_llegar_check);
 			$moo->buffer($opcion_al_llegar_check);
 	
 	} else {

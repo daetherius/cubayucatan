@@ -484,6 +484,9 @@ msgstr "Prima Opzione"
 msgid "segunda_opcion"
 msgstr "Seconda Opzione"
 
+msgid "generales"
+msgstr "Generali"
+
 msgid "galeria_fotos"
 msgstr "Fotoracconto"
 
@@ -507,6 +510,12 @@ msgstr "Convertitore di Valute"
 
 msgid "Este campo no puede quedar vacío."
 msgstr "Riempi questo spazio."
+
+msgid "todos_obligatorios"
+msgstr "Riempi tutti gli spazi."
+
+msgid "primera_noche_necesaria"
+msgstr "Prima notte necessaria"
 
 msgid "Ingrese una dirección web válida."
 msgstr "Inserisci un indirizzo web valido."
@@ -535,6 +544,9 @@ msgstr "Specifica il numero di stanze che desideri."
 msgid "Indique el número de personas."
 msgstr "Specifica il numero di persone."
 
+msgid "primera_noche_arrivo_necesaria"
+msgstr "All’arrivo, é necessario passare la notte all’Havana."
+
 msgid "Indique su fecha de llegada (dd-mm-aa)."
 msgstr "Specifica la data d’arrivo (gg-mm-aa)."
 
@@ -553,41 +565,44 @@ msgstr "La data non puó essere anteriore alla data d'arrivo."
 msgid "La fecha no puede ser posterior a la fecha de partida."
 msgstr "La data non puó essere posteriore alla data di ritorno."
 
-msgid "pago_exitoso"
+msgid "payment_success"
 msgstr "Grazie, abbiamo ricevuto il vostro pagamento. Invieremo immediatamente il Voucher all’indirizzo di posta elettronica che ci avete fornito."
 
-msgid "pago_registrado_pendiente"
+msgid "payment_success_title"
+msgstr "payment_success_title"
+
+msgid "payment_success_body"
+msgstr "payment_success_body"
+
+msgid "payment_pending"
 msgstr "La vostra prenotazione é stata registrata, ci porremo in contatto con voi dopo aver verificato il pagamento."
 
-msgid "pago_fallido"
+msgid "payment_pending_title"
+msgstr "payment_pending_title"
+
+msgid "payment_pending_body"
+msgstr "payment_pending_body"
+
+msgid "payment_failed"
 msgstr "L'effettuazione del pagamento si é interrotta imprevedibilmente. Per favore, tentate di nuovo."
 
-msgid "pago_interrumpido"
+msgid "payment_failed_title"
+msgstr "payment_failed_title"
+
+msgid "payment_failed_body"
+msgstr "payment_failed_body"
+
+msgid "payment_interrupted"
 msgstr "L'effettuazione del pagamento si é interrotta imprevedibilmente. Per favore, tentate di nuovo."
 
-msgid "pago_no_iniciado"
+msgid "payment_not_initiated"
 msgstr "Il procedimento di pagamento non si é potuto inizire, a causa di problemi con PayPal. Selezionate per favore un'altra opzione."
 
-msgid "pago_no_guardado"
+msgid "payment_not_saved"
 msgstr "Il vostro pagamento é stato registrato in PayPal, peró non é stato possibile registrarlo con noi. Per favore, mettetevi in contatto con noi per la verifica."
 
-msgid "todos_obligatorios"
-msgstr "Riempi tutti gli spazi."
+msgid "problema_notificacion"
+msgstr "#problema_notificacion"
 
-msgid "primera_noche_necesaria"
-msgstr "Prima notte necessaria"
-
-msgid "primera_noche_arrivo_necesaria"
-msgstr "All’arrivo, é necessario passare la notte all’Havana."
-
-msgid "reservacion_enviada_correctamente"
-msgstr "#reservacion_enviada_correctamente"
-
-msgid "problema_al_enviar_reservacion"
-msgstr "#problema_al_enviar_reservacion"
-
-msgid "confirmacion_email"
-msgstr "#confirmacion_email"
-
-msgid "generales"
-msgstr "Generali"
+msgid "detalles_de_su_pago"
+msgstr "detalles_de_su_pago"

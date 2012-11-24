@@ -820,6 +820,10 @@ a.reservar {
 	font-size:28px;
 }
 
+/* Final */
+.buy_exit { margin:25px 0 0 0; }
+.cancelled_msg { margin:0 0 20px; }
+
 /******** @DESTINATIONS ************************************************/
 
 .c_destinations .detail .column { width:40%; }

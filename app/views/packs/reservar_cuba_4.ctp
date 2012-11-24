@@ -20,7 +20,7 @@ echo
 				$form->input('hab',array(
 					'label'=>__('num_habitacion_doble',true),
 					'maxlength'=>3,
-					'value'=>1,
+					'default'=>1,
 					'after'=>$html->tag('span',$html->tag('span','('.$html->tag('span','2',array('id'=>'num_personas')).' '.__('personas',true).')','pad'),'pad')
 				)),
 			'</div>',

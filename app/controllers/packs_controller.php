@@ -12,7 +12,9 @@ class PacksController extends UnlisteditemsController{
 	function checkout(){ $this->Cart->checkout(); }
 	function updateqty(){ $this->Cart->updateqty(); }
 	function setcheckout(){	$this->Cart->setcheckout();	}
+
 	function finalizado(){ $this->Cart->docheckout();$this->Cart->reset(); }
+	function pendiente(){ $this->Cart->reset();$this->render('/packs/finalizado'); }
 	function cancelado(){ $this->set('isError',true);$this->Cart->reset();$this->render('/packs/finalizado'); }
 
 	/* * * * * * * * * * * * * * * */
@@ -34,10 +36,10 @@ class PacksController extends UnlisteditemsController{
 					case 1:
 					case 2:
 					case 3:
-						$opciones = array(1=>array(620,984),array(485,758),array(350,522));
+						$opciones = array(1=>array(620,984),array(485,758),array(340,522));
 						/// Alguien quiere pasarse de listo
 						if(!in_array((int)$this->data['Order']['opcion'],$opciones[$id])){
-							$this->redirect(array('action'=>'reservar'),true);
+							$this->redirect(array_merge(array('action'=>'reservar'),$this->passedArgs),true);
 						} else {
 							$opcion = $this->data['Order']['opcion'];
 						}
@@ -49,20 +51,24 @@ class PacksController extends UnlisteditemsController{
 						$total_days = 0;
 						foreach ($this->data['Order'] as $field => $value) {
 							if(strpos($field, '_days') !== false){
-								$total_days+= (int)$value;
+								if((int)$value < 1){
+									$ciudad = substr($field,0,strpos($field,'_days'));
+									$this->data['Order'][$ciudad.'_arrival'] = '';
+								} else {
+									$total_days+= (int)$value;
+								}
 							}
 						}
 
 						$servicios = 25 + 8; // Precio base de la habitacion + Desayuno
 						if($this->data['Order']['con_cena'])
-							$servicios+= 9.6;
-
+							$servicios+= 19.2;
 						$amt = $this->data['Order']['hab'] * $total_days * $servicios;
 						$cuantas = $this->data['Order']['hab'] * 2;
 					break;
 					case 5:
 					case 6:
-						$opciones = array(865,675,653,758);
+						$opciones = array(2=>865,675,653,758);
 						$extras = array(
 							'opc_16'=>array(2=>193,134,104,87),
 							'opc_15'=>array(2=>71,65,54,48),
@@ -76,7 +82,7 @@ class PacksController extends UnlisteditemsController{
 						if(!in_array($por_persona, $opciones)) {
 							$this->redirect(array('action'=>'reservar'),true);
 						} else {
-							$num_personas = array_search($por_persona, $opciones) + 1;
+							$num_personas = array_search($por_persona, $opciones);
 						}
 
 						$total_extras = 0;
@@ -91,29 +97,35 @@ class PacksController extends UnlisteditemsController{
 					break;		
 				}
 
-				if($this->data['Order']['forma_pago'] == 'online'){
+				$order['Order'] = array_merge($this->data['Order'],array('status'=>'Pendiente','amt'=>$amt));
 
+				/// Paypal/Tarjeta
+				if($this->data['Order']['forma_pago'] == 'online'){
 					$item = array(
-						'name'=>$item['Pack']['nombre_'.$this->_lang],
+						'name'=>_dec($item['Pack']['nombre_'.$this->_lang]),
 						'desc'=>$cuantas.' '.__('personas',true),
 						'amt'=>$amt,
 						'qty'=>1
 					);
-
-					$order['Order'] = array_merge($this->data['Order'],array('status'=>'Pendiente','total'=>$amt));
 
 					$this->Session->write('cart.current_order',$order);
 					$this->Paypal->setCurrencyCode('EUR');
 					$this->Paypal->additem($id,$item);
 		
 					if(!$this->Paypal->setExpressCheckout()){
-						$this->cancel(__('pago_no_iniciado',true));
+						$this->cancel(__('payment_not_initiated',true));
 					}
 
+				/// Depósito Bancario
 				} else {
-					if($this->Order->save($this->data)){
-						$this->Session->write('cart.flash',__('pago_registrado_pendiente',true));
-						$this->redirect(array('action'=>'cancelado'));
+					if($this->Order->save($order)){
+						$msg = array(
+							__('payment_pending_title',true),
+							__('payment_pending_body',true)
+						);
+						$this->Cart->notify($this->data['Order']['email'],$msg);
+						$this->Session->write('cart.flash',__('payment_pending',true));
+						$this->redirect(array('action'=>'pendiente'));
 					}
 				}
 			} //else fb($this->Order->invalidFields(),'Order->invalidFields()');
