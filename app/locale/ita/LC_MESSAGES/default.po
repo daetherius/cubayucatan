@@ -61,6 +61,12 @@ msgstr "zero"
 msgid "toggle_lang"
 msgstr "Español"
 
+msgid "si"
+msgstr "#se"
+
+msgid "no"
+msgstr "#no"
+
 msgid "inicio"
 msgstr "Inizio"
 
@@ -130,6 +136,9 @@ msgstr "#Información sobre los paquetes"
 msgid "info_de_su_pago"
 msgstr "Informazioni sul pagamento"
 
+msgid "info_reservacion"
+msgstr "#info_reservacion"
+
 msgid "menu"
 msgstr "Menú"
 
@@ -184,6 +193,9 @@ msgstr "Informazioni Generali"
 msgid "opcion"
 msgstr "Opzione"
 
+msgid "opciones"
+msgstr "Opzioni"
+
 msgid "leer_mas"
 msgstr "Leggi descrizione"
 
@@ -228,6 +240,9 @@ msgstr "Mayataan"
 
 msgid "nota_antes_reservar"
 msgstr "Le prenotazioni si effettuano normalmente con 30 giorni di anticipo sulla data di partenza. Possiamo farcela anche in minor tempo, dipende dal traffico di presenze: prendete contatto con noi per informazioni."
+
+msgid "num_orden"
+msgstr "#Numero de Reservacón"
 
 msgid "nombre"
 msgstr "Nome"
@@ -316,6 +331,9 @@ msgstr "Data d’ inizio occupazione bungalow"
 msgid "fin_ocupacion_bungalow"
 msgstr "Data di fine occupazione bungalow"
 
+msgid "comunidad_ek_balam"
+msgstr "Comunitá Maya di Ek Balam"
+
 msgid "indique_si_desea_taxi"
 msgstr "Per inviare il taxi, per favore comunicateci:"
 
@@ -343,6 +361,9 @@ msgstr "Potete riservare con noi una stanza d’albergo a Cancún, per la notte 
 msgid "concepto_hab_opcional"
 msgstr "Stanze doppie, tipo Standard, con bagno, all’arrivo e al ritorno"
 
+msgid "concepto_hab_opcional_corto"
+msgstr "Stanze doppie all’arrivo e al ritorno"
+
 msgid "hab_opcional_adicionales"
 msgstr "Notti supplementari di soggiorno"
 
@@ -366,6 +387,21 @@ msgstr "Bonifico Bancario"
 
 msgid "pago_online"
 msgstr "Carta di credito"
+
+msgid "amt"
+msgstr "#Monto total"
+
+msgid "status"
+msgstr "#Estado del pago"
+
+msgid "basico_detalles_titulo"
+msgstr "#Información Básica"
+
+msgid "viaje_detalles_titulo"
+msgstr "#Detalles del viaje"
+
+msgid "taxi_detalles_titulo"
+msgstr "#Detalles del Taxi"
 
 msgid "titular"
 msgstr "Titolare"
@@ -435,6 +471,9 @@ msgstr "Colazioni"
 
 msgid "cena"
 msgstr "Cene"
+
+msgid "cena_incluida"
+msgstr "Include Cene"
 
 msgid "opcional"
 msgstr "opzionali"
@@ -600,6 +639,9 @@ msgstr "Il procedimento di pagamento non si é potuto inizire, a causa di proble
 
 msgid "payment_not_saved"
 msgstr "Il vostro pagamento é stato registrato in PayPal, peró non é stato possibile registrarlo con noi. Per favore, mettetevi in contatto con noi per la verifica."
+
+msgid "payment_problems"
+msgstr "#payment_problems"
 
 msgid "problema_notificacion"
 msgstr "#problema_notificacion"

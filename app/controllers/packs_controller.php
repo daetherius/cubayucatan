@@ -13,7 +13,7 @@ class PacksController extends UnlisteditemsController{
 	function updateqty(){ $this->Cart->updateqty(); }
 	function setcheckout(){	$this->Cart->setcheckout();	}
 
-	function finalizado(){ $this->Cart->docheckout();$this->Cart->reset(); }
+	function finalizado(){ $this->Cart->docheckout();$this->Cart->reset();fb('FIN'); }
 	function pendiente(){ $this->Cart->reset();$this->render('/packs/finalizado'); }
 	function cancelado(){ $this->set('isError',true);$this->Cart->reset();$this->render('/packs/finalizado'); }
 

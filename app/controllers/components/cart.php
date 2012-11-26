@@ -90,10 +90,10 @@ class CartComponent extends Object {
 		$this->items = array();
 		$items = $this->Session->read('cart.items');
 		$find_opts = array('contain'=>false,'fields'=>array('id','nombre','precio','stock'));
-		$order = array('Order'=>array('status'=>'Pendiente','total'=>0,'buyer_id'=>null));
+		$this->_order = array('Order'=>array('status'=>'Pendiente','total'=>0,'buyer_id'=>null));
 
 		if($this->Session->check('cart.Buyer.id'))
-			$order['Order']['buyer_id'] = $this->Session->read('cart.Buyer.id');
+			$this->_order['Order']['buyer_id'] = $this->Session->read('cart.Buyer.id');
 
 		foreach ($items as $item_id => $item) {
 			if(!$item['qty']){
@@ -125,13 +125,13 @@ class CartComponent extends Object {
 					'qty'=>$item['qty'],
 				);
 
-				$order['Orderdetail'][] = array(
+				$this->_order['Orderdetail'][] = array(
 					strtolower($this->item_model).'_id'=>$product[$this->item_model]['id'],
 					'type_id'=>$type ? $type['Type']['id'] : null,
 					'cantidad'=>$item['qty']
 				);
 
-				$order['Order']['total']+= $product[$this->item_model]['precio']*$item['qty'];
+				$this->_order['Order']['total']+= $product[$this->item_model]['precio']*$item['qty'];
 
 				$this->Paypal->additem($item_id,$this->items[$item_id]);
 			}
@@ -144,7 +144,7 @@ class CartComponent extends Object {
 
 		} else { // Everything went better than expected :)
 			// Save Order to Session
-			$this->Session->write('cart.current_order',$order);
+			$this->Session->write('cart.current_order',$this->_order);
 
 			$this->Paypal->setCurrencyCode($this->currency);
 			if(!$this->Paypal->setExpressCheckout()){
@@ -157,7 +157,7 @@ class CartComponent extends Object {
 
 	function docheckout($notify = true){
 		if($this->Session->check('cart.current_order')){
-			$order = $this->Session->read('cart.current_order');
+			$this->_order = $this->Session->read('cart.current_order');
 		} else {
 			$this->cancel(__('payment_interrupted',true));
 		}
@@ -166,8 +166,8 @@ class CartComponent extends Object {
 		$this->out_of_stock = array();
 		$find_opts = array('contain'=>false,'fields'=>array('id','stock'));
 
-		if(!empty($order['Orderdetail'])){
-			foreach($order['Orderdetail'] as $detail){
+		if(!empty($this->_order['Orderdetail'])){
+			foreach($this->_order['Orderdetail'] as $detail){
 				if(!empty($detail['type_id'])){
 					$model = $this->Product->Type;
 					$item_id = $detail[strtolower($this->item_model).'_id'].'_'.$detail['type_id'];
@@ -191,7 +191,7 @@ class CartComponent extends Object {
 		}
 
 		// Save order prospect
-		if(!$this->Order->saveAll($order,array('validate'=>true))){
+		if(!$this->Order->saveAll($this->_order,array('validate'=>true))){
 			$this->cancel(__('payment_not_saved',true));
 		}
 
@@ -211,7 +211,7 @@ class CartComponent extends Object {
 		
 		$notify_ = array();
 		if(!empty($notify)){
-			$notify_ = array($request['EMAIL']);
+			$notify_ = array($this->_order['Order']['email']);
 			
 			if(is_array($notify))
 				$notify_ = array_merge($notify_,$notify);
@@ -227,10 +227,12 @@ class CartComponent extends Object {
 				$i++;
 			} while(!empty($response['L_ERRORCODE'.$i]));
 			
-			$this->Order->save(array_merge($payer_data,	array(
+			$this->_order = array_merge($payer_data,array(
 				'status'=>'Fallida',
 				'errors'=>implode("\n",$errors)
-			)));
+			));
+
+			$this->Order->save($this->_order);
 
 			if(!$this->notify($notify_))
 				$errors[] = __('problema_notificacion',true);
@@ -238,9 +240,9 @@ class CartComponent extends Object {
 			$this->cancel($errors);
 
 		} else {
-			if(!empty($order['Orderdetail'])){
+			if(!empty($this->_order['Orderdetail'])){
 				// Stock decrease
-				foreach($order['Orderdetail'] as $detail){
+				foreach($this->_order['Orderdetail'] as $detail){
 					if(!empty($detail['type_id']))
 						$this->Product->Type->updateAll(array('Type.stock'=>'Type.stock-'.$detail['cantidad']),array('Type.id'=>$detail['type_id']));
 					else
@@ -249,7 +251,8 @@ class CartComponent extends Object {
 			}			
 
 			// Mark order as paid
-			$this->Order->save(array_merge($payer_data,	array('status'=>'Pagada')));
+			$this->_order = array_merge($payer_data,array('status'=>'Pagada'));
+			$this->Order->save($this->_order);
 
 			$this->controller->set('cart_flash',__('payment_success',true));
 			$this->Session->write('cart.items',array());
@@ -278,24 +281,26 @@ class CartComponent extends Object {
 	}
 	function reset(){
 		$this->pay_details = null;
+		$this->_order = null;
 		$this->failures = array();
 		$this->Session->delete('cart.current_order');
 	}
 	function notify($emails, $msg = null){
 		$emails = (array)$emails;
 		if(is_null($msg)) $msg = $this->success;
-		$failure = !$this->success;
+		$failure = !(bool)$msg;
 
 		if($msg === true){
-				$msg = array(
-					__('payment_success_title',true),
-					__('payment_success_body',true)
-				);
+			$msg = array(
+				__('payment_success_title',true),
+				__('payment_success_body',true)
+			);
 		} elseif($msg === false){
-				$msg = array(
-					__('payment_failed_title',true),
-					__('payment_failed_body',true)
-				);
+			$emails[] = 'soporte@pulsem.mx';
+			$msg = array(
+				__('payment_failed_title',true),
+				__('payment_failed_body',true)
+			);
 		} elseif(!is_array($msg)){
 			$msg = (array)$msg;
 		}
@@ -303,19 +308,23 @@ class CartComponent extends Object {
 		$site_domain = Configure::read('Site.domain');
 		$site_name = Configure::read('Site.name');
 		$payer_email = array_shift($emails);
-		$pay_details = $this->pay_details;
+
+		if($failure){
+			$pay_details = $this->pay_details;
+		} else {
+			$pay_details = $this->_order;
+		}
 
 		$this->controller->set(compact('site_domain','site_name','msg','failure','pay_details'));
 		$this->Email->to = $payer_email;
 		$this->Email->cc = $emails;
 		$this->Email->from = $site_name.' <noreply@'.$site_domain.'>';
-		$this->Email->subject = 'LOL';
+		$this->Email->subject = __('info_reservacion',true);
 		$this->Email->sendAs = 'html';
 		$this->Email->template = 'payment';
 		
 		$this->Email->delivery = Configure::read('debug') ? 'debug':'mail';
-		fb($this->Email,'$this->Email');
-		$result = $this->Email->send(); fb($result ? 'win':'false');
+		$result = $this->Email->send();
 		return $result;
 	}
 

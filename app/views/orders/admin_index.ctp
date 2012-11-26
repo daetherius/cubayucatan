@@ -12,23 +12,40 @@ echo
 			$html->tableHeaders(array(
 				$paginator->sort('#', 'id'),
 				$paginator->sort('Nombre', 'nombre'),
-				$paginator->sort('Activo', 'activo'),
+				$paginator->sort('Apellidos', 'apellidos'),
+				$paginator->sort('E-mail', 'email'),
+				$paginator->sort('Paquete', 'pack_id'),
+				$paginator->sort('Estado', 'status'),
+				$paginator->sort('Monto', 'amt'),
 				$paginator->sort('Creado', 'created'),
 				'Acciones'
 			));
 
+			$packs = array(
+				1=>'Cuba - 20 días',
+				'Cuba - 15 días',
+				'Cuba - 10 días',
+				'Cuba - Personalizado',
+				'Yucatán c/Opciones',
+				'Yucatán'
+			);
+
 			foreach($items as $it){
 				$id = $it[$_m[0]]['id'];
+				$pid = $it[$_m[0]]['pack_id'];
+				$tipo = $pid < 5 ? 'cuba':'yucatan';
 				
 				echo $html->tableCells(array(array(
 					$form->input($id,array('type'=>'checkbox','div'=>'hide','class'=>'delete')).$html->link($id,'javascript:;',array('class'=>'id','id'=>'it'.$id)),
 					$it[$_m[0]]['nombre'],
-					$util->toggle($it[$_m[0]]['activo'],$id),
+					$it[$_m[0]]['apellidos'],
+					$it[$_m[0]]['email'],
+					$packs[$it[$_m[0]]['pack_id']],
+					$it[$_m[0]]['status'],
+					$it[$_m[0]]['amt'],
 					$util->fdate('s',$it[$_m[0]]['created']),
 					array(
-						$html->link('Ver',array('action'=>'ver','admin'=>0,$id),array('target'=>'_blank')).
-						($hasimgs ? $html->link('Fotos',array('action'=>'images','admin'=>1,$id)):'').
-						$html->link('Editar',array('action'=>'editar','admin'=>1,$id)).
+						$html->link('Ver',array('action'=>'ver','admin'=>1,$id)).
 						$html->link('Eliminar',array('action'=>'eliminar','admin'=>1,$id),null,'¿Seguro que quiere eliminar este elemento?')
 					,array('class'=>'actions'))
 				)),array('class'=>'odd'));

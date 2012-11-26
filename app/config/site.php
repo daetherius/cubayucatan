@@ -35,7 +35,7 @@ $modules = array(
 	'carousels'=>array('carrusel','admin'=>array('photos')),
 	'packs'=>array('paquetes','menu','admin'=>array('')),
 		'packimgs'=>array('imágenes','admin'=>false),
-	'orders'=>array('reservaciones','admin'=>array('')),
+	'orders'=>array('reservaciones','singu'=>'reservación','admin'=>array('')),
 
 	'destinations'=>array('destinos','menu','admin'=>array('')),
 		'destinationimgs'=>array('imágenes','admin'=>false),

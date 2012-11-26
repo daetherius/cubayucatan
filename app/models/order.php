@@ -116,17 +116,19 @@ class Order extends AppModel {
 		if($this->data['Order']['havana_days'] < 1) return false;
 
 		foreach ($this->data['Order'] as $key => $value) {
+			$this->data['Order'][$key] = (int)$value;
 			if(strpos($key, '_days') !== false){
 				if(!empty($value) && (int)$value > 0){
 					$ciudad = substr($key,0,strpos($key,'_days'));
 					$arrival = $this->data['Order'][$ciudad.'_arrival'];
 					if(empty($arrival) || strtotime($arrival) ===  false)
 						$this->invalidate($ciudad.'_arrival','Ingrese una fecha válida.');
+				} else {
+					$this->data['Order'][$ciudad.'_days'] = $value = 0;
 				}
 
 				$days_fields[] = $key;
-				if($value !== '' && (int)$value > 0)
-					$total_days+= (int)$value;
+				$total_days+= (int)$value;
 			}
 		}
 
