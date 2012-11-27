@@ -15,6 +15,8 @@ $field_labels = array(
 	'taxi_num_vuelo'=>'num_vuelo',
 	'taxi_linea_aerea'=>'linea_aerea',
 
+	'amt'=>__('amt',true).' '.__('en_euro',true),
+
 	'havana_arrival'=>'Havana',
 	'pinar_del_rio_arrival'=>'Pinar del Río',
 	'cienfuegos_arrival'=>'Cienfuegos',
@@ -31,10 +33,23 @@ $field_labels = array(
 $value_labels = array(
 	'con_cena'=>array(__('no',true),__('si',true)),
 	'num_personas'=>array(865=>2,675=>3,653=>4,758=>5),
+	'forma_pago'=>array('deposito'=>__('deposito',true),'online'=>__('online',true)),
+	'status'=>array(
+		'Pendiente'=>__('pago_pendiente',true),
+		'Pagada'=>__('pago_pagado',true)
+	),
+	'opcion'=>array(
+		340=>'Prima Opzione (€340)',
+		522=>'Seconda Opzione (€522)',
+		485=>'Prima Opzione (€485)',
+		758=>'Seconda Opzione (€758)',
+		620=>'Prima Opzione (€620)',
+		984=>'Seconda Opzione (€984)'
+	),
 	'opcion_al_llegar'=>array(
 		'no'=>__('no',true),
 		'si'=>__('si',true),
-		'si_independiente'=>__('no',true)
+		'si_independiente'=>__('por_su_cuenta',true)
 	),
 	'opc_16'=>array(1=>__('comunidad_ek_balam',true)),
 	'opc_15'=>array(1=>'Ek Balam - Xcanché'),
@@ -45,10 +60,10 @@ $value_labels = array(
 	'opc_9'=>array(1=>'Coba - Tulúm')
 );
 $conceptos = array(
-	865=>array('1 '.__('bungalow_doble',true),__('vehiculo_dos_puertas',true),__('media_pension',true)),
-	675=>array('1 '.__('bungalow_triple',true),__('vehiculo_cuatro_puertas',true),__('media_pension',true)),
-	653=>array('2 '.__('bungalow_doble',true),__('vehiculo_cuatro_puertas',true),__('media_pension',true)),
-	758=>array('1 '.__('bungalow_triple',true).' '.__('y',true).' 1 '.__('bungalow_doble',true),__('vehiculo_offroad',true),__('media_pension',true))
+	865=>array('1 '.__('bungalow_doble',true),__('media_pension',true),__('vehiculo_dos_puertas',true)),
+	675=>array('1 '.__('bungalow_triple',true),__('media_pension',true),__('vehiculo_cuatro_puertas',true)),
+	653=>array('2 '.__('bungalow_doble',true),__('media_pension',true),__('vehiculo_cuatro_puertas',true)),
+	758=>array('1 '.__('bungalow_triple',true).' '.__('y',true).' 1 '.__('bungalow_doble',true),__('media_pension',true),__('vehiculo_offroad',true))
 );
 $extras = array(
 	'opc_16'=>array(2=>193,134,104,87),
@@ -96,11 +111,12 @@ switch($data['pack_id']){
 	case 5:
 	case 6:
 		$fields = array_merge($fields,array(
-			'num_personas','opcion_al_llegar','arrival','retorno',
+			'num_personas','opcion_al_llegar','inicio_ocupacion_bungalow'=>'arrival','fin_ocupacion_bungalow'=>'retorno',
 			'opc_16','opc_15','opc_13','opc_12','opc_11','opc_10','opc_9'
 		));
 	break;
 }
+
 $ul_atts = $li_atts = $h3_atts = $h2_atts = $label_atts = $p_atts = array();
 $total_days = 0;
 if($email){
@@ -137,7 +153,7 @@ foreach ($fields as $field_label => $field) {
 		
 		$value = implode($sep,$value);
 
-		if(strpos($field, '_hora')!==false){ $value.= ' hrs'; }
+		if(strpos($field, '_hora')!==false){ $value.= ' '.__('hrs',true); }
 	}
 
 	if($field == 'taxi_arribo')
@@ -188,7 +204,7 @@ foreach ($fields as $field_label => $field) {
 		//-------------------------------
 		
 		if($field == 'num_personas')
-			echo $html->para(null,$html->tag('span',__('include',true).':',$label_atts).$html->tag('span',implode(', ',$conceptos[$data['num_personas']]).'.'),$p_atts);
+			echo $html->para(null,$html->tag('span',__('incluye',true).':',$label_atts).$html->tag('span',implode(', ',$conceptos[$data['num_personas']]).'.'),$p_atts);
 
 		if($field == 'opcion_al_llegar'){
 			switch ($data[$field]) {
@@ -196,7 +212,7 @@ foreach ($fields as $field_label => $field) {
 					if(is_array($data['taxi_hora']))
 						$data['taxi_hora'] = implode(':',$data['taxi_hora']).' hrs.';
 					echo
-						$html->tag('h2',__('taxi_detalles_titulo',true),$h2_atts),
+						$html->tag('h2',__('seleccione_estancia_opcional_al_arribo',true),$h2_atts),
 						$html->para(null,$html->tag('span',__('llegada',true).':',$label_atts).$html->tag('span',$data['taxi_arribo']),$p_atts),
 						$html->para(null,$html->tag('span',__('hora_llegada',true).':',$label_atts).$html->tag('span',$data['taxi_hora']),$p_atts),
 						$html->para(null,$html->tag('span',__('num_vuelo',true).':',$label_atts).$html->tag('span',$data['taxi_num_vuelo']),$p_atts),

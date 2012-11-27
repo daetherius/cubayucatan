@@ -794,12 +794,13 @@ a.reservar {
 .arrival_date { padding:0;text-align:center; }
 .arrival_date div.input { display:inline; }
 .arrival_date div.input input[type=text]{ width: 90px }
-.det_yucatan .arrival_date div.input input[type=text]{ width:60px }
+.det_yucatan .arrival_date div.input input[type=text]{ width:70px }
 .arrival_date div.input label {
 	display:-moz-inline-stack;display:inline-block;vertical-align:middle;zoom:1;*display:inline;
 	padding:0 15px 0;
+	font-size:13px;
 }
-.arrival_date div.input span { padding:0 0 0 25px; }
+.arrival_date div.input span { padding:0 0 0 25px;font-size:13px; }
 .arrival_date .error-message { text-indent:245px;text-align:left;  }
 #OrderRetorno { margin:0 0 0 15px; }
 

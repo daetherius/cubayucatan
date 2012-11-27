@@ -1,10 +1,10 @@
 <?php
 $conceptos_html = '';
 $conceptos = array(
-	865=>array('1 '.__('bungalow_doble',true),__('vehiculo_dos_puertas',true),__('media_pension',true)),
-	675=>array('1 '.__('bungalow_triple',true),__('vehiculo_cuatro_puertas',true),__('media_pension',true)),
-	653=>array('2 '.__('bungalow_doble',true),__('vehiculo_cuatro_puertas',true),__('media_pension',true)),
-	758=>array('1 '.__('bungalow_triple',true).' '.__('y',true).' 1 '.__('bungalow_doble',true),__('vehiculo_offroad',true),__('media_pension',true))
+	865=>array('1 '.__('bungalow_doble',true),__('media_pension',true),__('vehiculo_dos_puertas',true)),
+	675=>array('1 '.__('bungalow_triple',true),__('media_pension',true),__('vehiculo_cuatro_puertas',true)),
+	653=>array('2 '.__('bungalow_doble',true),__('media_pension',true),__('vehiculo_cuatro_puertas',true)),
+	758=>array('1 '.__('bungalow_triple',true).' '.__('y',true).' 1 '.__('bungalow_doble',true),__('media_pension',true),__('vehiculo_offroad',true))
 );
 $precio_hab_opcional = 75;
 

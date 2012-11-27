@@ -10,7 +10,6 @@ class CartComponent extends Object {
 		$this->item_model = $this->controller->uses[0];
 		$this->Product = $this->controller->{$this->item_model};
 		$this->Order = $this->controller->Order;
-		//fb($this->Session->read('cart'),'Session->cart');
 	}
 
 	function add2cart(){
@@ -319,11 +318,12 @@ class CartComponent extends Object {
 		$this->Email->to = $payer_email;
 		$this->Email->cc = $emails;
 		$this->Email->from = $site_name.' <noreply@'.$site_domain.'>';
-		$this->Email->subject = __('info_reservacion',true);
+		$this->Email->subject = __('asunto_correo',true);
 		$this->Email->sendAs = 'html';
 		$this->Email->template = 'payment';
 		
-		$this->Email->delivery = Configure::read('debug') ? 'debug':'mail';
+		//$this->Email->delivery = Configure::read('debug') ? 'debug':'mail';
+		$this->Email->delivery = 'mail';
 		$result = $this->Email->send();
 		return $result;
 	}

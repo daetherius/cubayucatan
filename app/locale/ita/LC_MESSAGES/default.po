@@ -62,10 +62,13 @@ msgid "toggle_lang"
 msgstr "Español"
 
 msgid "si"
-msgstr "#se"
+msgstr "Si"
 
 msgid "no"
-msgstr "#no"
+msgstr "No"
+
+msgid "hrs"
+msgstr ""
 
 msgid "inicio"
 msgstr "Inizio"
@@ -137,7 +140,10 @@ msgid "info_de_su_pago"
 msgstr "Informazioni sul pagamento"
 
 msgid "info_reservacion"
-msgstr "#info_reservacion"
+msgstr "Di seguito, vi confermiamo i dettagli della vostra prenotazione." 
+
+msgid "info_errores"
+msgstr "Di seguito, vi specifichiamo il/i motivo/i per cui il pagamneto non ha potuto essere effettuato." 
 
 msgid "menu"
 msgstr "Menú"
@@ -242,7 +248,7 @@ msgid "nota_antes_reservar"
 msgstr "Le prenotazioni si effettuano normalmente con 30 giorni di anticipo sulla data di partenza. Possiamo farcela anche in minor tempo, dipende dal traffico di presenze: prendete contatto con noi per informazioni."
 
 msgid "num_orden"
-msgstr "#Numero de Reservacón"
+msgstr "Codice numero"
 
 msgid "nombre"
 msgstr "Nome"
@@ -270,6 +276,9 @@ msgstr "coppie"
 
 msgid "incluye"
 msgstr "Include"
+
+msgid "por_su_cuenta"
+msgstr "Prenotazione per conto vostro."
 
 msgid "bungalow_doble"
 msgstr "Bungalow Doppio"
@@ -326,10 +335,10 @@ msgid "fin_ocupacion"
 msgstr "Data di fine occupazione stanze"
 
 msgid "inicio_ocupacion_bungalow"
-msgstr "Data d’ inizio occupazione bungalow"
+msgstr "Data d’ inizio occupazione Bungalow"
 
 msgid "fin_ocupacion_bungalow"
-msgstr "Data di fine occupazione bungalow"
+msgstr "Data di fine occupazione Bungalow"
 
 msgid "comunidad_ek_balam"
 msgstr "Comunitá Maya di Ek Balam"
@@ -382,26 +391,44 @@ msgstr "Indirizzo"
 msgid "forma_pago"
 msgstr "Forma di pagamento scelta"
 
+msgid "deposito"
+msgstr "Bonifico Bancario"
+
 msgid "deposito_bancario"
 msgstr "Bonifico Bancario"
 
 msgid "pago_online"
-msgstr "Carta di credito"
+msgstr "Carta di credito/Paypal"
+
+msgid "online"
+msgstr "Carta di credito/Paypal"
 
 msgid "amt"
-msgstr "#Monto total"
+msgstr "Prezzo Totale"
+
+msgid "en_euro"
+msgstr "in Euro"
 
 msgid "status"
-msgstr "#Estado del pago"
+msgstr "Situazione del pagamento"
+
+msgid "pago_pendiente"
+msgstr "In attesa"
+
+msgid "pago_pagado"
+msgstr "Pagato"
 
 msgid "basico_detalles_titulo"
-msgstr "#Información Básica"
+msgstr "Informazioni di Base"
 
 msgid "viaje_detalles_titulo"
-msgstr "#Detalles del viaje"
+msgstr "Dettagli della Prenotazione"
+
+msgid "asunto_mail"
+msgstr "Prenotazione di CubaYucatan.com"
 
 msgid "taxi_detalles_titulo"
-msgstr "#Detalles del Taxi"
+msgstr "Per l'invio del Taxi"
 
 msgid "titular"
 msgstr "Titolare"
@@ -419,7 +446,7 @@ msgid "voucher"
 msgstr "Invio del Voucher"
 
 msgid "voucher_note"
-msgstr "Ricevuta la prenotazione e il pagamento, invieremo il nostro Voucher all’indirizzo mail che ci fornirete, con la lista dettagliata dei servizi acquistati e con la dicitura “Pagati tutti i servizi elencati”"
+msgstr "Ricevuta la prenotazione, risponderemo con messaggio di conferma recante un codice, da indicare nel documento bancario in caso di pagamento con bonifico. Nel momento in cui la banca ci confermerá l'avvenuto pagamento, invieremo il Voucher all’indirizzo mail che ci fornirete, con la lista dettagliata dei servizi acquistati e con la dicitura 'Pagati tutti i servizi elencati'"
 
 msgid "entrega_voucher_carro"
 msgstr "che mostrerete all’incaricato che vi consegnerá auto e Vouchers relativi a ogni servizio"
@@ -608,34 +635,34 @@ msgid "payment_success"
 msgstr "Grazie, abbiamo ricevuto il vostro pagamento. Invieremo immediatamente il Voucher all’indirizzo di posta elettronica che ci avete fornito."
 
 msgid "payment_success_title"
-msgstr "payment_success_title"
+msgstr "Pagamento ricevuto con successo"
 
 msgid "payment_success_body"
-msgstr "payment_success_body"
+msgstr "Grazie, abbiamo ricevuto il vostro pagamento. Invieremo immediatamente il Voucher all’indirizzo di posta elettronica che ci avete fornito."
 
 msgid "payment_pending"
 msgstr "La vostra prenotazione é stata registrata, ci porremo in contatto con voi dopo aver verificato il pagamento."
 
 msgid "payment_pending_title"
-msgstr "payment_pending_title"
+msgstr "Pagamento in Attesa"
 
 msgid "payment_pending_body"
-msgstr "payment_pending_body"
+msgstr "Attenderemo la conferma per procedere all'invio del Voucher."
 
 msgid "payment_failed"
 msgstr "L'effettuazione del pagamento si é interrotta imprevedibilmente. Per favore, tentate di nuovo."
 
 msgid "payment_failed_title"
-msgstr "payment_failed_title"
+msgstr "Errore nel pagamento"
 
 msgid "payment_failed_body"
-msgstr "payment_failed_body"
+msgstr "L'effettuazione del pagamento si é interrotta imprevedibilmente. Per favore, tentate di nuovo."
 
 msgid "payment_interrupted"
 msgstr "L'effettuazione del pagamento si é interrotta imprevedibilmente. Per favore, tentate di nuovo."
 
 msgid "payment_not_initiated"
-msgstr "Il procedimento di pagamento non si é potuto inizire, a causa di problemi con PayPal. Selezionate per favore un'altra opzione."
+msgstr "Il procedimento di pagamento non si é potuto iniziare, a causa di problemi con PayPal. Selezionate per favore un'altra opzione."
 
 msgid "payment_not_saved"
 msgstr "Il vostro pagamento é stato registrato in PayPal, peró non é stato possibile registrarlo con noi. Per favore, mettetevi in contatto con noi per la verifica."
@@ -644,7 +671,7 @@ msgid "payment_problems"
 msgstr "#payment_problems"
 
 msgid "problema_notificacion"
-msgstr "#problema_notificacion"
+msgstr "Non é andato a buon fine l'invio del messaggio con la conferma e la descrizione della prenotazione. Scusate il disturbo, per favore mettetevi in contatto con noi per il rinvio."
 
 msgid "detalles_de_su_pago"
-msgstr "detalles_de_su_pago"
+msgstr "Dettagli del pagamento"

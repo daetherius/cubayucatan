@@ -13,7 +13,7 @@ class PacksController extends UnlisteditemsController{
 	function updateqty(){ $this->Cart->updateqty(); }
 	function setcheckout(){	$this->Cart->setcheckout();	}
 
-	function finalizado(){ $this->Cart->docheckout();$this->Cart->reset();fb('FIN'); }
+	function finalizado(){ $this->Cart->docheckout();$this->Cart->reset(); }
 	function pendiente(){ $this->Cart->reset();$this->render('/packs/finalizado'); }
 	function cancelado(){ $this->set('isError',true);$this->Cart->reset();$this->render('/packs/finalizado'); }
 
@@ -121,8 +121,9 @@ class PacksController extends UnlisteditemsController{
 					if($this->Order->save($order)){
 						$msg = array(
 							__('payment_pending_title',true),
-							__('payment_pending_body',true)
+							__('payment_pending',true).' '.__('payment_pending_body',true)
 						);
+						$this->Cart->_order = $order;
 						$this->Cart->notify($this->data['Order']['email'],$msg);
 						$this->Session->write('cart.flash',__('payment_pending',true));
 						$this->redirect(array('action'=>'pendiente'));
