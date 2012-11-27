@@ -8,8 +8,8 @@ h1, h2, h3, .title {
 	font-weight:normal;
 	font-family: 'Merienda One', cursive;
 	line-height:130%;
-
 }
+
 h1.title, .title1 { margin:24px 0 12px 0;font-size:40px; }
 h2.title, .title2 { margin:20px 0 12px 0;font-size:32px; }
 h3.title, .title3 { margin:16px 0 12px 0;font-size:24px; }
