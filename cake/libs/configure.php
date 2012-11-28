@@ -42,7 +42,7 @@ class Configure extends Object {
  * @return Configure instance
  * @access public
  */
-	function &getInstance($boot = true) {
+	static function &getInstance($boot = true) {
 		static $instance = array();
 		if (!$instance) {
 			if (!class_exists('Set')) {
@@ -78,7 +78,7 @@ class Configure extends Object {
  * @return boolean True if write was successful
  * @access public
  */
-	function write($config, $value = null) {
+	static function write($config, $value = null) {
 		$_this =& Configure::getInstance();
 
 		if (!is_array($config)) {
@@ -113,7 +113,7 @@ class Configure extends Object {
 				if (!class_exists('Debugger')) {
 					require LIBS . 'debugger.php';
 				}
-				$reporting = E_ALL & ~E_DEPRECATED;
+				$reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT;
 				if (function_exists('ini_set')) {
 					ini_set('display_errors', 1);
 				}
@@ -128,7 +128,7 @@ class Configure extends Object {
 				if (is_integer($_this->log) && !$_this->debug) {
 					$reporting = $_this->log;
 				} else {
-					$reporting = E_ALL & ~E_DEPRECATED;
+					$reporting = E_ALL & ~E_DEPRECATED & ~E_STRICT;
 				}
 			}
 			error_reporting($reporting);
@@ -150,7 +150,7 @@ class Configure extends Object {
  * @return string value of Configure::$var
  * @access public
  */
-	function read($var = 'debug') {
+	static function read($var = 'debug') {
 		$_this =& Configure::getInstance();
 
 		if ($var === 'debug') {
@@ -200,7 +200,7 @@ class Configure extends Object {
  * @return void
  * @access public
  */
-	function delete($var = null) {
+	static function delete($var = null) {
 		$_this =& Configure::getInstance();
 
 		if (strpos($var, '.') === false) {
@@ -228,7 +228,7 @@ class Configure extends Object {
  * @return mixed false if file not found, void if load successful
  * @access public
  */
-	function load($fileName) {
+	static function load($fileName) {
 		$found = $plugin = $pluginPath = false;
 		list($plugin, $fileName) = pluginSplit($fileName);
 		if ($plugin) {
@@ -725,7 +725,7 @@ class App extends Object {
  * @return array numeric keyed array of core lib paths
  * @access public
  */
-	function core($type = null) {
+	static function core($type = null) {
 		static $paths = false;
 		if ($paths === false) {
 			$paths = Cache::read('core_paths', '_cake_core_');

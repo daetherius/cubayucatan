@@ -205,7 +205,7 @@ class String {
  * @access public
  * @static
  */
-	function insert($str, $data, $options = array()) {
+	static function insert($str, $data, $options = array()) {
 		$defaults = array(
 			'before' => ':', 'after' => null, 'escape' => '\\', 'format' => null, 'clean' => false
 		);
