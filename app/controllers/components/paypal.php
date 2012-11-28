@@ -1,7 +1,7 @@
 <?php
 class PaypalComponent extends Object {
 	var $components = array('Cookie');
-	var $environment = 'sandbox'; // live | sandbox
+	var $environment = 'live'; // live | sandbox
 	var $debug = true; // Debug to Log
 	var $credentials = array(
 		'live'=>array(
@@ -28,6 +28,7 @@ class PaypalComponent extends Object {
 	var $payer		 = null;
 	var $recipients  = null;
 	var $currency	 = null;
+	var $localecode  = 'MX';
 	var $failures	 = array();
 	var $currencies = array('AUD','BRL','CAD','CZK','DKK','EUR','HKD','HUF','ILS','JPY','MYR','MXN','NOK','NZD','PHP','PLN','GBP','SGD','SEK','CHF','TWD','THB','USD');
 
@@ -53,10 +54,10 @@ class PaypalComponent extends Object {
 	 * @return void Redirect on success, else return false
 	 */
 	public function setExpressCheckout() {
-		$request = array_merge(array('RETURNURL'=>$this->return_url, 'CANCELURL'=>$this->cancel_url,'LOCALECODE'=>'MX'),$this->getItemTotals());
+		$request = array_merge(array('RETURNURL'=>$this->return_url, 'CANCELURL'=>$this->cancel_url,'LOCALECODE'=>$this->localecode),$this->getItemTotals());
 		$this->buildRequest('setExpressCheckout', $request);
 
-		if($this->execute()){
+		if($this->execute('setExpressCheckout')){
 			header('Location: '.$this->paypalURLs[$this->environment].'webscr?cmd=_express-checkout&token='.$this->response['TOKEN']);
 			exit;
 		}
@@ -70,7 +71,7 @@ class PaypalComponent extends Object {
 	private function getExpressCheckoutDetails() {
 		$array = array('TOKEN' => $_GET['token']);
 		$this->buildRequest('getExpressCheckoutDetails', $array);
-		if($this->execute()) return $this->response;
+		if($this->execute('getExpressCheckoutDetails')) return $this->response;
 		return false;
 	}
 	
@@ -86,7 +87,7 @@ class PaypalComponent extends Object {
 					   'PAYERID' => $d['PAYERID']);
 		$array = array_merge($array, $d);
 		$this->buildRequest('doExpressCheckoutPayment', $array);
-		if($this->execute()) return $this->response;
+		if($this->execute('doExpressCheckoutPayment')) return $this->response;
 		return false;
 	}
 
@@ -155,7 +156,7 @@ class PaypalComponent extends Object {
 	 * Execute an API call via cURL
 	 * @return bool|array Return false on failure, response array on success
 	 */
-	function execute() {
+	function execute($call_name) {
 		// Set the curl parameters.
 		$ch = curl_init($this->endpoints[$this->environment]);
 		curl_setopt($ch, CURLOPT_VERBOSE, 1);
@@ -171,7 +172,7 @@ class PaypalComponent extends Object {
 		$output = curl_exec($ch);
 		curl_close($ch);
 
-		$this->response = $this->processOutput($output); $this->log($this->response,'cartresponses');
+		$this->response = $this->processOutput($output); $this->log(array_merge(array('Callname'=>$call_name),$this->response),'cart_responses');
 		if($this->debug) $this->debug();
 
 		if((!empty($this->response['ACK'])) && strpos($this->response['ACK'], 'Failure') !== false){ $this->log($this->response,'cart'); return false; }

@@ -133,9 +133,6 @@ msgstr "Imposta aereoportuale"
 msgid "moneda_cambio"
 msgstr "Moneta e cambi"
 
-msgid "info_extra"
-msgstr "#Información sobre los paquetes"
-
 msgid "info_de_su_pago"
 msgstr "Informazioni sul pagamento"
 
@@ -424,11 +421,17 @@ msgstr "Informazioni di Base"
 msgid "viaje_detalles_titulo"
 msgstr "Dettagli della Prenotazione"
 
-msgid "asunto_mail"
-msgstr "Prenotazione di CubaYucatan.com"
-
 msgid "taxi_detalles_titulo"
 msgstr "Per l'invio del Taxi"
+
+msgid "asunto_correo"
+msgstr "Prenotazione di CubaYucatan.com"
+
+msgid "clic_aqui_link"
+msgstr "Clicca qui"
+
+msgid "clic_aqui_txt"
+msgstr "per tornare alla pagina d' inizio."
 
 msgid "titular"
 msgstr "Titolare"
@@ -650,25 +653,22 @@ msgid "payment_pending_body"
 msgstr "Attenderemo la conferma per procedere all'invio del Voucher."
 
 msgid "payment_failed"
-msgstr "L'effettuazione del pagamento si é interrotta imprevedibilmente. Per favore, tentate di nuovo."
+msgstr "L'effettuazione del pagamento si é interrotta imprevedibilmente. Per favore, tentate di nuovo o mettetevi in contatto con noi."
 
 msgid "payment_failed_title"
 msgstr "Errore nel pagamento"
 
 msgid "payment_failed_body"
-msgstr "L'effettuazione del pagamento si é interrotta imprevedibilmente. Per favore, tentate di nuovo."
+msgstr "L'effettuazione del pagamento si é interrotta imprevedibilmente. Per favore, tentate di nuovo o mettetevi in contatto con noi."
 
 msgid "payment_interrupted"
-msgstr "L'effettuazione del pagamento si é interrotta imprevedibilmente. Per favore, tentate di nuovo."
+msgstr "L'effettuazione del pagamento si é interrotta imprevedibilmente. Per favore, tentate di nuovo o mettetevi in contatto con noi."
 
 msgid "payment_not_initiated"
 msgstr "Il procedimento di pagamento non si é potuto iniziare, a causa di problemi con PayPal. Selezionate per favore un'altra opzione."
 
 msgid "payment_not_saved"
 msgstr "Il vostro pagamento é stato registrato in PayPal, peró non é stato possibile registrarlo con noi. Per favore, mettetevi in contatto con noi per la verifica."
-
-msgid "payment_problems"
-msgstr "#payment_problems"
 
 msgid "problema_notificacion"
 msgstr "Non é andato a buon fine l'invio del messaggio con la conferma e la descrizione della prenotazione. Scusate il disturbo, per favore mettetevi in contatto con noi per il rinvio."

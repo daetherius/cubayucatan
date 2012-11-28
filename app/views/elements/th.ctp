@@ -38,6 +38,8 @@ if($item){
 		///---------------
 
 		case 'Pack':
+			fb($url,'ITEM $url');
+			fb(Router::url($url),'PARSED $url');
 			$packs_precios = array(1=>620,485,340,38,865,865);
 			$mode = 'h';
 			$title = _dec($item['Pack']['nombre_'.$_lang]);
@@ -48,7 +50,6 @@ if($item){
 				$num_personas = 'por_dos_personas_br';
 			else
 				$num_personas = 'por_persona_br';
-
 			echo
 				$html->div('thumb v pack'),
 					$html->tag('h2',$html->link($item['Pack']['nombre_'.$_lang],$url),'title red'),

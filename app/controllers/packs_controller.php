@@ -33,9 +33,11 @@ class PacksController extends UnlisteditemsController{
 				$cuantas = 2; //minimo 2 personas
 
 				switch ($id) {
-					case 1:
-					case 2:
-					case 3:
+					case 1: $tour_duration = 19;
+					case 2: $tour_duration = 14;
+					case 3: $tour_duration = 9;
+
+						$this->data['Order']['retorno'] = date('d-m-Y',strtotime($this->data['Order']['arrival'].' +'.$tour_duration.' days'));
 						$opciones = array(1=>array(620,984),array(485,758),array(340,522));
 						/// Alguien quiere pasarse de listo
 						if(!in_array((int)$this->data['Order']['opcion'],$opciones[$id])){
@@ -68,6 +70,7 @@ class PacksController extends UnlisteditemsController{
 					break;
 					case 5:
 					case 6:
+						$this->data['Order']['retorno'] = date('d-m-Y',strtotime($this->data['Order']['arrival'].' +9 days'));
 						$opciones = array(2=>865,675,653,758);
 						$extras = array(
 							'opc_16'=>array(2=>193,134,104,87),
@@ -110,6 +113,7 @@ class PacksController extends UnlisteditemsController{
 
 					$this->Session->write('cart.current_order',$order);
 					$this->Paypal->setCurrencyCode('EUR');
+					$this->Paypal->localecode = $this->_lang == 'ita' ? 'IT':'MX';
 					$this->Paypal->additem($id,$item);
 		
 					if(!$this->Paypal->setExpressCheckout()){
@@ -119,6 +123,7 @@ class PacksController extends UnlisteditemsController{
 				/// Depósito Bancario
 				} else {
 					if($this->Order->save($order)){
+						$order['Order']['id'] = $this->Order->id;
 						$msg = array(
 							__('payment_pending_title',true),
 							__('payment_pending',true).' '.__('payment_pending_body',true)
@@ -129,7 +134,7 @@ class PacksController extends UnlisteditemsController{
 						$this->redirect(array('action'=>'pendiente'));
 					}
 				}
-			} //else fb($this->Order->invalidFields(),'Order->invalidFields()');
+			}
 		}
 
 

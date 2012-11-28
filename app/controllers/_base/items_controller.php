@@ -17,7 +17,10 @@ class ItemsController extends AbcsController{
 
 		if($item = $this->m[0]->read(null,$id)){
 			$this->set(compact('item'));
-			$this->set('related',$this->m[0]->find_(array('recursive'=>0,'field'=>'orden','value'=>$item[$this->uses[0]]['orden']),'neighbors'));
+			$order_field = 'orden';
+			if(!$this->m[0]->hasField($order_field)) $order_field = 'id';
+			
+			$this->set('related',$this->m[0]->find_(array('recursive'=>0,'field'=>$order_field,'value'=>$item[$this->uses[0]][$order_field]),'neighbors'));
 			$this->pageTitle = $item[$this->uses[0]][$this->m[0]->displayField];
 			$descripcion = isset($item[$this->uses[0]]['descripcion_'.$this->_lang]) ? $item[$this->uses[0]]['descripcion_'.$this->_lang] : $item[$this->uses[0]]['descripcion'];
 			$descripcion = substr(strip_tags($descripcion), 0, 300);

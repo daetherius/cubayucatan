@@ -5,10 +5,13 @@ $config['Site'] = array(
 	'email'=>'info@'.$_SERVER['SERVER_NAME'],
 	'slogan'=>'Caribe Landsheart',
 	'keywords'=>'',
-	'description'=>'',
+	'description'=>array(
+		'ita'=>'Alloggio a Cuba, con pacchetti pronti o a scelta fra molte cittá. Alloggio in Yucatán, nel Villaggio Maya di Ek Balam, con auto e opzioni di visite guidate.',
+		'esp'=>'Alojamiento en Cuba, con paquetes listos o a elegir entre muchas ciudades. Alojamiento en Yucatán, en la aldea Maya de Ek Balam, con carro y opciones de visitas guiadas.'
+	),
 	'tw'=>'http://twitter.com/cubayucatan',
-	'fb'=>'http://www.facebook.com/CubaYucatan',
-	'yt'=>'http://www.youtube.com/user/umbertofioroni',
+	'fb'=>'http://facebook.com/CubaYucatan',
+	'yt'=>'http://youtube.com/user/cubayucatan',
 	'sk'=>'skype:umbertofior'
 );
 

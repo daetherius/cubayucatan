@@ -194,6 +194,8 @@ class CartComponent extends Object {
 			$this->cancel(__('payment_not_saved',true));
 		}
 
+		$this->_order['Order']['id'] = $this->Order->id;
+
 		$this->pay_details = $pay_details = $this->Paypal->doExpressCheckoutPayment();
 		$request = $this->Paypal->processOutput($this->Paypal->request);
 		$response = $this->Paypal->response;
@@ -226,12 +228,12 @@ class CartComponent extends Object {
 				$i++;
 			} while(!empty($response['L_ERRORCODE'.$i]));
 			
-			$this->_order = array_merge($payer_data,array(
+			$this->_order['Order'] = array_merge($this->_order['Order'],array(
 				'status'=>'Fallida',
 				'errors'=>implode("\n",$errors)
 			));
 
-			$this->Order->save($this->_order);
+			$this->Order->save($this->_order);$this->log($this->_order,'payment_process FAIL');
 
 			if(!$this->notify($notify_))
 				$errors[] = __('problema_notificacion',true);
@@ -250,8 +252,8 @@ class CartComponent extends Object {
 			}			
 
 			// Mark order as paid
-			$this->_order = array_merge($payer_data,array('status'=>'Pagada'));
-			$this->Order->save($this->_order);
+			$this->_order['Order'] = array_merge($this->_order['Order'],array('status'=>'Pagada'));
+			$this->Order->save($this->_order); $this->log($this->_order,'payment_process WIN');
 
 			$this->controller->set('cart_flash',__('payment_success',true));
 			$this->Session->write('cart.items',array());
@@ -307,12 +309,15 @@ class CartComponent extends Object {
 		$site_domain = Configure::read('Site.domain');
 		$site_name = Configure::read('Site.name');
 		$payer_email = array_shift($emails);
+		$order = $this->_order;
+
 
 		if($failure){
 			$pay_details = $this->pay_details;
 		} else {
 			$pay_details = $this->_order;
 		}
+		$this->log(compact('failure','order','pay_details'),'notify variables');
 
 		$this->controller->set(compact('site_domain','site_name','msg','failure','pay_details'));
 		$this->Email->to = $payer_email;

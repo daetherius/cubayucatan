@@ -305,8 +305,13 @@ class AppController extends Controller {
 					if(is_array($siteVars[$layoutVar])){
 						if(isset($siteVars[$layoutVar][$this->params['controller']])){
 							$layoutVarContent = $siteVars[$layoutVar][$this->params['controller']];
+						
+						}elseif(isset($siteVars[$layoutVar][$this->_lang])){
+							$layoutVarContent = $siteVars[$layoutVar][$this->_lang];
+						
 						} elseif(isset($siteVars[$layoutVar][0])){
 							$layoutVarContent = $siteVars[$layoutVar][0];
+						
 						} else
 							$layoutVarContent = $siteVars[$layoutVar];
 

@@ -162,13 +162,27 @@ foreach ($fields as $field_label => $field) {
 	
 	/// Fechas de Llegada
 	if(strpos($field,'_arrival') !== false){
-		$ciudad = substr($key,0,strpos($key,'_arrival'));
+		$ciudad = substr($field,0,strpos($field,'_arrival'));
 
 		if($field == 'havana_arrival')
 			echo $html->tag('h3',__('fechas_de_ocupacion',true),$h2_atts);
 
-		if(!empty($data[$ciudad.'_days'])){
-			$total_days+= $data[$ciudad.'_days'];
+		if($field == 'havana_arrival2'){
+			if(!empty($data[$ciudad.'_days2'])){
+				$total_days+= (int)$data[$ciudad.'_days2'];
+
+				echo
+					$html->para(null,null,$p_atts),
+						$html->tag('span',__($field_label,true).':',$label_atts),
+						$html->tag('span',date('d-m-Y',strtotime($value)).' al '.date('d-m-Y',strtotime($value.' +'.((int)$data[$ciudad.'_days2']).' days')).' ('.$data[$ciudad.'_days2'].' '.__('dias',true).')'),
+					'</p>';
+			}
+
+			echo $html->para(null,$html->tag('span',__('numero_total_de_dias',true).':',$label_atts).$html->tag('span',$total_days),$p_atts);
+		
+		} elseif(!empty($data[$ciudad.'_days'])){
+			$total_days+= (int)$data[$ciudad.'_days'];
+
 			echo
 				$html->para(null,null,$p_atts),
 					$html->tag('span',__($field_label,true).':',$label_atts),
@@ -176,22 +190,21 @@ foreach ($fields as $field_label => $field) {
 				'</p>';
 		}
 
-		if($field == 'havana_arrival2')
-			echo $html->para(null,$html->tag('span',__('numero_total_de_dias',true).':',$label_atts).$html->tag('span',$total_days),$p_atts);
-
 	/// Opciones Yucatan
 	} elseif(strpos($field, 'opc_') === 0){
-		if($field == 'opc_16')
-			echo
-				$html->tag('h3',__('opciones',true),$h3_atts),
-				$html->tag('ul',null,$ul_atts);
+		if($data['pack_id'] == 5){
+			if($field == 'opc_16')
+				echo
+					$html->tag('h3',__('opciones',true),$h3_atts),
+					$html->tag('ul',null,$ul_atts);
 
-		if($data[$field]){
-			$num_personas = $value_labels['num_personas'][$data['num_personas']];
-			echo $html->tag('li',$html->tag('span',__($value,true).' (+€'.($extras[$field][$num_personas] * $num_personas).')'),$li_atts);
+			if($data[$field]){
+				$num_personas = $value_labels['num_personas'][$data['num_personas']];
+				echo $html->tag('li',$html->tag('span',__($value,true).' (+€'.($extras[$field][$num_personas] * $num_personas).')'),$li_atts);
+			}
+
+			if($field == 'opc_9') echo '</ul>';
 		}
-
-		if($field == 'opc_9') echo '</ul>';
 
 	/// Otros
 	} else {

@@ -56,7 +56,7 @@
 .mooshowcase_nav.in a { float:right; }
 .mooshowcase_nav.out a { float:left; }
 
-.mooshowcase_nav a:hover, .mooshowcase_nav a.selected{ background:#333;text-shadow:0 0 4px #fff; }
+.mooshowcase_nav a:hover, .mooshowcase_nav a.selected{ background:#0664BE;text-shadow:0 0 4px #fff; }
 
 .mooshowcase_caption{
 	background:url(/img/pad.png);

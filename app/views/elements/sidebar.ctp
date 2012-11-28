@@ -32,7 +32,7 @@ if(is_c('destinations',$this) && $items = Cache::read('destination_recent')){
 if(is_c('posts',$this) && $items = Cache::read('post_recent')){
 	if($items['cuba']){
 		echo
-			$html->tag('h3',__('conozca',true).' '.__('cuba',true),'title'),
+			$html->tag('h3',__('conozca',true).' Cuba','title'),
 			$html->link(__('ver_todas',true),array('controller'=>'posts','action'=>'index','tipo'=>'Cuba'),array('class'=>'filtro')),
 			$html->tag('ul');
 
@@ -48,7 +48,7 @@ if(is_c('posts',$this) && $items = Cache::read('post_recent')){
 
 	if($items['yucatan']){
 		echo
-			$html->tag('h3',__('conozca',true).' '.__('yucatan',true),'title'),
+			$html->tag('h3',__('conozca',true).' Yucatán','title'),
 			$html->link(__('ver_todas',true),array('controller'=>'posts','action'=>'index','tipo'=>'Yucatan'),array('class'=>'filtro')),
 			$html->tag('ul');
 
@@ -66,7 +66,7 @@ if(is_c('posts',$this) && $items = Cache::read('post_recent')){
 if((!in_array($this->params['controller'],array('destinations','posts'))) && $items = Cache::read('pack_recent')){
 	if($items['cuba']){
 		echo
-			$html->tag('h3',__('cuba',true),'title'),
+			$html->tag('h3','Cuba','title'),
 			$html->tag('ul');
 
 		foreach($items['cuba'] as $it){
@@ -81,7 +81,7 @@ if((!in_array($this->params['controller'],array('destinations','posts'))) && $it
 
 	if($items['yucatan']){
 		echo
-			$html->tag('h3',__('yucatan',true),'title'),
+			$html->tag('h3','Yucatán','title'),
 			$html->tag('ul');
 
 		foreach($items['yucatan'] as $it){
@@ -104,7 +104,7 @@ if(is_c('packs',$this)){
 					$html->tag('li',$html->link(__('alojamiento_casas_particulares',true),array('controller'=>'packs','action'=>'info','#alloggio'))),
 					$html->tag('li',$html->link(__('desayuno_cena',true),array('controller'=>'packs','action'=>'info','#colazione_cena'))),
 					$html->tag('li',$html->link(__('servicios',true),array('controller'=>'packs','action'=>'info','#servizi'))),
-					$html->tag('li',$html->link(__('moneda_cambio',true),array('controller'=>'packs','action'=>'info','#moneta'))),
+					$html->tag('li',$html->link(__('moneda_cambio',true),array('controller'=>'packs','action'=>'info','#moneda_cambio'))),
 				'</ul>',
 			'</div>';
 	}
