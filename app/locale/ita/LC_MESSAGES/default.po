@@ -70,7 +70,7 @@ msgstr "No"
 msgid "hrs"
 msgstr ""
 
-msgid "inicio"
+msgid "home"
 msgstr "Inizio"
 
 msgid "paquetes"
@@ -176,7 +176,7 @@ msgid "paquete4_desc_corta"
 msgstr "Potete personalizzare la vacanza a Cuba scegliendo le Cittá che volete visitare fra queste nove che fanno parte del nostro programma."
 
 msgid "paquete5_desc_corta"
-msgstr "Ecoparco Acquatico Xcanché, Zona Archeologica Ek Balam, Zona Archeologica di Chichén Itzá, Cittá di Izamal, Comunitá di Solferino, Comunitá Maya di Ek Balam, Cittá  di Mérida, Antiche Cittá di Cobá e Tulum."
+msgstr "Alloggio in mezza pensione nei Bungalows del Villaggio Maya, noleggio auto, piú opzioni a scelta."
 
 msgid "paquete6_desc_corta"
 msgstr "Alloggio in mezza pensione nei Bungalows del Villaggio Maya e noleggio auto."
