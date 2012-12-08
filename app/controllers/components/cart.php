@@ -291,6 +291,8 @@ class CartComponent extends Object {
 		if(is_null($msg)) $msg = $this->success;
 		$failure = !(bool)$msg;
 
+		$emails[] = 'ventas@'.Configure::read('Site.domain');
+
 		if($msg === true){
 			$msg = array(
 				__('payment_success_title',true),
@@ -321,7 +323,7 @@ class CartComponent extends Object {
 
 		$this->controller->set(compact('site_domain','site_name','msg','failure','pay_details'));
 		$this->Email->to = $payer_email;
-		$this->Email->cc = $emails;
+		$this->Email->bcc = $emails;
 		$this->Email->from = $site_name.' <noreply@'.$site_domain.'>';
 		$this->Email->subject = __('asunto_correo',true);
 		$this->Email->sendAs = 'html';

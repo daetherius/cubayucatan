@@ -59,35 +59,619 @@ msgid "zero"
 msgstr "cero"
 
 msgid "toggle_lang"
-msgstr "Italiano"
+msgstr "Italian"
 
-msgid "inicio"
-msgstr "inicio"
+msgid "si"
+msgstr "Si"
+
+msgid "no"
+msgstr "No"
+
+msgid "hrs"
+msgstr "hrs."
+
+msgid "home"
+msgstr "Inicio"
 
 msgid "paquetes"
-msgstr "paquetes"
+msgstr "Paquetes"
 
 msgid "destinos"
-msgstr "destinos"
+msgstr "Destinos"
 
 msgid "noticias"
-msgstr "noticias"
+msgstr "Noticias"
 
 msgid "preguntas frecuentes"
-msgstr "preguntas frecuentes"
+msgstr "Preguntas Frecuentes"
 
 msgid "testimonios"
-msgstr "testimonios"
+msgstr "Testimonios"
 
 msgid "nosotros"
-msgstr "nosotros"
+msgstr "Nosotros"
 
 msgid "aviso legal"
-msgstr "aviso legal"
+msgstr "Aviso Legal"
 
 msgid "alojese_casas_particulares"
+msgstr "#A Cuba vi alloggiamo in case private, splendida alternativa agli Hotels, e anche meno cara."
+
+msgid "laboramos_desde_2004"
+msgstr "#<strong>Lavoriamo con Cuba dal 2004</strong>, e con i nostri incaricati sull´Isola <strong>garantiamo</strong> le vostre prenotazioni nelle Cittá e nelle date che avrete scelto."
+
+msgid "aqui_caracteristicas_hab"
+msgstr "#Qui di seguito, caratteristiche delle stanze, prezzi, modalitá di prenotazione e pagamento."
+
+msgid "trato_duenios_casas_en_cuba"
+msgstr "#Conosciamo bene e lavoriamo da anni con i gerenti delle nostre case e di loro garantiamo l´assoluta onestá. Rispettano scrupolosamente la <strong>privacy degli ospiti</strong>, e curano particolarmente pulizia e igiene."
+
+msgid "caracteristicas_hab_cuba"
+msgstr "#Tutte le stanze del nostro programma hanno bagno privato con doccia, acqua calda e fredda, e aria condizionata."
+
+msgid "villa_maya_y_coches"
+msgstr "#Alloggio in mezza pensione nei Bungalows del Villaggio Maya e noleggio auto."
+
+msgid "contacto_directo"
+msgstr "Contacto Directo"
+
+msgid "links"
+msgstr "Enlaces"
+
+msgid "destinos_cuba"
+msgstr "Destinos Cuba"
+
+msgid "destinos_yucatan"
+msgstr "Destinos Yucatán"
+
+msgid "embajada"
+msgstr "Embajadas"
+
+msgid "impuesto_aeropuerto"
+msgstr "Impuesto Aeroportuario"
+
+msgid "moneda_cambio"
+msgstr "Moneda y Cambio"
+
+msgid "info_de_su_pago"
+msgstr "Información de su Pago"
+
+msgid "info_reservacion"
+msgstr "A continuación, le confirmamos los detalles de su reservación." 
+
+msgid "info_errores"
+msgstr "A continuación, le especificamos el/los motivo/s por el cual su pago no se ha realizado correctamente." 
+
+msgid "menu"
+msgstr "Menú"
+
+msgid "ver fotos"
+msgstr "Ver fotos"
+
+msgid "personas"
+msgstr "personas"
+
+msgid "por_dia_por_persona_br"
+msgstr "Por día<br/>por 2 personas"
+
+msgid "por_dos_personas_br"
+msgstr "Por dos<br/>personas"
+
+msgid "por_persona_br"
+msgstr "Por<br/>persona"
+
+msgid "por_dia_por_persona"
+msgstr "Por dia por 2 personas"
+
+msgid "por_dos_personas"
+msgstr "Por dos personas"
+
+msgid "por_persona"
+msgstr "Por persona"
+
+msgid "itinerario_propuesto"
+msgstr "Itinerario propuesto"
+
+msgid "paquete4_desc_corta"
+msgstr "Le permitimos personalizar su vacaciones en Cuba, eligiendo las ciudades que le gustaría visitar de las nueve que forman parte de nuestro programa."
+
+msgid "paquete5_desc_corta"
+msgstr "Alojamiento con media pensión en Bungalows de la Villa Maya, alquiler de carro más opciones para elegir."
+
+msgid "paquete6_desc_corta"
+msgstr "Alojamiento con media pensión en Bungalows de la Villa Maya, con alquiler de carro."
+
+msgid "plus_opciones"
+msgstr "más opciones"
+
+msgid "no_elementos_para_mostrar"
+msgstr "No hay elementos para mostrar"
+
+msgid "conozca"
+msgstr "Conozca"
+
+msgid "acerca_este_paquete"
+msgstr "Información General"
+
+msgid "opcion"
+msgstr "Opción"
+
+msgid "opciones"
+msgstr "Opciones"
+
+msgid "leer_mas"
+msgstr "Leer más"
+
+msgid "mapa"
+msgstr "Mapa"
+
+msgid "clic_agrandar"
+msgstr "Click para Ampliar"
+
+msgid "alojamiento_y_transporte_maya"
+msgstr "Alojamiento con media pensión en Bungalows de la Villa Maya y alquiler de carro."
+
+msgid "requerimientos_especiales"
+msgstr "Si usted tiene necesidades especiales, póngase en contacto con nosotros:"
+
+msgid "alojamiento_casas_particulares"
+msgstr "Alojamiento en casas particulares"
+
+msgid "desayuno_cena"
+msgstr "Desayuno y cena"
+
+msgid "las_9_ciudades"
+msgstr "Las 9 ciudades"
+
+msgid "servicios"
+msgstr "Servicios incluídos y no incluídos."
+
+msgid "reservar"
+msgstr "Reservar"
+
+msgid "precio"
+msgstr "Precio"
+
+msgid "jaguar_negro"
+msgstr "Giaguaro Nero"
+
+msgid "mayakot"
+msgstr "Mayakot"
+
+msgid "mayataan"
+msgstr "Mayataan"
+
+msgid "nota_antes_reservar"
+msgstr "Las reservaciones se realizan, típicamente, con 30 días de anticipación de la fecha de partida. Podemos hacerlo en menos tiempo, dependiendo de las condiciones de demanda de los viajes y disponibilidad."
+
+msgid "num_orden"
+msgstr "Código"
+
+msgid "nombre"
+msgstr "Nombre"
+
+msgid "apellidos"
+msgstr "Apellidos"
+
+msgid "email"
+msgstr "E-mail"
+
+msgid "confirma_email"
+msgstr "Confirme Email"
+
+msgid "num_personas"
+msgstr "Número personas"
+
+msgid "hab_doble"
+msgstr "Número habitaciones"
+
+msgid "estancia"
+msgstr "Habitación"
+
+msgid "parejas"
+msgstr "pareja"
+
+msgid "incluye"
+msgstr "Incluye"
+
+msgid "por_su_cuenta"
+msgstr "Reservación por su cuenta."
+
+msgid "bungalow_doble"
+msgstr "Bungalow Doble"
+
+msgid "bungalow_triple"
+msgstr "Bungalow Triple"
+
+msgid "media_pension"
+msgstr "Media pensión"
+
+msgid "vehiculo_dos_puertas"
+msgstr "Vehículo asegurado de dos puertas"
+
+msgid "vehiculo_cuatro_puertas"
+msgstr "Vehículo asegurado de cuatro puertas"
+
+msgid "vehiculo_offroad"
+msgstr "Vehículo asegurado 'Off-Road'"
+
+msgid "y"
+msgstr "y"
+
+msgid "ver_detalles"
+msgstr "Ver detalles"
+
+msgid "total"
+msgstr "Total"
+
+msgid "llegada"
+msgstr "Fecha de Llegada"
+
+msgid "hora_llegada"
+msgstr "Hora de Llegada"
+
+msgid "retorno"
+msgstr "Fecha de Retorno"
+
+msgid "inicio"
+msgstr "Fecha de Inicio"
+
+msgid "fin"
+msgstr "Fecha final"
+
+msgid "inicio_ocupacion"
+msgstr "Fecha de inicio de la estadía"
+
+msgid "inicio_ocupacion_opcional"
+msgstr "Fecha de ocupación al llegar"
+
+msgid "fin_ocupacion_opcional"
+msgstr "Fecha de ocupación al partir"
+
+msgid "fin_ocupacion"
+msgstr "Última fecha de la estadía"
+
+msgid "inicio_ocupacion_bungalow"
+msgstr "Fecha de inicio de estadía del Bungalow"
+
+msgid "fin_ocupacion_bungalow"
+msgstr "Fecha final de estadía del Bungalow"
+
+msgid "comunidad_ek_balam"
+msgstr "Comunidad Maya de Ek Balam"
+
+msgid "indique_si_desea_taxi"
+msgstr "Para hacer el envío del taxi, por favor, indíquenos:"
+
+msgid "formato_fecha_dmy"
+msgstr "(DD-MM-AA)"
+
+msgid "indique_si_desea_hab_opcional"
+msgstr "Reservación de Hotel para la noche del día de arribo y para el retorno, en el cual, se hará la entrega (a las 9.30 hrs.) del carro y los Vouchers, y la devolución (a las 19 hrs.), o para las noches adicionales de estadía."
+
+msgid "seleccione_estancia_opcional_al_arribo"
+msgstr "Para la entrega del carro y los vouchers"
+
+msgid "opcion_llegada_no"
+msgstr "Desde el Aeropuerto directamente a Ek Balam"
+
+msgid "opcion_llegada_si"
+msgstr "Puede reservar con nosotros, una noche de estadía en Cancún, para la noche de llegada y fin del recorrido"
+
+msgid "opcion_llegada_si_independiente"
+msgstr "Si reserva habitación por su cuenta, haga el favor de indicar el nombre y la dirección del hotel"
+
+msgid "indique_si_desea_hab_opcional2"
+msgstr "Puede reservar con nosotros, una noche de estadía en Cancún, para la noche de llegada y fin del recorrido"
+
+msgid "concepto_hab_opcional"
+msgstr "Habitación doble, tipo Standard, con baño, al llegar y al retorno."
+
+msgid "concepto_hab_opcional_corto"
+msgstr "Habitación doble, al llegar y al retorno."
+
+msgid "hab_opcional_adicionales"
+msgstr "Noches adicionales de estancia"
+
+msgid "proporcione_datos_hotel"
+msgstr "Si reserva habitación por su cuenta, haga el favor de indicar el nombre y la dirección del hotel"
+
+msgid "hora_entrega_carro"
+msgstr "La hora de entrega del carro y los vouchers: 9.30 de la mañana"
+
+msgid "nombre_hotel"
+msgstr "Hotel"
+
+msgid "direccion_hotel"
+msgstr "Dirección"
+
+msgid "forma_pago"
+msgstr "Forma de pago seleccionada"
+
+msgid "deposito"
+msgstr "Depósito Bancario"
+
+msgid "deposito_bancario"
+msgstr "Depósito Bancario"
+
+msgid "pago_online"
+msgstr "Tarjeta de Crédito/Paypal"
+
+msgid "online"
+msgstr "Tarjeta de Crédito/Paypal"
+
+msgid "amt"
+msgstr "Precio total"
+
+msgid "en_euro"
+msgstr "en Euros"
+
+msgid "status"
+msgstr "Estado del Pago"
+
+msgid "pago_pendiente"
+msgstr "En espera"
+
+msgid "pago_pagado"
+msgstr "Pagado"
+
+msgid "basico_detalles_titulo"
+msgstr "Información Básica"
+
+msgid "viaje_detalles_titulo"
+msgstr "Detalles de la Reservación"
+
+msgid "taxi_detalles_titulo"
+msgstr "Para el envío del Taxi"
+
+msgid "asunto_correo"
+msgstr "Su Reservación de CubaYucatan.com"
+
+msgid "clic_aqui_link"
+msgstr "Haga click aquí"
+
+msgid "clic_aqui_txt"
+msgstr "para regresar a la página de inicio."
+
+msgid "titular"
+msgstr "Titular"
+
+msgid "banco"
+msgstr "Banco"
+
+msgid "sucursal"
+msgstr "Sucursal"
+
+msgid "cuenta"
+msgstr "Cuenta"
+
+msgid "voucher"
+msgstr "Envío del Voucher"
+
+msgid "voucher_note"
+msgstr "Al recibir su reservación, responderemos con un mensaje de confirmación con un Código, que deberá introducirse en el documento del banco, para el caso de depósito bancario. En el momento que el Banco nos confirme su pago, enviaremos el Voucher a la dirección de correo electrónico proporcionada por usted con una lista detallada de los servicios comprados, y marcados como 'Pagados'"
+
+msgid "entrega_voucher_carro"
+msgstr "#che mostrerete all’incaricato che vi consegnerá auto e Vouchers relativi a ogni servizio"
+
+msgid "enviar"
+msgstr "Enviar"
+
+msgid "caracteristicas_hab_cuba_propuesto"
+msgstr "#Prezzo della stanza Doppia, tipo Standard, con aria condizionata e bagno privato con doccia, acqua calda e fredda, della prima colazione, e taxi dall’Aereoporto."
+
+msgid "precio_hab_doble_por_noche_con_desayuno"
+msgstr "Precio de la habitación doble, por noche y del desayuno, para dos personas."
+
+msgid "precio_desayuno_por_persona"
+msgstr "Precio del desayuno, por persona."
+
+msgid "precio_taxi_aeropuerto_a_havana"
+msgstr "Precio del transporte en taxi, del Aeropuerto a la Ciudad de La Havana (Transporte de 40 minutos de duración, hasta 4 personas con equipaje)."
+
+msgid "cena_con_nosotros_o_donde_te_alojes"
+msgstr "#Nelle Case dove siete alloggiati si puó anche cenare, bene e a basso prezzo e se preferite, potete prenotare con noi"
+
+msgid "precio_cena_por_persona_sin_bebidas"
+msgstr "Precio de la cena, por persona (Bebidas alcohólicas no incluídas)."
+
+msgid "num_habitacion_doble"
+msgstr "Número de habitaciones doble"
+
+msgid "arma_tu_plan"
+msgstr "Planea tu viaje"
+
+msgid "fechas_de_ocupacion"
+msgstr "Fechas de las estadías"
+
+msgid "considere_tiempos"
+msgstr "Por favor, considere en sus planes los tiempos de viaje de una ciudad a otra. Si tiene dudas y necesita ayuda, consulte con nosotros."
+
+msgid "ultimo_dia"
+msgstr "Último día"
+
+msgid "dias_estancia"
+msgstr "Días de estancia"
+
+msgid "numero_total_de_dias"
+msgstr "Número total de días"
+
+msgid "desayuno"
+msgstr "Desayuno"
+
+msgid "cena"
+msgstr "Cena"
+
+msgid "cena_incluida"
+msgstr "Cena incluída"
+
+msgid "opcional"
+msgstr "opcional"
+
+msgid "opcional2"
+msgstr "Opcional"
+
+msgid "num_vuelo"
+msgstr "Número de vuelo"
+
+msgid "linea_aerea"
+msgstr "Compañía Aérea"
+
+msgid "dias"
+msgstr "días"
+
+msgid "dia"
+msgstr "día"
+
+msgid "pack1_opcion1_desc"
+msgstr "Habitación doble tipo Standard, desayuno en la casa, para dos personas y transporte en taxi del Aeropuerto a la ciudad de La Havana."
+
+msgid "pack1_opcion2_desc"
+msgstr "Habitación doble tipo Standard, desayuno y cena en la casa, para dos personas y transporte en taxi del Aeropuerto a la ciudad de La Havana."
+
+msgid "pack2_opcion1_desc"
+msgstr "Habitación doble tipo Standard, desayuno en la casa, para dos personas y transporte en taxi del Aeropuerto a la ciudad de La Havana."
+
+msgid "pack2_opcion2_desc"
+msgstr "Habitación doble tipo Standard, desayuno y cena en la casa, para dos personas y transporte en taxi del Aeropuerto a la ciudad de La Havana."
+
+msgid "pack3_opcion1_desc"
+msgstr "Habitación doble tipo Standard, desayuno en la casa, para dos personas y transporte en taxi del Aeropuerto a la ciudad de La Havana."
+
+msgid "pack3_opcion2_desc"
+msgstr "Habitación doble tipo Standard, desayuno y cena en la casa, para dos personas y transporte en taxi del Aeropuerto a la ciudad de La Havana."
+
+msgid "precio_total_por_persona"
+msgstr "Precio total, por dos personas"
+
+msgid "bebidas_no_incluidas"
+msgstr "Bebidas no incluídas"
+
+msgid "primera_opcion"
+msgstr "Primera Opción"
+
+msgid "segunda_opcion"
+msgstr "Segunda Opción"
+
+msgid "generales"
+msgstr "Generales"
+
+msgid "galeria_fotos"
+msgstr "Galería de fotos"
+
+msgid "comenta"
+msgstr "Commenta la nota"
+
+msgid "comentario"
+msgstr "Comentario"
+
+msgid "comentarios"
+msgstr "comentarios"
+
+msgid "no_comentarios_aun"
+msgstr "No hay comentarios todavía"
+
+msgid "ver_todas"
+msgstr "Ver todas"
+
+msgid "convertidor_divisas"
+msgstr "Convertido de Divisas"
+
+msgid "Este campo no puede quedar vacío."
 msgstr ""
 
-msgid ""
+msgid "todos_obligatorios"
+msgstr "Todos los campos son requeridos."
+
+msgid "primera_noche_necesaria"
+msgstr "Primera noche necesaria"
+
+msgid "Ingrese una dirección web válida."
 msgstr ""
 
+msgid "Ingrese una fecha válida."
+msgstr ""
+
+msgid "Ingrese una dirección de correo electrónico válida."
+msgstr ""
+
+msgid "Escriba de nuevo su correo electrónico."
+msgstr ""
+
+msgid "Ingrese un texto."
+msgstr ""
+
+msgid "Ingrese su nombre por favor."
+msgstr ""
+
+msgid "Ingrese su comentario."
+msgstr ""
+
+msgid "Indique el número de habitaciones."
+msgstr ""
+
+msgid "Indique el número de personas."
+msgstr ""
+
+msgid "primera_noche_arrivo_necesaria"
+msgstr "Al llegar, es necesario pasar, al menos, una noche en La Havana."
+
+msgid "Indique su fecha de llegada (dd-mm-aa)."
+msgstr ""
+
+msgid "Indique el número de días."
+msgstr ""
+
+msgid "Ingrese una fecha con el formato (dd-mm-aa)."
+msgstr ""
+
+msgid "La fecha de llegada y de partida no son válidas."
+msgstr ""
+
+msgid "La fecha no puede ser anterior a la fecha de llegada."
+msgstr ""
+
+msgid "La fecha no puede ser posterior a la fecha de partida."
+msgstr ""
+
+msgid "payment_success"
+msgstr "Gracias, hemos recibido su pago. Enviaremos inmediatamente el comprobante a la dirección de correo electrónico que nos proporcionó."
+
+msgid "payment_success_title"
+msgstr "Pago recibido con éxito"
+
+msgid "payment_success_body"
+msgstr "Gracias, hemos recibido su pago. Enviaremos inmediatamente el comprobante a la dirección de correo electrónico que nos proporcionó."
+
+msgid "payment_pending"
+msgstr "Su reservación ha sido registrada. Nos pondremos en contacto con usted una vez que hayamos confirmado su pago."
+
+msgid "payment_pending_title"
+msgstr "Pago pendiente"
+
+msgid "payment_pending_body"
+msgstr "Estaremos pendientes de la confirmación de su pago para proceder con el envío del Voucher."
+
+msgid "payment_failed"
+msgstr "El proceso de pago se ha interrumpido inesperadamente. Por favor, intente de nuevo o póngase en contacto con nosotros."
+
+msgid "payment_failed_title"
+msgstr "Error al efectuar el Pago"
+
+msgid "payment_failed_body"
+msgstr "El proceso de pago se ha interrumpido inesperadamente. Por favor, intente de nuevo o póngase en contacto con nosotros."
+
+msgid "payment_interrupted"
+msgstr "El proceso de pago se ha interrumpido inesperadamente. Por favor, intente de nuevo o póngase en contacto con nosotros."
+
+msgid "payment_not_initiated"
+msgstr "El proceso de pago no ha podido iniciarse, debido a un problema con PayPal. Intente de nuevo o seleccione otra modo de pago, por favor."
+
+msgid "payment_not_saved"
+msgstr "Su pago se ha registrado en Paypal, pero ha ocurrido un problema para registrarlo en nuestro sistema. Por favor, póngase en contacto con nosotros para verificarlo."
+
+msgid "problema_notificacion"
+msgstr "Ha fallado el envío del mensaje de confirmación y descripción de su reservación. Póngase en contacto con nosotros para que se lo reenviemos. Disculpe las molestias."
+
+msgid "detalles_de_su_pago"
+msgstr "Detalles de su Pago"

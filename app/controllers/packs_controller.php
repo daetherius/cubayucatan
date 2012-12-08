@@ -39,6 +39,7 @@ class PacksController extends UnlisteditemsController{
 
 						$this->data['Order']['retorno'] = date('d-m-Y',strtotime($this->data['Order']['arrival'].' +'.$tour_duration.' days'));
 						$opciones = array(1=>array(620,984),array(485,758),array(340,522));
+						
 						/// Alguien quiere pasarse de listo
 						if(!in_array((int)$this->data['Order']['opcion'],$opciones[$id])){
 							$this->redirect(array_merge(array('action'=>'reservar'),$this->passedArgs),true);
