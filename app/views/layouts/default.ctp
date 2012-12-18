@@ -5,9 +5,9 @@
 <title><?=$sitename_for_layout.($title_for_layout ? ' | '.$title_for_layout : '')?></title>
 <meta name="description" content="<?=$description_for_layout?>" />
 <meta name="keywords" content="<?=$keywords_for_layout?>" />
-<meta name="Author" content="Pulsem" />
-<meta name="Generator" content="daetherius" />
-<meta name="Robots" content="Index" />
+<meta name="author" content="pulsem.mx" />
+<meta name="generator" content="daetherius" />
+<meta name="robots" content="index" />
 <meta name="google-site-verification" content="j6k-fp2Lh4h7-I8dBMJiu-nUii-izLzPrA4bH9DdseA" />
 
 <meta property="og:title" content="<?=$og_for_layout['title']?>" />
