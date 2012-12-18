@@ -42,7 +42,7 @@ $modules = array(
 
 	'destinations'=>array('destinos','menu','admin'=>array('')),
 		'destinationimgs'=>array('imágenes','admin'=>false),
-	'posts'=>array('noticias','menu','admin'=>array('posts')),
+	'posts'=>array('noticias','menu','route'=>'blog','admin'=>array('posts')),
 		'postimgs'=>array('imágenes','admin'=>false),
 		'comments'=>array('comentarios','admin'=>array('comment')),
 	

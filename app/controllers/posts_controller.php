@@ -2,7 +2,6 @@
 App::import('Controller','_base/Items');
 class PostsController extends ItemsController{
 	var $name = 'Posts';
-	var $pageTitle = 'Noticias';
 	var $uses = array('Post','Postimg','Comment');
 
 	function index() {

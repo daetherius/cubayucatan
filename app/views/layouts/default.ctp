@@ -1,14 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es" itemscope itemtype="http://schema.org/<?=ucfirst($og_for_layout['itemtype'])?>">
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?=$meta_lang?>" lang="<?=$meta_lang?>" itemscope itemtype="http://schema.org/<?=ucfirst($og_for_layout['itemtype'])?>">
 <head>
 <title><?=$sitename_for_layout.($title_for_layout ? ' | '.$title_for_layout : '')?></title>
 <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+<meta charset="utf-8" />
 <meta name="description" content="<?=$description_for_layout?>" />
 <meta name="keywords" content="<?=$keywords_for_layout?>" />
-<meta name="Title" content="<?=$sitename_for_layout?>" />
 <meta name="Author" content="Pulsem" />
 <meta name="Generator" content="daetherius" />
-<meta name="Language" content="Spanish" /> 
 <meta name="Robots" content="Index" />
 <meta name="google-site-verification" content="j6k-fp2Lh4h7-I8dBMJiu-nUii-izLzPrA4bH9DdseA" />
 
@@ -32,7 +31,7 @@ echo
 			$html->div(null,null,array('id'=>'header')),
 				$html->div('clear'),
 					$html->tag('h1',$html->link($sitename_for_layout,'/',array('title'=>$sitename_for_layout)),array('id'=>'logo')),
-					$html->div('language '.$_lang,$html->link(__('toggle_lang',true),array_merge(array('lang'=>$_lang == 'esp' ? 'ita':'esp'),$this->passedArgs))),
+					//$html->div('language '.$_lang,$html->link(__('toggle_lang',true),array_merge(array('lang'=>$_lang == 'esp' ? 'ita':'esp'),$this->passedArgs))),
 					$this->element('social'),
 				'</div>',
 			'</div>',

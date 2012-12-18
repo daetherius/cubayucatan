@@ -149,6 +149,8 @@ class ResizeHelper extends Helper {
 			$cachedUrl = substr($cachedUrl,1);
 
 		$cachedUrl = $this->webroot.$cachedUrl;
+
+		$opts['atts']['alt'] = $filename;
 		
 		if ($opts['urlonly'] != true)
 			$output = sprintf($this->Html->tags['image'], $cachedUrl, $this->Html->_parseAttributes($opts['atts'],null,'',' '));

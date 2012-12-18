@@ -1,6 +1,6 @@
 <ul id="menu">
 <?php
-echo $html->tag('li',$html->link($html->tag('span', __('home',true)),'/'),array('class'=>$this->params['controller']=='inicio' ? 'mSelected' : ''));
+echo $html->tag('li',$html->link($html->tag('span', __('home',true)),array('controller'=>'inicio','action'=>'index')),array('class'=>$this->params['controller']=='inicio' ? 'mSelected' : ''));
 foreach(Configure::read('Modules') as $cntllr => $mod){
 	if(isset($mod['menu']) && $mod['menu']){
 		echo

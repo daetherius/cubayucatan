@@ -95,19 +95,19 @@ msgid "aviso legal"
 msgstr "Aviso Legal"
 
 msgid "alojese_casas_particulares"
-msgstr "#A Cuba vi alloggiamo in case private, splendida alternativa agli Hotels, e anche meno cara."
+msgstr "Las casas particulares en Cuba son una excelente alternativa de hospedaje, son seguras y económicas."
 
 msgid "laboramos_desde_2004"
-msgstr "#<strong>Lavoriamo con Cuba dal 2004</strong>, e con i nostri incaricati sull´Isola <strong>garantiamo</strong> le vostre prenotazioni nelle Cittá e nelle date che avrete scelto."
+msgstr "Contamos con una experiencia de 8 años trabajando con Cuba y nuestro personal en la isla le garantiza su reservación en las ciudades y fechas que usted haya elegido."
 
 msgid "aqui_caracteristicas_hab"
-msgstr "#Qui di seguito, caratteristiche delle stanze, prezzi, modalitá di prenotazione e pagamento."
+msgstr ""
 
 msgid "trato_duenios_casas_en_cuba"
-msgstr "#Conosciamo bene e lavoriamo da anni con i gerenti delle nostre case e di loro garantiamo l´assoluta onestá. Rispettano scrupolosamente la <strong>privacy degli ospiti</strong>, e curano particolarmente pulizia e igiene."
+msgstr "Conocemos y hemos trabajado durante años con los directivos de nuestras Casas y podemos garantizar su honestidad absoluta. Respetando escrupulosamente la intimidad de las personas y un especial cuidado con la limpieza y la higiene."
 
 msgid "caracteristicas_hab_cuba"
-msgstr "#Tutte le stanze del nostro programma hanno bagno privato con doccia, acqua calda e fredda, e aria condizionata."
+msgstr "Todas las habitaciones de nuestro programa tienen un cuarto de baño privado con ducha, agua fría y caliente, y aire acondicionado."
 
 msgid "villa_maya_y_coches"
 msgstr "#Alloggio in mezza pensione nei Bungalows del Villaggio Maya e noleggio auto."
@@ -173,7 +173,7 @@ msgid "itinerario_propuesto"
 msgstr "Itinerario propuesto"
 
 msgid "paquete4_desc_corta"
-msgstr "Le permitimos personalizar su vacaciones en Cuba, eligiendo las ciudades que le gustaría visitar de las nueve que forman parte de nuestro programa."
+msgstr "Ustedes pueden personalizar sus vacaciones en Cuba, eligiendo las ciudades que le gustaría visitar de las nueve que forman parte de nuestro programa."
 
 msgid "paquete5_desc_corta"
 msgstr "Alojamiento con media pensión en Bungalows de la Villa Maya, alquiler de carro más opciones para elegir."
@@ -242,7 +242,7 @@ msgid "mayataan"
 msgstr "Mayataan"
 
 msgid "nota_antes_reservar"
-msgstr "Las reservaciones se realizan, típicamente, con 30 días de anticipación de la fecha de partida. Podemos hacerlo en menos tiempo, dependiendo de las condiciones de demanda de los viajes y disponibilidad."
+msgstr "Las reservaciones se realizan, típicamente, con 30 días de anticipación de la fecha de inicio. Podemos hacerlo en menos tiempo, dependiendo de la disponibilidad."
 
 msgid "num_orden"
 msgstr "Código"
@@ -341,7 +341,7 @@ msgid "comunidad_ek_balam"
 msgstr "Comunidad Maya de Ek Balam"
 
 msgid "indique_si_desea_taxi"
-msgstr "Para hacer el envío del taxi, por favor, indíquenos:"
+msgstr "Para enviar el taxi, por favor, indíquenos:"
 
 msgid "formato_fecha_dmy"
 msgstr "(DD-MM-AA)"
@@ -449,7 +449,7 @@ msgid "voucher"
 msgstr "Envío del Voucher"
 
 msgid "voucher_note"
-msgstr "Al recibir su reservación, responderemos con un mensaje de confirmación con un Código, que deberá introducirse en el documento del banco, para el caso de depósito bancario. En el momento que el Banco nos confirme su pago, enviaremos el Voucher a la dirección de correo electrónico proporcionada por usted con una lista detallada de los servicios comprados, y marcados como 'Pagados'"
+msgstr "Al recibir su reservación, responderemos con un mensaje de confirmación con un Código, que deberá introducirse en el documento del Banco, para el caso de pago con depósito bancario. En el momento que el Banco nos confirme su pago, enviaremos el Voucher a la dirección de correo electrónico proporcionada por usted, con una lista detallada de los servicios comprados, y marcados como 'Pagados'"
 
 msgid "entrega_voucher_carro"
 msgstr "#che mostrerete all’incaricato che vi consegnerá auto e Vouchers relativi a ogni servizio"
@@ -458,7 +458,7 @@ msgid "enviar"
 msgstr "Enviar"
 
 msgid "caracteristicas_hab_cuba_propuesto"
-msgstr "#Prezzo della stanza Doppia, tipo Standard, con aria condizionata e bagno privato con doccia, acqua calda e fredda, della prima colazione, e taxi dall’Aereoporto."
+msgstr "Precio de la habitación doble, tipo Estándar, con aire acondicionado y baño privado, con ducha, agua caliente y fría, del desayuno por dos personas, y del taxi desde el Aeropuerto."
 
 msgid "precio_hab_doble_por_noche_con_desayuno"
 msgstr "Precio de la habitación doble, por noche y del desayuno, para dos personas."
@@ -467,7 +467,7 @@ msgid "precio_desayuno_por_persona"
 msgstr "Precio del desayuno, por persona."
 
 msgid "precio_taxi_aeropuerto_a_havana"
-msgstr "Precio del transporte en taxi, del Aeropuerto a la Ciudad de La Havana (Transporte de 40 minutos de duración, hasta 4 personas con equipaje)."
+msgstr "Precio del transporte en taxi, desde el Aeropuerto a la Ciudad de La Havana (Transporte de 40 minutos de duración, hasta 4 personas con equipaje)."
 
 msgid "cena_con_nosotros_o_donde_te_alojes"
 msgstr "#Nelle Case dove siete alloggiati si puó anche cenare, bene e a basso prezzo e se preferite, potete prenotare con noi"

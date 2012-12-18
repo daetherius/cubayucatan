@@ -1,6 +1,6 @@
 <?php
 $destinations = Cache::read('destination_recent');
-$packs = Cache::read('packs_recent');
+$packs = Cache::read('pack_recent');
 
 echo
 	$html->div('footer'),
@@ -17,17 +17,18 @@ echo
 				$html->para(null,'+52 (999) 958.81.75'),
 			'</div>',
 		'</div>',
-		$html->div('lists'),
+		$html->div('lists');
+/*				
 			$html->div('column'),
-			
-/*				$html->div('title title3',__('links',true)),
+				$html->div('title title3',__('links',true)),
 				$html->tag('ul'),
 					$html->tag('li',$html->link('','http://',array('target'=>'_blank','rel'=>'nofollow'))),
 					$html->tag('li',$html->link('','http://',array('target'=>'_blank','rel'=>'nofollow'))),
 					$html->tag('li',$html->link('','http://',array('target'=>'_blank','rel'=>'nofollow'))),
 					$html->tag('li',$html->link('','http://',array('target'=>'_blank','rel'=>'nofollow'))),
 				'</ul>',
-*/			'</div>';
+			'</div>';
+*/
 
 			if($packs){
 				echo $html->div('column');
@@ -38,7 +39,7 @@ echo
 							$html->tag('ul');
 
 						foreach($packs['cuba'] as $pack)
-							echo $html->tag('li',$html->link($pack['Pack']['nombre'],array('controller'=>'packs','action'=>'ver','id'=>$pack['Pack']['slug'])));
+							echo $html->tag('li',$html->link($pack['Pack']['nombre_'.$_lang],array('controller'=>'packs','action'=>'ver','id'=>$pack['Pack']['slug'])));
 
 						echo '</ul>';
 					}
@@ -49,7 +50,7 @@ echo
 							$html->tag('ul');
 
 						foreach($packs['yucatan'] as $pack)
-							echo $html->tag('li',$html->link($pack['Pack']['nombre'],array('controller'=>'packs','action'=>'ver','id'=>$pack['Pack']['slug'])));
+							echo $html->tag('li',$html->link($pack['Pack']['nombre_'.$_lang],array('controller'=>'packs','action'=>'ver','id'=>$pack['Pack']['slug'])));
 
 						echo '</ul>';
 					}
@@ -109,7 +110,7 @@ echo
 					$html->tag('li',$html->link(__('aviso legal',true),array('controller'=>'legal','action'=>'index'))),
 				'</ul>',
 			'</div>',
-		'</div>',
+		'</div>', //.lists
 
 	/*
 		$html->link('PULSEM : Web + Identidad + Consultoría','http://pulsem.mx',array('id'=>'pulsem')),

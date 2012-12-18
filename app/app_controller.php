@@ -42,6 +42,7 @@ class AppController extends Controller {
 		}
 		
 		$this->set('_lang',$this->_lang = $this->Session->read('Config.language'));
+		$this->set('meta_lang',substr($this->_lang,0,2));
 
 		$locale = array('es_MX.utf-8','es_MX.utf8','es_MX','esm.utf-8','esm.utf8','esm');
 		//if($this->_lang == 'ita') $locale = array('it_IT.utf-8','it_IT.utf8','it_IT','ita.utf-8','ita.utf8','ita');
@@ -249,10 +250,9 @@ class AppController extends Controller {
 		
 		$modules = Configure::read('Modules');
 		if(isset($modules[$this->params['controller']]) && $cntrllr = $modules[$this->params['controller']]){
-			$this->ts = $_ts = ucfirst($cntrllr['label']);
+			$this->ts = $_ts = ucfirst(__($cntrllr['label'],true));
 			$_t = ucfirst(isset($cntrllr['singu']) ? $cntrllr['singu'] : Inflector::singularize($_ts));
 		}
-
 		$this->set(compact('_ts'));
 		$this->set(compact('_t'));
 
@@ -324,9 +324,9 @@ class AppController extends Controller {
 			}
 		}
 
-		$this->set('title_for_layout',isset($this->pageTitle) ? $this->pageTitle : $this->ts);
+		$this->set('title_for_layout',empty($this->pageTitle) ? $this->ts : $this->pageTitle);
 		
-		if(isset($this->params['isAjax'])&& $this->params['isAjax'])
+		if(!empty($this->params['isAjax']))
 			$this->viewPath = $this->action = 'ajax';
 		elseif($this->viewPath != 'errors'){
 			if(!$this->detour)

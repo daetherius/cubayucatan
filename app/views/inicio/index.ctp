@@ -12,7 +12,7 @@ echo
 			$html->div('clear desc'),
 				$html->div('column'),
 					$html->para(null,__('laboramos_desde_2004',true)),
-					$html->para(null,__('aqui_caracteristicas_hab',true)),
+					//$html->para(null,__('aqui_caracteristicas_hab',true)),
 				'</div>',
 				$html->div('column'),
 					$html->para(null,__('trato_duenios_casas_en_cuba',true)),
@@ -33,7 +33,7 @@ echo
 			foreach($packs['yucatan'] as $pack)
 				echo $this->element('th',array('item'=>$pack,'model'=>'Pack'));
 
-		'</div>';
+		echo '</div>';
 
 		if($posts = Cache::read('post_recent')){
 			echo $html->div('posts');

@@ -36,22 +36,22 @@ class UtilHelper extends AppHelper {
 		}
 
 		if(!empty($item[$opts['field']])){
-			if(isset($opts['id'])){ $opts['atts']['id'] = $opts['id']; unset($opts['id']); }
-			if(isset($opts['class'])){ $opts['atts']['class'] = $opts['class']; unset($opts['class']); }
+			if(!empty($opts['id'])){ $opts['atts']['id'] = $opts['id']; unset($opts['id']); }
+			if(!empty($opts['class'])){ $opts['atts']['class'] = $opts['class']; unset($opts['class']); }
 
-			if(isset($opts['atts']['class']))
+			if(!empty($opts['atts']['class']))
 				$opts['atts']['class'].= ' thWrap';
 			else
 				$opts['atts']['class'] = 'thWrap';
 
 			if($opts['footer']){
 				$opts['footer'] = is_string($opts['footer']) ? $opts['footer'] : 'descripcion';
-				if(isset($item[$opts['footer']]) && $item[$opts['footer']])
+				if(!empty($item[$opts['footer']]))
 					$footer = $this->Html->para('imagefoot',''.$this->txt($item[$_m[0].'portada']['descripcion']));
 			}
 
 			if($opts['descripcion']){
-				if(isset($item[$opts['descripcion']]) && $item[$opts['descripcion']]){
+				if(!empty($item[$opts['descripcion']])){
 					$opts['atts']['name'] = _dec($item[$opts['descripcion']]);
 					$opts['atts']['title'] = strip_tags($opts['atts']['name']);
 				}

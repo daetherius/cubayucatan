@@ -422,7 +422,6 @@ ul li { margin:0 0 4px; }
 
 .detail {}
 .detail .clear { margin-top:20px; }
-
 .detail .date { font-size:11px; }
 
 /*** @Thumb *************/
@@ -603,12 +602,15 @@ ul li { margin:0 0 4px; }
 	font-family: 'Merienda One', cursive;
 }
 .c_packs .detail > .clear > .column { width:510px;margin:0; }
+.c_packs .detail > .clear > .column { width:510px;margin:0; }
 .c_packs .detail > .clear > .column:first-child { width:212px;margin:0 28px 0 0; }
 .c_packs .detail #carousel { margin:0 0 15px; }
 
 .c_packs .detail > .clear.info { margin:0; }
 .c_packs .detail > .clear.info > .column { width:232px; }
 .c_packs .detail > .clear.info > .column:first-child { width:490px; }
+
+.c_packs.a_reservar .detail > h1.title { font-size:36px; }
 
 .c_packs .mapa {
 	display:block;

@@ -10,9 +10,11 @@ $regex = array(
 
 foreach(Configure::read('Modules') as $controller => $mod){
 	$alias = $mod['route'];
+	/*
 	Router::connect('/'.$alias,array('controller'=>$controller,'action'=>'index'));
 	Router::connect('/'.$alias.'/:id',array('controller'=>$controller,'action'=>'ver'),$regex);
 	Router::connect('/'.$alias.'/:action/*',array('controller'=>$controller,'action'=>'index'),$regex);
+	*/
 
 	Router::connect('/'.$alias,array('controller'=>$controller,'action'=>'index','lang'=>'ita'));
 	Router::connect('/'.$alias.'/:id',array('controller'=>$controller,'action'=>'ver','lang'=>'ita'),$regex);
