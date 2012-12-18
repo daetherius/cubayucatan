@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="<?=$meta_lang?>" lang="<?=$meta_lang?>" itemscope itemtype="http://schema.org/<?=ucfirst($og_for_layout['itemtype'])?>">
 <head>
-<title><?=$sitename_for_layout.($title_for_layout ? ' | '.$title_for_layout : '')?></title>
-<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 <meta charset="utf-8" />
+<title><?=$sitename_for_layout.($title_for_layout ? ' | '.$title_for_layout : '')?></title>
 <meta name="description" content="<?=$description_for_layout?>" />
 <meta name="keywords" content="<?=$keywords_for_layout?>" />
 <meta name="Author" content="Pulsem" />
