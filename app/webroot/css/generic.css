@@ -271,7 +271,7 @@ body.error{ background:#f0f0f0;color:#555;font-size:12px; }
 	height:94px;
 	line-height:94px;
 	margin:20px 0;
-	font-size:40px;
+	font-size:36px;
 }
 .error_page .error_info .title:first-child img,
 .error_page .error_info .title:first-child span { vertical-align:middle; }
