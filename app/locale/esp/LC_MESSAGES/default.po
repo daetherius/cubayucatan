@@ -113,7 +113,7 @@ msgid "caracteristicas_hab_cuba"
 msgstr "Todas las habitaciones de nuestro programa tienen un cuarto de baño privado con ducha, agua fría y caliente, y aire acondicionado."
 
 msgid "villa_maya_y_coches"
-msgstr "#Alloggio in mezza pensione nei Bungalows del Villaggio Maya e noleggio auto."
+msgstr "Alojamiento en Cabañas, desayunos, cenas y alquiler del carro, con seguro."
 
 msgid "contacto_directo"
 msgstr "Contacto Directo"
