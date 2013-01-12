@@ -27,7 +27,7 @@ echo
 			'</div>',
 			$html->div('column'),
 				$html->link(__('reservar',true),array('controller'=>'packs','action'=>'reservar',$item[$_m[0]]['slug']),array('class'=>'reservar')),
-				$html->tag('h3',__('precios',true).' '.__($item[$_m[0]]['id'] == 6 ? 'mayakot':'mayataan',true),'title red'),
+				$html->tag('h3',__('precio',true).' '.__($item[$_m[0]]['id'] == 6 ? 'mayakot':'mayataan',true),'title red'),
 				$html->div('desc tmce',$item[$_m[0]]['descripcion2_'.$_lang]),
 			'</div>',
 		'</div>',

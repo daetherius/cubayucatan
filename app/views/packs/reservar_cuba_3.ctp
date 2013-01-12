@@ -21,8 +21,8 @@ echo
 					'label'=>__('opcion',true),
 					'selected'=>$opcion,
 					'options'=>array(
-						$precio_opcion1 => __('primera_opcion',true).' '.strip_tags(__('EUR '.$precio_opcion1,true)),
-						$precio_opcion2 => __('segunda_opcion',true).' '.strip_tags(__('EUR '.$precio_opcion2,true))
+						$precio_opcion1 => __('primera_opcion',true).' '.__('EUR',true).' '.$precio_opcion1,
+						$precio_opcion2 => __('segunda_opcion',true).' '.__('EUR',true).' '.$precio_opcion2
 					)
 				)),
 				$form->input('nombre',array('label'=>__('nombre',true))),

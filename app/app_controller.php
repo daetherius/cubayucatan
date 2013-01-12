@@ -36,6 +36,7 @@ class AppController extends Controller {
 			$this->Cookie->write('lang', Configure::read('Config.language'), false, '20 days');
 		} elseif($this->Cookie->read('lang') && !$this->Session->check('Config.language')){ // Cookie a Session
 			$this->Session->write('Config.language', $this->Cookie->read('lang'));
+			$this->redirect(array('lang'=>$this->Cookie->read('lang')));
 		} elseif(isset($this->params['lang']) && ($this->params['lang'] != $this->Session->read('Config.language'))){ // Lang Switch
 			$this->Session->write('Config.language', $this->params['lang']);
 			$this->Cookie->write('lang', $this->params['lang'], false, '20 days');

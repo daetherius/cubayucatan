@@ -2,7 +2,7 @@
 $id = $item['Pack']['id'];
 $precios = array(
 	'ita'=>array(1=>array(620,984),2=>array(485,758),3=>array(340,522)),
-	'esp'=>array(1=>array(620,984),2=>array(485,758),3=>array(340,522))
+	'esp'=>array(1=>array(781,1240),2=>array(611,955),3=>array(428,657))
 );
 $precios_personalizado = array(
 	'ita'=>array('hab'=>38,'taxi'=>20,'cena'=>'9,6'),
