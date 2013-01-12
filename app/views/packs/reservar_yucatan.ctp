@@ -1,12 +1,40 @@
 <?php
+if($_lang == 'ita'){
+	$precio_hab_opcional = 75;
+	$numper2precio = array(2=>865,675,653,758);
+	$precios_opciones = array(
+		'opc_16'=>array(2=>193,134,104,87),
+		'opc_15'=>array(2=>71,65,54,48),
+		'opc_13'=>array(2=>75,56,75,56),
+		'opc_12'=>array(2=>95,69,56,60),
+		'opc_11'=>array(2=>95,95,95,95),
+		'opc_10'=>array(2=>111,84,70,86),
+		'opc_9'=>array(2=>121,94,80,72)
+	);
+	
+} else {
+	$precio_hab_opcional = 0;
+	$numper2precio = array(2=>1090,850,822,955);
+	$precios_opciones = array(
+		'opc_16'=>array(2=>243,168,131,109),
+		'opc_15'=>array(2=>89,82,68,60),
+		'opc_13'=>array(2=>94,70,60,53),
+		'opc_12'=>array(2=>119,87,70,75),
+		'opc_11'=>array(2=>119,119,119,119),
+		'opc_10'=>array(2=>139,105,88,108),
+		'opc_9'=>array(2=>150,118,100,90)
+	);
+}
+
+
 $conceptos_html = '';
 $conceptos = array(
-	865=>array('1 '.__('bungalow_doble',true),__('media_pension',true),__('vehiculo_dos_puertas',true)),
-	675=>array('1 '.__('bungalow_triple',true),__('media_pension',true),__('vehiculo_cuatro_puertas',true)),
-	653=>array('2 '.__('bungalow_doble',true),__('media_pension',true),__('vehiculo_cuatro_puertas',true)),
-	758=>array('1 '.__('bungalow_triple',true).' '.__('y',true).' 1 '.__('bungalow_doble',true),__('media_pension',true),__('vehiculo_offroad',true))
+	array('1 '.__('bungalow_doble',true),__('media_pension',true),__('vehiculo_dos_puertas',true)),
+	array('1 '.__('bungalow_triple',true),__('media_pension',true),__('vehiculo_cuatro_puertas',true)),
+	array('2 '.__('bungalows_dobles',true),__('media_pension',true),__('vehiculo_cuatro_puertas',true)),
+	array('1 '.__('bungalow_triple',true).' '.__('y',true).' 1 '.__('bungalow_doble',true),__('media_pension',true),__('vehiculo_offroad',true))
 );
-$precio_hab_opcional = 75;
+$conceptos = array_combine($numper2precio, $conceptos);
 
 foreach ($conceptos as $opcion => $conc) {
 	$row = '';
@@ -36,11 +64,14 @@ echo
 				$form->input('confirma_email',array('label'=>__('confirma_email',true))),
 				$form->input('num_personas',array(
 					'label'=>__('num_personas',true),
-					'options'=>array(
-						865=>'2 (€865 '.__('por_persona',true).')',
-						675=>'3 (€675 '.__('por_persona',true).')',
-						653=>'4 (€653 '.__('por_persona',true).')',
-						758=>'5 (€758 '.__('por_persona',true).')',
+					'options'=>array_combine(
+						$numper2precio,
+						array(
+							'2 ('.strip_tags(__d('precios','EUR 865',true)).' '.__('por_persona',true).')',
+							'3 ('.strip_tags(__d('precios','EUR 675',true)).' '.__('por_persona',true).')',
+							'4 ('.strip_tags(__d('precios','EUR 653',true)).' '.__('por_persona',true).')',
+							'5 ('.strip_tags(__d('precios','EUR 758',true)).' '.__('por_persona',true).')',
+						)
 					),
 				)),
 				$html->div('input text',$html->tag('label',__('incluye',true)).$conceptos_html),
@@ -48,7 +79,7 @@ echo
 			
 			$this->element('yuc_opciones'),
 
-			$html->div('big_total precio',$html->tag('span',__('total',true),'total_label').$html->tag('span',' €','pad').$html->tag('span','',array('id'=>'big_total'))),
+			$html->div('big_total precio',$html->tag('span',__('total',true),'total_label').$html->tag('small',__('EUR',true).'&nbsp;','pad').$html->tag('span','',array('id'=>'big_total'))),
 			
 			$html->div('arrival_date block'),
 				$form->input('arrival',array(
@@ -62,50 +93,40 @@ echo
 			//$html->para('suitcase',__('indique_si_desea_hab_opcional',true)),
 			$this->element('taxi_opcion',compact('precio_hab_opcional')),
 
-			$html->div('big_total precio',$html->tag('span',__('total',true),'total_label').$html->tag('span',' €','pad').$html->tag('span','',array('id'=>'big_total_adicional'))),
+			$html->div('big_total precio',$html->tag('span',__('total',true),'total_label').$html->tag('small',__('EUR',true).'&nbsp;','pad').$html->tag('span','',array('id'=>'big_total_adicional'))),
 
 			$this->element('pago_opcion'),
 	'</div>';
 
 	$updateOptionalRooms = '
 		var inted = $("OrderNumPersonas").get("value").toInt();
-		var numper2precio = $H({2:865,3:675,4:653,5:758});
-		var totales = {865:1730,675:2025,653:2612,758:3790};
-		var precios_opciones = {
-			opc_16:{2:193,3:134,4:104,5:87},
-			opc_15:{2:71,3:65,4:54,5:48},
-			opc_13:{2:75,3:56,4:75,5:56},
-			opc_12:{2:75,3:56,4:48,5:42},
-			opc_11:{2:95,3:95,4:95,5:95},
-			opc_10:{2:111,3:84,4:70,5:86},
-			opc_9:{2:121,3:94,4:80,5:72}
-		};
+		var numper2precio = $H('.json_encode($numper2precio).');
+		var num_personas = numper2precio.keyOf(inted);
+		var precios_opciones = '.json_encode($precios_opciones).';
 
 		if(!isNaN(inted)){
-			var total_hab = totales[inted];
+			var total_hab = inted * num_personas;
 			$$("#conceptos_opciones > div").addClass("hide");
 			$("opcion_"+inted).removeClass("hide");
-			$$(".precio_opcion").each(function(el){ el.set("html",precios_opciones[el.get("rel")][numper2precio.keyOf(inted)]); });
+			$$(".precio_opcion").each(function(el){ el.set("html",precios_opciones[el.get("rel")][num_personas]); });
 		}
 
 		var hab_opcional = 0;
 		if($("OrderOpcionAlLlegar").get("value") == "si")
-			hab_opcional = $("OrderTaxiHab").get("value").toInt() *'.$precio_hab_opcional.';
+			hab_opcional = $("OrderTaxiHab").get("value").toInt() * '.$precio_hab_opcional.';
 
 		if(isNaN(hab_opcional)) hab_opcional = 0;
 
 		var total_opciones = 0;
 		$$(".yuc_opcion").each(function(el){
-			console.log(el.get("checked"));
-			console.log(el.checked);
 			if(el.get("checked")){
-				console.log((precios_opciones[el.get("rel")][numper2precio.keyOf(inted)]).toInt());
-				total_opciones+= ((precios_opciones[el.get("rel")][numper2precio.keyOf(inted)]).toInt() * numper2precio.keyOf(inted).toInt());
+				total_opciones+= ((precios_opciones[el.get("rel")][num_personas]).toInt() * num_personas.toInt());
 			}
 		});
 
-
-		$("big_total").set("html",totales[inted]+total_opciones);
+		console.log(total_hab);
+		console.log(total_opciones);
+		$("big_total").set("html",total_hab + total_opciones);
 		$("hab_opcional").set("html",hab_opcional);
 		$("big_total_adicional").set("html",total_hab + hab_opcional + total_opciones);
 	';

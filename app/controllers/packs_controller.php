@@ -38,7 +38,7 @@ class PacksController extends UnlisteditemsController{
 					case 3: $tour_duration = 9;
 
 						$this->data['Order']['retorno'] = date('d-m-Y',strtotime($this->data['Order']['arrival'].' +'.$tour_duration.' days'));
-						$opciones = array(1=>array(620,984),array(485,758),array(340,522));
+						$opciones = array(1=>array(620,984,781,1240),array(485,758,611,955),array(340,522,428,657));
 						
 						/// Alguien quiere pasarse de listo
 						if(!in_array((int)$this->data['Order']['opcion'],$opciones[$id])){
@@ -63,25 +63,39 @@ class PacksController extends UnlisteditemsController{
 							}
 						}
 
-						$servicios = 25 + 8; // Precio base de la habitacion + Desayuno
+						$servicios = $this->_lang == 'ita' ? 38 : 48; // Precio base de la habitacion + Desayuno
 						if($this->data['Order']['con_cena'])
-							$servicios+= 19.2;
+							$servicios+= $this->_lang == 'ita' ? 19.2 : 24.20;
 						$amt = $this->data['Order']['hab'] * $total_days * $servicios;
 						$cuantas = $this->data['Order']['hab'] * 2;
 					break;
 					case 5:
 					case 6:
 						$this->data['Order']['retorno'] = date('d-m-Y',strtotime($this->data['Order']['arrival'].' +9 days'));
-						$opciones = array(2=>865,675,653,758);
-						$extras = array(
-							'opc_16'=>array(2=>193,134,104,87),
-							'opc_15'=>array(2=>71,65,54,48),
-							'opc_13'=>array(2=>75,56,75,56),
-							'opc_12'=>array(2=>75,56,48,42),
-							'opc_11'=>array(2=>95,95,95,95),
-							'opc_10'=>array(2=>111,84,70,86),
-							'opc_9'=>array(2=>121,94,80,72)
-						);
+						if($this->_lang == 'ita'){
+							$opciones = array(2=>865,675,653,758);
+							$extras = array(
+									'opc_16'=>array(2=>193,134,104,87),
+									'opc_15'=>array(2=>71,65,54,48),
+									'opc_13'=>array(2=>75,56,75,56),
+									'opc_12'=>array(2=>95,69,56,60),
+									'opc_11'=>array(2=>95,95,95,95),
+									'opc_10'=>array(2=>111,84,70,86),
+									'opc_9'=>array(2=>121,94,80,72)
+								);
+						} else {
+							$opciones = array(2=>1090,850,822,955);
+							$extras = array(
+								'opc_16'=>array(2=>243,168,131,109),
+								'opc_15'=>array(2=>89,82,68,60),
+								'opc_13'=>array(2=>94,70,60,53),
+								'opc_12'=>array(2=>119,87,70,75),
+								'opc_11'=>array(2=>119,119,119,119),
+								'opc_10'=>array(2=>139,105,88,108),
+								'opc_9'=>array(2=>150,118,100,90)
+							);
+						}
+
 						$por_persona = (int)$this->data['Order']['num_personas'];
 						if(!in_array($por_persona, $opciones)) {
 							$this->redirect(array('action'=>'reservar'),true);
@@ -113,7 +127,7 @@ class PacksController extends UnlisteditemsController{
 					);
 
 					$this->Session->write('cart.current_order',$order);
-					$this->Paypal->setCurrencyCode('EUR');
+					$this->Paypal->setCurrencyCode($this->_lang == 'ita' ? 'EUR' : 'USD');
 					$this->Paypal->localecode = $this->_lang == 'ita' ? 'IT':'MX';
 					$this->Paypal->additem($id,$item);
 		

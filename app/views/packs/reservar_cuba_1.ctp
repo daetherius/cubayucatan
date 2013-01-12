@@ -1,6 +1,11 @@
 <?php
-$precio_opcion1 = 620;
-$precio_opcion2 = 984;
+if($_lang == 'ita'){
+	$precio_opcion1 = 620;
+	$precio_opcion2 = 984;
+} else {
+	$precio_opcion1 = 781;
+	$precio_opcion2 = 1240;
+}
 
 echo
 	$this->element('top',array('header'=>'')),
@@ -16,23 +21,23 @@ echo
 					'label'=>__('opcion',true),
 					'selected'=>$opcion,
 					'options'=>array(
-						$precio_opcion1 => __('primera_opcion',true).' €'.$precio_opcion1,
-						$precio_opcion2 => __('segunda_opcion',true).' €'.$precio_opcion2
+						$precio_opcion1 => __('primera_opcion',true).' '.strip_tags(__('EUR '.$precio_opcion1,true)),
+						$precio_opcion2 => __('segunda_opcion',true).' '.strip_tags(__('EUR '.$precio_opcion2,true))
 					)
 				)),
-				$form->input('nombre',array('label'=>__('nombre',true)/*.$html->tag('span','*')*/)),
-				$form->input('apellidos',array('label'=>__('apellidos',true)/*.$html->tag('span','*')*/)),
-				$form->input('email',array('label'=>__('email',true)/*.$html->tag('span','*')*/)),
-				$form->input('confirma_email',array('label'=>__('confirma_email',true)/*.$html->tag('span','*')*/)),
+				$form->input('nombre',array('label'=>__('nombre',true))),
+				$form->input('apellidos',array('label'=>__('apellidos',true))),
+				$form->input('email',array('label'=>__('email',true))),
+				$form->input('confirma_email',array('label'=>__('confirma_email',true))),
 				$form->input('hab',array(
-					'label'=>__('num_habitacion_doble',true)/*.$html->tag('span','*')*/,
+					'label'=>__('num_habitacion_doble',true),
 					'maxlength'=>3,
 					'default'=>1,
-					'after'=>$html->tag('span','x '.$html->tag('span','€'.$html->tag('span','',array('id'=>'total_hab')),'precio').$html->tag('span','('.$html->tag('span','2',array('id'=>'num_personas')).' '.__('personas',true).')','pad'),'pad')
+					'after'=>$html->tag('span','x '.$html->tag('span',$html->tag('small',__('EUR',true)).' '.$html->tag('span','',array('id'=>'total_hab')),'precio').$html->tag('span','('.$html->tag('span','2',array('id'=>'num_personas')).' '.__('personas',true).')','pad'),'pad')
 				)),
 			'</div>',
 			
-			$html->div('big_total precio',$html->tag('span',__('total',true),'total_label').$html->tag('span',' €','pad').$html->tag('span','',array('id'=>'big_total'))),
+			$html->div('big_total precio',$html->tag('span',__('total',true),'total_label').$html->tag('small',__('EUR',true).'&nbsp;','pad').$html->tag('span','',array('id'=>'big_total'))),
 			
 			$html->div('arrival_date block'),
 				$form->input('arrival',array(

@@ -38,7 +38,10 @@ if($item){
 		///---------------
 
 		case 'Pack':
-			$packs_precios = array(1=>620,485,340,38,865,865);
+			$packs_precios = array(
+				'ita'=>array(1=>620,485,340,38,865,865),
+				'esp'=>array(1=>781,611,428,48,1090,1090)
+			);
 			$mode = 'h';
 			$title = _dec($item['Pack']['nombre_'.$_lang]);
 
@@ -63,7 +66,7 @@ if($item){
 
 						echo
 							$html->para('ppp',null),
-								$html->tag('span','€'.$packs_precios[$item['Pack']['id']].($item['Pack']['id'] == 5 ? $html->tag('span',__('plus_opciones',true)):''),'precio'.($item['Pack']['id'] == 5 ? ' extra':'')),
+								$html->tag('span',$html->tag('small',__('EUR',true)).' '.$packs_precios[$_lang][$item['Pack']['id']].($item['Pack']['id'] == 5 ? $html->tag('span',__('plus_opciones',true)):''),'precio'.($item['Pack']['id'] == 5 ? ' extra':'')),
 								$html->tag('span',__($num_personas,true),'num_personas'),
 							'</p>',
 						'</div>',

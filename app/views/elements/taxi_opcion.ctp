@@ -26,7 +26,7 @@ echo $html->div('taxi_opcion clear'.($item['Pack']['id'] > 4 ? ' yucatan':''));
 				$form->input('taxi_hab',array(
 					'label'=>__('concepto_hab_opcional',true),
 					'value'=>0,
-					'after'=>$html->tag('span','x €'.$precio_hab_opcional.' = '.$html->tag('span','€'.$html->tag('span','',array('id'=>'hab_opcional')),'precio'),'pad')
+					'after'=>$html->tag('span','x '.$html->tag('small',__('EUR',true).'&nbsp;').$precio_hab_opcional.' = '.$html->tag('span',$html->tag('small',__('EUR',true).'&nbsp;').$html->tag('span','',array('id'=>'hab_opcional')),'precio'),'pad')
 				)),
 				$form->input('taxi_hab_arribo_inicio',array('disabled'=>'disabled','label'=>__('inicio_ocupacion_opcional',true).' '.__('formato_fecha_dmy',true),'type'=>'text')),
 				$form->input('taxi_hab_arribo_fin',array('disabled'=>'disabled','label'=>__('fin_ocupacion_opcional',true).' '.__('formato_fecha_dmy',true),'type'=>'text')),

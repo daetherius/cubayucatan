@@ -9,8 +9,8 @@
 <?php
 echo
 	$html->div('gcw_main'),
-		$html->div('gcw_header',$html->link('Conversor de divisas','http://www.freecurrencyrates.com/myconverter#cur=EUR-MXN-CUP;amt=EUR1',array('id'=>'ccw_cnhfybwf'))),
+		$html->div('gcw_header',$html->link('Conversor de divisas','http://www.freecurrencyrates.com/myconverter#cur=EUR-MXN-USD-CUP;amt=EUR1',array('id'=>'ccw_cnhfybwf'))),
 		$html->div('','',array('id'=>'gcw_rates')),
-		$html->script('http://www.freecurrencyrates.com/converter-widget?width=230&currs=EUR,MXN,CUP&precision=2&language=en&flags=0&currchangable=0',array('inline'=>true)),
+		$html->script('http://www.freecurrencyrates.com/converter-widget?width=230&currs=EUR,MXN,USD,CUP&precision=2&language=en&flags=0&currchangable=0',array('inline'=>true)),
 	'</div>';
 ?>

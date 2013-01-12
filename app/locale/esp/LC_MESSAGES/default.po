@@ -61,6 +61,9 @@ msgstr "cero"
 msgid "toggle_lang"
 msgstr "Italian"
 
+msgid "EUR"
+msgstr "USD"
+
 msgid "si"
 msgstr "Si"
 
@@ -152,7 +155,7 @@ msgid "personas"
 msgstr "personas"
 
 msgid "por_dia_por_persona_br"
-msgstr "Por día<br/>por 2 personas"
+msgstr "Por día por<br/>2 personas"
 
 msgid "por_dos_personas_br"
 msgstr "Por dos<br/>personas"
@@ -176,10 +179,10 @@ msgid "paquete4_desc_corta"
 msgstr "Ustedes pueden personalizar sus vacaciones en Cuba, eligiendo las ciudades que le gustaría visitar de las nueve que forman parte de nuestro programa."
 
 msgid "paquete5_desc_corta"
-msgstr "Alojamiento con media pensión en Bungalows de la Villa Maya, alquiler de carro más opciones para elegir."
+msgstr "Alojamiento, desayunos, cenas y alquiler del carro, con seguro, más opciones a elegir."
 
 msgid "paquete6_desc_corta"
-msgstr "Alojamiento con media pensión en Bungalows de la Villa Maya, con alquiler de carro."
+msgstr "Alojamiento, desayunos, cenas y alquiler del carro, con seguro."
 
 msgid "plus_opciones"
 msgstr "más opciones"
@@ -230,7 +233,7 @@ msgid "reservar"
 msgstr "Reservar"
 
 msgid "precio"
-msgstr "Precio"
+msgstr "Precios"
 
 msgid "jaguar_negro"
 msgstr "Giaguaro Nero"
@@ -278,19 +281,22 @@ msgid "por_su_cuenta"
 msgstr "Reservación por su cuenta."
 
 msgid "bungalow_doble"
-msgstr "Bungalow Doble"
+msgstr "Cabaña Doble"
+
+msgid "bungalows_dobles"
+msgstr "Cabañas Dobles"
 
 msgid "bungalow_triple"
-msgstr "Bungalow Triple"
+msgstr "Cabaña Triple"
 
 msgid "media_pension"
-msgstr "Media pensión"
+msgstr "Desayunos y Cenas"
 
 msgid "vehiculo_dos_puertas"
-msgstr "Vehículo asegurado de dos puertas"
+msgstr "Vehículo asegurado de 2 puertas"
 
 msgid "vehiculo_cuatro_puertas"
-msgstr "Vehículo asegurado de cuatro puertas"
+msgstr "Vehículo asegurado de 4 puertas"
 
 msgid "vehiculo_offroad"
 msgstr "Vehículo asegurado 'Off-Road'"
@@ -452,7 +458,7 @@ msgid "voucher_note"
 msgstr "Al recibir su reservación, responderemos con un mensaje de confirmación con un Código, que deberá introducirse en el documento del Banco, para el caso de pago con depósito bancario. En el momento que el Banco nos confirme su pago, enviaremos el Voucher a la dirección de correo electrónico proporcionada por usted, con una lista detallada de los servicios comprados, y marcados como 'Pagados'"
 
 msgid "entrega_voucher_carro"
-msgstr "#che mostrerete all’incaricato che vi consegnerá auto e Vouchers relativi a ogni servizio"
+msgstr "que ustedes enseñarán a nuestro encargado que les proporcionará carro y Vouchers por cada servicio"
 
 msgid "enviar"
 msgstr "Enviar"

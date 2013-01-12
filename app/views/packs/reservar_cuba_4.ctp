@@ -1,7 +1,14 @@
 <?php
-$precio_hab = 25;
-$precio_desayuno = 4;
-$precio_cena = 9.6;
+if($_lang == 'ita'){
+	$precio_hab = 30;
+	$precio_desayuno = 4;
+	$precio_cena = 9.6;
+} else {
+	$precio_hab = 0;
+	$precio_desayuno = 0;
+	$precio_cena = 12.10;
+}
+
 
 echo
 	$this->element('top',array('header'=>'')),
@@ -46,16 +53,16 @@ echo
 				'</table>',
 				$html->tag('table'),
 					$html->tableCells(array(
-						array($html->tag('span',__('estancia',true)),				array($html->tag('span','',array('class'=>'total_days')).' '.__('dias',true).' x '.$html->tag('span','','num_hab').' '.__('estancia',true).' x €'.$precio_hab.' = '.$html->tag('span','€'.$html->tag('span','',array('id'=>'costo_total_hab')),'precio'),array('colspan'=>2,'class'=>'subtotales'))),
-						array($html->tag('span',__('desayuno',true)),				array($html->tag('span','',array('class'=>'total_days')).' '.__('dias',true).' x '.$html->tag('span','','num_total_personas').' '.__('personas',true).' x €'.$precio_desayuno.' = '.$html->tag('span','€'.$html->tag('span','',array('id'=>'costo_total_desayuno','class'=>'precio')),'precio'),array('colspan'=>2,'class'=>'subtotales'))),
+						array($html->tag('span',__('estancia',true)),				array($html->tag('span','',array('class'=>'total_days')).' '.__('dias',true).' x '.$html->tag('span','','num_hab').' '.__('estancia',true).' x '.$html->tag('small',__('EUR',true)).' '.$precio_hab.' = '.$html->tag('span',$html->tag('small',__('EUR',true)).' '.$html->tag('span','',array('id'=>'costo_total_hab')),'precio'),array('colspan'=>2,'class'=>'subtotales'))),
+						array($html->tag('span',__('desayuno',true)),				array($html->tag('span','',array('class'=>'total_days')).' '.__('dias',true).' x '.$html->tag('span','','num_total_personas').' '.__('personas',true).' x '.$html->tag('small',__('EUR',true)).' '.$precio_desayuno.' = '.$html->tag('span',$html->tag('small',__('EUR',true)).' '.$html->tag('span','',array('id'=>'costo_total_desayuno','class'=>'precio')),'precio'),array('colspan'=>2,'class'=>'subtotales'))),
 						
-						array($form->input('con_cena',array('type'=>'checkbox','div'=>array('tag'=>'span'))).$html->tag('span',__('cena',true).' ('.__('opcional',true).')','pad'), array($html->tag('span','',array('class'=>'total_days')).' '.__('dias',true).' x '.$html->tag('span','','num_total_personas').' '.__('personas',true).' x €'.(number_format($precio_cena,1,',','.')).' = '.$html->tag('span','€'.$html->tag('span','',array('id'=>'costo_total_cena','class'=>'precio')),'precio'),array('colspan'=>2,'class'=>'subtotales'))),
+						array($form->input('con_cena',array('type'=>'checkbox','div'=>array('tag'=>'span'))).$html->tag('span',__('cena',true).' ('.__('opcional',true).')','pad'), array($html->tag('span','',array('class'=>'total_days')).' '.__('dias',true).' x '.$html->tag('span','','num_total_personas').' '.__('personas',true).' x '.$html->tag('small',__('EUR',true)).' '.(number_format($precio_cena,1,',','.')).' = '.$html->tag('span',$html->tag('small',__('EUR',true)).' '.$html->tag('span','',array('id'=>'costo_total_cena','class'=>'precio')),'precio'),array('colspan'=>2,'class'=>'subtotales'))),
 					)),
 				'</table>',
 				//$html->div('big_total precio',$html->tag('span',__('subtotal',true),'total_label').),
 				$html->div('big_total precio multiple'),
 					$html->tag('span',__('total',true),'total_label pad'),
-					$html->tag('span',' €','pad precio'),
+					$html->tag('span',$html->tag('small',__('EUR',true)).'&nbsp;','pad precio'),
 					$html->tag('span','',array('id'=>'big_total','class'=>'precio')),
 				'</div>',
 			'</div>',

@@ -1,0 +1,35 @@
+msgid "EUR 340"
+msgstr "<small>EUR</small> 340"
+
+msgid "EUR 522"
+msgstr "<small>EUR</small> 522"
+
+msgid "EUR 485"
+msgstr "<small>EUR</small> 485"
+
+msgid "EUR 758"
+msgstr "<small>EUR</small> 758"
+
+msgid "EUR 620"
+msgstr "<small>EUR</small> 620"
+
+msgid "EUR 984"
+msgstr "<small>EUR</small> 984"
+
+msgid "EUR 38"
+msgstr "<small>EUR</small> 38"
+
+msgid "EUR 20"
+msgstr "<small>EUR</small> 20"
+
+msgid "EUR 9,6"
+msgstr "<small>EUR</small> 9,6"
+
+msgid "EUR 865"
+msgstr "<small>EUR</small> 865"
+
+msgid "EUR 675"
+msgstr "<small>USD</small> 675"
+
+msgid "EUR 653"
+msgstr "<small>USD</small> 653"

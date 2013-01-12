@@ -527,7 +527,7 @@ ul li { margin:0 0 4px; }
 }
 .thumb.v .wrapper .clear { font-size:12px; }
 .thumb.v.pack .thWrap {
-	width:196px;
+	width:176px;
 	height:128px;
 	float:left;
 	margin:0 20px 4px 0;
@@ -547,14 +547,14 @@ ul li { margin:0 0 4px; }
 .thumb.v.pack .ppp span.num_personas {
 	margin:0 92px 0 0;
 	line-height:14px;
-	font-size:12px;
+	font-size:11px;
 	color:#0658AA;
 	padding:4px 0 0 8px;
 	text-align:center;
 }
 .thumb.v.pack .ppp span.precio {
 	float:right;
-	width:92px;
+	width:112px;
 	background-color:#0658AA;
 	color:#fff;
 	text-shadow:2px 2px 2px #032E58;
@@ -601,6 +601,7 @@ ul li { margin:0 0 4px; }
 	text-shadow:2px 2px 2px #ccc;
 	font-family: 'Merienda One', cursive;
 }
+.precio > small { font-size:70%; }
 .c_packs .detail > .clear > .column { width:510px;margin:0; }
 .c_packs .detail > .clear > .column { width:510px;margin:0; }
 .c_packs .detail > .clear > .column:first-child { width:212px;margin:0 28px 0 0; }
@@ -658,13 +659,13 @@ ul li { margin:0 0 4px; }
 .pack_options > .column:first-child { margin:0 50px 0 0; }
 .pack_options > .column .title { color:#CC1E00;font-size:24px;margin:0 0 10px; }
 .pack_options > .column > .clear > p {
-	width:30%;
+	width:50%;
 	float:left;
 	margin:0 0 0 5%;
 	text-align:right;
 }
-.pack_options > .column > .clear > p:first-child { width:65%;margin:0;text-align:left; }
-.pack_options .precio { margin:0 0 0 -12px; }
+.pack_options > .column > .clear > p:first-child { width:45%;margin:0;text-align:left; }
+.pack_options .precio { margin:0 0 0 -12px;white-space: nowrap; }
 
 a.reservar {
 	display:block;
@@ -686,7 +687,7 @@ a.reservar {
 .pack_options > .column .precio { font-size:34px; }
 
 .pack_options td { padding:5px 15px;vertical-align: middle; }
-.pack_options td.bottomt { vertical-align: top; }
+.pack_options td.bottomt { vertical-align: bottom; }
 .pack_options td.bottomt .title { font-size:16px;margin:8px 0 6px 0; }
 .det_yucatan a.reservar {
 	margin:0 0 12px;
@@ -715,7 +716,7 @@ a.reservar {
 }
 #reservar .basic_info input { width:220px; }
 #reservar span { display:-moz-inline-stack;display:inline-block;vertical-align:middle;zoom:1;*display:inline; }
-#reservar span.pad { padding:0 0 0 10px; }
+#reservar span.pad, #reservar small.pad { padding:0 0 0 10px; }
 
 #reservar .big_total.precio {
 	font-size:32px;
@@ -756,7 +757,7 @@ a.reservar {
 #opcion_llegada_si div.input input, #opcion_llegada_si_independiente div.input input { margin:0 0 0 10px; }
 #opcion_llegada_si div.input label, #opcion_llegada_si_independiente div.input label { display:-moz-inline-stack;display:inline-block;vertical-align:top;zoom:1;*display:inline; }
 
-.taxi_opcion label, #opcion_llegada_no label { font-size:13px; }
+.taxi_opcion label, #opcion_llegada_no label { font-size:12px; }
 
 #OrderTaxiHab { width:30px; }
 .taxi_opcion div.input input[type=text].datepicker { width:120px; }
@@ -790,6 +791,7 @@ a.reservar {
 .custom_dates table tr td:first-child { width: 220px;text-align:right; }
 .custom_dates table td.days { width:40px; }
 .custom_dates table td.subtotales { text-align:left;text-transform:lowercase; }
+.custom_dates table td.subtotales small { text-transform:uppercase; }
 
 /* Cuba Fijo */
 

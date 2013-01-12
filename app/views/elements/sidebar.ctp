@@ -112,7 +112,7 @@ if(is_c('packs',$this)){
 
 echo
 	$html->div('banners',$this->element('banners'),array('id'=>'banners')), $moo->showcase('banners',array('nav'=>'out')),
-	$html->link(__('convertidor_divisas',true),'/inicio/convertidor#PboxIframe?width=254&height=168',array('class'=>'convertidor pulsembox'));
+	$html->link(__('convertidor_divisas',true),'/inicio/convertidor#PboxIframe?width=254&height=192',array('class'=>'convertidor pulsembox'));
 ?>
 </div>
 </div>

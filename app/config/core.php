@@ -5,7 +5,7 @@
  * 	1: Errors and warnings shown, model caches refreshed, flash messages halted.
  * 	2: As in 1, but also with full debug messages and SQL output.
  */
-	Configure::write('debug', 2);
+	Configure::write('debug', 1);
 /**
  * CakePHP Log Level:
  *  Boolean: Set true/false to activate/deactivate logging
