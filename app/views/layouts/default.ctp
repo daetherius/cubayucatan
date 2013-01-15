@@ -25,12 +25,13 @@
 </head>
 <?php
 echo
-	$html->tag('body',null,'c_'.$this->params['controller'].' a_'.$this->params['action']),
+	$html->tag('body',null,'c_'.$this->params['controller'].' a_'.$this->params['action'].' lang_'.$_lang),
+		$html->link('Contacto',array('controller'=>'contacto','action'=>'index'),array('id'=>'contact_btn')),
 		$html->div(null,null,array('id'=>'nofooter')),
 			$html->div(null,null,array('id'=>'header')),
 				$html->div('clear'),
 					$html->tag('h1',$html->link($sitename_for_layout,'/',array('title'=>$sitename_for_layout)),array('id'=>'logo')),
-					$html->div('language '.$_lang,$html->link(__('toggle_lang',true),array_merge(array('lang'=>$_lang == 'esp' ? 'ita':'esp'),$this->passedArgs))),
+					//$html->div('language '.$_lang,$html->link(__('toggle_lang',true),array_merge(array('lang'=>$_lang == 'esp' ? 'ita':'esp'),$this->passedArgs))),
 					$this->element('social'),
 				'</div>',
 			'</div>',

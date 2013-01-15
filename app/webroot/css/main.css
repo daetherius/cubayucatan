@@ -155,6 +155,26 @@ h3:first-child, h3.alpha { margin-top:0; }
 	overflow: hidden;
 }
 .social a.facebook { width:33px; } 
+#contact_btn {
+	position:fixed;
+	top:40%;
+	left:0;
+	width:60px;
+	height:150px;
+	-moz-border-radius:0 8px 8px 0;
+	-khtml-border-radius:0 8px 8px 0;
+	-webkit-border-radius:0 8px 8px 0;
+	border-radius:0 8px 8px 0;
+	background:#0658AA url(/img/contact_btn.png) no-repeat 21px center;
+	box-shadow: 0 0 9px #161616;
+	border:#036 solid 1px;
+	text-indent:100%;
+	white-space: nowrap;  
+	overflow: hidden;
+}
+
+.lang_ita #contact_btn { background-position:-39px center; }
+.c_contacto #contact_btn { display:none; }
 
 #menu {
 	text-align:right;
@@ -939,7 +959,7 @@ div.faq { margin:10px 50px 20px 0; }
 .c_contacto .sectionHdr{ /*background-image:url(/img/hdrContacto.jpg);*/ }
 
 .c_contacto .note {  }
-.c_contacto .form { float:left;width:320px; }
+.c_contacto .form { float:left;width:360px; }
 
 .c_contacto .form label{ padding:8px 5px;font-weight:bold; }
 .c_contacto .form p:first {  }

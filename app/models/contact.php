@@ -14,7 +14,7 @@ class Contact extends AppModel {
 			'rule' => 'notEmpty',
 			'required' => true,
 			'allowEmpty' => false,
-			'message' => 'Escribe un nombre por favor.'
+			'message' => 'Este campo no puede quedar vacío.'
 		),
 		'mail' => array(
 			'rule'=>'blank',
@@ -27,7 +27,7 @@ class Contact extends AppModel {
 				'rule' => 'email',
 				'required' => true,
 				'allowEmpty' => false,
-				'message' => 'La dirección de correo no parece ser válida. Corríjalo o escriba otro, por favor.'
+				'message' => 'Ingrese una dirección web válida.'
 			),
 			'vacio' => array(
 				'rule' => 'notEmpty',
@@ -40,7 +40,7 @@ class Contact extends AppModel {
 			'rule' => 'notEmpty',
 			'required' => true,
 			'allowEmpty' => false,
-			'message' => '¡No ha escrito su mensaje!'
+			'message' => 'Este campo no puede quedar vacío.'
 		)
 	);
 }

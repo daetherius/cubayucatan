@@ -25,6 +25,12 @@ msgstr "El tiempo permitido para llenar el formulario ha expirado"
 msgid "captchaIllegalContent"
 msgstr "Contenido ilegal en el formulario"
 
+msgid "sus_datos"
+msgstr "Sus datos serán usados de acuerdo a los términos de la"
+
+msgid "ley_federal"
+msgstr "Ley Federal de Protección de Datos Personales"
+
 msgid "one"
 msgstr "uno"
 
@@ -96,6 +102,9 @@ msgstr "Nosotros"
 
 msgid "aviso legal"
 msgstr "Aviso Legal"
+
+msgid "contacto"
+msgstr "Contacto"
 
 msgid "alojese_casas_particulares"
 msgstr "Las casas particulares en Cuba son una excelente alternativa de hospedaje, son seguras y económicas."
@@ -255,6 +264,9 @@ msgstr "Nombre"
 
 msgid "apellidos"
 msgstr "Apellidos"
+
+msgid "mensaje"
+msgstr "Mensaje"
 
 msgid "email"
 msgstr "E-mail"
@@ -681,3 +693,7 @@ msgstr "Ha fallado el envío del mensaje de confirmación y descripción de su r
 
 msgid "detalles_de_su_pago"
 msgstr "Detalles de su Pago"
+
+msgid "ponte_contacto"
+msgstr ""
+

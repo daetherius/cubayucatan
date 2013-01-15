@@ -25,6 +25,12 @@ msgstr "Il tempo permesso per riempire il formulario é scaduto"
 msgid "captchaIllegalContent"
 msgstr "Contenuto nel formulario non valido"
 
+msgid "sus_datos"
+msgstr "#sus_datos"
+
+msgid "ley_datos"
+msgstr "#ley_datos"
+
 msgid "one"
 msgstr "uno"
 
@@ -96,6 +102,9 @@ msgstr "Chi siamo"
 
 msgid "aviso legal"
 msgstr "Aspetti legali"
+
+msgid "contacto"
+msgstr "Contatto"
 
 msgid "alojese_casas_particulares"
 msgstr "A Cuba vi alloggiamo in case private, splendida alternativa agli Hotels, e anche meno cara."
@@ -255,6 +264,9 @@ msgstr "Nome"
 
 msgid "apellidos"
 msgstr "Cognome"
+
+msgid "mensaje"
+msgstr "#Mensaje"
 
 msgid "email"
 msgstr "E-mail"
@@ -678,3 +690,7 @@ msgstr "Non é andato a buon fine l'invio del messaggio con la conferma e la des
 
 msgid "detalles_de_su_pago"
 msgstr "Dettagli del pagamento"
+
+msgid "ponte_contacto"
+msgstr "#ponte_contacto"
+

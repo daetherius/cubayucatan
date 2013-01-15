@@ -51,8 +51,9 @@ $modules = array(
 	'about'=>array('nosotros','menu','admin'=>array('pages')),
 
 	'legal'=>array('aviso legal','menu','admin'=>array('pages')),
-	'users'=>array('Usuarios','admin'=>array('users'))
+	'contacto'=>array('contacto','admin'=>false),
 
+	'users'=>array('Usuarios','admin'=>array('users'))
 );
 
 $cached_modules = Cache::read('sitemodules');

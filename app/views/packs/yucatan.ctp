@@ -21,7 +21,7 @@ echo
 
 		$html->div('clear info'),
 			$html->div('column'),
-				$html->tag('h3',__('alojamiento_y_transporte_maya',true),'title red'),
+				//$html->tag('h3',__('alojamiento_y_transporte_maya',true),'title red'),
 				$html->div('desc tmce',$item[$_m[0]]['descripcion_'.$_lang]),
 				$html->para(null,'*'.__('requerimientos_especiales',true).' '.$util->ofuscar(Configure::read('Site.email'),true)),
 			'</div>',
