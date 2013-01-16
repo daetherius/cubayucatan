@@ -575,7 +575,7 @@ msgid "galeria_fotos"
 msgstr "Fotoracconto"
 
 msgid "comenta"
-msgstr "Commenta la nota"
+msgstr "Comenta la nota"
 
 msgid "comentario"
 msgstr "Commento"

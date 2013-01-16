@@ -13,7 +13,7 @@ if($_lang == 'ita'){
 	);
 	
 } else {
-	$precio_hab_opcional = 0;
+	$precio_hab_opcional = 95;
 	$numper2precio = array(2=>1090,850,822,955);
 	$precios_opciones = array(
 		'opc_16'=>array(2=>243,168,131,109),

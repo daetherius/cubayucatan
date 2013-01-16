@@ -91,13 +91,17 @@ echo
 					$_lang == 'esp' ? '' : $html->tag('li',$html->link(__('embajada',true),'http://www.amblavana.esteri.it',array('target'=>'_blank','rel'=>'nofollow'))),
 					$html->tag('li',$html->link(__('impuesto_aeropuerto',true),array('controller'=>'faqs','action'=>'index','Cuba'),array('target'=>'_blank','rel'=>'nofollow'))),
 					$html->tag('li',$html->link(__('moneda_cambio',true),array('controller'=>'packs','action'=>'info','#moneta'),array('target'=>'_blank','rel'=>'nofollow'))),
-				'</ul>',
+				'</ul>';
 
-				$html->div('title title4','Yucatán'),
-				$html->tag('ul'),
-					$_lang == 'esp' ? '' : $html->tag('li',$html->link(__('embajada',true),'http://www.ambcittadelmessico.esteri.it',array('target'=>'_blank','rel'=>'nofollow'))),
-				'</ul>',
-			'</div>',
+				if($_lang == 'ita'){
+					echo
+						$html->div('title title4','Yucatán'),
+						$html->tag('ul'),
+							 $html->tag('li',$html->link(__('embajada',true),'http://www.ambcittadelmessico.esteri.it',array('target'=>'_blank','rel'=>'nofollow'))),
+						'</ul>';
+				}
+				
+		echo '</div>',
 
 			$html->div('column'),
 				$html->div('title title3',__('menu',true)),
