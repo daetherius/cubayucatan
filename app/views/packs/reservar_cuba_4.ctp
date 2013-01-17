@@ -1,11 +1,11 @@
 <?php
 if($_lang == 'ita'){
-	$precio_hab = 30;
-	$precio_desayuno = 4;
+	$precio_hab = 38;
+	$precio_taxi = 20;
 	$precio_cena = 9.6;
 } else {
-	$precio_hab = 0;
-	$precio_desayuno = 0;
+	$precio_hab = 48;
+	$precio_taxi = 25.2;
 	$precio_cena = 12.10;
 }
 
@@ -53,10 +53,10 @@ echo
 				'</table>',
 				$html->tag('table'),
 					$html->tableCells(array(
-						array($html->tag('span',__('estancia',true)),				array($html->tag('span','',array('class'=>'total_days')).' '.__('dias',true).' x '.$html->tag('span','','num_hab').' '.__('estancia',true).' x '.$html->tag('small',__('EUR',true)).' '.$precio_hab.' = '.$html->tag('span',$html->tag('small',__('EUR',true)).' '.$html->tag('span','',array('id'=>'costo_total_hab')),'precio'),array('colspan'=>2,'class'=>'subtotales'))),
-						array($html->tag('span',__('desayuno',true)),				array($html->tag('span','',array('class'=>'total_days')).' '.__('dias',true).' x '.$html->tag('span','','num_total_personas').' '.__('personas',true).' x '.$html->tag('small',__('EUR',true)).' '.$precio_desayuno.' = '.$html->tag('span',$html->tag('small',__('EUR',true)).' '.$html->tag('span','',array('id'=>'costo_total_desayuno','class'=>'precio')),'precio'),array('colspan'=>2,'class'=>'subtotales'))),
+						array($html->tag('span',__('estancia',true).' '.__('y',true).' '.__('desayuno',true)),	array($html->tag('span','',array('class'=>'total_days')).$html->tag('span','&nbsp;'.__('dias',true).' x&nbsp;').$html->tag('span','','num_hab').$html->tag('span','&nbsp;'.__('estancia',true).' x&nbsp;').$html->tag('small',__('EUR',true)).$html->tag('span','&nbsp;'.$precio_hab.' =&nbsp;').$html->tag('span',$html->tag('small',__('EUR',true)).' '.$html->tag('span','',array('id'=>'costo_total_hab')),'precio'),array('colspan'=>2,'class'=>'subtotales'))),
+						array($form->input('con_cena',array('type'=>'checkbox','div'=>array('tag'=>'span'))).$html->tag('span',__('cena',true).' ('.__('opcional',true).')','pad'), array($html->tag('span','',array('class'=>'total_days')).$html->tag('span','&nbsp;'.__('dias',true).' x&nbsp;').$html->tag('span','','num_total_personas').$html->tag('span','&nbsp;'.__('personas',true).' x&nbsp;').$html->tag('small',__('EUR',true)).$html->tag('span','&nbsp;'.(number_format($precio_cena,1,',','.')).' =&nbsp;').$html->tag('span',$html->tag('small',__('EUR',true)).' '.$html->tag('span','',array('id'=>'costo_total_cena','class'=>'precio')),'precio'),array('colspan'=>2,'class'=>'subtotales'))),
+						array($html->tag('span','Taxi'), array($html->tag('span','=&nbsp;').$html->tag('span',$html->tag('small',__('EUR',true)).' '.$html->tag('span','',array('id'=>'costo_total_taxi','class'=>'precio')),'precio'),array('colspan'=>2,'class'=>'subtotales'))),
 						
-						array($form->input('con_cena',array('type'=>'checkbox','div'=>array('tag'=>'span'))).$html->tag('span',__('cena',true).' ('.__('opcional',true).')','pad'), array($html->tag('span','',array('class'=>'total_days')).' '.__('dias',true).' x '.$html->tag('span','','num_total_personas').' '.__('personas',true).' x '.$html->tag('small',__('EUR',true)).' '.(number_format($precio_cena,1,',','.')).' = '.$html->tag('span',$html->tag('small',__('EUR',true)).' '.$html->tag('span','',array('id'=>'costo_total_cena','class'=>'precio')),'precio'),array('colspan'=>2,'class'=>'subtotales'))),
 					)),
 				'</table>',
 				//$html->div('big_total precio',$html->tag('span',__('subtotal',true),'total_label').),
@@ -75,9 +75,9 @@ fb($precio_cena,'$precio_cena');
 	$updateSubtotal = 'var inted = $("OrderHab").get("value").toInt(); if(!isNaN(inted)){ $("num_personas").set("html",inted * 2); $$(".num_hab").set("html",inted);$$(".num_total_personas").set("html",inted*2); } ';
 	$updateSubtotal.= 'var total_number_days = 0; $$(".days_input").each(function(el){ var inted = el.value.toInt(); if(!isNaN(inted)) total_number_days = total_number_days + inted; }); $$(".total_days").each(function(el){ el.set("html",total_number_days); });';
 	$updateSubtotal.= 'var costo_total_hab = total_number_days * '.$precio_hab.' * inted; $("costo_total_hab").set("html",costo_total_hab);';
-	$updateSubtotal.= 'var costo_total_desayuno = total_number_days * 2 * '.$precio_desayuno.' * inted; $("costo_total_desayuno").set("html",costo_total_desayuno);';
+	$updateSubtotal.= 'var costo_total_taxi = '.$precio_taxi.'; $("costo_total_taxi").set("html",costo_total_taxi);';
 	$updateSubtotal.= 'var costo_total_cena = $("OrderConCena").checked ? total_number_days * 2 * '.$precio_cena.' * inted : 0; $("costo_total_cena").set("html",costo_total_cena.toFixed(2));';
-	$updateSubtotal.= 'var big_total = costo_total_hab + costo_total_desayuno + costo_total_cena; $("big_total").set("html",big_total.toFixed(2));';
+	$updateSubtotal.= 'var big_total = costo_total_hab + costo_total_taxi + costo_total_cena; $("big_total").set("html",big_total.toFixed(2));';
 	
 	$moo->addEvent('OrderHab','keyup',$updateSubtotal);
 	$moo->addEvent('.days_input','keyup',$updateSubtotal,array('css'=>1));

@@ -156,6 +156,7 @@ h3:first-child, h3.alpha { margin-top:0; }
 }
 .social a.facebook { width:33px; } 
 #contact_btn {
+	display:none;/* REMOVE */
 	position:fixed;
 	top:40%;
 	left:0;
@@ -327,7 +328,7 @@ h3:first-child, h3.alpha { margin-top:0; }
 .c_posts .sidebar .title { font-size:22px;line-height:24px;margin-bottom:4px; }
 	.sidebar .filtro { color:#CC1E00;display:block;margin-bottom:12px; }
 
-.sidebar ul li {color:#0664BE; }
+.sidebar ul li { color:#0664BE;margin:0 0 10px; }
 .sidebar ul li.selected { font-weight:bold;text-decoration:underline; }
 .sidebar .convertidor {
 	background:transparent url(/img/convertidor.png) no-repeat center center;

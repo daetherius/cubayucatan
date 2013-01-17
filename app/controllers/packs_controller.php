@@ -63,10 +63,18 @@ class PacksController extends UnlisteditemsController{
 							}
 						}
 
-						$servicios = $this->_lang == 'ita' ? 38 : 48; // Precio base de la habitacion + Desayuno
+						if($this->_lang == 'ita'){
+							$servicios = 38; // Precio base de la habitacion + Desayuno
+							$taxi = 20; // Precio taxi
+						} else {
+							$servicios = 48;
+							$taxi = 25.2;
+						}
+						
 						if($this->data['Order']['con_cena'])
 							$servicios+= $this->_lang == 'ita' ? 19.2 : 24.20;
-						$amt = $this->data['Order']['hab'] * $total_days * $servicios;
+
+						$amt = ($this->data['Order']['hab'] * $total_days * $servicios) + $taxi;
 						$cuantas = $this->data['Order']['hab'] * 2;
 					break;
 					case 5:
