@@ -26,10 +26,10 @@ msgid "captchaIllegalContent"
 msgstr "Contenuto nel formulario non valido"
 
 msgid "sus_datos"
-msgstr "#sus_datos"
+msgstr "Vostre informazioni saranno utilizzati in conformità con i termini della "
 
 msgid "ley_datos"
-msgstr "#ley_datos"
+msgstr "Legge Federale sulla Protezione dei Dati Personali."
 
 msgid "one"
 msgstr "uno"
@@ -266,7 +266,7 @@ msgid "apellidos"
 msgstr "Cognome"
 
 msgid "mensaje"
-msgstr "#Mensaje"
+msgstr "Messagio"
 
 msgid "email"
 msgstr "E-mail"
@@ -692,5 +692,5 @@ msgid "detalles_de_su_pago"
 msgstr "Dettagli del pagamento"
 
 msgid "ponte_contacto"
-msgstr "#ponte_contacto"
+msgstr "Se avete qualche dubbio o volete ricevere chiarimenti su qualsiasi aspetto del nostro lavoro, contattateci: vi risponderemo immediatamente, grazie."
 

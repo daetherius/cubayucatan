@@ -144,7 +144,7 @@ h3:first-child, h3.alpha { margin-top:0; }
 .language.ita a { background-image: url(/img/esp.gif); }
 .language.esp a { background-image: url(/img/ita.gif); }
 
-.social { width: 165px;background: url(/img/social.png) no-repeat center center;float:right;clear:right; }
+.social { width: 209px;background: url(/img/social.png) no-repeat center center;float:right;clear:right; }
 .social a {
 	float:left;
 	display:block;
@@ -156,7 +156,6 @@ h3:first-child, h3.alpha { margin-top:0; }
 }
 .social a.facebook { width:33px; } 
 #contact_btn {
-	display:none;/* REMOVE */
 	position:fixed;
 	top:40%;
 	left:0;
@@ -342,7 +341,7 @@ h3:first-child, h3.alpha { margin-top:0; }
 	color:#fff;
 }
 .about_pack { margin:25px 0 0 0; }
-.about_pack .title {
+.about_pack .title:first-child {
 	font-size:14px;
 	color:#333;
 	padding:8px 0 8px 38px;
@@ -959,7 +958,7 @@ div.faq { margin:10px 50px 20px 0; }
 
 .c_contacto .sectionHdr{ /*background-image:url(/img/hdrContacto.jpg);*/ }
 
-.c_contacto .note {  }
+.c_contacto .title.note { font-size:18px; }
 .c_contacto .form { float:left;width:360px; }
 
 .c_contacto .form label{ padding:8px 5px;font-weight:bold; }

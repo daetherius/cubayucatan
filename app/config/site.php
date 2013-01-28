@@ -12,7 +12,8 @@ $config['Site'] = array(
 	'tw'=>'http://twitter.com/cubayucatan',
 	'fb'=>'http://facebook.com/CubaYucatan',
 	'yt'=>'http://youtube.com/user/cubayucatan',
-	'sk'=>'skype:umbertofior'
+	'sk'=>'skype:umbertofior',
+	'gp'=>'http://plus.google.com/117414068016761934477'
 );
 
 $config['Site']['og'] = array(

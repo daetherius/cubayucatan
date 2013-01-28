@@ -116,7 +116,7 @@ msgid "aqui_caracteristicas_hab"
 msgstr ""
 
 msgid "trato_duenios_casas_en_cuba"
-msgstr "Conocemos y hemos trabajado durante años con los directivos de nuestras Casas y podemos garantizar su honestidad absoluta. Respetando escrupulosamente la intimidad de las personas y un especial cuidado con la limpieza y la higiene."
+msgstr "Conocemos y hemos trabajado durante años con los directivos de nuestras Casas y podemos garantizar su honestidad absoluta. Respetan escrupulosamente la intimidad de las personas y un especial cuidado con la limpieza y la higiene."
 
 msgid "caracteristicas_hab_cuba"
 msgstr "Todas las habitaciones de nuestro programa tienen un cuarto de baño privado con ducha, agua fría y caliente, y aire acondicionado."
@@ -182,7 +182,7 @@ msgid "por_persona"
 msgstr "Por persona"
 
 msgid "itinerario_propuesto"
-msgstr "Itinerario propuesto"
+msgstr "Recorrido propuesto"
 
 msgid "paquete4_desc_corta"
 msgstr "Ustedes pueden personalizar sus vacaciones en Cuba, eligiendo las ciudades que le gustaría visitar de las nueve que forman parte de nuestro programa."
@@ -485,7 +485,7 @@ msgid "precio_desayuno_por_persona"
 msgstr "Precio del desayuno, por persona."
 
 msgid "precio_taxi_aeropuerto_a_havana"
-msgstr "Precio del transporte en taxi, desde el Aeropuerto a la Ciudad de La Havana (Transporte de 40 minutos de duración, hasta 4 personas con equipaje)."
+msgstr "Precio del transporte en taxi, desde el Aeropuerto a la Ciudad de La Habana (Transporte de 40 minutos de duración, hasta 4 personas con equipaje)."
 
 msgid "cena_con_nosotros_o_donde_te_alojes"
 msgstr "#Nelle Case dove siete alloggiati si puó anche cenare, bene e a basso prezzo e se preferite, potete prenotare con noi"
@@ -542,22 +542,22 @@ msgid "dia"
 msgstr "día"
 
 msgid "pack1_opcion1_desc"
-msgstr "Habitación doble tipo Standard, desayuno en la casa, para dos personas y transporte en taxi del Aeropuerto a la ciudad de La Havana."
+msgstr "Habitación doble tipo Standard, desayuno en la casa, para dos personas y transporte en taxi del Aeropuerto a la ciudad de La Habana."
 
 msgid "pack1_opcion2_desc"
-msgstr "Habitación doble tipo Standard, desayuno y cena en la casa, para dos personas y transporte en taxi del Aeropuerto a la ciudad de La Havana."
+msgstr "Habitación doble tipo Standard, desayuno y cena en la casa, para dos personas y transporte en taxi del Aeropuerto a la ciudad de La Habana."
 
 msgid "pack2_opcion1_desc"
-msgstr "Habitación doble tipo Standard, desayuno en la casa, para dos personas y transporte en taxi del Aeropuerto a la ciudad de La Havana."
+msgstr "Habitación doble tipo Standard, desayuno en la casa, para dos personas y transporte en taxi del Aeropuerto a la ciudad de La Habana."
 
 msgid "pack2_opcion2_desc"
-msgstr "Habitación doble tipo Standard, desayuno y cena en la casa, para dos personas y transporte en taxi del Aeropuerto a la ciudad de La Havana."
+msgstr "Habitación doble tipo Standard, desayuno y cena en la casa, para dos personas y transporte en taxi del Aeropuerto a la ciudad de La Habana."
 
 msgid "pack3_opcion1_desc"
-msgstr "Habitación doble tipo Standard, desayuno en la casa, para dos personas y transporte en taxi del Aeropuerto a la ciudad de La Havana."
+msgstr "Habitación doble tipo Standard, desayuno en la casa, para dos personas y transporte en taxi del Aeropuerto a la ciudad de La Habana."
 
 msgid "pack3_opcion2_desc"
-msgstr "Habitación doble tipo Standard, desayuno y cena en la casa, para dos personas y transporte en taxi del Aeropuerto a la ciudad de La Havana."
+msgstr "Habitación doble tipo Standard, desayuno y cena en la casa, para dos personas y transporte en taxi del Aeropuerto a la ciudad de La Habana."
 
 msgid "precio_total_por_persona"
 msgstr "Precio total, por dos personas"
@@ -632,7 +632,7 @@ msgid "Indique el número de personas."
 msgstr ""
 
 msgid "primera_noche_arrivo_necesaria"
-msgstr "Al llegar, es necesario pasar, al menos, una noche en La Havana."
+msgstr "Al llegar, es necesario pasar, al menos, una noche en La Habana."
 
 msgid "Indique su fecha de llegada (dd-mm-aa)."
 msgstr ""
@@ -695,5 +695,5 @@ msgid "detalles_de_su_pago"
 msgstr "Detalles de su Pago"
 
 msgid "ponte_contacto"
-msgstr ""
+msgstr "Si usted tiene alguna duda o quiere recibir alguna información, póngase en contacto con nosotros e inmediatamente le contestaremos."
 

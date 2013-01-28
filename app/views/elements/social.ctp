@@ -5,5 +5,6 @@ echo
 		$html->link('facebook',Configure::read('Site.fb'),array('target'=>'_blank','rel'=>'nofollow','class'=>'facebook')),
 		$html->link('youtube',Configure::read('Site.yt'),array('target'=>'_blank','rel'=>'nofollow')),
 		$html->link('skype',Configure::read('Site.sk'),array('target'=>'_blank','rel'=>'nofollow')),
+		$html->link('google plus',Configure::read('Site.gp'),array('target'=>'_blank','rel'=>'nofollow')),
 	'</div>';
 ?>

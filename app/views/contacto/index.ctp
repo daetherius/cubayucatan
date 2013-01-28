@@ -2,8 +2,8 @@
 echo
 	$this->element('top'),
 	$html->div('clear'),
+		$html->div('title title2 note',__('ponte_contacto',true)),
 		$html->div('form'),
-			$html->div('title title2',__('ponte_contacto',true)),
 			//$html->para('note',''),
 	
 			$form->create('Contact',array('id'=>'ContactForm','url'=>'/contacto/enviar')),

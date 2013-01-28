@@ -100,6 +100,8 @@ if(is_c('packs',$this)){
 		echo
 			$html->div('about_pack'),
 				$html->div('title title3',__('acerca_este_paquete',true)),
+				$html->tag('h3','Cuba','title'),
+
 				$html->tag('ul'),
 					$html->tag('li',$html->link(__('alojamiento_casas_particulares',true),array('controller'=>'packs','action'=>'info','#alloggio'))),
 					$html->tag('li',$html->link(__('desayuno_cena',true),array('controller'=>'packs','action'=>'info','#colazione_cena'))),

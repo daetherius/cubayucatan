@@ -46,7 +46,6 @@ echo
 		$html->para(null,'Non portate dollari statunitensi, sono penalizzati del 10%, né carte di credito della stessa provenienza, come American Express, non sono accettate. Le altre sí, come la Visa, per esempio, o Mastercard.'),
 		$html->para(null,'Non cambiate soldi per strada, sottolineato, non accettate inviti di questo tipo. Mai, in nessun caso, sono trappole. Per di piú é del tutto illegale, rischiate problemi seri.'),
 
-
 	'</div>';
 ?>
 </div>
